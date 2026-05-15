@@ -77,7 +77,9 @@ const translations = {
         formMessage: "Mesajınız",
         formSubmit: "Mesaj Gönder",
         
-        footerRights: "Tüm hakları saklıdır."
+        footerRights: "Tüm hakları saklıdır.",
+        footerPagesTitle: "SAYFALARIMIZ",
+        footerContactTitle: "İLETİŞİM BİLGİLERİ"
     },
     en: {
         logoText: "Dr. Cahit Cenksoy",
@@ -156,7 +158,9 @@ const translations = {
         formMessage: "Your Message",
         formSubmit: "Send Message",
         
-        footerRights: "All rights reserved."
+        footerRights: "All rights reserved.",
+        footerPagesTitle: "OUR PAGES",
+        footerContactTitle: "CONTACT INFORMATION"
     },
     fr: {
         logoText: "Dr. Cahit Cenksoy",
@@ -235,7 +239,9 @@ const translations = {
         formMessage: "Votre Message",
         formSubmit: "Envoyer le message",
         
-        footerRights: "Tous droits réservés."
+        footerRights: "Tous droits réservés.",
+        footerPagesTitle: "NOS PAGES",
+        footerContactTitle: "COORDONNÉES"
     },
     ar: {
         logoText: "د. جاهد جينكسوي",
@@ -314,7 +320,9 @@ const translations = {
         formMessage: "رسالتك",
         formSubmit: "إرسال الرسالة",
         
-        footerRights: "كل الحقوق محفوظة."
+        footerRights: "جميع الحقوق محفوظة.",
+        footerPagesTitle: "صفحاتنا",
+        footerContactTitle: "معلومات الاتصال"
     },
     de: {
         logoText: "Dr. Cahit Cenksoy",
@@ -393,7 +401,9 @@ const translations = {
         formMessage: "Ihre Nachricht",
         formSubmit: "Nachricht senden",
         
-        footerRights: "Alle Rechte vorbehalten."
+        footerRights: "Alle Rechte vorbehalten.",
+        footerPagesTitle: "UNSERE SEITEN",
+        footerContactTitle: "KONTAKTINFORMATIONEN"
     },
     ru: {
         logoText: "Dr. Cahit Cenksoy",
@@ -482,7 +492,9 @@ const translations = {
         formMessage: "Ваше сообщение",
         formSubmit: "Отправить сообщение",
         
-        footerRights: "Все права защищены."
+        footerRights: "Все права защищены.",
+        footerPagesTitle: "НАШИ СТРАНИЦЫ",
+        footerContactTitle: "КОНТАКТНАЯ ИНФОРМАЦИЯ"
     }
 };
 
