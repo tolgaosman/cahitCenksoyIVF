@@ -217,6 +217,26 @@ if (localStorage.getItem('theme') === 'dark') {
 }
 updateLogo();
 
+// --- Navbar Scroll Logic ---
+let lastScroll = 0;
+const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    if (currentScroll <= 0) {
+        navbar.classList.remove('navbar--hidden');
+        return;
+    }
+    if (currentScroll > lastScroll && !navbar.classList.contains('navbar--hidden')) {
+        // Scroll down
+        navbar.classList.add('navbar--hidden');
+    } else if (currentScroll < lastScroll && navbar.classList.contains('navbar--hidden')) {
+        // Scroll up
+        navbar.classList.remove('navbar--hidden');
+    }
+    lastScroll = currentScroll;
+});
+
 // --- Mobile Nav ---
 const mobileToggle = document.getElementById('mobileToggle');
 const navLinksMenu = document.querySelector('.nav-links');
