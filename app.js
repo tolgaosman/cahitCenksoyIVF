@@ -1,159 +1,159 @@
-﻿// --- Translations Dictionary ---
+// --- Translations Dictionary ---
 const translations = {
     tr: {
         logoText: "Dr. Cahit Cenksoy",
         navHome: "ANA SAYFA",
-        navTeam: "EKÄ°BÄ°MÄ°Z",
-        navIVF: "TÃœP BEBEK (IVF)",
-        ivfProcess: "TÃ¼p Bebek SÃ¼reci",
+        navTeam: "EKÃ„Â°BÃ„Â°MÃ„Â°Z",
+        navIVF: "TÃƒÅ“P BEBEK (IVF)",
+        ivfProcess: "TÃƒÂ¼p Bebek SÃƒÂ¼reci",
         ivfICSI: "Mikroenjeksiyon (ICSI)",
         ivfIMSI: "IMSI",
-        navTreatments: "TEDAVÄ° SEÃ‡ENEKLERÄ°",
+        navTreatments: "TEDAVÃ„Â° SEÃƒâ€¡ENEKLERÃ„Â°",
         treatmentEggFreezing: "Yumurta Dondurma",
         treatmentDonation: "Donasyon",
         treatmentPGD: "PGT / PGS",
         navTestimonials: "HASTALARIMIZDAN",
         navFAQ: "SIK SORULANLAR",
         navBlogs: "BLOG",
-        navContact: "Ä°LETÄ°ÅÄ°M",
+        navContact: "Ã„Â°LETÃ„Â°Ã…ÂÃ„Â°M",
 
-        heroTitle: "Dr. Cahit Cenksoy<br>LefkoÅŸa SevinÃ§ Hastanesi",
-        heroSubtitle: "Uzman bakÄ±m ve ÅŸefkatle yÃ¶nlendirilen, ebeveynlik yolculuÄŸunuza Ã¶zel en son teknoloji tÃ¼p bebek tedavileri.",
-        heroBtnPrimary: "DanÄ±ÅŸmanlÄ±k AlÄ±n",
-        heroBtnSecondary: "Tedavileri Ä°ncele",
+        heroTitle: "Dr. Cahit Cenksoy<br>LefkoÃ…Å¸a SevinÃƒÂ§ Hastanesi",
+        heroSubtitle: "Uzman bakÃ„Â±m ve Ã…Å¸efkatle yÃƒÂ¶nlendirilen, ebeveynlik yolculuÃ„Å¸unuza ÃƒÂ¶zel en son teknoloji tÃƒÂ¼p bebek tedavileri.",
+        heroBtnPrimary: "DanÃ„Â±Ã…Å¸manlÃ„Â±k AlÃ„Â±n",
+        heroBtnSecondary: "Tedavileri Ã„Â°ncele",
 
-        aboutTitle: "OP. DR. CAHÄ°T CENKSOY",
-        aboutSubtitle: "KADIN HASTALIKLARI, DOÄUM VE TÃœP BEBEK UZMANI",
-        aboutTextFull: "KÄ±brÄ±s'ta en yÃ¼ksek tÃ¼p bebek baÅŸarÄ± oranÄ±na sahip; en genÃ§, en tecrÃ¼beli ve en baÅŸarÄ±lÄ± KadÄ±n DoÄŸum UzmanlarÄ±ndan biri olan Dr. Cahit Cenksoy'un hem sezaryen hem de doÄŸal doÄŸumlarda adada en fazla doÄŸum yaptÄ±ran doktor olduÄŸu da Ã§ok iyi bilinmektedir. Hayallerinizin Ã¶zel mÃ¼jdesini alacaÄŸÄ±nÄ±z merkezimiz, adanÄ±n cazibe merkezi, tÃ¼m dÃ¼nyanÄ±n da gÃ¶zde turistik cenneti Girne'de yer almaktadÄ±r. Deniz kÄ±yÄ±sÄ±ndaki ÅŸehrimizde hastalarÄ±mÄ±zÄ±n tedavileri devam ederken yapacaklarÄ± bir ÅŸehir gezisi streslerinin azalmasÄ±na katkÄ±da bulunacaktÄ±r. <br><br> TecrÃ¼beli ekibimiz, modern laboratuvarÄ±mÄ±z, donanÄ±mlÄ± hemÅŸirelerimiz ve her tÃ¼rlÃ¼ ihtiyacÄ±nÄ±za cevap verecek koordinatÃ¶rlerimiz ile baÅŸarÄ±mÄ±zÄ± gÃ¼nden gÃ¼ne yÃ¼kseltmektedir. HastalarÄ±mÄ±zÄ±n doktor ile istedikleri her an iletiÅŸim iÃ§inde olabilmesi; hastalarÄ±mÄ±zÄ±n stresini azaltÄ±rken, merkezimize olan gÃ¼veni de arttÄ±rmaktadÄ±r. Merkezimizin gebelik baÅŸarÄ± oranlarÄ± %75-90 arasÄ±nda deÄŸiÅŸkenlik gÃ¶stermektedir. Oosit donasyonunda sÄ±ra bekleme zorunluluÄŸu olmamasÄ± ve sperm donasyonunda uluslararasÄ± tescilli sperm bankalarÄ± ile Ã§alÄ±ÅŸÄ±lmasÄ± sayesinde merkezimiz yÃ¼zÃ¼nÃ¼zÃ¼ gÃ¼ldÃ¼recek sonuÃ§lar almaktadÄ±r. Hasta baÅŸÄ±na ayrÄ±lan oosit sayÄ±larÄ±ndaki standartlarÄ±mÄ±zdan Ã¶dÃ¼n vermediÄŸimizden baÅŸarÄ± oranlarÄ±mÄ±z sÃ¼rekli en Ã¼st dÃ¼zeyde kalmaktadÄ±r.",
+        aboutTitle: "OP. DR. CAHÃ„Â°T CENKSOY",
+        aboutSubtitle: "KADIN HASTALIKLARI, DOÃ„ÂUM VE TÃƒÅ“P BEBEK UZMANI",
+        aboutTextFull: "KÃ„Â±brÃ„Â±s'ta en yÃƒÂ¼ksek tÃƒÂ¼p bebek baÃ…Å¸arÃ„Â± oranÃ„Â±na sahip; en genÃƒÂ§, en tecrÃƒÂ¼beli ve en baÃ…Å¸arÃ„Â±lÃ„Â± KadÃ„Â±n DoÃ„Å¸um UzmanlarÃ„Â±ndan biri olan Dr. Cahit Cenksoy'un hem sezaryen hem de doÃ„Å¸al doÃ„Å¸umlarda adada en fazla doÃ„Å¸um yaptÃ„Â±ran doktor olduÃ„Å¸u da ÃƒÂ§ok iyi bilinmektedir. Hayallerinizin ÃƒÂ¶zel mÃƒÂ¼jdesini alacaÃ„Å¸Ã„Â±nÃ„Â±z merkezimiz, adanÃ„Â±n cazibe merkezi, tÃƒÂ¼m dÃƒÂ¼nyanÃ„Â±n da gÃƒÂ¶zde turistik cenneti Girne'de yer almaktadÃ„Â±r. Deniz kÃ„Â±yÃ„Â±sÃ„Â±ndaki Ã…Å¸ehrimizde hastalarÃ„Â±mÃ„Â±zÃ„Â±n tedavileri devam ederken yapacaklarÃ„Â± bir Ã…Å¸ehir gezisi streslerinin azalmasÃ„Â±na katkÃ„Â±da bulunacaktÃ„Â±r. <br><br> TecrÃƒÂ¼beli ekibimiz, modern laboratuvarÃ„Â±mÃ„Â±z, donanÃ„Â±mlÃ„Â± hemÃ…Å¸irelerimiz ve her tÃƒÂ¼rlÃƒÂ¼ ihtiyacÃ„Â±nÃ„Â±za cevap verecek koordinatÃƒÂ¶rlerimiz ile baÃ…Å¸arÃ„Â±mÃ„Â±zÃ„Â± gÃƒÂ¼nden gÃƒÂ¼ne yÃƒÂ¼kseltmektedir. HastalarÃ„Â±mÃ„Â±zÃ„Â±n doktor ile istedikleri her an iletiÃ…Å¸im iÃƒÂ§inde olabilmesi; hastalarÃ„Â±mÃ„Â±zÃ„Â±n stresini azaltÃ„Â±rken, merkezimize olan gÃƒÂ¼veni de arttÃ„Â±rmaktadÃ„Â±r. Merkezimizin gebelik baÃ…Å¸arÃ„Â± oranlarÃ„Â± %75-90 arasÃ„Â±nda deÃ„Å¸iÃ…Å¸kenlik gÃƒÂ¶stermektedir. Oosit donasyonunda sÃ„Â±ra bekleme zorunluluÃ„Å¸u olmamasÃ„Â± ve sperm donasyonunda uluslararasÃ„Â± tescilli sperm bankalarÃ„Â± ile ÃƒÂ§alÃ„Â±Ã…Å¸Ã„Â±lmasÃ„Â± sayesinde merkezimiz yÃƒÂ¼zÃƒÂ¼nÃƒÂ¼zÃƒÂ¼ gÃƒÂ¼ldÃƒÂ¼recek sonuÃƒÂ§lar almaktadÃ„Â±r. Hasta baÃ…Å¸Ã„Â±na ayrÃ„Â±lan oosit sayÃ„Â±larÃ„Â±ndaki standartlarÃ„Â±mÃ„Â±zdan ÃƒÂ¶dÃƒÂ¼n vermediÃ„Å¸imizden baÃ…Å¸arÃ„Â± oranlarÃ„Â±mÃ„Â±z sÃƒÂ¼rekli en ÃƒÂ¼st dÃƒÂ¼zeyde kalmaktadÃ„Â±r.",
 
-        feat1Title: "TEDAVÄ° SEÃ‡ENEKLERÄ°",
-        feat1Btn: "Ä°NCELE >",
-        feat2Title: "SÃœREÃ‡",
-        feat2Btn: "Ä°NCELE >",
-        feat3Title: "BAÅVURU FORMU",
+        feat1Title: "TEDAVÃ„Â° SEÃƒâ€¡ENEKLERÃ„Â°",
+        feat1Btn: "Ã„Â°NCELE >",
+        feat2Title: "SÃƒÅ“REÃƒâ€¡",
+        feat2Btn: "Ã„Â°NCELE >",
+        feat3Title: "BAÃ…ÂVURU FORMU",
         feat3Btn: "RANDEVU AL >",
-        feat4Title: "TÃœP BEBEK SÃ–ZLÃœÄÃœ",
-        feat4Btn: "SÃ–ZLÃœÄE GÄ°T >",
+        feat4Title: "TÃƒÅ“P BEBEK SÃƒâ€“ZLÃƒÅ“Ã„ÂÃƒÅ“",
+        feat4Btn: "SÃƒâ€“ZLÃƒÅ“Ã„ÂE GÃ„Â°T >",
 
         srv1Title: "PGT / PGS",
-        srv2Title: "TANDEM DÃ–NGÃœSÃœ",
+        srv2Title: "TANDEM DÃƒâ€“NGÃƒÅ“SÃƒÅ“",
         srv3Title: "SPERM DONASYONU",
         srv4Title: "YUMURTA DONASYONU",
-        srv5Title: "EMBRÄ°YO DONASYONU",
-        srv6Title: "NGS TEDAVÄ°SÄ°",
-        srv7Title: "ICSI Ä°LE TÃœP BEBEK",
+        srv5Title: "EMBRÃ„Â°YO DONASYONU",
+        srv6Title: "NGS TEDAVÃ„Â°SÃ„Â°",
+        srv7Title: "ICSI Ã„Â°LE TÃƒÅ“P BEBEK",
         srv8Title: "SPERM VE YUMURTA DONDURMA",
-        srvMore: "DetaylÄ± Bilgi",
+        srvMore: "DetaylÃ„Â± Bilgi",
         
-        processTitle: "TEDAVÄ° SÃœRECÄ°",
-        proc1Title: "Ã–n GÃ¶rÃ¼ÅŸme",
-        proc2Title: "Tedavinin PlanlanmasÄ±",
+        processTitle: "TEDAVÃ„Â° SÃƒÅ“RECÃ„Â°",
+        proc1Title: "Ãƒâ€“n GÃƒÂ¶rÃƒÂ¼Ã…Å¸me",
+        proc2Title: "Tedavinin PlanlanmasÃ„Â±",
         proc3Title: "Seyahat",
         proc4Title: "Konaklama",
         proc5Title: "Tedavi",
         proc6Title: "Gebelik Testi",
         procMore: "Daha Fazla",
-        proc1Desc: "TÃ¼p bebek tedavisinde, tedavi seÃ§eneÄŸi ne olursa olsun Ã¶ncelikle anne ve baba adayÄ±nÄ±n detaylÄ± bilgileri alÄ±nÄ±r. Bu bilgilere ek olarak Ã¶ncesinde yapÄ±lmÄ±ÅŸ olan tÃ¼m ameliyat, gÃ¶rÃ¼ntÃ¼leme yÃ¶ntemleri (rahim filmi gibi...), kan ve sperm test sonuÃ§larÄ± deÄŸerlendirilir. Bu bilgilerin analiz edilmesi tÃ¼p bebek baÅŸarÄ±sÄ±nda hayati Ã¶nem taÅŸÄ±r. Ã‡ifte talep ettikleri tedavi sorulur.",
-        proc2Desc: "Mevcut veriler Ä±ÅŸÄ±ÄŸÄ±nda uygun tedavi planlanÄ±r. KÄ±brÄ±sâ€™ta tÃ¼p bebek tedavisi baÅŸlamadan Ã¶nce, Ã¶n hazÄ±rlÄ±ÄŸÄ±n Ã§iftin yaÅŸadÄ±ÄŸÄ± Ã¼lkede yapÄ±lmasÄ± seyahat sÃ¼resini kÄ±saltÄ±r. Zaman kÄ±sÄ±tlamasÄ± olmayan veya tedavi sÃ¼recinde KÄ±brÄ±sâ€™ta tatil planlayan Ã§iftlerin tÃ¼m sÃ¼reci burada geÃ§irmesi tercih edilir. Planlanan tedavi KÄ±brÄ±sâ€™ta yumurta donasyonu ise anne adayÄ±nÄ±n hormon dÃ¼zeyleri adetinin 2. veya 3. gÃ¼nÃ¼ kontrol edilir. Uygun dÃ¼zeyde ise rahim duvarÄ± hazÄ±rlÄ±ÄŸÄ±na baÅŸlanÄ±r. Rahim duvarÄ± kalÄ±nlÄ±ÄŸÄ± uygun seviyeye ulaÅŸtÄ±ÄŸÄ± zaman progesteron hormonu tedavisi baÅŸlanmasÄ± gerekir. Progesteron baÅŸlanacaÄŸÄ± gÃ¼n eÅŸinin de sperm vermesi gerektiÄŸinden Ã§iftin KÄ±brÄ±sâ€™ta olmasÄ± gerekir. Baba adayÄ± sperm Ã¶rneÄŸini daha Ã¶nceden vermiÅŸ ise anne adayÄ±nÄ±n transferden sadece bir gÃ¼n Ã¶ncesinde KÄ±brÄ±sâ€™ta olmasÄ± yeterlidir. Sperm donasyonunda ise anne adayÄ±nÄ±n yumurtalarÄ± toplanmadan (OPU) sadece bir gÃ¼n Ã¶nce KÄ±brÄ±sâ€™ta olmasÄ± yeterlidir. Tedavi embriyo donasyonu olacak ise Ã§iftin yine transfer tarihinden sadece bir gÃ¼n Ã¶nce KÄ±brÄ±sâ€™ta olmasÄ± yeterlidir.",
-        proc3Desc: "KÄ±brÄ±sâ€™ ta tÃ¼p bebek tedavisi iÃ§in ulaÅŸÄ±m yolu genellikle uÃ§ak seyahatidir. Deniz yoluyla TÃ¼rkiye Ã¼zerinden deniz otobÃ¼sÃ¼ ile 2-3 saatlik yolculukla da ulaÅŸmak mÃ¼mkÃ¼ndÃ¼r. Hava yoluyla LefkoÅŸa Ercan HavalimanÄ± veya Larnaka havalimanÄ±ndan ulaÅŸÄ±m kolaylÄ±kla saÄŸlanabilir. Avrupa Ã¼zerinden gelecek olan yolcularÄ±mÄ±z iÃ§in Larnaka havalimanÄ±na direk uÃ§uÅŸlar bulunmaktadÄ±r. Seyahatin en baÅŸÄ±ndan sonuna kadar her noktasÄ±nda merkezimiz istendiÄŸi takdirde yardÄ±m saÄŸlamaktadÄ±r. HavalimanÄ± ulaÅŸÄ±mlarÄ±, uÃ§ak biletleri, otelden tÃ¼p bebek merkezine ulaÅŸÄ±m, turistik amaÃ§lÄ± geziler dahil her tÃ¼rlÃ¼ ulaÅŸÄ±m imkanÄ± saÄŸlanabilir.",
-        proc4Desc: "KÄ±brÄ±sâ€™ta tÃ¼p bebek tedavisi sÄ±rasÄ±nda konaklama iÃ§in oldukÃ§a fazla seÃ§enek mevcuttur. Merkeze yÃ¼rÃ¼me mesafesinde beÅŸ yÄ±ldÄ±zlÄ± oldukÃ§a konforlu oteller olabileceÄŸi gibi, oldukÃ§a uygun fiyatlÄ± butik oteller de mevcuttur. TÃ¼p bebek tedavisinin KÄ±brÄ±sâ€™ta yapÄ±lmasÄ± tercih etmek anne ve baba adayÄ±nÄ±n stresini azaltÄ±r. Ä°klimin hemen hemen her mevsim Ä±lÄ±man olduÄŸu bu gÃ¼zel adada tatil yaparken bebek sahibi olabilirsiniz.",
-        proc5Desc: "KÄ±brÄ±sâ€™ta TÃ¼p Bebek Tedavisi seÃ§ilecek yÃ¶nteme gÃ¶re deÄŸiÅŸkenlik gÃ¶sterse de tedavilerin oldukÃ§a geniÅŸ aÃ§Ä±klamasÄ± ana sayfamÄ±zda yer almaktadÄ±r. Daha fazla bilgi ve ayrÄ±ntÄ± iÃ§in bizimle iletiÅŸime geÃ§ebilirsiniz.",
-        proc6Desc: "KÄ±brÄ±sâ€™ta tÃ¼p bebek tedavisi sonrasÄ± Ã§iftlerin Ã§oÄŸu transferden bir gÃ¼n sonra kendi yaÅŸadÄ±klarÄ± Ã¼lkeye dÃ¶nmektedir. Bizim Ã¶nerimiz transferden 12 gÃ¼n sonra kanda gebelik testi (b-HCG ) yapÄ±lmasÄ±dÄ±r. Ã–ncesinde yapÄ±lan idrar veya kan testleri yanÄ±ltÄ±cÄ± olabilmektedir.",
+        proc1Desc: "TÃƒÂ¼p bebek tedavisinde, tedavi seÃƒÂ§eneÃ„Å¸i ne olursa olsun ÃƒÂ¶ncelikle anne ve baba adayÃ„Â±nÃ„Â±n detaylÃ„Â± bilgileri alÃ„Â±nÃ„Â±r. Bu bilgilere ek olarak ÃƒÂ¶ncesinde yapÃ„Â±lmÃ„Â±Ã…Å¸ olan tÃƒÂ¼m ameliyat, gÃƒÂ¶rÃƒÂ¼ntÃƒÂ¼leme yÃƒÂ¶ntemleri (rahim filmi gibi...), kan ve sperm test sonuÃƒÂ§larÃ„Â± deÃ„Å¸erlendirilir. Bu bilgilerin analiz edilmesi tÃƒÂ¼p bebek baÃ…Å¸arÃ„Â±sÃ„Â±nda hayati ÃƒÂ¶nem taÃ…Å¸Ã„Â±r. Ãƒâ€¡ifte talep ettikleri tedavi sorulur.",
+        proc2Desc: "Mevcut veriler Ã„Â±Ã…Å¸Ã„Â±Ã„Å¸Ã„Â±nda uygun tedavi planlanÃ„Â±r. KÃ„Â±brÃ„Â±sÃ¢â‚¬â„¢ta tÃƒÂ¼p bebek tedavisi baÃ…Å¸lamadan ÃƒÂ¶nce, ÃƒÂ¶n hazÃ„Â±rlÃ„Â±Ã„Å¸Ã„Â±n ÃƒÂ§iftin yaÃ…Å¸adÃ„Â±Ã„Å¸Ã„Â± ÃƒÂ¼lkede yapÃ„Â±lmasÃ„Â± seyahat sÃƒÂ¼resini kÃ„Â±saltÃ„Â±r. Zaman kÃ„Â±sÃ„Â±tlamasÃ„Â± olmayan veya tedavi sÃƒÂ¼recinde KÃ„Â±brÃ„Â±sÃ¢â‚¬â„¢ta tatil planlayan ÃƒÂ§iftlerin tÃƒÂ¼m sÃƒÂ¼reci burada geÃƒÂ§irmesi tercih edilir. Planlanan tedavi KÃ„Â±brÃ„Â±sÃ¢â‚¬â„¢ta yumurta donasyonu ise anne adayÃ„Â±nÃ„Â±n hormon dÃƒÂ¼zeyleri adetinin 2. veya 3. gÃƒÂ¼nÃƒÂ¼ kontrol edilir. Uygun dÃƒÂ¼zeyde ise rahim duvarÃ„Â± hazÃ„Â±rlÃ„Â±Ã„Å¸Ã„Â±na baÃ…Å¸lanÃ„Â±r. Rahim duvarÃ„Â± kalÃ„Â±nlÃ„Â±Ã„Å¸Ã„Â± uygun seviyeye ulaÃ…Å¸tÃ„Â±Ã„Å¸Ã„Â± zaman progesteron hormonu tedavisi baÃ…Å¸lanmasÃ„Â± gerekir. Progesteron baÃ…Å¸lanacaÃ„Å¸Ã„Â± gÃƒÂ¼n eÃ…Å¸inin de sperm vermesi gerektiÃ„Å¸inden ÃƒÂ§iftin KÃ„Â±brÃ„Â±sÃ¢â‚¬â„¢ta olmasÃ„Â± gerekir. Baba adayÃ„Â± sperm ÃƒÂ¶rneÃ„Å¸ini daha ÃƒÂ¶nceden vermiÃ…Å¸ ise anne adayÃ„Â±nÃ„Â±n transferden sadece bir gÃƒÂ¼n ÃƒÂ¶ncesinde KÃ„Â±brÃ„Â±sÃ¢â‚¬â„¢ta olmasÃ„Â± yeterlidir. Sperm donasyonunda ise anne adayÃ„Â±nÃ„Â±n yumurtalarÃ„Â± toplanmadan (OPU) sadece bir gÃƒÂ¼n ÃƒÂ¶nce KÃ„Â±brÃ„Â±sÃ¢â‚¬â„¢ta olmasÃ„Â± yeterlidir. Tedavi embriyo donasyonu olacak ise ÃƒÂ§iftin yine transfer tarihinden sadece bir gÃƒÂ¼n ÃƒÂ¶nce KÃ„Â±brÃ„Â±sÃ¢â‚¬â„¢ta olmasÃ„Â± yeterlidir.",
+        proc3Desc: "KÃ„Â±brÃ„Â±sÃ¢â‚¬â„¢ ta tÃƒÂ¼p bebek tedavisi iÃƒÂ§in ulaÃ…Å¸Ã„Â±m yolu genellikle uÃƒÂ§ak seyahatidir. Deniz yoluyla TÃƒÂ¼rkiye ÃƒÂ¼zerinden deniz otobÃƒÂ¼sÃƒÂ¼ ile 2-3 saatlik yolculukla da ulaÃ…Å¸mak mÃƒÂ¼mkÃƒÂ¼ndÃƒÂ¼r. Hava yoluyla LefkoÃ…Å¸a Ercan HavalimanÃ„Â± veya Larnaka havalimanÃ„Â±ndan ulaÃ…Å¸Ã„Â±m kolaylÃ„Â±kla saÃ„Å¸lanabilir. Avrupa ÃƒÂ¼zerinden gelecek olan yolcularÃ„Â±mÃ„Â±z iÃƒÂ§in Larnaka havalimanÃ„Â±na direk uÃƒÂ§uÃ…Å¸lar bulunmaktadÃ„Â±r. Seyahatin en baÃ…Å¸Ã„Â±ndan sonuna kadar her noktasÃ„Â±nda merkezimiz istendiÃ„Å¸i takdirde yardÃ„Â±m saÃ„Å¸lamaktadÃ„Â±r. HavalimanÃ„Â± ulaÃ…Å¸Ã„Â±mlarÃ„Â±, uÃƒÂ§ak biletleri, otelden tÃƒÂ¼p bebek merkezine ulaÃ…Å¸Ã„Â±m, turistik amaÃƒÂ§lÃ„Â± geziler dahil her tÃƒÂ¼rlÃƒÂ¼ ulaÃ…Å¸Ã„Â±m imkanÃ„Â± saÃ„Å¸lanabilir.",
+        proc4Desc: "KÃ„Â±brÃ„Â±sÃ¢â‚¬â„¢ta tÃƒÂ¼p bebek tedavisi sÃ„Â±rasÃ„Â±nda konaklama iÃƒÂ§in oldukÃƒÂ§a fazla seÃƒÂ§enek mevcuttur. Merkeze yÃƒÂ¼rÃƒÂ¼me mesafesinde beÃ…Å¸ yÃ„Â±ldÃ„Â±zlÃ„Â± oldukÃƒÂ§a konforlu oteller olabileceÃ„Å¸i gibi, oldukÃƒÂ§a uygun fiyatlÃ„Â± butik oteller de mevcuttur. TÃƒÂ¼p bebek tedavisinin KÃ„Â±brÃ„Â±sÃ¢â‚¬â„¢ta yapÃ„Â±lmasÃ„Â± tercih etmek anne ve baba adayÃ„Â±nÃ„Â±n stresini azaltÃ„Â±r. Ã„Â°klimin hemen hemen her mevsim Ã„Â±lÃ„Â±man olduÃ„Å¸u bu gÃƒÂ¼zel adada tatil yaparken bebek sahibi olabilirsiniz.",
+        proc5Desc: "KÃ„Â±brÃ„Â±sÃ¢â‚¬â„¢ta TÃƒÂ¼p Bebek Tedavisi seÃƒÂ§ilecek yÃƒÂ¶nteme gÃƒÂ¶re deÃ„Å¸iÃ…Å¸kenlik gÃƒÂ¶sterse de tedavilerin oldukÃƒÂ§a geniÃ…Å¸ aÃƒÂ§Ã„Â±klamasÃ„Â± ana sayfamÃ„Â±zda yer almaktadÃ„Â±r. Daha fazla bilgi ve ayrÃ„Â±ntÃ„Â± iÃƒÂ§in bizimle iletiÃ…Å¸ime geÃƒÂ§ebilirsiniz.",
+        proc6Desc: "KÃ„Â±brÃ„Â±sÃ¢â‚¬â„¢ta tÃƒÂ¼p bebek tedavisi sonrasÃ„Â± ÃƒÂ§iftlerin ÃƒÂ§oÃ„Å¸u transferden bir gÃƒÂ¼n sonra kendi yaÃ…Å¸adÃ„Â±klarÃ„Â± ÃƒÂ¼lkeye dÃƒÂ¶nmektedir. Bizim ÃƒÂ¶nerimiz transferden 12 gÃƒÂ¼n sonra kanda gebelik testi (b-HCG ) yapÃ„Â±lmasÃ„Â±dÃ„Â±r. Ãƒâ€“ncesinde yapÃ„Â±lan idrar veya kan testleri yanÃ„Â±ltÃ„Â±cÃ„Â± olabilmektedir.",
         
         stat1Label: "TOPLAM IVF SIKLUSU",
-        stat2Label: "OOSÄ°T DONASYONU",
+        stat2Label: "OOSÃ„Â°T DONASYONU",
         stat3Label: "IVF",
         stat4Label: "SPERM DONASYONU",
         stat5Label: "PGD",
-        statSuccess: "BAÅARI",
+        statSuccess: "BAÃ…ÂARI",
         
         apptTitle: "RANDEVU ALIN",
-        apptSubtitle: "Tedavi seÃ§eneklerimizden yararlanmak iÃ§in randevu alabilirsiniz.",
-        formFemaleAge: "KadÄ±n YaÅŸÄ±",
-        formMaleAge: "Erkek YaÅŸÄ±",
+        apptSubtitle: "Tedavi seÃƒÂ§eneklerimizden yararlanmak iÃƒÂ§in randevu alabilirsiniz.",
+        formFemaleAge: "KadÃ„Â±n YaÃ…Å¸Ã„Â±",
+        formMaleAge: "Erkek YaÃ…Å¸Ã„Â±",
         formBloodF: "Kan Grubu (K)",
         formBloodM: "Kan Grubu (E)",
         formSize: "Boy",
         formKilo: "Kilo",
-        formAMH: "AMH DeÄŸeri",
+        formAMH: "AMH DeÃ„Å¸eri",
         formSperm: "Sperm Sonucu",
-        formMarriage: "Ã‡iftin Evlilik SÃ¼resi",
-        formPregnancy: "Gebelik Ä°stemi SÃ¼resi",
-        formTest: "Test YapÄ±ldÄ± mÄ±?",
+        formMarriage: "Ãƒâ€¡iftin Evlilik SÃƒÂ¼resi",
+        formPregnancy: "Gebelik Ã„Â°stemi SÃƒÂ¼resi",
+        formTest: "Test YapÃ„Â±ldÃ„Â± mÃ„Â±?",
         formEmailPlace: "E-posta Adresiniz",
-        formPhonePlace: "Telefon NumaranÄ±z",
-        formMessagePlace: "MesajÄ±nÄ±z",
-        formSend: "GÃ–NDER",
+        formPhonePlace: "Telefon NumaranÃ„Â±z",
+        formMessagePlace: "MesajÃ„Â±nÃ„Â±z",
+        formSend: "GÃƒâ€“NDER",
 
         teamTitle: "Ekibimiz",
-        teamRole1: "BaÅŸ TÃ¼p Bebek UzmanÄ±",
-        teamDesc1: "Ãœreme tÄ±bbÄ± ve ileri tÃ¼p bebek teknolojilerinde 20 yÄ±lÄ± aÅŸkÄ±n deneyim.",
-        teamRole2: "TÃ¼p Bebek KoordinatÃ¶rÃ¼",
+        teamRole1: "BaÃ…Å¸ TÃƒÂ¼p Bebek UzmanÃ„Â±",
+        teamDesc1: "ÃƒÅ“reme tÃ„Â±bbÃ„Â± ve ileri tÃƒÂ¼p bebek teknolojilerinde 20 yÃ„Â±lÃ„Â± aÃ…Å¸kÃ„Â±n deneyim.",
+        teamRole2: "TÃƒÂ¼p Bebek KoordinatÃƒÂ¶rÃƒÂ¼",
         teamRole3: "Embriyolog",
-        teamRole4: "HemÅŸire",
-        teamRole5: "Hasta KoordinatÃ¶rÃ¼",
+        teamRole4: "HemÃ…Å¸ire",
+        teamRole5: "Hasta KoordinatÃƒÂ¶rÃƒÂ¼",
         teamRole6: "Asistan",
-        teamRole7: "UluslararasÄ± KoordinatÃ¶r",
+        teamRole7: "UluslararasÃ„Â± KoordinatÃƒÂ¶r",
 
         stat1Num: "3640",
         stat1Label: "TOPLAM IVF SIKLUSU",
         stat2Num: "2260",
-        stat2Label: "OOSÄ°T DONASYONU",
-        stat2Sub: "%84 BAÅARI",
+        stat2Label: "OOSÃ„Â°T DONASYONU",
+        stat2Sub: "%84 BAÃ…ÂARI",
         stat3Num: "693",
         stat3Label: "IVF",
-        stat3Sub: "%84 BAÅARI",
+        stat3Sub: "%84 BAÃ…ÂARI",
         stat4Num: "538",
         stat4Label: "SPERM DONASYONU",
-        stat4Sub: "%67 BAÅARI",
+        stat4Sub: "%67 BAÃ…ÂARI",
         stat5Num: "610",
         stat5Label: "PGD",
-        stat5Sub: "%84 BAÅARI",
+        stat5Sub: "%84 BAÃ…ÂARI",
 
-        ivfTitle: "TÃ¼p Bebek Merkezi",
-        ivfSubTitle: "Ä°leri Ãœreme Teknolojisi",
-        ivfDesc: "SaÄŸlÄ±klÄ± bir gebelik ÅŸansÄ±nÄ±zÄ± en Ã¼st dÃ¼zeye Ã§Ä±karmak iÃ§in in-vitro fertilizasyondaki en son geliÅŸmeleri kullanÄ±yoruz. LaboratuvarÄ±mÄ±z karmaÅŸÄ±k vakalarÄ± hassasiyetle ele alacak en son teknoloji ile donatÄ±lmÄ±ÅŸtÄ±r.",
-        ivfFeature1: "KapsamlÄ± DoÄŸurganlÄ±k DeÄŸerlendirmesi",
-        ivfFeature2: "KiÅŸiselleÅŸtirilmiÅŸ Tedavi Protokolleri",
-        ivfFeature3: "YÃ¼ksek BaÅŸarÄ± OranlarÄ±",
+        ivfTitle: "TÃƒÂ¼p Bebek Merkezi",
+        ivfSubTitle: "Ã„Â°leri ÃƒÅ“reme Teknolojisi",
+        ivfDesc: "SaÃ„Å¸lÃ„Â±klÃ„Â± bir gebelik Ã…Å¸ansÃ„Â±nÃ„Â±zÃ„Â± en ÃƒÂ¼st dÃƒÂ¼zeye ÃƒÂ§Ã„Â±karmak iÃƒÂ§in in-vitro fertilizasyondaki en son geliÃ…Å¸meleri kullanÃ„Â±yoruz. LaboratuvarÃ„Â±mÃ„Â±z karmaÃ…Å¸Ã„Â±k vakalarÃ„Â± hassasiyetle ele alacak en son teknoloji ile donatÃ„Â±lmÃ„Â±Ã…Å¸tÃ„Â±r.",
+        ivfFeature1: "KapsamlÃ„Â± DoÃ„Å¸urganlÃ„Â±k DeÃ„Å¸erlendirmesi",
+        ivfFeature2: "KiÃ…Å¸iselleÃ…Å¸tirilmiÃ…Å¸ Tedavi Protokolleri",
+        ivfFeature3: "YÃƒÂ¼ksek BaÃ…Å¸arÃ„Â± OranlarÃ„Â±",
 
-        treatmentsTitle: "Tedavi SeÃ§enekleri",
+        treatmentsTitle: "Tedavi SeÃƒÂ§enekleri",
         treatmentCard1Title: "Yumurta Dondurma",
-        treatmentCard1Desc: "GeliÅŸmiÅŸ vitrifikasyon tekniklerimizle doÄŸurganlÄ±ÄŸÄ±nÄ±zÄ± gelecek iÃ§in koruyun.",
+        treatmentCard1Desc: "GeliÃ…Å¸miÃ…Å¸ vitrifikasyon tekniklerimizle doÃ„Å¸urganlÃ„Â±Ã„Å¸Ã„Â±nÃ„Â±zÃ„Â± gelecek iÃƒÂ§in koruyun.",
         treatmentCard2Title: "Yumurta/Sperm Donasyonu",
-        treatmentCard2Desc: "Titiz tarama sÃ¼reÃ§lerine sahip kapsamlÄ± ve gizli donasyon programlarÄ±.",
+        treatmentCard2Desc: "Titiz tarama sÃƒÂ¼reÃƒÂ§lerine sahip kapsamlÃ„Â± ve gizli donasyon programlarÃ„Â±.",
         treatmentCard3Title: "PGT / PGS",
-        treatmentCard3Desc: "En saÄŸlÄ±klÄ± embriyolarÄ±n seÃ§ilmesini saÄŸlamak iÃ§in preimplantasyon genetik test.",
+        treatmentCard3Desc: "En saÃ„Å¸lÃ„Â±klÃ„Â± embriyolarÃ„Â±n seÃƒÂ§ilmesini saÃ„Å¸lamak iÃƒÂ§in preimplantasyon genetik test.",
 
-        testimonialsTitle: "HastalarÄ±mÄ±zdan",
-        testimonial1Text: "\"Dr. Cenksoy ve harika ekibi sayesinde anne baba olma hayalimiz sonunda gerÃ§ek oldu. AldÄ±ÄŸÄ±mÄ±z ilgi ve destek beklentilerimizin Ã¶tesindeydi.\"",
-        testimonial1Author: "- Sarah & Michael, Ä°ngiltere",
+        testimonialsTitle: "HastalarÃ„Â±mÃ„Â±zdan",
+        testimonial1Text: "\"Dr. Cenksoy ve harika ekibi sayesinde anne baba olma hayalimiz sonunda gerÃƒÂ§ek oldu. AldÃ„Â±Ã„Å¸Ã„Â±mÃ„Â±z ilgi ve destek beklentilerimizin ÃƒÂ¶tesindeydi.\"",
+        testimonial1Author: "- Sarah & Michael, Ã„Â°ngiltere",
 
-        faqTitle: "SÄ±k Sorulan Sorular",
-        faq1Q: "TÃ¼p bebek tedavisinde baÅŸarÄ± oranÄ± nedir?",
-        faq1A: "BaÅŸarÄ± oranlarÄ± yaÅŸa ve tÄ±bbi geÃ§miÅŸe gÃ¶re deÄŸiÅŸir, ancak kliniÄŸimiz kiÅŸiselleÅŸtirilmiÅŸ protokollerimiz ve geliÅŸmiÅŸ laboratuvarÄ±mÄ±z sayesinde sÃ¼rekli olarak kÃ¼resel ortalamanÄ±n Ã¼zerinde oranlar elde etmektedir.",
-        faq2Q: "Bir tÃ¼p bebek dÃ¶ngÃ¼sÃ¼ ne kadar sÃ¼rer?",
-        faq2A: "Tipik bir tÃ¼p bebek dÃ¶ngÃ¼sÃ¼, ilaÃ§ tedavisine baÅŸlanmasÄ±ndan embriyo transferine kadar yaklaÅŸÄ±k 4 ila 6 hafta sÃ¼rer.",
-        faq3Q: "Tedavi iÃ§in bir yaÅŸ sÄ±nÄ±rÄ± var mÄ±?",
-        faq3A: "YaÅŸ baÅŸarÄ±yÄ± etkilese de her vakayÄ± ayrÄ± ayrÄ± deÄŸerlendiriyoruz. Ä°leri yaÅŸtaki hastalar iÃ§in donÃ¶r programlarÄ± dahil Ã§eÅŸitli seÃ§enekler sunuyoruz.",
+        faqTitle: "SÃ„Â±k Sorulan Sorular",
+        faq1Q: "TÃƒÂ¼p bebek tedavisinde baÃ…Å¸arÃ„Â± oranÃ„Â± nedir?",
+        faq1A: "BaÃ…Å¸arÃ„Â± oranlarÃ„Â± yaÃ…Å¸a ve tÃ„Â±bbi geÃƒÂ§miÃ…Å¸e gÃƒÂ¶re deÃ„Å¸iÃ…Å¸ir, ancak kliniÃ„Å¸imiz kiÃ…Å¸iselleÃ…Å¸tirilmiÃ…Å¸ protokollerimiz ve geliÃ…Å¸miÃ…Å¸ laboratuvarÃ„Â±mÃ„Â±z sayesinde sÃƒÂ¼rekli olarak kÃƒÂ¼resel ortalamanÃ„Â±n ÃƒÂ¼zerinde oranlar elde etmektedir.",
+        faq2Q: "Bir tÃƒÂ¼p bebek dÃƒÂ¶ngÃƒÂ¼sÃƒÂ¼ ne kadar sÃƒÂ¼rer?",
+        faq2A: "Tipik bir tÃƒÂ¼p bebek dÃƒÂ¶ngÃƒÂ¼sÃƒÂ¼, ilaÃƒÂ§ tedavisine baÃ…Å¸lanmasÃ„Â±ndan embriyo transferine kadar yaklaÃ…Å¸Ã„Â±k 4 ila 6 hafta sÃƒÂ¼rer.",
+        faq3Q: "Tedavi iÃƒÂ§in bir yaÃ…Å¸ sÃ„Â±nÃ„Â±rÃ„Â± var mÃ„Â±?",
+        faq3A: "YaÃ…Å¸ baÃ…Å¸arÃ„Â±yÃ„Â± etkilese de her vakayÃ„Â± ayrÃ„Â± ayrÃ„Â± deÃ„Å¸erlendiriyoruz. Ã„Â°leri yaÃ…Å¸taki hastalar iÃƒÂ§in donÃƒÂ¶r programlarÃ„Â± dahil ÃƒÂ§eÃ…Å¸itli seÃƒÂ§enekler sunuyoruz.",
 
-        blogTitle: "GÃ¼ncel Bilgiler",
-        blog1Title: "TÃ¼p Bebek Zaman Ã‡izelgesini Anlamak",
-        blog2Title: "Diyet ve DoÄŸurganlÄ±k: Ne Yemeli",
-        blog3Title: "TÃ¼p Bebek SÄ±rasÄ±nda Ruh SaÄŸlÄ±ÄŸÄ±",
-        readMore: "DevamÄ±nÄ± Oku",
+        blogTitle: "GÃƒÂ¼ncel Bilgiler",
+        blog1Title: "TÃƒÂ¼p Bebek Zaman Ãƒâ€¡izelgesini Anlamak",
+        blog2Title: "Diyet ve DoÃ„Å¸urganlÃ„Â±k: Ne Yemeli",
+        blog3Title: "TÃƒÂ¼p Bebek SÃ„Â±rasÃ„Â±nda Ruh SaÃ„Å¸lÃ„Â±Ã„Å¸Ã„Â±",
+        readMore: "DevamÃ„Â±nÃ„Â± Oku",
 
-        contactTitle: "Bize UlaÅŸÄ±n",
+        contactTitle: "Bize UlaÃ…Å¸Ã„Â±n",
         contactInfoTitle: "Klinik Bilgileri",
-        contactInfoDesc: "Hasta koordinatÃ¶rlerimiz sorularÄ±nÄ±zÄ± yanÄ±tlamaya ve ilk gÃ¶rÃ¼ÅŸmenizi planlamaya hazÄ±rdÄ±r.",
+        contactInfoDesc: "Hasta koordinatÃƒÂ¶rlerimiz sorularÃ„Â±nÃ„Â±zÃ„Â± yanÃ„Â±tlamaya ve ilk gÃƒÂ¶rÃƒÂ¼Ã…Å¸menizi planlamaya hazÃ„Â±rdÃ„Â±r.",
         formName: "Ad Soyad",
         formEmail: "E-posta Adresi",
-        formMessage: "MesajÄ±nÄ±z",
-        formSubmit: "Mesaj GÃ¶nder",
+        formMessage: "MesajÃ„Â±nÃ„Â±z",
+        formSubmit: "Mesaj GÃƒÂ¶nder",
 
-        footerRights: "TÃ¼m haklarÄ± saklÄ±dÄ±r.",
+        footerRights: "TÃƒÂ¼m haklarÃ„Â± saklÃ„Â±dÃ„Â±r.",
         footerPagesTitle: "SAYFALARIMIZ",
-        footerContactTitle: "Ä°LETÄ°ÅÄ°M BÄ°LGÄ°LERÄ°"
+        footerContactTitle: "Ã„Â°LETÃ„Â°Ã…ÂÃ„Â°M BÃ„Â°LGÃ„Â°LERÃ„Â°"
     },
     en: {
         logoText: "Dr. Cahit Cenksoy",
@@ -166,12 +166,12 @@ const translations = {
         navBlogs: "BLOG",
         navContact: "CONTACT",
 
-        heroTitle: "Dr. Cahit Cenksoy<br>Nicosia SevinÃ§ Hospital",
+        heroTitle: "Dr. Cahit Cenksoy<br>Nicosia SevinÃƒÂ§ Hospital",
         heroSubtitle: "State-of-the-art IVF treatments tailored for your unique journey to parenthood.",
         heroBtnPrimary: "Book Consultation",
         heroBtnSecondary: "Explore Treatments",
 
-        aboutTitle: "OP. DR. CAHÄ°T CENKSOY",
+        aboutTitle: "OP. DR. CAHÃ„Â°T CENKSOY",
         aboutSubtitle: "GYNECOLOGY AND OBSTETRICS EXPERT AND IVF SPECIALIST",
         aboutTextFull: "Dr Cahit Cenksoy is one of the youngest and most talented Gynaecologists in Cyprus with a high IVF success rate. He has performed the highest number of births on the island in both caesarean section and natural births. Our centre is located in Kyrenia, the most beautiful city of the island. A city trip to the seaside helps release the stress of our patients while their treatment continues. We are increasing our success day by day with our experienced team, modern laboratories, specialised nurses and coordinators. Our team is expanding day by day and gaining experience. The fact that our patients can communicate with the doctor at any time gives them confidence. The pregnancy success rates of our centre varies between 75-90%. Our centre does not have an obligation to wait for oocyte donation, and we work with internationally registered sperm banks, allowing our centre to achieve satisfactory results. Since we do not compromise our standards in the number of oocytes allocated per patient, our success rates remain at the highest level.",
 
@@ -253,10 +253,10 @@ const translations = {
         footerPagesTitle: "PAGES",
         footerContactTitle: "CONTACT INFO"
     },
-    fr: { navHome: "ACCUEIL", navTeam: "NOTRE ÉQUIPE", navIVF: "FIV", navTreatments: "TRAITEMENTS", navTestimonials: "PATIENTS", navFAQ: "FAQ", navBlogs: "BLOG", navContact: "CONTACT", heroBtnPrimary: "Réserver Consultation", heroBtnSecondary: "Explorer Traitements" },,
+    fr: { navHome: "ACCUEIL", navTeam: "NOTRE Ã‰QUIPE", navIVF: "FIV", navTreatments: "TRAITEMENTS", navTestimonials: "PATIENTS", navFAQ: "FAQ", navBlogs: "BLOG", navContact: "CONTACT", heroBtnPrimary: "RÃ©server Consultation", heroBtnSecondary: "Explorer Traitements" },,
     de: { navHome: "STARTSEITE", navTeam: "UNSER TEAM", navIVF: "IVF", navTreatments: "BEHANDLUNGEN", navTestimonials: "PATIENTEN", navFAQ: "FAQ", navBlogs: "BLOG", navContact: "KONTAKT", heroBtnPrimary: "Termin Buchen", heroBtnSecondary: "Behandlungen Entdecken" },,
-    ru: { navHome: "ГЛАВНАЯ", navTeam: "КОМАНДА", navIVF: "ЭКО", navTreatments: "ЛЕЧЕНИЕ", navTestimonials: "ПАЦИЕНТЫ", navFAQ: "FAQ", navBlogs: "БЛОГ", navContact: "КОНТАКТЫ", heroBtnPrimary: "Записаться", heroBtnSecondary: "Варианты лечения" },,
-    ar: { navHome: "الرئيسية", navTeam: "فريقنا", navIVF: "أطفال الأنابيب", navTreatments: "العلاجات", navTestimonials: "المرضى", navFAQ: "الأسئلة الشائعة", navBlogs: "مدونة", navContact: "اتصل بنا", heroBtnPrimary: "حجز موعد", heroBtnSecondary: "خيارات العلاج" }
+    ru: { navHome: "Ğ“Ğ›ĞĞ’ĞĞĞ¯", navTeam: "ĞšĞĞœĞĞĞ”Ğ", navIVF: "Ğ­ĞšĞ", navTreatments: "Ğ›Ğ•Ğ§Ğ•ĞĞ˜Ğ•", navTestimonials: "ĞŸĞĞ¦Ğ˜Ğ•ĞĞ¢Ğ«", navFAQ: "FAQ", navBlogs: "Ğ‘Ğ›ĞĞ“", navContact: "ĞšĞĞĞ¢ĞĞšĞ¢Ğ«", heroBtnPrimary: "Ğ—Ğ°Ğ¿Ğ¸ÑĞ°Ñ‚ÑŒÑÑ", heroBtnSecondary: "Ğ’Ğ°Ñ€Ğ¸Ğ°Ğ½Ñ‚Ñ‹ Ğ»ĞµÑ‡ĞµĞ½Ğ¸Ñ" },,
+    ar: { navHome: "الرئيسية", navTeam: "فريقنا", navIVF: "أطفال الأنابيب", navTreatments: "العلاجات", navContact: "اتصل بنا" }
 };
 
 // --- Language Switching Logic ---
@@ -270,7 +270,16 @@ function changeLanguage(lang) {
 
         const langBtn = document.getElementById('currentLang');
         if (langBtn) {
-            langBtn.innerHTML = `${lang.toUpperCase()} <i class="fa-solid fa-globe"></i>`;
+            const flags = {
+                tr: 'ğŸ‡¹ğŸ‡·',
+                en: 'ğŸ‡¬ğŸ‡§',
+                fr: 'ğŸ‡«ğŸ‡·',
+                de: 'ğŸ‡©ğŸ‡ª',
+                ru: 'ğŸ‡·ğŸ‡º',
+                ar: 'ğŸ‡¸ğŸ‡¦'
+            };
+            const flag = flags[lang] || 'ğŸŒ';
+            langBtn.innerHTML = `${flag} ${lang.toUpperCase()} <i class="fa-solid fa-chevron-down"></i>`;
         }
 
         document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
@@ -380,17 +389,6 @@ mobileToggle?.addEventListener('click', () => {
     navLinksMenu?.classList.toggle('active');
 });
 
-// --- Dropdown Toggle for Mobile ---
-document.querySelectorAll('.dropdown > .lang-btn, .dropdown > a').forEach(toggle => {
-    toggle.addEventListener('click', (e) => {
-        if (window.innerWidth <= 992) {
-            e.preventDefault();
-            const parent = toggle.parentElement;
-            parent.classList.toggle('active');
-        }
-    });
-});
-
 // --- FAQ Rendering ---
 function renderFAQs(lang) {
     const faqContainer = document.getElementById('faqAccordion');
@@ -462,4 +460,5 @@ window.onclick = function(event) {
         closeProcessModal();
     }
 }
+
 
