@@ -52,7 +52,20 @@ const translations = {
         proc4Title: "Konaklama",
         proc5Title: "Tedavi",
         proc6Title: "Gebelik Testi",
-        procMore: "Daha Fazla",
+        procMore: "Detaylı Bilgi",
+        proc1Desc: "Tüp bebek tedavisinde, tedavi seçeneği ne olursa olsun öncelikle anne ve baba adayının detaylı bilgileri alınır. Bu bilgilere ek olarak öncesinde yapılmış olan tüm ameliyat, görüntüleme yöntemleri (rahim filmi gibi...), kan ve sperm test sonuçları değerlendirilir. Bu bilgilerin analiz edilmesi tüp bebek başarısında hayati önem taşır. Çifte talep ettikleri tedavi sorulur.",
+        proc2Desc: "Mevcut veriler ışığında uygun tedavi planlanır. Kıbrıs’ta tüp bebek tedavisi başlamadan önce, ön hazırlığın çiftin yaşadığı ülkede yapılması seyahat süresini kısaltır. Zaman kısıtlaması olmayan veya tedavi sürecinde Kıbrıs’ta tatil planlayan çiftlerin tüm süreci burada geçirmesi tercih edilir. Planlanan tedavi Kıbrıs’ta yumurta donasyonu ise anne adayının hormon düzeyleri adetinin 2. veya 3. günü kontrol edilir. Uygun düzeyde ise rahim duvarı hazırlığına başlanır. Rahim duvarı kalınlığı uygun seviyeye ulaştığı zaman progesteron hormonu tedavisi başlanması gerekir. Progesteron başlanacağı gün eşinin de sperm vermesi gerektiğinden çiftin Kıbrıs’ta olması gerekir. Baba adayı sperm örneğini daha önceden vermiş ise anne adayının transferden sadece bir gün öncesinde Kıbrıs’ta olması yeterlidir. Sperm donasyonunda ise anne adayının yumurtaları toplanmadan (OPU) sadece bir gün önce Kıbrıs’ta olması yeterlidir. Tedavi embriyo donasyonu olacak ise çiftin yine transfer tarihinden sadece bir gün önce Kıbrıs’ta olması yeterlidir.",
+        proc3Desc: "Kıbrıs’ ta tüp bebek tedavisi için ulaşım yolu genellikle uçak seyahatidir. Deniz yoluyla Türkiye üzerinden deniz otobüsü ile 2-3 saatlik yolculukla da ulaşmak mümkündür. Hava yoluyla Lefkoşa Ercan Havalimanı veya Larnaka havalimanından ulaşım kolaylıkla sağlanabilir. Avrupa üzerinden gelecek olan yolcularımız için Larnaka havalimanına direk uçuşlar bulunmaktadır. Seyahatin en başından sonuna kadar her noktasında merkezimiz istendiği takdirde yardım sağlamaktadır. Havalimanı ulaşımları, uçak biletleri, otelden tüp bebek merkezine ulaşım, turistik amaçlı geziler dahil her türlü ulaşım imkanı sağlanabilir.",
+        proc4Desc: "Kıbrıs’ta tüp bebek tedavisi sırasında konaklama için oldukça fazla seçenek mevcuttur. Merkeze yürüme mesafesinde beş yıldızlı oldukça konforlu oteller olabileceği gibi, oldukça uygun fiyatlı butik oteller de mevcuttur. Tüp bebek tedavisinin Kıbrıs’ta yapılması tercih etmek anne ve baba adayının stresini azaltır. İklimin hemen hemen her mevsim ılıman olduğu bu güzel adada tatil yaparken bebek sahibi olabilirsiniz.",
+        proc5Desc: "Kıbrıs’ta Tüp Bebek Tedavisi seçilecek yönteme göre değişkenlik gösterse de tedavilerin oldukça geniş açıklaması ana sayfamızda yer almaktadır. Daha fazla bilgi ve ayrıntı için bizimle iletişime geçebilirsiniz.",
+        proc6Desc: "Kıbrıs’ta tüp bebek tedavisi sonrası çiftlerin çoğu transferden bir gün sonra kendi yaşadıkları ülkeye dönmektedir. Bizim önerimiz transferden 12 gün sonra kanda gebelik testi (b-HCG ) yapılmasıdır. Öncesinde yapılan idrar veya kan testleri yanıltıcı olabilmektedir.",
+        
+        stat1Label: "TOPLAM IVF SIKLUSU",
+        stat2Label: "OOSİT DONASYONU",
+        stat3Label: "IVF",
+        stat4Label: "SPERM DONASYONU",
+        stat5Label: "PGD",
+        statSuccess: "BAŞARI",
         
         apptTitle: "RANDEVU ALIN",
         apptSubtitle: "Tedavi seçeneklerimizden yararlanmak için randevu alabilirsiniz.",
@@ -188,7 +201,20 @@ const translations = {
         proc4Title: "Accommodation",
         proc5Title: "Treatment",
         proc6Title: "Pregnancy Test",
-        procMore: "Daha Fazla",
+        procMore: "More Info",
+        proc1Desc: "In IVF treatment, regardless of the treatment option, detailed information of the mother and father candidates is first obtained. In addition to this information, all previous surgeries, imaging methods (such as uterine film...), blood and sperm test results are evaluated. Analyzing this information is vital for IVF success. The couple is asked about the treatment they request.",
+        proc2Desc: "Appropriate treatment is planned in the light of existing data. Before starting IVF treatment in Cyprus, making the preliminary preparation in the country where the couple lives shortens the travel time. It is preferred that couples who do not have time constraints or who plan a holiday in Cyprus during the treatment process spend the entire process here. If the planned treatment is egg donation in Cyprus, the hormone levels of the mother candidate are checked on the 2nd or 3rd day of her menstruation. If it is at an appropriate level, uterine wall preparation is started. When the uterine wall thickness reaches the appropriate level, progesterone hormone treatment should be started. Since the spouse must also give sperm on the day progesterone is started, the couple must be in Cyprus. If the father candidate has given the sperm sample beforehand, it is sufficient for the mother candidate to be in Cyprus only one day before the transfer. In sperm donation, it is sufficient for the mother candidate to be in Cyprus only one day before the eggs are collected (OPU). If the treatment will be embryo donation, it is sufficient for the couple to be in Cyprus only one day before the transfer date.",
+        proc3Desc: "The transportation route for IVF treatment in Cyprus is usually air travel. It is also possible to reach by sea bus via Turkey with a 2-3 hour journey. Access can be easily provided from Nicosia Ercan Airport or Larnaca airport by air. There are direct flights to Larnaca airport for our passengers coming from Europe. Our center provides assistance at every point from the beginning to the end of the trip if requested. All kinds of transportation facilities including airport transfers, flight tickets, transportation from the hotel to the IVF center, and tourist trips can be provided.",
+        proc4Desc: "There are many options for accommodation during IVF treatment in Cyprus. There may be five-star very comfortable hotels within walking distance of the center, as well as very reasonably priced boutique hotels. Choosing to have IVF treatment in Cyprus reduces the stress of the mother and father candidates. You can have a baby while vacationing on this beautiful island where the climate is mild in almost every season.",
+        proc5Desc: "Although IVF treatment in Cyprus varies according to the method to be chosen, a broad explanation of the treatments is available on our homepage. You can contact us for more information and details.",
+        proc6Desc: "After IVF treatment in Cyprus, most couples return to their own country one day after the transfer. Our recommendation is to have a pregnancy test (b-HCG) in the blood 12 days after the transfer. Urine or blood tests performed beforehand can be misleading.",
+        
+        stat1Label: "TOTAL IVF CYCLES",
+        stat2Label: "OOCYTE DONATION",
+        stat3Label: "IVF",
+        stat4Label: "SPERM DONATION",
+        stat5Label: "PGD",
+        statSuccess: "SUCCESS",
         
         apptTitle: "MAKE AN APPOINTMENT",
         apptSubtitle: "You can make an appointment to take advantage of our treatment options.",
@@ -395,3 +421,33 @@ window.addEventListener('scroll', () => {
         }
     }
 });
+
+// Process Modal Logic
+function openProcessModal(step) {
+    const modal = document.getElementById('processModal');
+    const title = document.getElementById('modalTitle');
+    const desc = document.getElementById('modalDescription');
+    const lang = document.documentElement.lang || 'tr';
+    
+    const content = translations[lang];
+    
+    title.innerText = content['proc' + step + 'Title'];
+    desc.innerText = content['proc' + step + 'Desc'];
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+}
+
+function closeProcessModal() {
+    const modal = document.getElementById('processModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Restore scrolling
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('processModal');
+    if (event.target == modal) {
+        closeProcessModal();
+    }
+}

@@ -255,38 +255,80 @@
                 <!-- Step 1 -->
                 <div class="process-card">
                     <div class="process-icon"><i class="fa-solid fa-calendar-check"></i></div>
-                    <h3 data-i18n="proc1Title">Initial Consultation</h3>
-                    <a href="contact.html" class="btn-process" data-i18n="procMore">Daha Fazla</a>
+                    <h3 data-i18n="proc1Title">Ön Görüşme</h3>
+                    <button class="btn-process" onclick="openProcessModal(1)" data-i18n="procMore">Detaylı Bilgi</button>
                 </div>
                 <!-- Step 2 -->
                 <div class="process-card">
                     <div class="process-icon"><i class="fa-solid fa-clipboard-check"></i></div>
-                    <h3 data-i18n="proc2Title">Treatment Planning</h3>
-                    <a href="contact.html" class="btn-process" data-i18n="procMore">Daha Fazla</a>
+                    <h3 data-i18n="proc2Title">Tedavinin Planlanması</h3>
+                    <button class="btn-process" onclick="openProcessModal(2)" data-i18n="procMore">Detaylı Bilgi</button>
                 </div>
                 <!-- Step 3 -->
                 <div class="process-card">
                     <div class="process-icon"><i class="fa-solid fa-earth-americas"></i></div>
-                    <h3 data-i18n="proc3Title">Travel</h3>
-                    <a href="contact.html" class="btn-process" data-i18n="procMore">Daha Fazla</a>
+                    <h3 data-i18n="proc3Title">Seyahat</h3>
+                    <button class="btn-process" onclick="openProcessModal(3)" data-i18n="procMore">Detaylı Bilgi</button>
                 </div>
                 <!-- Step 4 -->
                 <div class="process-card">
                     <div class="process-icon"><i class="fa-solid fa-hotel"></i></div>
-                    <h3 data-i18n="proc4Title">Accommodation</h3>
-                    <a href="contact.html" class="btn-process" data-i18n="procMore">Daha Fazla</a>
+                    <h3 data-i18n="proc4Title">Konaklama</h3>
+                    <button class="btn-process" onclick="openProcessModal(4)" data-i18n="procMore">Detaylı Bilgi</button>
                 </div>
                 <!-- Step 5 -->
                 <div class="process-card">
                     <div class="process-icon"><i class="fa-solid fa-stethoscope"></i></div>
-                    <h3 data-i18n="proc5Title">Treatment</h3>
-                    <a href="contact.html" class="btn-process" data-i18n="procMore">Daha Fazla</a>
+                    <h3 data-i18n="proc5Title">Tedavi</h3>
+                    <button class="btn-process" onclick="openProcessModal(5)" data-i18n="procMore">Detaylı Bilgi</button>
                 </div>
                 <!-- Step 6 -->
                 <div class="process-card">
                     <div class="process-icon"><i class="fa-solid fa-baby"></i></div>
-                    <h3 data-i18n="proc6Title">Pregnancy Test</h3>
-                    <a href="contact.html" class="btn-process" data-i18n="procMore">Daha Fazla</a>
+                    <h3 data-i18n="proc6Title">Gebelik Testi</h3>
+                    <button class="btn-process" onclick="openProcessModal(6)" data-i18n="procMore">Detaylı Bilgi</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <!-- Stat 1 -->
+                <div class="stat-item">
+                    <i class="fa-solid fa-flask-vial"></i>
+                    <h2>3640</h2>
+                    <p class="stat-label" data-i18n="stat1Label">TOPLAM IVF SIKLUSU</p>
+                </div>
+                <!-- Stat 2 -->
+                <div class="stat-item">
+                    <i class="fa-solid fa-eye-dropper"></i>
+                    <h2>2260</h2>
+                    <p class="stat-label" data-i18n="stat2Label">OOSİT DONASYONU</p>
+                    <p class="stat-success">%84 <span data-i18n="statSuccess">BAŞARI</span></p>
+                </div>
+                <!-- Stat 3 -->
+                <div class="stat-item">
+                    <i class="fa-solid fa-test-tube"></i>
+                    <h2>693</h2>
+                    <p class="stat-label" data-i18n="stat3Label">IVF</p>
+                    <p class="stat-success">%54 <span data-i18n="statSuccess">BAŞARI</span></p>
+                </div>
+                <!-- Stat 4 -->
+                <div class="stat-item">
+                    <i class="fa-solid fa-vial-circle-check"></i>
+                    <h2>538</h2>
+                    <p class="stat-label" data-i18n="stat4Label">SPERM DONASYONU</p>
+                    <p class="stat-success">%87 <span data-i18n="statSuccess">BAŞARI</span></p>
+                </div>
+                <!-- Stat 5 -->
+                <div class="stat-item">
+                    <i class="fa-solid fa-dna"></i>
+                    <h2>610</h2>
+                    <p class="stat-label" data-i18n="stat5Label">PGD</p>
+                    <p class="stat-success">%64 <span data-i18n="statSuccess">BAŞARI</span></p>
                 </div>
             </div>
         </div>
@@ -341,6 +383,22 @@
 
 
     <div id="google_translate_element" style="display:none"></div>
+
+    <!-- Process Detail Modal -->
+    <div id="processModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <span class="close-modal" onclick="closeProcessModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="modalDescription"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="closeProcessModal()">Kapat</button>
+            </div>
+        </div>
+    </div>
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
