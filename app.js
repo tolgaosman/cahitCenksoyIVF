@@ -1,85 +1,85 @@
-﻿// --- Translations Dictionary ---
+// --- Translations Dictionary ---
 const translations = {
     tr: {
         logoText: "Dr. Cahit Cenksoy",
         navHome: "ANA SAYFA",
-        navTeam: "EKÄ°BÄ°MÄ°Z",
-        navIVF: "TÃœP BEBEK (IVF)",
-        ivfProcess: "TÃ¼p Bebek SÃ¼reci",
+        navTeam: "EKİBİMİZ",
+        navIVF: "TÜP BEBEK (IVF)",
+        ivfProcess: "Tüp Bebek Süreci",
         ivfICSI: "Mikroenjeksiyon (ICSI)",
         ivfIMSI: "IMSI",
-        navTreatments: "TEDAVÄ° SEÃ‡ENEKLERÄ°",
+        navTreatments: "TEDAVİ SEÇENEKLERİ",
         treatmentEggFreezing: "Yumurta Dondurma",
         treatmentDonation: "Donasyon",
         treatmentPGD: "PGT / PGS",
         navTestimonials: "HASTALARIMIZDAN",
         navFAQ: "SIK SORULANLAR",
         navBlogs: "BLOG",
-        navContact: "Ä°LETÄ°ÅÄ°M",
+        navContact: "İLETİÅİM",
         
-        heroTitle: "Birlikte Mucizeler YaratÄ±yoruz",
-        heroSubtitle: "Uzman bakÄ±m ve ÅŸefkatle yÃ¶nlendirilen, ebeveynlik yolculuÄŸunuza Ã¶zel en son teknoloji tÃ¼p bebek tedavileri.",
-        heroBtnPrimary: "DanÄ±ÅŸmanlÄ±k AlÄ±n",
-        heroBtnSecondary: "Tedavileri Ä°ncele",
+        heroTitle: "Birlikte Mucizeler Yaratıyoruz",
+        heroSubtitle: "Uzman bakım ve şefkatle yönlendirilen, ebeveynlik yolculuğunuza özel en son teknoloji tüp bebek tedavileri.",
+        heroBtnPrimary: "Danışmanlık Alın",
+        heroBtnSecondary: "Tedavileri İncele",
         
         teamTitle: "Ekibimiz",
-        teamRole1: "BaÅŸ TÃ¼p Bebek UzmanÄ±",
-        teamDesc1: "Ãœreme tÄ±bbÄ± ve ileri tÃ¼p bebek teknolojilerinde 20 yÄ±lÄ± aÅŸkÄ±n deneyim.",
-        teamRole2: "TÃ¼p Bebek KoordinatÃ¶rÃ¼",
+        teamRole1: "Baş Tüp Bebek Uzmanı",
+        teamDesc1: "Üreme tıbbı ve ileri tüp bebek teknolojilerinde 20 yılı aşkın deneyim.",
+        teamRole2: "Tüp Bebek Koordinatörü",
         teamRole3: "Embriyolog",
-        teamRole4: "HemÅŸire",
-        teamRole5: "Hasta KoordinatÃ¶rÃ¼",
+        teamRole4: "Hemşire",
+        teamRole5: "Hasta Koordinatörü",
         teamRole6: "Asistan",
-        teamRole7: "UluslararasÄ± KoordinatÃ¶r",
-        stat1: "BaÅŸarÄ±lÄ± TÃ¼p Bebek DÃ¶ngÃ¼sÃ¼",
-        stat2: "BaÅŸarÄ± OranÄ±",
-        stat3: "YÄ±llÄ±k Deneyim",
-        contactLocation: "LefkoÅŸa, KÄ±brÄ±s",
+        teamRole7: "Uluslararası Koordinatör",
+        stat1: "Başarılı Tüp Bebek Döngüsü",
+        stat2: "Başarı Oranı",
+        stat3: "Yıllık Deneyim",
+        contactLocation: "Lefkoşa, Kıbrıs",
         
-        ivfTitle: "TÃ¼p Bebek Merkezi",
-        ivfSubTitle: "Ä°leri Ãœreme Teknolojisi",
-        ivfDesc: "SaÄŸlÄ±klÄ± bir gebelik ÅŸansÄ±nÄ±zÄ± en Ã¼st dÃ¼zeye Ã§Ä±karmak iÃ§in in-vitro fertilizasyondaki en son geliÅŸmeleri kullanÄ±yoruz. LaboratuvarÄ±mÄ±z karmaÅŸÄ±k vakalarÄ± hassasiyetle ele alacak en son teknoloji ile donatÄ±lmÄ±ÅŸtÄ±r.",
-        ivfFeature1: "KapsamlÄ± DoÄŸurganlÄ±k DeÄŸerlendirmesi",
-        ivfFeature2: "KiÅŸiselleÅŸtirilmiÅŸ Tedavi Protokolleri",
-        ivfFeature3: "YÃ¼ksek BaÅŸarÄ± OranlarÄ±",
+        ivfTitle: "Tüp Bebek Merkezi",
+        ivfSubTitle: "İleri Üreme Teknolojisi",
+        ivfDesc: "Sağlıklı bir gebelik şansınızı en üst düzeye çıkarmak için in-vitro fertilizasyondaki en son gelişmeleri kullanıyoruz. Laboratuvarımız karmaşık vakaları hassasiyetle ele alacak en son teknoloji ile donatılmıştır.",
+        ivfFeature1: "Kapsamlı Doğurganlık Değerlendirmesi",
+        ivfFeature2: "Kişiselleştirilmiş Tedavi Protokolleri",
+        ivfFeature3: "Yüksek Başarı Oranları",
         
-        treatmentsTitle: "Tedavi SeÃ§enekleri",
+        treatmentsTitle: "Tedavi Seçenekleri",
         treatmentCard1Title: "Yumurta Dondurma",
-        treatmentCard1Desc: "GeliÅŸmiÅŸ vitrifikasyon tekniklerimizle doÄŸurganlÄ±ÄŸÄ±nÄ±zÄ± gelecek iÃ§in koruyun.",
+        treatmentCard1Desc: "Gelişmiş vitrifikasyon tekniklerimizle doğurganlığınızı gelecek için koruyun.",
         treatmentCard2Title: "Yumurta/Sperm Donasyonu",
-        treatmentCard2Desc: "Titiz tarama sÃ¼reÃ§lerine sahip kapsamlÄ± ve gizli donasyon programlarÄ±.",
+        treatmentCard2Desc: "Titiz tarama süreçlerine sahip kapsamlı ve gizli donasyon programları.",
         treatmentCard3Title: "PGT / PGS",
-        treatmentCard3Desc: "En saÄŸlÄ±klÄ± embriyolarÄ±n seÃ§ilmesini saÄŸlamak iÃ§in preimplantasyon genetik test.",
+        treatmentCard3Desc: "En sağlıklı embriyoların seçilmesini sağlamak için preimplantasyon genetik test.",
         
-        testimonialsTitle: "HastalarÄ±mÄ±zdan",
-        testimonial1Text: "\"Dr. Cenksoy ve harika ekibi sayesinde anne baba olma hayalimiz sonunda gerÃ§ek oldu. AldÄ±ÄŸÄ±mÄ±z ilgi ve destek beklentilerimizin Ã¶tesindeydi.\"",
-        testimonial1Author: "- Sarah & Michael, Ä°ngiltere",
+        testimonialsTitle: "Hastalarımızdan",
+        testimonial1Text: "\"Dr. Cenksoy ve harika ekibi sayesinde anne baba olma hayalimiz sonunda gerçek oldu. Aldığımız ilgi ve destek beklentilerimizin ötesindeydi.\"",
+        testimonial1Author: "- Sarah & Michael, İngiltere",
         
-        faqTitle: "SÄ±k Sorulan Sorular",
-        faq1Q: "TÃ¼p bebek tedavisinde baÅŸarÄ± oranÄ± nedir?",
-        faq1A: "BaÅŸarÄ± oranlarÄ± yaÅŸa ve tÄ±bbi geÃ§miÅŸe gÃ¶re deÄŸiÅŸir, ancak kliniÄŸimiz kiÅŸiselleÅŸtirilmiÅŸ protokollerimiz ve geliÅŸmiÅŸ laboratuvarÄ±mÄ±z sayesinde sÃ¼rekli olarak kÃ¼resel ortalamanÄ±n Ã¼zerinde oranlar elde etmektedir.",
-        faq2Q: "Bir tÃ¼p bebek dÃ¶ngÃ¼sÃ¼ ne kadar sÃ¼rer?",
-        faq2A: "Tipik bir tÃ¼p bebek dÃ¶ngÃ¼sÃ¼, ilaÃ§ tedavisine baÅŸlanmasÄ±ndan embriyo transferine kadar yaklaÅŸÄ±k 4 ila 6 hafta sÃ¼rer.",
-        faq3Q: "Tedavi iÃ§in bir yaÅŸ sÄ±nÄ±rÄ± var mÄ±?",
-        faq3A: "YaÅŸ baÅŸarÄ±yÄ± etkilese de her vakayÄ± ayrÄ± ayrÄ± deÄŸerlendiriyoruz. Ä°leri yaÅŸtaki hastalar iÃ§in donÃ¶r programlarÄ± dahil Ã§eÅŸitli seÃ§enekler sunuyoruz.",
+        faqTitle: "Sık Sorulan Sorular",
+        faq1Q: "Tüp bebek tedavisinde başarı oranı nedir?",
+        faq1A: "Başarı oranları yaşa ve tıbbi geçmişe göre değişir, ancak kliniğimiz kişiselleştirilmiş protokollerimiz ve gelişmiş laboratuvarımız sayesinde sürekli olarak küresel ortalamanın üzerinde oranlar elde etmektedir.",
+        faq2Q: "Bir tüp bebek döngüsü ne kadar sürer?",
+        faq2A: "Tipik bir tüp bebek döngüsü, ilaç tedavisine başlanmasından embriyo transferine kadar yaklaşık 4 ila 6 hafta sürer.",
+        faq3Q: "Tedavi için bir yaş sınırı var mı?",
+        faq3A: "Yaş başarıyı etkilese de her vakayı ayrı ayrı değerlendiriyoruz. İleri yaştaki hastalar için donör programları dahil çeşitli seçenekler sunuyoruz.",
         
-        blogTitle: "GÃ¼ncel Bilgiler",
-        blog1Title: "TÃ¼p Bebek Zaman Ã‡izelgesini Anlamak",
-        blog2Title: "Diyet ve DoÄŸurganlÄ±k: Ne Yemeli",
-        blog3Title: "TÃ¼p Bebek SÄ±rasÄ±nda Ruh SaÄŸlÄ±ÄŸÄ±",
-        readMore: "DevamÄ±nÄ± Oku",
+        blogTitle: "Güncel Bilgiler",
+        blog1Title: "Tüp Bebek Zaman Çizelgesini Anlamak",
+        blog2Title: "Diyet ve Doğurganlık: Ne Yemeli",
+        blog3Title: "Tüp Bebek Sırasında Ruh Sağlığı",
+        readMore: "Devamını Oku",
         
-        contactTitle: "Bize UlaÅŸÄ±n",
+        contactTitle: "Bize Ulaşın",
         contactInfoTitle: "Klinik Bilgileri",
-        contactInfoDesc: "Hasta koordinatÃ¶rlerimiz sorularÄ±nÄ±zÄ± yanÄ±tlamaya ve ilk gÃ¶rÃ¼ÅŸmenizi planlamaya hazÄ±rdÄ±r.",
+        contactInfoDesc: "Hasta koordinatörlerimiz sorularınızı yanıtlamaya ve ilk görüşmenizi planlamaya hazırdır.",
         formName: "Ad Soyad",
         formEmail: "E-posta Adresi",
-        formMessage: "MesajÄ±nÄ±z",
-        formSubmit: "Mesaj GÃ¶nder",
+        formMessage: "Mesajınız",
+        formSubmit: "Mesaj Gönder",
         
-        footerRights: "TÃ¼m haklarÄ± saklÄ±dÄ±r.",
+        footerRights: "Tüm hakları saklıdır.",
         footerPagesTitle: "SAYFALARIMIZ",
-        footerContactTitle: "Ä°LETÄ°ÅÄ°M BÄ°LGÄ°LERÄ°"
+        footerContactTitle: "İLETİÅİM BİLGİLERİ"
     },
     en: {
         logoText: "Dr. Cahit Cenksoy",
@@ -352,13 +352,13 @@ const translations = {
         navContact: "KONTAKT",
         
         heroTitle: "Gemeinsam Wunder schaffen",
-        heroSubtitle: "Modernste IVF-Behandlungen, maÃŸgeschneidert fÃ¼r Ihren Weg zur Elternschaft.",
+        heroSubtitle: "Modernste IVF-Behandlungen, maÃŸgeschneidert für Ihren Weg zur Elternschaft.",
         heroBtnPrimary: "Beratung buchen",
         heroBtnSecondary: "Behandlungen erkunden",
         
         teamTitle: "Unser Team",
         teamRole1: "Leitender IVF-Spezialist",
-        teamDesc1: "Ãœber 20 Jahre Erfahrung in der Reproduktionsmedizin.",
+        teamDesc1: "Über 20 Jahre Erfahrung in der Reproduktionsmedizin.",
         teamRole2: "IVF-Koordinator",
         teamRole3: "Embryologe",
         teamRole4: "Krankenschwester",
@@ -379,7 +379,7 @@ const translations = {
         
         treatmentsTitle: "Behandlungsoptionen",
         treatmentCard1Title: "Einfrieren von Eizellen",
-        treatmentCard1Desc: "Bewahren Sie Ihre Fruchtbarkeit fÃ¼r die Zukunft.",
+        treatmentCard1Desc: "Bewahren Sie Ihre Fruchtbarkeit für die Zukunft.",
         treatmentCard2Title: "Eizellen-/Samenspende",
         treatmentCard2Desc: "Umfassende und vertrauliche Spendenprogramme.",
         treatmentCard3Title: "PID / PGS",
@@ -391,7 +391,7 @@ const translations = {
         
         faqTitle: "HÃ¤ufig gestellte Fragen",
         faq1Q: "Wie hoch ist die Erfolgsrate?",
-        faq1A: "Unsere Klinik liegt konstant Ã¼ber dem weltweiten Durchschnitt.",
+        faq1A: "Unsere Klinik liegt konstant über dem weltweiten Durchschnitt.",
         faq2Q: "Wie lange dauert ein IVF-Zyklus?",
         faq2A: "Ein typischer Zyklus dauert etwa 4 bis 6 Wochen.",
         faq3Q: "Gibt es eine Altersgrenze?",
@@ -624,30 +624,33 @@ function renderFAQs(lang) {
 
     faqContainer.innerHTML = '';
     
+    if (typeof faqData === 'undefined') return;
+
     const questions = faqData[lang] || faqData['tr'];
 
     questions.forEach((item) => {
         const accordionItem = document.createElement('div');
         accordionItem.className = 'accordion-item';
         
-        accordionItem.innerHTML = \
-            <button class=" accordion-header\>
- <span>\</span>
- <i class=\fa-solid fa-chevron-down\></i>
- </button>
- <div class=\accordion-content\>
- <p>\</p>
- </div>
- \;
- 
- const header = accordionItem.querySelector('.accordion-header');
- header.addEventListener('click', () => {
- const isActive = accordionItem.classList.contains('active');
- document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
- if (!isActive) accordionItem.classList.add('active');
- });
- 
- faqContainer.appendChild(accordionItem);
- });
+        accordionItem.innerHTML = `
+            <button class="accordion-header">
+                <span>${item.q}</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="accordion-content">
+                <p>${item.a}</p>
+            </div>
+        `;
+        
+        const header = accordionItem.querySelector('.accordion-header');
+        header.addEventListener('click', () => {
+            const isActive = accordionItem.classList.contains('active');
+            document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+            if (!isActive) accordionItem.classList.add('active');
+        });
+        
+        faqContainer.appendChild(accordionItem);
+    });
 }
+
 
