@@ -3,390 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Cahit Cenksoy | Premium IVF Clinic</title>
+    <title>Dr. Cahit Cenksoy | IVF & Medical Clinic</title>
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://cahitcenksoy.com/admin/images/logo/3781738918favicon.png">
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar -->
+    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="logo.png" alt="Logo" class="logo-dark" style="height: 45px;">
+                    <img src="logo.png" alt="Dr. Cahit Cenksoy" id="navLogo">
                 </a>
             </div>
+            
             <ul class="nav-links">
-                <li><a href="index.html" class="active" data-i18n="navHome">Home</a></li>
-                <li><a href="team.html" data-i18n="navTeam">Team</a></li>
-                <li><a href="ivf.html" data-i18n="navIVF">IVF</a></li>
-                <li><a href="treatments.html" data-i18n="navTreatments">Treatments</a></li>
-                <li><a href="faq.html" data-i18n="navFAQ">FAQ</a></li>
-                <li><a href="contact.html" data-i18n="navContact">Contact</a></li>
-                <li class="lang-dropdown">
-                    <button class="lang-btn" id="currentLang">TR <i class="fa-solid fa-globe"></i></button>
-                    <ul class="lang-menu">
-                        <li><a href="#" onclick="changeLanguage('tr')">Turkish</a></li>
-                        <li><a href="#" onclick="changeLanguage('en')">English</a></li>
-                        <li><a href="#" onclick="changeLanguage('fr')">French</a></li>
-                        <li><a href="#" onclick="changeLanguage('ar')">Arabic</a></li>
+                <li><a href="index.html" class="active" data-i18n="navHome">ANA SAYFA</a></li>
+                <li><a href="team.html" data-i18n="navTeam">EKİBİMİZ</a></li>
+                <li class="dropdown">
+                    <a href="ivf.html"><span data-i18n="navIVF">TÜP BEBEK (IVF)</span> <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="ivf.html" data-i18n="ivfItem1">Initial Evaluation</a></li>
+                        <li><a href="ivf.html" data-i18n="ivfItem2">IVF Medicines</a></li>
+                        <li><a href="ivf.html" data-i18n="ivfItem3">Stimulation of the ovaries</a></li>
+                        <li><a href="ivf.html" data-i18n="ivfItem4">Maturation of Eggs</a></li>
+                        <li><a href="ivf.html" data-i18n="ivfItem5">OPU (Egg Collection)</a></li>
+                        <li><a href="ivf.html" data-i18n="ivfItem6">Sperm Extraction</a></li>
+                        <li><a href="ivf.html" data-i18n="ivfItem7">Denudation</a></li>
+                        <li><a href="ivf.html" data-i18n="ivfItem8">Transfer</a></li>
                     </ul>
                 </li>
-                <li>
-                    <button class="theme-toggle" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+                <li class="dropdown">
+                    <a href="treatments.html"><span data-i18n="navTreatments">TEDAVİ SEÇENEKLERİ</span> <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="treatments.html" data-i18n="treatmentItem1">PGD/PGS</a></li>
+                        <li><a href="treatments.html" data-i18n="treatmentItem2">Tandem Cycle</a></li>
+                        <li><a href="treatments.html" data-i18n="treatmentItem3">Sperm Donation</a></li>
+                        <li><a href="treatments.html" data-i18n="treatmentItem4">Egg Donation</a></li>
+                        <li><a href="treatments.html" data-i18n="treatmentItem5">Embryo Donation</a></li>
+                        <li><a href="treatments.html" data-i18n="treatmentItem6">NGS Treatment</a></li>
+                        <li><a href="treatments.html" data-i18n="treatmentItem7">IVF with ICSI</a></li>
+                        <li><a href="treatments.html" data-i18n="treatmentItem8">Sperm and Egg Freezing</a></li>
+                    </ul>
                 </li>
+                <li><a href="testimonials.html" data-i18n="navTestimonials">HASTALARIMIZDAN</a></li>
+                <li><a href="faq.html" data-i18n="navFAQ">SIK SORULANLAR</a></li>
+                <li><a href="blog.html" data-i18n="navBlogs">BLOG</a></li>
+                <li><a href="contact.html" data-i18n="navContact">İLETİŞİM</a></li>
+                
+                <li class="lang-selector">
+                    <button class="lang-btn" id="currentLang">TR <i class="fa-solid fa-globe"></i></button>
+                    <div class="lang-dropdown">
+                        <a href="#" onclick="changeLanguage('tr')">Türkçe</a>
+                        <a href="#" onclick="changeLanguage('en')">English</a>
+                        <a href="#" onclick="changeLanguage('fr')">Français</a>
+                        <a href="#" onclick="changeLanguage('ar')">العربية</a>
+                        <a href="#" onclick="changeLanguage('de')">Deutsch</a>
+                        <a href="#" onclick="changeLanguage('ru')">Русский</a>
+                    </div>
+                </li>
+                <li><button id="themeToggle" class="theme-btn"><i class="fa-solid fa-moon"></i></button></li>
             </ul>
-            <button class="mobile-toggle" id="mobileToggle"><i class="fa-solid fa-bars"></i></button>
+
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <header class="hero" id="home">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 data-i18n="heroTitle">Creating Miracles Together</h1>
-                <p data-i18n="heroSubtitle">State-of-the-art IVF treatments tailored for your unique journey to parenthood.</p>
-                <div class="hero-buttons">
-                    <a href="contact.html" class="btn btn-primary" data-i18n="heroBtnPrimary">Book Consultation</a>
-                    <a href="treatments.html" class="btn btn-secondary" data-i18n="heroBtnSecondary">Explore Treatments</a>
+                <h1 data-i18n="heroTitle">Birlikte Mucizeler Yaratıyoruz</h1>
+                <p data-i18n="heroSubtitle">Uzman bakım ve şefkatle yönlendirilen, ebeveynlik yolculuğunuza özel en son teknoloji tüp bebek tedavileri.</p>
+                <div class="hero-btns">
+                    <a href="contact.html" class="btn btn-primary" data-i18n="heroBtnPrimary">Danışmanlık Alın</a>
+                    <a href="treatments.html" class="btn btn-secondary" data-i18n="heroBtnSecondary">Tedavileri İncele</a>
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
     <!-- Stats Bar -->
-    <div class="stats-bar">
+    <section class="stats-bar">
         <div class="container">
             <div class="stats-grid">
-                <div class="stat-box">
+                <div class="stat-item">
                     <i class="fa-solid fa-flask"></i>
                     <h2 data-i18n="stat1Num">3640</h2>
-                    <p data-i18n="stat1Label">Total IVF Cycles</p>
+                    <p data-i18n="stat1Label">TOTAL IVF CYCLES</p>
                 </div>
-                <div class="stat-box">
+                <div class="stat-item">
                     <i class="fa-solid fa-egg"></i>
                     <h2 data-i18n="stat2Num">2260</h2>
-                    <p data-i18n="stat2Label">Oocyte Donation</p>
-                    <span data-i18n="stat2Sub">84% Success</span>
+                    <p data-i18n="stat2Label">OOCYTE DONATION</p>
+                    <span class="stat-badge" data-i18n="stat2Sub">84% SUCCESS</span>
                 </div>
-                <div class="stat-box">
+                <div class="stat-item">
                     <i class="fa-solid fa-vial"></i>
                     <h2 data-i18n="stat3Num">693</h2>
                     <p data-i18n="stat3Label">IVF</p>
-                    <span data-i18n="stat3Sub">84% Success</span>
+                    <span class="stat-badge" data-i18n="stat3Sub">84% SUCCESS</span>
                 </div>
-                <div class="stat-box">
+                <div class="stat-item">
                     <i class="fa-solid fa-bacteria"></i>
                     <h2 data-i18n="stat4Num">538</h2>
-                    <p data-i18n="stat4Label">Sperm Donation</p>
-                    <span data-i18n="stat4Sub">67% Success</span>
+                    <p data-i18n="stat4Label">SPERM DONATION</p>
+                    <span class="stat-badge" data-i18n="stat4Sub">67% SUCCESS</span>
                 </div>
-                <div class="stat-box">
+                <div class="stat-item">
                     <i class="fa-solid fa-dna"></i>
                     <h2 data-i18n="stat5Num">610</h2>
                     <p data-i18n="stat5Label">PGD</p>
-                    <span data-i18n="stat5Sub">84% Success</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- About -->
-    <section class="section" id="about">
-        <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center;">
-                <div>
-                    <img src="https://cahitcenksoy.com/admin/images/takim/3610996843CahitCenksoy.png" alt="Dr. Cahit Cenksoy" style="width: 100%; border-radius: 20px; box-shadow: var(--card-shadow);">
-                </div>
-                <div>
-                    <h2 style="font-size: 2.8rem; color: var(--secondary); margin-bottom: 24px;">Dr. Cahit Cenksoy</h2>
-                    <p style="font-size: 1.15rem; color: var(--text-muted); margin-bottom: 30px;">With over 20 years of expertise in reproductive medicine, Dr. Cahit Cenksoy leads our team with a commitment to clinical excellence and personalized patient care.</p>
-                    <a href="team.html" class="btn btn-primary">Meet Our Team</a>
+                    <span class="stat-badge" data-i18n="stat5Sub">84% SUCCESS</span>
                 </div>
             </div>
         </div>
     </section>
 
-<<<<<<< HEAD
-    <!-- Statistics Section -->
-    <section class="section bg-primary text-white text-center" style="padding: 40px 0;"><div class="container"><div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;"><div class="stat-box" style="flex: 1; min-width: 150px; border: none; background: transparent; padding: 10px; border-right: 1px solid rgba(255,255,255,0.3); border-radius: 0;"><i class="fa-solid fa-flask" style="font-size: 2rem; margin-bottom: 10px;"></i><h2 style="font-size: 2.5rem; margin-bottom: 5px;">3640</h2><p style="font-size: 0.9rem; font-weight: 600; text-transform: uppercase;">TOPLAM IVF SIKLUSU</p></div><div class="stat-box" style="flex: 1; min-width: 150px; border: none; background: transparent; padding: 10px; border-right: 1px solid rgba(255,255,255,0.3); border-radius: 0;"><i class="fa-solid fa-egg" style="font-size: 2rem; margin-bottom: 10px;"></i><h2 style="font-size: 2.5rem; margin-bottom: 5px;">2260</h2><p style="font-size: 0.9rem; font-weight: 600; text-transform: uppercase;">OOSİT DONASYONU</p><span style="font-size: 0.8rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px;">%84 BAŞARI</span></div><div class="stat-box" style="flex: 1; min-width: 150px; border: none; background: transparent; padding: 10px; border-right: 1px solid rgba(255,255,255,0.3); border-radius: 0;"><i class="fa-solid fa-vial" style="font-size: 2rem; margin-bottom: 10px;"></i><h2 style="font-size: 2.5rem; margin-bottom: 5px;">693</h2><p style="font-size: 0.9rem; font-weight: 600; text-transform: uppercase;">IVF</p><span style="font-size: 0.8rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px;">%84 BAŞARI</span></div><div class="stat-box" style="flex: 1; min-width: 150px; border: none; background: transparent; padding: 10px; border-right: 1px solid rgba(255,255,255,0.3); border-radius: 0;"><i class="fa-solid fa-bacteria" style="font-size: 2rem; margin-bottom: 10px;"></i><h2 style="font-size: 2.5rem; margin-bottom: 5px;">538</h2><p style="font-size: 0.9rem; font-weight: 600; text-transform: uppercase;">SPERM DONASYONU</p><span style="font-size: 0.8rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px;">%67 BAŞARI</span></div><div class="stat-box" style="flex: 1; min-width: 150px; border: none; background: transparent; padding: 10px; border-radius: 0;"><i class="fa-solid fa-dna" style="font-size: 2rem; margin-bottom: 10px;"></i><h2 style="font-size: 2.5rem; margin-bottom: 5px;">610</h2><p style="font-size: 0.9rem; font-weight: 600; text-transform: uppercase;">PGD</p><span style="font-size: 0.8rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px;">%84 BAŞARI</span></div></div></div></section>
-
-    <!-- IVF Section -->
-    <section id="ivf" class="section bg-light">
+    <!-- About Section -->
+    <section id="about" class="section">
         <div class="container">
-            <div class="section-header">
-                <h2 data-i18n="ivfTitle">IVF Center</h2>
-                <div class="header-line"></div>
-            </div>
             <div class="grid-2">
-                <div class="text-content">
-                    <h3 data-i18n="ivfSubTitle">Advanced Reproductive Technology</h3>
-                    <p data-i18n="ivfDesc">We utilize the latest advancements in in-vitro fertilization to maximize your chances of a healthy pregnancy. Our laboratory is equipped with state-of-the-art technology to handle complex cases with precision.</p>
-                    <ul class="feature-list">
-                        <li><i class="fa-solid fa-check-circle"></i> <span data-i18n="ivfFeature1">Comprehensive Fertility Evaluation</span></li>
-                        <li><i class="fa-solid fa-check-circle"></i> <span data-i18n="ivfFeature2">Customized Treatment Protocols</span></li>
-                        <li><i class="fa-solid fa-check-circle"></i> <span data-i18n="ivfFeature3">High Success Rates</span></li>
-=======
-    <!-- Footer -->
-    <footer style="background: var(--bg-soft); padding: 80px 0 40px; border-top: 1px solid var(--border);">
-        <div class="container">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
-                <div>
-                    <h3 data-i18n="footerContactTitle" style="margin-bottom: 20px; text-transform: uppercase; font-size: 1.1rem; letter-spacing: 1px;">Contact Info</h3>
-                    <p style="margin-bottom: 12px; color: var(--text-muted);"><i class="fa-solid fa-location-dot" style="color: var(--primary); margin-right: 10px;"></i> Nicosia, Cyprus</p>
-                    <p style="margin-bottom: 12px; color: var(--text-muted);"><i class="fa-solid fa-phone" style="color: var(--primary); margin-right: 10px;"></i> +90 533 868 1983</p>
-                    <p style="color: var(--text-muted);"><i class="fa-solid fa-envelope" style="color: var(--primary); margin-right: 10px;"></i> info@cahitcenksoy.com</p>
+                <div class="image-content">
+                    <img src="https://cahitcenksoy.com/admin/images/takim/3610996843CahitCenksoy.png" alt="Dr. Cahit Cenksoy" class="img-fluid rounded">
                 </div>
-                <div>
-                    <h3 data-i18n="footerPagesTitle" style="margin-bottom: 20px; text-transform: uppercase; font-size: 1.1rem; letter-spacing: 1px;">Pages</h3>
-                    <ul style="list-style: none; color: var(--text-muted);">
-                        <li style="margin-bottom: 12px;"><a href="ivf.html" style="transition: var(--transition);">IVF Process</a></li>
-                        <li style="margin-bottom: 12px;"><a href="treatments.html" style="transition: var(--transition);">Treatments</a></li>
-                        <li><a href="faq.html" style="transition: var(--transition);">FAQ</a></li>
->>>>>>> 13717524449272ce0715fd2596eacb97128dea64
+                <div class="text-content">
+                    <h2 style="color: var(--primary-color); margin-bottom: 20px;">Dr. Cahit Cenksoy</h2>
+                    <p style="margin-bottom: 20px;">Dedicated to providing the highest quality of reproductive care with a focus on compassionate, personalized treatment plans.</p>
+                    <p style="margin-bottom: 30px;">With over 20 years of expertise in reproductive medicine, Dr. Cahit Cenksoy leads our team with a commitment to clinical excellence and personalized patient care.</p>
+                    <a href="team.html" class="btn btn-primary">EKİBİMİZİ TANIYIN</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h3 data-i18n="footerContactTitle">İLETİŞİM BİLGİLERİ</h3>
+                    <p><i class="fa-solid fa-location-dot"></i> Nicosia, Cyprus</p>
+                    <p><i class="fa-solid fa-phone"></i> +90 533 868 1983</p>
+                    <p><i class="fa-solid fa-envelope"></i> info@cahitcenksoy.com</p>
+                </div>
+                <div class="footer-links">
+                    <h3 data-i18n="footerPagesTitle">SAYFALARIMIZ</h3>
+                    <ul>
+                        <li><a href="ivf.html">IVF Process</a></li>
+                        <li><a href="treatments.html">Treatments</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
                     </ul>
                 </div>
             </div>
-<<<<<<< HEAD
-        </div>
-    </section>
-
-    <!-- Treatments Section -->
-    <section id="treatments" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 data-i18n="treatmentsTitle">Treatment Options</h2>
-                <div class="header-line"></div>
-            </div>
-            <div class="grid-3">
-                <div class="card service-card">
-                    <div class="card-icon"><i class="fa-solid fa-snowflake"></i></div>
-                    <h3 data-i18n="treatmentCard1Title">Egg Freezing</h3>
-                    <p data-i18n="treatmentCard1Desc">Preserve your fertility for the future with our advanced vitrification techniques.</p>
-                </div>
-                <div class="card service-card">
-                    <div class="card-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
-                    <h3 data-i18n="treatmentCard2Title">Egg/Sperm Donation</h3>
-                    <p data-i18n="treatmentCard2Desc">Comprehensive and confidential donation programs with rigorous screening processes.</p>
-                </div>
-                <div class="card service-card">
-                    <div class="card-icon"><i class="fa-solid fa-dna"></i></div>
-                    <h3 data-i18n="treatmentCard3Title">PGD / PGS</h3>
-                    <p data-i18n="treatmentCard3Desc">Preimplantation genetic testing to ensure the healthiest embryos are selected.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="section bg-primary text-white">
-        <div class="container">
-            <div class="section-header">
-                <h2 data-i18n="testimonialsTitle">Shared by Our Patients</h2>
-                <div class="header-line light"></div>
-            </div>
-            <div class="testimonial-slider">
-                <div class="testimonial-card">
-                    <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-                    <p data-i18n="testimonial1Text">"Thanks to Dr. Cenksoy and his amazing team, our dream of becoming parents finally came true. The care and support we received were beyond our expectations."</p>
-                    <h4 data-i18n="testimonial1Author">- Sarah & Michael, UK</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 data-i18n="faqTitle">Frequently Asked Questions</h2>
-                <div class="header-line"></div>
-            </div>
-            <div class="accordion" id="faqAccordion">
-                <div class="accordion-item">
-                    <button class="accordion-header" data-i18n="faq1Q">What is the success rate of IVF?</button>
-                    <div class="accordion-content">
-                        <p data-i18n="faq1A">Success rates vary depending on age and medical history, but our clinic consistently maintains rates above the global average due to our customized protocols and advanced lab.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-header" data-i18n="faq2Q">How long does an IVF cycle take?</button>
-                    <div class="accordion-content">
-                        <p data-i18n="faq2A">A typical IVF cycle takes about 4 to 6 weeks from the start of medication to the embryo transfer.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-header" data-i18n="faq3Q">Is there an age limit for treatment?</button>
-                    <div class="accordion-content">
-                        <p data-i18n="faq3A">While age impacts success, we evaluate each case individually. We offer various options including donor programs for older patients.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section id="blog" class="section bg-light">
-        <div class="container">
-            <div class="section-header">
-                <h2 data-i18n="blogTitle">Latest Insights</h2>
-                <div class="header-line"></div>
-            </div>
-            <div class="grid-3">
-                <div class="card blog-card">
-                    <div class="card-image placeholder-img">
-                        <i class="fa-solid fa-newspaper"></i>
-                    </div>
-                    <div class="card-content">
-                        <span class="blog-date">May 15, 2026</span>
-                        <h3 data-i18n="blog1Title">Understanding the IVF Timeline</h3>
-                        <a href="#" class="read-more" data-i18n="readMore">Read More <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="card blog-card">
-                    <div class="card-image placeholder-img">
-                        <i class="fa-solid fa-apple-whole"></i>
-                    </div>
-                    <div class="card-content">
-                        <span class="blog-date">Apr 22, 2026</span>
-                        <h3 data-i18n="blog2Title">Diet and Fertility: What to Eat</h3>
-                        <a href="#" class="read-more" data-i18n="readMore">Read More <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="card blog-card">
-                    <div class="card-image placeholder-img">
-                        <i class="fa-solid fa-heart"></i>
-                    </div>
-                    <div class="card-content">
-                        <span class="blog-date">Mar 10, 2026</span>
-                        <h3 data-i18n="blog3Title">Mental Health During IVF</h3>
-                        <a href="#" class="read-more" data-i18n="readMore">Read More <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 data-i18n="contactTitle">Get In Touch</h2>
-                <div class="header-line"></div>
-            </div>
-            <div class="grid-2">
-                <div class="contact-info">
-                    <h3 data-i18n="contactInfoTitle">Clinic Information</h3>
-                    <p data-i18n="contactInfoDesc">Our patient coordinators are ready to answer your questions and help you schedule your first consultation.</p>
-                    <div class="info-item">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span data-i18n="contactLocation">Nicosia, Cyprus</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fa-brands fa-whatsapp"></i>
-                        <span>+90 548 888 0 112</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fa-solid fa-phone"></i>
-                        <span>+90 392 444 0 112</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fa-solid fa-envelope"></i>
-                        <span>c_cenksoy@hotmail.com</span>
-                    </div>
-                </div>
-                <div class="contact-form-container">
-                    <!-- Setup using Formspree -->
-                    <form action="https://formspree.io/f/your-formspree-id" method="POST" class="contact-form">
-                        <div class="form-group">
-                            <label for="name" data-i18n="formName">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" data-i18n="formEmail">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message" data-i18n="formMessage">Your Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100" data-i18n="formSubmit">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-            <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid" style="grid-template-columns: 1fr 1fr;">
-                <div class="footer-column">
-                    <div class="footer-logo">
-                        <img src="siyahLogo.png" alt="Dr. Cahit Cenksoy Logo" class="logo-light" style="height: 50px; margin-bottom: 20px;">
-                        <img src="beyazLogo.png" alt="Dr. Cahit Cenksoy Logo" class="logo-dark" style="height: 50px; margin-bottom: 20px;">
-                    </div>
-                    <p class="footer-text">Nicosia IVF - Nicosia Sevin� Hospital</p>
-                    <div class="footer-social">
-                        <a href="https://www.instagram.com/drcahitcenksoy/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/people/Dr-Cahit-Cenksoy/100064112829620/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3 data-i18n="footerContactTitle">CONTACT INFORMATION</h3>
-                    <div class="footer-contact">
-                        <div class="contact-item">
-                            <i class="fa-solid fa-phone"></i>
-                            <span>+90 548 888 0 112</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fa-solid fa-phone"></i>
-                            <span>+90 542 888 0 112</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fa-solid fa-phone"></i>
-                            <span>+90 392 444 0 112</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fa-solid fa-phone"></i>
-                            <span>+90 533 868 1983</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fa-solid fa-envelope"></i>
-                            <span>c_cenksoy@hotmail.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fa-solid fa-envelope"></i>
-                            <span>ufukozbas0675@gmail.com</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Dr. Cahit Cenksoy IVF Clinic. <span data-i18n="footerRights">All rights reserved.</span></p>
-=======
-            <div style="text-align: center; padding-top: 40px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.9rem;">
                 <p>&copy; 2026 Dr. Cahit Cenksoy. <span data-i18n="footerRights">All rights reserved.</span></p>
->>>>>>> 13717524449272ce0715fd2596eacb97128dea64
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/905338300000" class="whatsapp-btn" target="_blank">
+    <a href="https://wa.me/905338300000" class="whatsapp-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <script src="app.js"></script>
-<a href="https://wa.me/905338300000" class="whatsapp-btn" target="_blank" style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1000;"><i class="fa-brands fa-whatsapp"></i></a></body>
+    <script src="faqs.js"></script>
+</body>
 </html>
-<<<<<<< HEAD
 
-
-
-
-
-
-=======
->>>>>>> 13717524449272ce0715fd2596eacb97128dea64
