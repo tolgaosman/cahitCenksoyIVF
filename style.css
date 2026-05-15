@@ -188,9 +188,9 @@ h1, h2, h3, h4 {
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -213,12 +213,12 @@ h1, h2, h3, h4 {
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 15px;
 }
 
 .nav-links {
     display: flex;
-    gap: 20px;
+    gap: 12px;
 }
 
 .nav-links li {
@@ -226,10 +226,10 @@ h1, h2, h3, h4 {
 }
 
 .nav-links a {
-    font-size: 0.8rem;
-    font-weight: 500;
+    font-size: 0.75rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
     color: var(--text-main);
     transition: var(--transition);
     padding: 8px 0;
