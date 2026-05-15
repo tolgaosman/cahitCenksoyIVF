@@ -1355,16 +1355,4 @@ h4 {
 }
 
 
-/* --- Google Translate Cleanup --- */
-.goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
-    display: none !important;
-}
-body {
-    top: 0px !important;
-}
-.goog-te-menu-value img {
-    display: none !important;
-}
-.goog-te-menu-frame {
-    box-shadow: none !important;
-}
+

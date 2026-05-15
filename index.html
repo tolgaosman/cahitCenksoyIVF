@@ -41,6 +41,7 @@
                             <li><a href="treatments.html">Sperm Donation</a></li>
                         </ul>
                     </li>
+                    <li><a href="testimonials.html">SHARED BY OUR PATIENTS</a></li>
                     <li><a href="faq.html">FREQUENTLY ASKED</a></li>
                     <li><a href="blog.html">BLOGS</a></li>
                     <li><a href="contact.html">CONTACT</a></li>
@@ -55,11 +56,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="#" onclick="changeLanguage('tr')">TR</a></li>
                         <li><a href="#" onclick="changeLanguage('en')">EN</a></li>
-                        <li><a href="#" onclick="changeLanguage('fr')">FR</a></li>
-                        <li><a href="#" onclick="changeLanguage('de')">DE</a></li>
-                        <li><a href="#" onclick="changeLanguage('ru')">RU</a></li>
-                        <li><a href="#" onclick="changeLanguage('ar')">AR</a></li>
-                    </ul>
+                        </ul>
                 </div>
                 <button class="mobile-toggle" id="mobileToggle">
                     <i class="fa-solid fa-bars"></i>
@@ -68,21 +65,70 @@
         </div>
     </nav>
 
-    <!-- Spacer -->
-    <div style="height: 90px;"></div>
-
-    <!-- Testimonials Section -->
-    <section class="section bg-light">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
         <div class="container">
-            <div class="section-header">
-                <h2 data-i18n="testimonialsTitle">Shared by Our Patients</h2>
-                <div class="header-line"></div>
+            <div class="hero-content">
+                <h1 data-i18n="heroTitle">Birlikte Mucizeler Yaratıyoruz</h1>
+                <p data-i18n="heroSubtitle">Uzman bakım ve şefkatle yönlendirilen, ebeveynlik yolculuğunuza özel en son teknoloji tüp bebek tedavileri.</p>
+                <div class="hero-btns">
+                    <a href="contact.html" class="btn btn-primary" data-i18n="heroBtnPrimary">Danışmanlık Alın</a>
+                    <a href="treatments.html" class="btn btn-secondary" data-i18n="heroBtnSecondary">Tedavileri İncele</a>
+                </div>
             </div>
-            <div class="testimonial-slider">
-                <div class="testimonial-card">
-                    <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-                    <p data-i18n="testimonial1Text">"Thanks to Dr. Cenksoy and his amazing team, our dream of becoming parents finally came true. The care and support we received were beyond our expectations."</p>
-                    <h4 data-i18n="testimonial1Author">- Sarah & Michael, UK</h4>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <i class="fa-solid fa-flask"></i>
+                    <h2 data-i18n="stat1Num">3640</h2>
+                    <p data-i18n="stat1Label">TOTAL IVF CYCLES</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-egg"></i>
+                    <h2 data-i18n="stat2Num">2260</h2>
+                    <p data-i18n="stat2Label">OOCYTE DONATION</p>
+                    <span class="stat-badge" data-i18n="stat2Sub">84% SUCCESS</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-vial"></i>
+                    <h2 data-i18n="stat3Num">693</h2>
+                    <p data-i18n="stat3Label">IVF</p>
+                    <span class="stat-badge" data-i18n="stat3Sub">84% SUCCESS</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-bacteria"></i>
+                    <h2 data-i18n="stat4Num">538</h2>
+                    <p data-i18n="stat4Label">SPERM DONATION</p>
+                    <span class="stat-badge" data-i18n="stat4Sub">67% SUCCESS</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-dna"></i>
+                    <h2 data-i18n="stat5Num">610</h2>
+                    <p data-i18n="stat5Label">PGD</p>
+                    <span class="stat-badge" data-i18n="stat5Sub">84% SUCCESS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="grid-2">
+                <div class="image-content">
+                    <img src="https://cahitcenksoy.com/admin/images/takim/cahitcenksoy_foto.png" alt="Dr. Cahit Cenksoy" class="img-fluid rounded">
+                </div>
+                <div class="text-content">
+                    <h2 style="color: var(--primary-color); margin-bottom: 20px;">Dr. Cahit Cenksoy</h2>
+                    <p style="margin-bottom: 20px;">Dedicated to providing the highest quality of reproductive care with a focus on compassionate, personalized treatment plans.</p>
+                    <p style="margin-bottom: 30px;">With over 20 years of expertise in reproductive medicine, Dr. Cahit Cenksoy leads our team with a commitment to clinical excellence and personalized patient care.</p>
+                    <a href="team.html" class="btn btn-primary">EKİBİMİZİ TANIYIN</a><br>
+                    <img src="https://cahitcenksoy.com/admin/images/takim/80711095276CahitCenksoySigniture.png" alt="Signature" style="max-width: 200px; margin-top: 20px;">
                 </div>
             </div>
         </div>
@@ -114,19 +160,17 @@
         </div>
     </footer>
 
-    <div id="google_translate_element" style="display:none"></div>
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'tr',
-                includedLanguages: 'en,fr,de,ru,ar,tr',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <a href="https://wa.me/905338300000" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    
+    
+    
     <script src="app.js"></script>
+    <script src="faqs.js"></script>
 </body>
 </html>
+
+
 

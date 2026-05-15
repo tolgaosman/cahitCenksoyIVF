@@ -142,62 +142,6 @@ const translations = {
         footerRights: "All rights reserved.",
         footerPagesTitle: "PAGES",
         footerContactTitle: "CONTACT INFO"
-    },
-    fr: {
-        logoText: "Dr. Cahit Cenksoy",
-        navHome: "ACCUEIL",
-        navTeam: "NOTRE ÉQUIPE",
-        navIVF: "FIV",
-        navTreatments: "OPTIONS DE TRAITEMENT",
-        navTestimonials: "TEMOIGNAGES",
-        navFAQ: "FAQ",
-        navBlogs: "BLOGS",
-        navContact: "CONTACT",
-        heroTitle: "Créer des miracles, ensemble",
-        heroBtnPrimary: "Réserver une consultation",
-        heroBtnSecondary: "Explorer les traitements"
-    },
-    de: {
-        logoText: "Dr. Cahit Cenksoy",
-        navHome: "HOME",
-        navTeam: "UNSER TEAM",
-        navIVF: "IVF",
-        navTreatments: "BEHANDLUNGSOPTIONEN",
-        navTestimonials: "PATIENTENBERICHTE",
-        navFAQ: "FAQ",
-        navBlogs: "BLOGS",
-        navContact: "KONTAKT",
-        heroTitle: "Gemeinsam Wunder schaffen",
-        heroBtnPrimary: "Beratung buchen",
-        heroBtnSecondary: "Behandlungen erkunden"
-    },
-    ru: {
-        logoText: "Доктор Джахит Дженксой",
-        navHome: "ГЛАВНАЯ",
-        navTeam: "НАША КОМАНДА",
-        navIVF: "ЭКО",
-        navTreatments: "ВАРИАНТЫ ЛЕЧЕНИЯ",
-        navTestimonials: "ОТЗЫВЫ ПАЦИЕНТОВ",
-        navFAQ: "ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ",
-        navBlogs: "БЛОГИ",
-        navContact: "КОНТАКТЫ",
-        heroTitle: "Творим чудеса вместе",
-        heroBtnPrimary: "Записаться на консультацию",
-        heroBtnSecondary: "Изучить методы лечения"
-    },
-    ar: {
-        logoText: "د. جاهد جنكسوي",
-        navHome: "الرئيسية",
-        navTeam: "فريقنا",
-        navIVF: "أطفال الأنابيب",
-        navTreatments: "خيارات العلاج",
-        navTestimonials: "آراء المرضى",
-        navFAQ: "الأسئلة الشائعة",
-        navBlogs: "المدونات",
-        navContact: "اتصل بنا",
-        heroTitle: "نصنع المعجزات معاً",
-        heroBtnPrimary: "احجز استشارة",
-        heroBtnSecondary: "استكشف العلاجات"
     }
 };
 
@@ -205,7 +149,6 @@ const translations = {
 let currentLang = localStorage.getItem('lang') || 'tr';
 
 function changeLanguage(lang) {
-    // 1. Static Dictionary Translation (Fast)
     if (translations[lang]) {
         currentLang = lang;
         localStorage.setItem('lang', lang);
@@ -214,8 +157,6 @@ function changeLanguage(lang) {
         if (langBtn) {
             langBtn.innerHTML = `${lang.toUpperCase()} <i class="fa-solid fa-globe"></i>`;
         }
-
-        document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
 
         const elements = document.querySelectorAll('[data-i18n]');
         elements.forEach(el => {
@@ -230,44 +171,11 @@ function changeLanguage(lang) {
         });
 
         if (typeof renderFAQs === 'function') renderFAQs(lang);
-        const navLinks = document.querySelector('.nav-links');
-        if (navLinks) navLinks.classList.remove('active');
-    }
-
-    // 2. Google Translate Integration (Universal - translates every word)
-    const triggerGoogleTranslate = (langCode) => {
-        const select = document.querySelector('select.goog-te-combo');
-        if (select) {
-            select.value = langCode;
-            select.dispatchEvent(new Event('change'));
-        } else {
-            // If widget not ready, try again in 500ms
-            setTimeout(() => triggerGoogleTranslate(langCode), 500);
-        }
-    };
-
-    if (lang !== 'tr') {
-        triggerGoogleTranslate(lang);
-    } else {
-        // Reset to original (Turkish)
-        const iframe = document.querySelector('.goog-te-banner-frame');
-        if (iframe) {
-            const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-            const restoreBtn = innerDoc.querySelector('.goog-te-button button');
-            if (restoreBtn) restoreBtn.click();
-        }
-        // Fallback reset
-        const select = document.querySelector('select.goog-te-combo');
-        if (select) {
-            select.value = '';
-            select.dispatchEvent(new Event('change'));
-        }
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Initial call
-    setTimeout(() => changeLanguage(currentLang), 1000);
+    changeLanguage(currentLang);
 });
 
 // --- Theme Toggle ---
