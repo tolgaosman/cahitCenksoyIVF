@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Cahit Cenksoy | IVF & Medical Clinic</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="#home">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <span data-i18n="logoText">Dr. Cahit Cenksoy</span>
+                </a>
+            </div>
+            
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#home" data-i18n="navHome">HOME</a></li>
+                    <li><a href="#team" data-i18n="navTeam">OUR TEAM</a></li>
+                    <li class="dropdown">
+                        <a href="#ivf"><span data-i18n="navIVF">IVF</span> <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" data-i18n="ivfProcess">IVF Process</a></li>
+                            <li><a href="#" data-i18n="ivfICSI">ICSI</a></li>
+                            <li><a href="#" data-i18n="ivfIMSI">IMSI</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#treatments"><span data-i18n="navTreatments">TREATMENT OPTIONS</span> <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" data-i18n="treatmentEggFreezing">Egg Freezing</a></li>
+                            <li><a href="#" data-i18n="treatmentDonation">Donation</a></li>
+                            <li><a href="#" data-i18n="treatmentPGD">PGD / PGS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#testimonials" data-i18n="navTestimonials">SHARED BY OUR PATIENTS</a></li>
+                    <li><a href="#faq" data-i18n="navFAQ">FREQUENTLY ASKED</a></li>
+                    <li><a href="#blog" data-i18n="navBlogs">BLOGS</a></li>
+                    <li><a href="#contact" data-i18n="navContact">CONTACT</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <!-- Language Switcher -->
+                    <div class="lang-dropdown">
+                        <button class="lang-btn" id="currentLang">TR <i class="fa-solid fa-globe"></i></button>
+                        <ul class="lang-menu">
+                            <li><a href="#" onclick="changeLanguage('tr')">Turkish (TR)</a></li>
+                            <li><a href="#" onclick="changeLanguage('en')">English (EN)</a></li>
+                            <li><a href="#" onclick="changeLanguage('fr')">French (FR)</a></li>
+                            <li><a href="#" onclick="changeLanguage('ar')">Arabic (AR)</a></li>
+                            <li><a href="#" onclick="changeLanguage('de')">German (DE)</a></li>
+                        </ul>
+                    </div>
+                    <!-- Dark Mode Toggle -->
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <!-- Mobile Menu Toggle -->
+                    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 data-i18n="heroTitle">Creating Miracles, Together</h1>
+            <p data-i18n="heroSubtitle">State-of-the-art IVF treatments tailored for your unique journey to parenthood, guided by expert care and compassion.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary" data-i18n="heroBtnPrimary">Book a Consultation</a>
+                <a href="#treatments" class="btn btn-secondary" data-i18n="heroBtnSecondary">Explore Treatments</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="teamTitle">Our Team</h2>
+                <div class="header-line"></div>
+            </div>
+            <div class="grid-3">
+                <div class="card team-card">
+                    <div class="card-image placeholder-img">
+                        <i class="fa-solid fa-user-doctor"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Dr. Cahit Cenksoy</h3>
+                        <p class="subtitle" data-i18n="teamRole1">Lead IVF Specialist</p>
+                        <p data-i18n="teamDesc1">Over 20 years of experience in reproductive medicine and advanced IVF technologies.</p>
+                    </div>
+                </div>
+                <!-- Additional team members can be added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- IVF Section -->
+    <section id="ivf" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="ivfTitle">IVF Center</h2>
+                <div class="header-line"></div>
+            </div>
+            <div class="grid-2">
+                <div class="text-content">
+                    <h3 data-i18n="ivfSubTitle">Advanced Reproductive Technology</h3>
+                    <p data-i18n="ivfDesc">We utilize the latest advancements in in-vitro fertilization to maximize your chances of a healthy pregnancy. Our laboratory is equipped with state-of-the-art technology to handle complex cases with precision.</p>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-check-circle"></i> <span data-i18n="ivfFeature1">Comprehensive Fertility Evaluation</span></li>
+                        <li><i class="fa-solid fa-check-circle"></i> <span data-i18n="ivfFeature2">Customized Treatment Protocols</span></li>
+                        <li><i class="fa-solid fa-check-circle"></i> <span data-i18n="ivfFeature3">High Success Rates</span></li>
+                    </ul>
+                </div>
+                <div class="image-content placeholder-img-large">
+                    <i class="fa-solid fa-microscope"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Treatments Section -->
+    <section id="treatments" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="treatmentsTitle">Treatment Options</h2>
+                <div class="header-line"></div>
+            </div>
+            <div class="grid-3">
+                <div class="card service-card">
+                    <div class="card-icon"><i class="fa-solid fa-snowflake"></i></div>
+                    <h3 data-i18n="treatmentCard1Title">Egg Freezing</h3>
+                    <p data-i18n="treatmentCard1Desc">Preserve your fertility for the future with our advanced vitrification techniques.</p>
+                </div>
+                <div class="card service-card">
+                    <div class="card-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                    <h3 data-i18n="treatmentCard2Title">Egg/Sperm Donation</h3>
+                    <p data-i18n="treatmentCard2Desc">Comprehensive and confidential donation programs with rigorous screening processes.</p>
+                </div>
+                <div class="card service-card">
+                    <div class="card-icon"><i class="fa-solid fa-dna"></i></div>
+                    <h3 data-i18n="treatmentCard3Title">PGD / PGS</h3>
+                    <p data-i18n="treatmentCard3Desc">Preimplantation genetic testing to ensure the healthiest embryos are selected.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section bg-primary text-white">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="testimonialsTitle">Shared by Our Patients</h2>
+                <div class="header-line light"></div>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                    <p data-i18n="testimonial1Text">"Thanks to Dr. Cenksoy and his amazing team, our dream of becoming parents finally came true. The care and support we received were beyond our expectations."</p>
+                    <h4 data-i18n="testimonial1Author">- Sarah & Michael, UK</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="faqTitle">Frequently Asked Questions</h2>
+                <div class="header-line"></div>
+            </div>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <button class="accordion-header" data-i18n="faq1Q">What is the success rate of IVF?</button>
+                    <div class="accordion-content">
+                        <p data-i18n="faq1A">Success rates vary depending on age and medical history, but our clinic consistently maintains rates above the global average due to our customized protocols and advanced lab.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header" data-i18n="faq2Q">How long does an IVF cycle take?</button>
+                    <div class="accordion-content">
+                        <p data-i18n="faq2A">A typical IVF cycle takes about 4 to 6 weeks from the start of medication to the embryo transfer.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header" data-i18n="faq3Q">Is there an age limit for treatment?</button>
+                    <div class="accordion-content">
+                        <p data-i18n="faq3A">While age impacts success, we evaluate each case individually. We offer various options including donor programs for older patients.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="blogTitle">Latest Insights</h2>
+                <div class="header-line"></div>
+            </div>
+            <div class="grid-3">
+                <div class="card blog-card">
+                    <div class="card-image placeholder-img">
+                        <i class="fa-solid fa-newspaper"></i>
+                    </div>
+                    <div class="card-content">
+                        <span class="blog-date">May 15, 2026</span>
+                        <h3 data-i18n="blog1Title">Understanding the IVF Timeline</h3>
+                        <a href="#" class="read-more" data-i18n="readMore">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card blog-card">
+                    <div class="card-image placeholder-img">
+                        <i class="fa-solid fa-apple-whole"></i>
+                    </div>
+                    <div class="card-content">
+                        <span class="blog-date">Apr 22, 2026</span>
+                        <h3 data-i18n="blog2Title">Diet and Fertility: What to Eat</h3>
+                        <a href="#" class="read-more" data-i18n="readMore">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card blog-card">
+                    <div class="card-image placeholder-img">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div class="card-content">
+                        <span class="blog-date">Mar 10, 2026</span>
+                        <h3 data-i18n="blog3Title">Mental Health During IVF</h3>
+                        <a href="#" class="read-more" data-i18n="readMore">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="contactTitle">Get In Touch</h2>
+                <div class="header-line"></div>
+            </div>
+            <div class="grid-2">
+                <div class="contact-info">
+                    <h3 data-i18n="contactInfoTitle">Clinic Information</h3>
+                    <p data-i18n="contactInfoDesc">Our patient coordinators are ready to answer your questions and help you schedule your first consultation.</p>
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Nicosia, Cyprus</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+90 (555) 123 45 67</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>info@cahitcenksoy.com</span>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <!-- Setup using Formspree -->
+                    <form action="https://formspree.io/f/your-formspree-id" method="POST" class="contact-form">
+                        <div class="form-group">
+                            <label for="name" data-i18n="formName">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-i18n="formEmail">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-i18n="formMessage">Your Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100" data-i18n="formSubmit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2026 Dr. Cahit Cenksoy IVF Clinic. <span data-i18n="footerRights">All rights reserved.</span></p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
