@@ -1069,27 +1069,11 @@ h1, h2, h3, h4 {
 }
 
 /* 1:4:1 Navbar Layout */
-.nav-container {
-    display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
-    align-items: center;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
 
-.nav-center {
-    display: flex;
-    justify-content: center;
-}
 
-.nav-right {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 15px;
-}
+
+
+
 
 .nav-links {
     display: flex;
@@ -1101,12 +1085,59 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 992px) {
-    .nav-container {
-        display: flex;
-        justify-content: space-between;
-    }
+    
+    
+}
+
+
+/* Centered Navbar with Logo and Clean Theme Toggle */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    flex: 0 0 auto;
+}
+
+#navLogo {
+    max-height: 40px;
+    width: auto;
+    display: block;
+}
+
+.nav-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-right {
+    flex: 0 0 auto;
+}
+
+.theme-btn {
+    background: transparent !important;
+    border: none !important;
+    color: var(--text-main) !important;
+    font-size: 1.2rem !important;
+    cursor: pointer;
+    padding: 8px;
+    transition: var(--transition);
+}
+
+.theme-btn:hover {
+    color: var(--primary-color) !important;
+}
+
+@media (max-width: 992px) {
     .nav-center {
-        display: none; /* Mobile menu handles this */
+        display: none;
     }
 }
 
