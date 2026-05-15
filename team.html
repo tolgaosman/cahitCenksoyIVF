@@ -51,16 +51,16 @@
                 <button id="themeToggle" class="theme-toggle">
                     <i class="fa-solid fa-moon"></i>
                 </button>
-                <div class="lang-selector">
+                <div class="lang-selector dropdown">
                     <button class="lang-btn" id="currentLang">EN <i class="fa-solid fa-globe"></i></button>
-                    <div class="lang-dropdown">
-                        <a href="#" onclick="changeLanguage('tr')">TR</a>
-                        <a href="#" onclick="changeLanguage('en')">EN</a>
-                        <a href="#" onclick="changeLanguage('fr')">FR</a>
-                        <a href="#" onclick="changeLanguage('de')">DE</a>
-                        <a href="#" onclick="changeLanguage('ru')">RU</a>
-                        <a href="#" onclick="changeLanguage('ar')">AR</a>
-                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="changeLanguage('tr')">TR</a></li>
+                        <li><a href="#" onclick="changeLanguage('en')">EN</a></li>
+                        <li><a href="#" onclick="changeLanguage('fr')">FR</a></li>
+                        <li><a href="#" onclick="changeLanguage('de')">DE</a></li>
+                        <li><a href="#" onclick="changeLanguage('ru')">RU</a></li>
+                        <li><a href="#" onclick="changeLanguage('ar')">AR</a></li>
+                    </ul>
                 </div>
                 <button class="mobile-toggle" id="mobileToggle">
                     <i class="fa-solid fa-bars"></i>
