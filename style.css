@@ -494,46 +494,6 @@ h4 {
     font-size: 1.5rem;
 }
 
-/* 
-
-[data-theme="dark"] .
-
-.
-
-.
-
-.
-
-
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-@media (max-width: 768px) {
-    .
-    .
-    .
-}
-
 /* Responsive */
 @media (max-width: 992px) {
     .grid-3 {
@@ -551,16 +511,6 @@ h4 {
     .grid-3 {
         grid-template-columns: 1fr;
     }
-
-
-
-
-
-
-
-
-
-
 
     .hero-buttons {
         flex-direction: column;
@@ -679,16 +629,6 @@ h4 {
     .grid-3 {
         grid-template-columns: 1fr;
     }
-
-
-
-
-
-
-
-
-
-
 
     .hero-buttons {
         flex-direction: column;
@@ -855,7 +795,7 @@ h4 {
     gap: 10px;
     font-size: 0.9rem;
     font-weight: 500;
-    transition: background 0.2s;
+    transition: all 0.3s ease;
 }
 
 .lang-dropdown a:hover {
@@ -881,22 +821,7 @@ h4 {
     }
 }
 
-/* 1:4:1 Navbar Layout */
-
-
-
-
-
-
-
-
 @media (max-width: 992px) {}
-
-
-/* Centered Navbar with Logo and Clean Theme Toggle */
-
-
-
 
 #navLogo {
     max-height: 40px;
@@ -904,44 +829,9 @@ h4 {
     display: block;
 }
 
-
-
-
-
-
-
-
-
 @media (max-width: 992px) {}
 
 
-/* Fit all nav links */
-
-
-
-
-
-
-
-/* Thicker Navbar and Centered Dropdowns */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Custom Footer from Screenshot */
 /* Custom Footer */
 .site-footer {
     background-color: var(--bg-light);
@@ -1080,63 +970,13 @@ h4 {
     }
 }
 
-
-/* Thicker Navbar and Perfect Dropdown Alignment */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Ensure the menu stays open when moving mouse to it */
-
-
-
-
-
-/* Refined Perfect Centered Navbar */
-
-
-
-
-
-
-
-/* Final Perfect Centered Navbar Layout */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 1100px) {
-    
-    
-}
+@media (max-width: 1100px) {}
 
 @media (max-width: 992px) {
     .nav-center {
         display: none;
     }
-    
+
     .mobile-toggle {
         display: block !important;
     }
@@ -1150,7 +990,7 @@ h4 {
         width: 100%;
         background-color: var(--card-bg);
         padding: 30px;
-        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         border-top: 1px solid var(--border-color);
         gap: 20px;
     }
@@ -1182,19 +1022,7 @@ h4 {
 }
 
 
-/* --- New Fresh Navbar (Starting from Scratch) --- */
-
-
-/* Class to hide navbar on scroll */
-
-
-
-
-
 /* Logo and Theme Button Styles */
-
-
-
 
 #navLogo {
     max-height: 45px;
@@ -1219,7 +1047,7 @@ h4 {
     left: 0;
     width: 100%;
     z-index: 9999;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     border-bottom: 1px solid var(--border-color);
     transition: transform 0.3s ease;
 }
@@ -1236,7 +1064,8 @@ h4 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: nowrap; /* Forces one line */
+    flex-wrap: nowrap;
+    /* Forces one line */
 }
 
 .logo {
@@ -1302,7 +1131,7 @@ h4 {
     transform: translateX(-50%) translateY(15px);
     background-color: var(--card-bg);
     min-width: 220px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 15px 0;
     opacity: 0;
@@ -1368,16 +1197,3 @@ h4 {
     background: var(--primary-color);
     color: white;
 }
-
-
-
-
-/* --- Google Translate Cleanup --- */
-.goog-te-banner-frame { display: none !important; }
-body { top: 0 !important; }
-.goog-te-gadget { color: transparent !important; }
-.goog-te-gadget .goog-te-combo { color: var(--text-color) !important; background: var(--card-bg) !important; border: 1px solid var(--border-color) !important; padding: 5px !important; border-radius: 4px !important; }
-#google_translate_element { height: 0 !important; overflow: hidden !important; position: absolute !important; }
-.skiptranslate { display: none !important; }
-iframe#\\:1\\.container { display: none !important; }
-
