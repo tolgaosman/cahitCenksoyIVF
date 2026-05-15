@@ -17,7 +17,7 @@ const translations = {
         navBlogs: "BLOG",
         navContact: "İLETİŞİM",
 
-        heroTitle: "Birlikte Mucizeler Yaratıyoruz",
+        heroTitle: "Dr. Cahit Cenksoy<br>Lefkoşa Sevinç Hastanesi",
         heroSubtitle: "Uzman bakım ve şefkatle yönlendirilen, ebeveynlik yolculuğunuza özel en son teknoloji tüp bebek tedavileri.",
         heroBtnPrimary: "Danışmanlık Alın",
         heroBtnSecondary: "Tedavileri İncele",
@@ -28,11 +28,11 @@ const translations = {
 
         feat1Title: "TEDAVİ SEÇENEKLERİ",
         feat1Btn: "İNCELE >",
-        feat2Title: "BAŞARI ORANLARI",
+        feat2Title: "SÜREÇ",
         feat2Btn: "İNCELE >",
         feat3Title: "BAŞVURU FORMU",
         feat3Btn: "RANDEVU AL >",
-        feat4Title: "IVF SÖZLÜĞÜ",
+        feat4Title: "TÜP BEBEK SÖZLÜĞÜ",
         feat4Btn: "SÖZLÜĞE GİT >",
 
         srv1Title: "PGT / PGS",
@@ -144,7 +144,7 @@ const translations = {
         navBlogs: "BLOG",
         navContact: "CONTACT",
 
-        heroTitle: "Creating Miracles Together",
+        heroTitle: "Dr. Cahit Cenksoy<br>Nicosia Sevinç Hospital",
         heroSubtitle: "State-of-the-art IVF treatments tailored for your unique journey to parenthood.",
         heroBtnPrimary: "Book Consultation",
         heroBtnSecondary: "Explore Treatments",
