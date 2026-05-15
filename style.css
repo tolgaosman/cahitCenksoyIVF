@@ -197,18 +197,11 @@ h1, h2, h3, h4 {
     height: 80px;
 }
 
-.logo a {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
 
-.logo-dark { display: none; }
-[data-theme="dark"] .logo-dark { display: block; }
-[data-theme="dark"] .logo-light { display: none; }
+
+
+[data-theme="dark"] 
+[data-theme="dark"] 
 
 .nav-menu {
     display: flex;
@@ -625,10 +618,7 @@ h1, h2, h3, h4 {
     background-color: var(--primary-color);
 }
 
-.footer-logo img {
-    height: 50px;
-    margin-bottom: 20px;
-}
+
 
 .footer-text {
     font-size: 0.95rem;
@@ -871,4 +861,5 @@ h1, h2, h3, h4 {
     .stats-grid { grid-template-columns: 1fr; }
     .stat-item::after { display: none !important; }
 }
+
 
