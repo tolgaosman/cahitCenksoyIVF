@@ -206,6 +206,10 @@ h1, h2, h3, h4 {
     gap: 10px;
 }
 
+.logo-dark { display: none; }
+[data-theme="dark"] .logo-dark { display: block; }
+[data-theme="dark"] .logo-light { display: none; }
+
 .nav-menu {
     display: flex;
     align-items: center;
