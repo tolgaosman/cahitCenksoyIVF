@@ -1197,3 +1197,74 @@ h4 {
     background: var(--primary-color);
     color: white;
 }
+/* --- Google Translate Cleanup --- */
+.goog-te-banner-frame { display: none !important; }
+body { top: 0 !important; }
+.goog-te-gadget { color: transparent !important; }
+#google_translate_element { height: 0 !important; overflow: hidden !important; position: absolute !important; }
+.skiptranslate { display: none !important; }
+
+/* --- Responsive Styles --- */
+@media (max-width: 1100px) {
+    .nav-links { gap: 15px; }
+    .nav-links a { font-size: 0.75rem; }
+}
+
+@media (max-width: 992px) {
+    .nav-center { display: none; }
+    .mobile-toggle { display: block; }
+    
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 90px;
+        left: 0;
+        width: 100%;
+        background-color: var(--card-bg);
+        padding: 30px;
+        gap: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .nav-links.active { display: flex; }
+    
+    .dropdown-menu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        box-shadow: none;
+        border: none;
+        display: none;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .dropdown:hover .dropdown-menu { display: block; }
+
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .stats-grid { grid-template-columns: repeat(3, 1fr); }
+    .stat-item:nth-child(3)::after { display: none; }
+}
+
+@media (max-width: 768px) {
+    .grid-2, .grid-3, .stats-grid, .contact-columns { grid-template-columns: 1fr; }
+    .stat-item::after { display: none !important; }
+    .hero h1 { font-size: 2.5rem; }
+    .hero-buttons { flex-direction: column; }
+    .footer-container { text-align: center; justify-content: center; }
+    .footer-left, .footer-right { flex: 1 1 100%; align-items: center; }
+    .social-links { justify-content: center; }
+}
+
+.about-grid {
+    grid-template-columns: 1fr 1.5fr;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+}
