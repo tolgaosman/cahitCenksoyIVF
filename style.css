@@ -889,9 +889,7 @@ h1, h2, h3, h4 {
 /* Centered Navbar with Logo and Clean Theme Toggle */
 
 
-.logo {
-    flex: 0 0 auto;
-}
+
 
 #navLogo {
     max-height: 40px;
@@ -899,15 +897,9 @@ h1, h2, h3, h4 {
     display: block;
 }
 
-.nav-center {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
 
-.nav-right {
-    flex: 0 0 auto;
-}
+
+
 
 .theme-btn {
     background: transparent !important;
@@ -924,9 +916,7 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 992px) {
-    .nav-center {
-        display: none;
-    }
+    
 }
 
 
@@ -1089,12 +1079,7 @@ h1, h2, h3, h4 {
     border-bottom: 1px solid var(--border-color);
 }
 
-.nav-container {
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+
 
 .nav-links {
     display: flex;
@@ -1150,4 +1135,34 @@ h1, h2, h3, h4 {
 }
 
 
+
+
+/* Refined Perfect Centered Navbar */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.logo {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.nav-center {
+    flex: 2; /* Center part takes more space */
+    display: flex;
+    justify-content: center;
+}
+
+.nav-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
 
