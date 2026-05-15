@@ -3,83 +3,83 @@ const translations = {
     tr: {
         logoText: "Dr. Cahit Cenksoy",
         navHome: "ANA SAYFA",
-        navTeam: "EKÄ°BÄ°MÄ°Z",
-        navIVF: "TÃœP BEBEK (IVF)",
-        ivfProcess: "TÃ¼p Bebek SÃ¼reci",
+        navTeam: "EKÃ„Â°BÃ„Â°MÃ„Â°Z",
+        navIVF: "TÃƒÅ“P BEBEK (IVF)",
+        ivfProcess: "TÃƒÂ¼p Bebek SÃƒÂ¼reci",
         ivfICSI: "Mikroenjeksiyon (ICSI)",
         ivfIMSI: "IMSI",
-        navTreatments: "TEDAVÄ° SEÃ‡ENEKLERÄ°",
+        navTreatments: "TEDAVÃ„Â° SEÃƒâ€¡ENEKLERÃ„Â°",
         treatmentEggFreezing: "Yumurta Dondurma",
         treatmentDonation: "Donasyon",
         treatmentPGD: "PGT / PGS",
         navTestimonials: "HASTALARIMIZDAN",
         navFAQ: "SIK SORULANLAR",
         navBlogs: "BLOG",
-        navContact: "Ä°LETÄ°ÅÄ°M",
+        navContact: "Ã„Â°LETÃ„Â°Ã…ÂÃ„Â°M",
         
-        heroTitle: "Birlikte Mucizeler YaratÄ±yoruz",
-        heroSubtitle: "Uzman bakÄ±m ve ÅŸefkatle yÃ¶nlendirilen, ebeveynlik yolculuÄŸunuza Ã¶zel en son teknoloji tÃ¼p bebek tedavileri.",
-        heroBtnPrimary: "DanÄ±ÅŸmanlÄ±k AlÄ±n",
-        heroBtnSecondary: "Tedavileri Ä°ncele",
+        heroTitle: "Birlikte Mucizeler YaratÃ„Â±yoruz",
+        heroSubtitle: "Uzman bakÃ„Â±m ve Ã…Å¸efkatle yÃƒÂ¶nlendirilen, ebeveynlik yolculuÃ„Å¸unuza ÃƒÂ¶zel en son teknoloji tÃƒÂ¼p bebek tedavileri.",
+        heroBtnPrimary: "DanÃ„Â±Ã…Å¸manlÃ„Â±k AlÃ„Â±n",
+        heroBtnSecondary: "Tedavileri Ã„Â°ncele",
         
         teamTitle: "Ekibimiz",
-        teamRole1: "BaÅŸ TÃ¼p Bebek UzmanÄ±",
-        teamDesc1: "Ãœreme tÄ±bbÄ± ve ileri tÃ¼p bebek teknolojilerinde 20 yÄ±lÄ± aÅŸkÄ±n deneyim.",
-        teamRole2: "TÃ¼p Bebek KoordinatÃ¶rÃ¼",
+        teamRole1: "BaÃ…Å¸ TÃƒÂ¼p Bebek UzmanÃ„Â±",
+        teamDesc1: "ÃƒÅ“reme tÃ„Â±bbÃ„Â± ve ileri tÃƒÂ¼p bebek teknolojilerinde 20 yÃ„Â±lÃ„Â± aÃ…Å¸kÃ„Â±n deneyim.",
+        teamRole2: "TÃƒÂ¼p Bebek KoordinatÃƒÂ¶rÃƒÂ¼",
         teamRole3: "Embriyolog",
-        teamRole4: "HemÅŸire",
-        teamRole5: "Hasta KoordinatÃ¶rÃ¼",
+        teamRole4: "HemÃ…Å¸ire",
+        teamRole5: "Hasta KoordinatÃƒÂ¶rÃƒÂ¼",
         teamRole6: "Asistan",
-        teamRole7: "UluslararasÄ± KoordinatÃ¶r",
-        stat1: "BaÅŸarÄ±lÄ± TÃ¼p Bebek DÃ¶ngÃ¼sÃ¼",
-        stat2: "BaÅŸarÄ± OranÄ±",
-        stat3: "YÄ±llÄ±k Deneyim",
-        contactLocation: "LefkoÅŸa, KÄ±brÄ±s",
+        teamRole7: "UluslararasÃ„Â± KoordinatÃƒÂ¶r",
+        stat1: "BaÃ…Å¸arÃ„Â±lÃ„Â± TÃƒÂ¼p Bebek DÃƒÂ¶ngÃƒÂ¼sÃƒÂ¼",
+        stat2: "BaÃ…Å¸arÃ„Â± OranÃ„Â±",
+        stat3: "YÃ„Â±llÃ„Â±k Deneyim",
+        contactLocation: "LefkoÃ…Å¸a, KÃ„Â±brÃ„Â±s",
         
-        ivfTitle: "TÃ¼p Bebek Merkezi",
-        ivfSubTitle: "Ä°leri Ãœreme Teknolojisi",
-        ivfDesc: "SaÄŸlÄ±klÄ± bir gebelik ÅŸansÄ±nÄ±zÄ± en Ã¼st dÃ¼zeye Ã§Ä±karmak iÃ§in in-vitro fertilizasyondaki en son geliÅŸmeleri kullanÄ±yoruz. LaboratuvarÄ±mÄ±z karmaÅŸÄ±k vakalarÄ± hassasiyetle ele alacak en son teknoloji ile donatÄ±lmÄ±ÅŸtÄ±r.",
-        ivfFeature1: "KapsamlÄ± DoÄŸurganlÄ±k DeÄŸerlendirmesi",
-        ivfFeature2: "KiÅŸiselleÅŸtirilmiÅŸ Tedavi Protokolleri",
-        ivfFeature3: "YÃ¼ksek BaÅŸarÄ± OranlarÄ±",
+        ivfTitle: "TÃƒÂ¼p Bebek Merkezi",
+        ivfSubTitle: "Ã„Â°leri ÃƒÅ“reme Teknolojisi",
+        ivfDesc: "SaÃ„Å¸lÃ„Â±klÃ„Â± bir gebelik Ã…Å¸ansÃ„Â±nÃ„Â±zÃ„Â± en ÃƒÂ¼st dÃƒÂ¼zeye ÃƒÂ§Ã„Â±karmak iÃƒÂ§in in-vitro fertilizasyondaki en son geliÃ…Å¸meleri kullanÃ„Â±yoruz. LaboratuvarÃ„Â±mÃ„Â±z karmaÃ…Å¸Ã„Â±k vakalarÃ„Â± hassasiyetle ele alacak en son teknoloji ile donatÃ„Â±lmÃ„Â±Ã…Å¸tÃ„Â±r.",
+        ivfFeature1: "KapsamlÃ„Â± DoÃ„Å¸urganlÃ„Â±k DeÃ„Å¸erlendirmesi",
+        ivfFeature2: "KiÃ…Å¸iselleÃ…Å¸tirilmiÃ…Å¸ Tedavi Protokolleri",
+        ivfFeature3: "YÃƒÂ¼ksek BaÃ…Å¸arÃ„Â± OranlarÃ„Â±",
         
-        treatmentsTitle: "Tedavi SeÃ§enekleri",
+        treatmentsTitle: "Tedavi SeÃƒÂ§enekleri",
         treatmentCard1Title: "Yumurta Dondurma",
-        treatmentCard1Desc: "GeliÅŸmiÅŸ vitrifikasyon tekniklerimizle doÄŸurganlÄ±ÄŸÄ±nÄ±zÄ± gelecek iÃ§in koruyun.",
+        treatmentCard1Desc: "GeliÃ…Å¸miÃ…Å¸ vitrifikasyon tekniklerimizle doÃ„Å¸urganlÃ„Â±Ã„Å¸Ã„Â±nÃ„Â±zÃ„Â± gelecek iÃƒÂ§in koruyun.",
         treatmentCard2Title: "Yumurta/Sperm Donasyonu",
-        treatmentCard2Desc: "Titiz tarama sÃ¼reÃ§lerine sahip kapsamlÄ± ve gizli donasyon programlarÄ±.",
+        treatmentCard2Desc: "Titiz tarama sÃƒÂ¼reÃƒÂ§lerine sahip kapsamlÃ„Â± ve gizli donasyon programlarÃ„Â±.",
         treatmentCard3Title: "PGT / PGS",
-        treatmentCard3Desc: "En saÄŸlÄ±klÄ± embriyolarÄ±n seÃ§ilmesini saÄŸlamak iÃ§in preimplantasyon genetik test.",
+        treatmentCard3Desc: "En saÃ„Å¸lÃ„Â±klÃ„Â± embriyolarÃ„Â±n seÃƒÂ§ilmesini saÃ„Å¸lamak iÃƒÂ§in preimplantasyon genetik test.",
         
-        testimonialsTitle: "HastalarÄ±mÄ±zdan",
-        testimonial1Text: "\"Dr. Cenksoy ve harika ekibi sayesinde anne baba olma hayalimiz sonunda gerÃ§ek oldu. AldÄ±ÄŸÄ±mÄ±z ilgi ve destek beklentilerimizin Ã¶tesindeydi.\"",
-        testimonial1Author: "- Sarah & Michael, Ä°ngiltere",
+        testimonialsTitle: "HastalarÃ„Â±mÃ„Â±zdan",
+        testimonial1Text: "\"Dr. Cenksoy ve harika ekibi sayesinde anne baba olma hayalimiz sonunda gerÃƒÂ§ek oldu. AldÃ„Â±Ã„Å¸Ã„Â±mÃ„Â±z ilgi ve destek beklentilerimizin ÃƒÂ¶tesindeydi.\"",
+        testimonial1Author: "- Sarah & Michael, Ã„Â°ngiltere",
         
-        faqTitle: "SÄ±k Sorulan Sorular",
-        faq1Q: "TÃ¼p bebek tedavisinde baÅŸarÄ± oranÄ± nedir?",
-        faq1A: "BaÅŸarÄ± oranlarÄ± yaÅŸa ve tÄ±bbi geÃ§miÅŸe gÃ¶re deÄŸiÅŸir, ancak kliniÄŸimiz kiÅŸiselleÅŸtirilmiÅŸ protokollerimiz ve geliÅŸmiÅŸ laboratuvarÄ±mÄ±z sayesinde sÃ¼rekli olarak kÃ¼resel ortalamanÄ±n Ã¼zerinde oranlar elde etmektedir.",
-        faq2Q: "Bir tÃ¼p bebek dÃ¶ngÃ¼sÃ¼ ne kadar sÃ¼rer?",
-        faq2A: "Tipik bir tÃ¼p bebek dÃ¶ngÃ¼sÃ¼, ilaÃ§ tedavisine baÅŸlanmasÄ±ndan embriyo transferine kadar yaklaÅŸÄ±k 4 ila 6 hafta sÃ¼rer.",
-        faq3Q: "Tedavi iÃ§in bir yaÅŸ sÄ±nÄ±rÄ± var mÄ±?",
-        faq3A: "YaÅŸ baÅŸarÄ±yÄ± etkilese de her vakayÄ± ayrÄ± ayrÄ± deÄŸerlendiriyoruz. Ä°leri yaÅŸtaki hastalar iÃ§in donÃ¶r programlarÄ± dahil Ã§eÅŸitli seÃ§enekler sunuyoruz.",
+        faqTitle: "SÃ„Â±k Sorulan Sorular",
+        faq1Q: "TÃƒÂ¼p bebek tedavisinde baÃ…Å¸arÃ„Â± oranÃ„Â± nedir?",
+        faq1A: "BaÃ…Å¸arÃ„Â± oranlarÃ„Â± yaÃ…Å¸a ve tÃ„Â±bbi geÃƒÂ§miÃ…Å¸e gÃƒÂ¶re deÃ„Å¸iÃ…Å¸ir, ancak kliniÃ„Å¸imiz kiÃ…Å¸iselleÃ…Å¸tirilmiÃ…Å¸ protokollerimiz ve geliÃ…Å¸miÃ…Å¸ laboratuvarÃ„Â±mÃ„Â±z sayesinde sÃƒÂ¼rekli olarak kÃƒÂ¼resel ortalamanÃ„Â±n ÃƒÂ¼zerinde oranlar elde etmektedir.",
+        faq2Q: "Bir tÃƒÂ¼p bebek dÃƒÂ¶ngÃƒÂ¼sÃƒÂ¼ ne kadar sÃƒÂ¼rer?",
+        faq2A: "Tipik bir tÃƒÂ¼p bebek dÃƒÂ¶ngÃƒÂ¼sÃƒÂ¼, ilaÃƒÂ§ tedavisine baÃ…Å¸lanmasÃ„Â±ndan embriyo transferine kadar yaklaÃ…Å¸Ã„Â±k 4 ila 6 hafta sÃƒÂ¼rer.",
+        faq3Q: "Tedavi iÃƒÂ§in bir yaÃ…Å¸ sÃ„Â±nÃ„Â±rÃ„Â± var mÃ„Â±?",
+        faq3A: "YaÃ…Å¸ baÃ…Å¸arÃ„Â±yÃ„Â± etkilese de her vakayÃ„Â± ayrÃ„Â± ayrÃ„Â± deÃ„Å¸erlendiriyoruz. Ã„Â°leri yaÃ…Å¸taki hastalar iÃƒÂ§in donÃƒÂ¶r programlarÃ„Â± dahil ÃƒÂ§eÃ…Å¸itli seÃƒÂ§enekler sunuyoruz.",
         
-        blogTitle: "GÃ¼ncel Bilgiler",
-        blog1Title: "TÃ¼p Bebek Zaman Ã‡izelgesini Anlamak",
-        blog2Title: "Diyet ve DoÄŸurganlÄ±k: Ne Yemeli",
-        blog3Title: "TÃ¼p Bebek SÄ±rasÄ±nda Ruh SaÄŸlÄ±ÄŸÄ±",
-        readMore: "DevamÄ±nÄ± Oku",
+        blogTitle: "GÃƒÂ¼ncel Bilgiler",
+        blog1Title: "TÃƒÂ¼p Bebek Zaman Ãƒâ€¡izelgesini Anlamak",
+        blog2Title: "Diyet ve DoÃ„Å¸urganlÃ„Â±k: Ne Yemeli",
+        blog3Title: "TÃƒÂ¼p Bebek SÃ„Â±rasÃ„Â±nda Ruh SaÃ„Å¸lÃ„Â±Ã„Å¸Ã„Â±",
+        readMore: "DevamÃ„Â±nÃ„Â± Oku",
         
-        contactTitle: "Bize UlaÅŸÄ±n",
+        contactTitle: "Bize UlaÃ…Å¸Ã„Â±n",
         contactInfoTitle: "Klinik Bilgileri",
-        contactInfoDesc: "Hasta koordinatÃ¶rlerimiz sorularÄ±nÄ±zÄ± yanÄ±tlamaya ve ilk gÃ¶rÃ¼ÅŸmenizi planlamaya hazÄ±rdÄ±r.",
+        contactInfoDesc: "Hasta koordinatÃƒÂ¶rlerimiz sorularÃ„Â±nÃ„Â±zÃ„Â± yanÃ„Â±tlamaya ve ilk gÃƒÂ¶rÃƒÂ¼Ã…Å¸menizi planlamaya hazÃ„Â±rdÃ„Â±r.",
         formName: "Ad Soyad",
         formEmail: "E-posta Adresi",
-        formMessage: "MesajÄ±nÄ±z",
-        formSubmit: "Mesaj GÃ¶nder",
+        formMessage: "MesajÃ„Â±nÃ„Â±z",
+        formSubmit: "Mesaj GÃƒÂ¶nder",
         
-        footerRights: "TÃ¼m haklarÄ± saklÄ±dÄ±r.",
+        footerRights: "TÃƒÂ¼m haklarÃ„Â± saklÃ„Â±dÃ„Â±r.",
         footerPagesTitle: "SAYFALARIMIZ",
-        footerContactTitle: "Ä°LETÄ°ÅÄ°M BÄ°LGÄ°LERÄ°"
+        footerContactTitle: "Ã„Â°LETÃ„Â°Ã…ÂÃ„Â°M BÃ„Â°LGÃ„Â°LERÃ„Â°", stat1Num: "3640", stat1Label: "TOTAL IVF", stat2Num: "2260", stat2Label: "OOCYTE DONATION", stat2Sub: "84% SUCCESS", stat3Num: "693", stat3Label: "IVF", stat3Sub: "84% SUCCESS", stat4Num: "538", stat4Label: "SPERM DONATION", stat4Sub: "67% SUCCESS", stat5Num: "610", stat5Label: "PGD", stat5Sub: "84% SUCCESS"
     },
     en: {
         logoText: "Dr. Cahit Cenksoy",
@@ -170,169 +170,169 @@ const translations = {
         
         footerRights: "All rights reserved.",
         footerPagesTitle: "OUR PAGES",
-        footerContactTitle: "CONTACT INFORMATION"
+        footerContactTitle: "CONTACT INFORMATION", stat1Num: "3640", stat1Label: "TOTAL IVF", stat2Num: "2260", stat2Label: "OOCYTE DONATION", stat2Sub: "84% SUCCESS", stat3Num: "693", stat3Label: "IVF", stat3Sub: "84% SUCCESS", stat4Num: "538", stat4Label: "SPERM DONATION", stat4Sub: "67% SUCCESS", stat5Num: "610", stat5Label: "PGD", stat5Sub: "84% SUCCESS", stat1Num: "3640", stat1Label: "TOTAL IVF CYCLES", stat2Num: "2260", stat2Label: "OOCYTE DONATION", stat2Sub: "84% SUCCESS", stat3Num: "693", stat3Label: "IVF", stat3Sub: "84% SUCCESS", stat4Num: "538", stat4Label: "SPERM DONATION", stat4Sub: "67% SUCCESS", stat5Num: "610", stat5Label: "PGD", stat5Sub: "84% SUCCESS"
     },
     fr: {
         logoText: "Dr. Cahit Cenksoy",
         navHome: "ACCUEIL",
-        navTeam: "NOTRE Ã‰QUIPE",
+        navTeam: "NOTRE Ãƒâ€°QUIPE",
         navIVF: "FIV",
         ivfProcess: "Processus de FIV",
         ivfICSI: "ICSI",
         ivfIMSI: "IMSI",
         navTreatments: "OPTIONS DE TRAITEMENT",
-        treatmentEggFreezing: "CongÃ©lation d'ovules",
+        treatmentEggFreezing: "CongÃƒÂ©lation d'ovules",
         treatmentDonation: "Donation",
         treatmentPGD: "DPI / PGS",
-        navTestimonials: "TÃ‰MOIGNAGES",
+        navTestimonials: "TÃƒâ€°MOIGNAGES",
         navFAQ: "FAQ",
         navBlogs: "BLOGS",
         navContact: "CONTACT",
         
-        heroTitle: "CrÃ©er des miracles, ensemble",
-        heroSubtitle: "Des traitements de FIV de pointe adaptÃ©s Ã  votre parcours unique vers la parentalitÃ©.",
+        heroTitle: "CrÃƒÂ©er des miracles, ensemble",
+        heroSubtitle: "Des traitements de FIV de pointe adaptÃƒÂ©s ÃƒÂ  votre parcours unique vers la parentalitÃƒÂ©.",
         heroBtnPrimary: "Prendre rendez-vous",
         heroBtnSecondary: "Explorer les traitements",
         
-        teamTitle: "Notre Ã‰quipe",
-        teamRole1: "SpÃ©cialiste principal en FIV",
-        teamDesc1: "Plus de 20 ans d'expÃ©rience en mÃ©decine de la reproduction.",
+        teamTitle: "Notre Ãƒâ€°quipe",
+        teamRole1: "SpÃƒÂ©cialiste principal en FIV",
+        teamDesc1: "Plus de 20 ans d'expÃƒÂ©rience en mÃƒÂ©decine de la reproduction.",
         teamRole2: "Coordinateur FIV",
         teamRole3: "Embryologiste",
-        teamRole4: "InfirmiÃ¨re",
+        teamRole4: "InfirmiÃƒÂ¨re",
         teamRole5: "Coordinateur des patients",
         teamRole6: "Assistante",
         teamRole7: "Coordinateur international",
-        stat1: "Cycles de FIV rÃ©ussis",
-        stat2: "Taux de rÃ©ussite",
-        stat3: "AnnÃ©es d'expÃ©rience",
+        stat1: "Cycles de FIV rÃƒÂ©ussis",
+        stat2: "Taux de rÃƒÂ©ussite",
+        stat3: "AnnÃƒÂ©es d'expÃƒÂ©rience",
         contactLocation: "Nicosie, Chypre",
         
         ivfTitle: "Centre de FIV",
-        ivfSubTitle: "Technologie de reproduction avancÃ©e",
-        ivfDesc: "Nous utilisons les derniÃ¨res avancÃ©es pour maximiser vos chances de grossesse saine.",
-        ivfFeature1: "Ã‰valuation complÃ¨te",
-        ivfFeature2: "Protocoles personnalisÃ©s",
-        ivfFeature3: "Taux de rÃ©ussite Ã©levÃ©s",
+        ivfSubTitle: "Technologie de reproduction avancÃƒÂ©e",
+        ivfDesc: "Nous utilisons les derniÃƒÂ¨res avancÃƒÂ©es pour maximiser vos chances de grossesse saine.",
+        ivfFeature1: "Ãƒâ€°valuation complÃƒÂ¨te",
+        ivfFeature2: "Protocoles personnalisÃƒÂ©s",
+        ivfFeature3: "Taux de rÃƒÂ©ussite ÃƒÂ©levÃƒÂ©s",
         
         treatmentsTitle: "Options de Traitement",
-        treatmentCard1Title: "CongÃ©lation d'ovules",
-        treatmentCard1Desc: "PrÃ©servez votre fertilitÃ© pour l'avenir avec nos techniques avancÃ©es.",
+        treatmentCard1Title: "CongÃƒÂ©lation d'ovules",
+        treatmentCard1Desc: "PrÃƒÂ©servez votre fertilitÃƒÂ© pour l'avenir avec nos techniques avancÃƒÂ©es.",
         treatmentCard2Title: "Don d'ovules/sperme",
         treatmentCard2Desc: "Programmes de don complets et confidentiels.",
         treatmentCard3Title: "DPI / PGS",
-        treatmentCard3Desc: "Tests gÃ©nÃ©tiques pour sÃ©lectionner les embryons les plus sains.",
+        treatmentCard3Desc: "Tests gÃƒÂ©nÃƒÂ©tiques pour sÃƒÂ©lectionner les embryons les plus sains.",
         
-        testimonialsTitle: "PartagÃ© par nos patients",
-        testimonial1Text: "\"GrÃ¢ce au Dr Cenksoy, notre rÃªve de devenir parents s'est enfin rÃ©alisÃ©.\"",
+        testimonialsTitle: "PartagÃƒÂ© par nos patients",
+        testimonial1Text: "\"GrÃƒÂ¢ce au Dr Cenksoy, notre rÃƒÂªve de devenir parents s'est enfin rÃƒÂ©alisÃƒÂ©.\"",
         testimonial1Author: "- Sarah & Michael, Royaume-Uni",
         
         faqTitle: "Foire Aux Questions",
-        faq1Q: "Quel est le taux de rÃ©ussite de la FIV?",
-        faq1A: "Les taux de rÃ©ussite varient, mais notre clinique maintient constamment des taux supÃ©rieurs Ã  la moyenne mondiale.",
+        faq1Q: "Quel est le taux de rÃƒÂ©ussite de la FIV?",
+        faq1A: "Les taux de rÃƒÂ©ussite varient, mais notre clinique maintient constamment des taux supÃƒÂ©rieurs ÃƒÂ  la moyenne mondiale.",
         faq2Q: "Combien de temps dure un cycle de FIV?",
-        faq2A: "Un cycle typique dure environ 4 Ã  6 semaines.",
-        faq3Q: "Y a-t-il une limite d'Ã¢ge?",
-        faq3A: "Nous Ã©valuons chaque cas individuellement et offrons diverses options.",
+        faq2A: "Un cycle typique dure environ 4 ÃƒÂ  6 semaines.",
+        faq3Q: "Y a-t-il une limite d'ÃƒÂ¢ge?",
+        faq3A: "Nous ÃƒÂ©valuons chaque cas individuellement et offrons diverses options.",
         
-        blogTitle: "DerniÃ¨res Nouvelles",
+        blogTitle: "DerniÃƒÂ¨res Nouvelles",
         blog1Title: "Comprendre la chronologie de la FIV",
-        blog2Title: "Alimentation et fertilitÃ©",
-        blog3Title: "SantÃ© mentale pendant la FIV",
+        blog2Title: "Alimentation et fertilitÃƒÂ©",
+        blog3Title: "SantÃƒÂ© mentale pendant la FIV",
         readMore: "Lire la suite",
         
         contactTitle: "Contactez-nous",
         contactInfoTitle: "Informations sur la clinique",
-        contactInfoDesc: "Nos coordinateurs sont prÃªts Ã  rÃ©pondre Ã  vos questions.",
+        contactInfoDesc: "Nos coordinateurs sont prÃƒÂªts ÃƒÂ  rÃƒÂ©pondre ÃƒÂ  vos questions.",
         formName: "Nom Complet",
         formEmail: "Adresse E-mail",
         formMessage: "Votre Message",
         formSubmit: "Envoyer le message",
         
-        footerRights: "Tous droits rÃ©servÃ©s.",
+        footerRights: "Tous droits rÃƒÂ©servÃƒÂ©s.",
         footerPagesTitle: "NOS PAGES",
-        footerContactTitle: "COORDONNÃ‰ES"
+        footerContactTitle: "COORDONNÃƒâ€°ES", stat1Num: "3640", stat1Label: "TOTAL IVF", stat2Num: "2260", stat2Label: "OOCYTE DONATION", stat2Sub: "84% SUCCESS", stat3Num: "693", stat3Label: "IVF", stat3Sub: "84% SUCCESS", stat4Num: "538", stat4Label: "SPERM DONATION", stat4Sub: "67% SUCCESS", stat5Num: "610", stat5Label: "PGD", stat5Sub: "84% SUCCESS"
     },
     ar: {
-        logoText: "Ø¯. Ø¬Ø§Ù‡Ø¯ Ø¬ÙŠÙ†ÙƒØ³ÙˆÙŠ",
-        navHome: "Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©",
-        navTeam: "ÙØ±ÙŠÙ‚Ù†Ø§",
-        navIVF: "Ø£Ø·ÙØ§Ù„ Ø§Ù„Ø£Ù†Ø§Ø¨ÙŠØ¨",
-        ivfProcess: "Ø¹Ù…Ù„ÙŠØ© Ø§Ù„ØªÙ„Ù‚ÙŠØ­ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ",
-        ivfICSI: "Ø§Ù„Ø­Ù‚Ù† Ø§Ù„Ù…Ø¬Ù‡Ø±ÙŠ",
+        logoText: "Ã˜Â¯. Ã˜Â¬Ã˜Â§Ã™â€¡Ã˜Â¯ Ã˜Â¬Ã™Å Ã™â€ Ã™Æ’Ã˜Â³Ã™Ë†Ã™Å ",
+        navHome: "Ã˜Â§Ã™â€Ã˜Â±Ã˜Â¦Ã™Å Ã˜Â³Ã™Å Ã˜Â©",
+        navTeam: "Ã™ÂÃ˜Â±Ã™Å Ã™â€šÃ™â€ Ã˜Â§",
+        navIVF: "Ã˜Â£Ã˜Â·Ã™ÂÃ˜Â§Ã™â€ Ã˜Â§Ã™â€Ã˜Â£Ã™â€ Ã˜Â§Ã˜Â¨Ã™Å Ã˜Â¨",
+        ivfProcess: "Ã˜Â¹Ã™â€¦Ã™â€Ã™Å Ã˜Â© Ã˜Â§Ã™â€Ã˜ÂªÃ™â€Ã™â€šÃ™Å Ã˜Â­ Ã˜Â§Ã™â€Ã˜Â§Ã˜ÂµÃ˜Â·Ã™â€ Ã˜Â§Ã˜Â¹Ã™Å ",
+        ivfICSI: "Ã˜Â§Ã™â€Ã˜Â­Ã™â€šÃ™â€  Ã˜Â§Ã™â€Ã™â€¦Ã˜Â¬Ã™â€¡Ã˜Â±Ã™Å ",
         ivfIMSI: "IMSI",
-        navTreatments: "Ø®ÙŠØ§Ø±Ø§Øª Ø§Ù„Ø¹Ù„Ø§Ø¬",
-        treatmentEggFreezing: "ØªØ¬Ù…ÙŠØ¯ Ø§Ù„Ø¨ÙˆÙŠØ¶Ø§Øª",
-        treatmentDonation: "Ø§Ù„ØªØ¨Ø±Ø¹",
-        treatmentPGD: "Ø§Ù„ÙØ­Øµ Ø§Ù„Ø¬ÙŠÙ†ÙŠ",
-        navTestimonials: "ØªØ¬Ø§Ø±Ø¨ Ø§Ù„Ù…Ø±Ø¶Ù‰",
-        navFAQ: "Ø§Ù„Ø£Ø³Ø¦Ù„Ø© Ø§Ù„Ø´Ø§Ø¦Ø¹Ø©",
-        navBlogs: "Ø§Ù„Ù…Ø¯ÙˆÙ†Ø©",
-        navContact: "Ø§ØªØµÙ„ Ø¨Ù†Ø§",
+        navTreatments: "Ã˜Â®Ã™Å Ã˜Â§Ã˜Â±Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€Ã˜Â¹Ã™â€Ã˜Â§Ã˜Â¬",
+        treatmentEggFreezing: "Ã˜ÂªÃ˜Â¬Ã™â€¦Ã™Å Ã˜Â¯ Ã˜Â§Ã™â€Ã˜Â¨Ã™Ë†Ã™Å Ã˜Â¶Ã˜Â§Ã˜Âª",
+        treatmentDonation: "Ã˜Â§Ã™â€Ã˜ÂªÃ˜Â¨Ã˜Â±Ã˜Â¹",
+        treatmentPGD: "Ã˜Â§Ã™â€Ã™ÂÃ˜Â­Ã˜Âµ Ã˜Â§Ã™â€Ã˜Â¬Ã™Å Ã™â€ Ã™Å ",
+        navTestimonials: "Ã˜ÂªÃ˜Â¬Ã˜Â§Ã˜Â±Ã˜Â¨ Ã˜Â§Ã™â€Ã™â€¦Ã˜Â±Ã˜Â¶Ã™â€°",
+        navFAQ: "Ã˜Â§Ã™â€Ã˜Â£Ã˜Â³Ã˜Â¦Ã™â€Ã˜Â© Ã˜Â§Ã™â€Ã˜Â´Ã˜Â§Ã˜Â¦Ã˜Â¹Ã˜Â©",
+        navBlogs: "Ã˜Â§Ã™â€Ã™â€¦Ã˜Â¯Ã™Ë†Ã™â€ Ã˜Â©",
+        navContact: "Ã˜Â§Ã˜ÂªÃ˜ÂµÃ™â€ Ã˜Â¨Ã™â€ Ã˜Â§",
         
-        heroTitle: "Ù†ØµÙ†Ø¹ Ø§Ù„Ù…Ø¹Ø¬Ø²Ø§Øª Ù…Ø¹Ø§Ù‹",
-        heroSubtitle: "Ø£Ø­Ø¯Ø« Ø¹Ù„Ø§Ø¬Ø§Øª Ø£Ø·ÙØ§Ù„ Ø§Ù„Ø£Ù†Ø§Ø¨ÙŠØ¨ Ø§Ù„Ù…ØµÙ…Ù…Ø© Ø®ØµÙŠØµØ§Ù‹ Ù„Ø±Ø­Ù„ØªÙƒ Ø§Ù„ÙØ±ÙŠØ¯Ø© Ù†Ø­Ùˆ Ø§Ù„Ø£Ù…ÙˆÙ…Ø© ÙˆØ§Ù„Ø£Ø¨ÙˆØ©.",
-        heroBtnPrimary: "Ø§Ø­Ø¬Ø² Ø§Ø³ØªØ´Ø§Ø±Ø©",
-        heroBtnSecondary: "Ø§ÙƒØªØ´Ù Ø§Ù„Ø¹Ù„Ø§Ø¬Ø§Øª",
+        heroTitle: "Ã™â€ Ã˜ÂµÃ™â€ Ã˜Â¹ Ã˜Â§Ã™â€Ã™â€¦Ã˜Â¹Ã˜Â¬Ã˜Â²Ã˜Â§Ã˜Âª Ã™â€¦Ã˜Â¹Ã˜Â§Ã™â€¹",
+        heroSubtitle: "Ã˜Â£Ã˜Â­Ã˜Â¯Ã˜Â« Ã˜Â¹Ã™â€Ã˜Â§Ã˜Â¬Ã˜Â§Ã˜Âª Ã˜Â£Ã˜Â·Ã™ÂÃ˜Â§Ã™â€ Ã˜Â§Ã™â€Ã˜Â£Ã™â€ Ã˜Â§Ã˜Â¨Ã™Å Ã˜Â¨ Ã˜Â§Ã™â€Ã™â€¦Ã˜ÂµÃ™â€¦Ã™â€¦Ã˜Â© Ã˜Â®Ã˜ÂµÃ™Å Ã˜ÂµÃ˜Â§Ã™â€¹ Ã™â€Ã˜Â±Ã˜Â­Ã™â€Ã˜ÂªÃ™Æ’ Ã˜Â§Ã™â€Ã™ÂÃ˜Â±Ã™Å Ã˜Â¯Ã˜Â© Ã™â€ Ã˜Â­Ã™Ë† Ã˜Â§Ã™â€Ã˜Â£Ã™â€¦Ã™Ë†Ã™â€¦Ã˜Â© Ã™Ë†Ã˜Â§Ã™â€Ã˜Â£Ã˜Â¨Ã™Ë†Ã˜Â©.",
+        heroBtnPrimary: "Ã˜Â§Ã˜Â­Ã˜Â¬Ã˜Â² Ã˜Â§Ã˜Â³Ã˜ÂªÃ˜Â´Ã˜Â§Ã˜Â±Ã˜Â©",
+        heroBtnSecondary: "Ã˜Â§Ã™Æ’Ã˜ÂªÃ˜Â´Ã™Â Ã˜Â§Ã™â€Ã˜Â¹Ã™â€Ã˜Â§Ã˜Â¬Ã˜Â§Ã˜Âª",
         
-        teamTitle: "ÙØ±ÙŠÙ‚Ù†Ø§",
-        teamRole1: "ÙƒØ¨ÙŠØ± Ø£Ø®ØµØ§Ø¦ÙŠÙŠ Ø£Ø·ÙØ§Ù„ Ø§Ù„Ø£Ù†Ø§Ø¨ÙŠØ¨",
-        teamDesc1: "Ø£ÙƒØ«Ø± Ù…Ù† 20 Ø¹Ø§Ù…Ø§Ù‹ Ù…Ù† Ø§Ù„Ø®Ø¨Ø±Ø© ÙÙŠ Ø§Ù„Ø·Ø¨ Ø§Ù„ØªÙ†Ø§Ø³Ù„ÙŠ.",
-        teamRole2: "Ù…Ù†Ø³Ù‚ Ø£Ø·ÙØ§Ù„ Ø§Ù„Ø£Ù†Ø§Ø¨ÙŠØ¨",
-        teamRole3: "Ø¹Ø§Ù„Ù… Ø£Ø¬Ù†Ø©",
-        teamRole4: "Ù…Ù…Ø±Ø¶Ø©",
-        teamRole5: "Ù…Ù†Ø³Ù‚ Ø§Ù„Ù…Ø±Ø¶Ù‰",
-        teamRole6: "Ù…Ø³Ø§Ø¹Ø¯",
-        teamRole7: "Ø§Ù„Ù…Ù†Ø³Ù‚ Ø§Ù„Ø¯ÙˆÙ„ÙŠ",
-        stat1: "Ø¯ÙˆØ±Ø§Øª ØªÙ„Ù‚ÙŠØ­ Ù†Ø§Ø¬Ø­Ø©",
-        stat2: "Ù†Ø³Ø¨Ø© Ø§Ù„Ù†Ø¬Ø§Ø­",
-        stat3: "Ø³Ù†ÙˆØ§Øª Ù…Ù† Ø§Ù„Ø®Ø¨Ø±Ø©",
-        contactLocation: "Ù†ÙŠÙ‚ÙˆØ³ÙŠØ§ØŒ Ù‚Ø¨Ø±Øµ",
+        teamTitle: "Ã™ÂÃ˜Â±Ã™Å Ã™â€šÃ™â€ Ã˜Â§",
+        teamRole1: "Ã™Æ’Ã˜Â¨Ã™Å Ã˜Â± Ã˜Â£Ã˜Â®Ã˜ÂµÃ˜Â§Ã˜Â¦Ã™Å Ã™Å  Ã˜Â£Ã˜Â·Ã™ÂÃ˜Â§Ã™â€ Ã˜Â§Ã™â€Ã˜Â£Ã™â€ Ã˜Â§Ã˜Â¨Ã™Å Ã˜Â¨",
+        teamDesc1: "Ã˜Â£Ã™Æ’Ã˜Â«Ã˜Â± Ã™â€¦Ã™â€  20 Ã˜Â¹Ã˜Â§Ã™â€¦Ã˜Â§Ã™â€¹ Ã™â€¦Ã™â€  Ã˜Â§Ã™â€Ã˜Â®Ã˜Â¨Ã˜Â±Ã˜Â© Ã™ÂÃ™Å  Ã˜Â§Ã™â€Ã˜Â·Ã˜Â¨ Ã˜Â§Ã™â€Ã˜ÂªÃ™â€ Ã˜Â§Ã˜Â³Ã™â€Ã™Å .",
+        teamRole2: "Ã™â€¦Ã™â€ Ã˜Â³Ã™â€š Ã˜Â£Ã˜Â·Ã™ÂÃ˜Â§Ã™â€ Ã˜Â§Ã™â€Ã˜Â£Ã™â€ Ã˜Â§Ã˜Â¨Ã™Å Ã˜Â¨",
+        teamRole3: "Ã˜Â¹Ã˜Â§Ã™â€Ã™â€¦ Ã˜Â£Ã˜Â¬Ã™â€ Ã˜Â©",
+        teamRole4: "Ã™â€¦Ã™â€¦Ã˜Â±Ã˜Â¶Ã˜Â©",
+        teamRole5: "Ã™â€¦Ã™â€ Ã˜Â³Ã™â€š Ã˜Â§Ã™â€Ã™â€¦Ã˜Â±Ã˜Â¶Ã™â€°",
+        teamRole6: "Ã™â€¦Ã˜Â³Ã˜Â§Ã˜Â¹Ã˜Â¯",
+        teamRole7: "Ã˜Â§Ã™â€Ã™â€¦Ã™â€ Ã˜Â³Ã™â€š Ã˜Â§Ã™â€Ã˜Â¯Ã™Ë†Ã™â€Ã™Å ",
+        stat1: "Ã˜Â¯Ã™Ë†Ã˜Â±Ã˜Â§Ã˜Âª Ã˜ÂªÃ™â€Ã™â€šÃ™Å Ã˜Â­ Ã™â€ Ã˜Â§Ã˜Â¬Ã˜Â­Ã˜Â©",
+        stat2: "Ã™â€ Ã˜Â³Ã˜Â¨Ã˜Â© Ã˜Â§Ã™â€Ã™â€ Ã˜Â¬Ã˜Â§Ã˜Â­",
+        stat3: "Ã˜Â³Ã™â€ Ã™Ë†Ã˜Â§Ã˜Âª Ã™â€¦Ã™â€  Ã˜Â§Ã™â€Ã˜Â®Ã˜Â¨Ã˜Â±Ã˜Â©",
+        contactLocation: "Ã™â€ Ã™Å Ã™â€šÃ™Ë†Ã˜Â³Ã™Å Ã˜Â§Ã˜Å’ Ã™â€šÃ˜Â¨Ã˜Â±Ã˜Âµ",
         
-        ivfTitle: "Ù…Ø±ÙƒØ² Ø£Ø·ÙØ§Ù„ Ø§Ù„Ø£Ù†Ø§Ø¨ÙŠØ¨",
-        ivfSubTitle: "ØªÙƒÙ†ÙˆÙ„ÙˆØ¬ÙŠØ§ Ø§Ù„Ø¥Ù†Ø¬Ø§Ø¨ Ø§Ù„Ù…ØªÙ‚Ø¯Ù…Ø©",
-        ivfDesc: "Ù†Ø³ØªØ®Ø¯Ù… Ø£Ø­Ø¯Ø« Ø§Ù„ØªØ·ÙˆØ±Ø§Øª Ù„Ø²ÙŠØ§Ø¯Ø© ÙØ±ØµØªÙƒ ÙÙŠ Ø§Ù„Ø­Ù…Ù„ Ø§Ù„ØµØ­ÙŠ.",
-        ivfFeature1: "ØªÙ‚ÙŠÙŠÙ… Ø´Ø§Ù…Ù„ Ù„Ù„Ø®ØµÙˆØ¨Ø©",
-        ivfFeature2: "Ø¨Ø±ÙˆØªÙˆÙƒÙˆÙ„Ø§Øª Ø¹Ù„Ø§Ø¬ Ù…Ø®ØµØµØ©",
-        ivfFeature3: "Ù…Ø¹Ø¯Ù„Ø§Øª Ù†Ø¬Ø§Ø­ Ø¹Ø§Ù„ÙŠØ©",
+        ivfTitle: "Ã™â€¦Ã˜Â±Ã™Æ’Ã˜Â² Ã˜Â£Ã˜Â·Ã™ÂÃ˜Â§Ã™â€ Ã˜Â§Ã™â€Ã˜Â£Ã™â€ Ã˜Â§Ã˜Â¨Ã™Å Ã˜Â¨",
+        ivfSubTitle: "Ã˜ÂªÃ™Æ’Ã™â€ Ã™Ë†Ã™â€Ã™Ë†Ã˜Â¬Ã™Å Ã˜Â§ Ã˜Â§Ã™â€Ã˜Â¥Ã™â€ Ã˜Â¬Ã˜Â§Ã˜Â¨ Ã˜Â§Ã™â€Ã™â€¦Ã˜ÂªÃ™â€šÃ˜Â¯Ã™â€¦Ã˜Â©",
+        ivfDesc: "Ã™â€ Ã˜Â³Ã˜ÂªÃ˜Â®Ã˜Â¯Ã™â€¦ Ã˜Â£Ã˜Â­Ã˜Â¯Ã˜Â« Ã˜Â§Ã™â€Ã˜ÂªÃ˜Â·Ã™Ë†Ã˜Â±Ã˜Â§Ã˜Âª Ã™â€Ã˜Â²Ã™Å Ã˜Â§Ã˜Â¯Ã˜Â© Ã™ÂÃ˜Â±Ã˜ÂµÃ˜ÂªÃ™Æ’ Ã™ÂÃ™Å  Ã˜Â§Ã™â€Ã˜Â­Ã™â€¦Ã™â€ Ã˜Â§Ã™â€Ã˜ÂµÃ˜Â­Ã™Å .",
+        ivfFeature1: "Ã˜ÂªÃ™â€šÃ™Å Ã™Å Ã™â€¦ Ã˜Â´Ã˜Â§Ã™â€¦Ã™â€ Ã™â€Ã™â€Ã˜Â®Ã˜ÂµÃ™Ë†Ã˜Â¨Ã˜Â©",
+        ivfFeature2: "Ã˜Â¨Ã˜Â±Ã™Ë†Ã˜ÂªÃ™Ë†Ã™Æ’Ã™Ë†Ã™â€Ã˜Â§Ã˜Âª Ã˜Â¹Ã™â€Ã˜Â§Ã˜Â¬ Ã™â€¦Ã˜Â®Ã˜ÂµÃ˜ÂµÃ˜Â©",
+        ivfFeature3: "Ã™â€¦Ã˜Â¹Ã˜Â¯Ã™â€Ã˜Â§Ã˜Âª Ã™â€ Ã˜Â¬Ã˜Â§Ã˜Â­ Ã˜Â¹Ã˜Â§Ã™â€Ã™Å Ã˜Â©",
         
-        treatmentsTitle: "Ø®ÙŠØ§Ø±Ø§Øª Ø§Ù„Ø¹Ù„Ø§Ø¬",
-        treatmentCard1Title: "ØªØ¬Ù…ÙŠØ¯ Ø§Ù„Ø¨ÙˆÙŠØ¶Ø§Øª",
-        treatmentCard1Desc: "Ø­Ø§ÙØ¸ÙŠ Ø¹Ù„Ù‰ Ø®ØµÙˆØ¨ØªÙƒ Ù„Ù„Ù…Ø³ØªÙ‚Ø¨Ù„ Ø¨ØªÙ‚Ù†ÙŠØ§ØªÙ†Ø§ Ø§Ù„Ù…ØªÙ‚Ø¯Ù…Ø©.",
-        treatmentCard2Title: "Ø§Ù„ØªØ¨Ø±Ø¹ Ø¨Ø§Ù„Ø¨ÙˆÙŠØ¶Ø§Øª/Ø§Ù„Ø­ÙŠÙˆØ§Ù†Ø§Øª Ø§Ù„Ù…Ù†ÙˆÙŠØ©",
-        treatmentCard2Desc: "Ø¨Ø±Ø§Ù…Ø¬ ØªØ¨Ø±Ø¹ Ø´Ø§Ù…Ù„Ø© ÙˆØ³Ø±ÙŠØ©.",
-        treatmentCard3Title: "Ø§Ù„ÙØ­Øµ Ø§Ù„Ø¬ÙŠÙ†ÙŠ",
-        treatmentCard3Desc: "Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø± Ø§Ù„Ø¬ÙŠÙ†ÙŠ Ù„Ø¶Ù…Ø§Ù† Ø§Ø®ØªÙŠØ§Ø± Ø§Ù„Ø£Ø¬Ù†Ø© Ø§Ù„Ø£ÙƒØ«Ø± ØµØ­Ø©.",
+        treatmentsTitle: "Ã˜Â®Ã™Å Ã˜Â§Ã˜Â±Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€Ã˜Â¹Ã™â€Ã˜Â§Ã˜Â¬",
+        treatmentCard1Title: "Ã˜ÂªÃ˜Â¬Ã™â€¦Ã™Å Ã˜Â¯ Ã˜Â§Ã™â€Ã˜Â¨Ã™Ë†Ã™Å Ã˜Â¶Ã˜Â§Ã˜Âª",
+        treatmentCard1Desc: "Ã˜Â­Ã˜Â§Ã™ÂÃ˜Â¸Ã™Å  Ã˜Â¹Ã™â€Ã™â€° Ã˜Â®Ã˜ÂµÃ™Ë†Ã˜Â¨Ã˜ÂªÃ™Æ’ Ã™â€Ã™â€Ã™â€¦Ã˜Â³Ã˜ÂªÃ™â€šÃ˜Â¨Ã™â€ Ã˜Â¨Ã˜ÂªÃ™â€šÃ™â€ Ã™Å Ã˜Â§Ã˜ÂªÃ™â€ Ã˜Â§ Ã˜Â§Ã™â€Ã™â€¦Ã˜ÂªÃ™â€šÃ˜Â¯Ã™â€¦Ã˜Â©.",
+        treatmentCard2Title: "Ã˜Â§Ã™â€Ã˜ÂªÃ˜Â¨Ã˜Â±Ã˜Â¹ Ã˜Â¨Ã˜Â§Ã™â€Ã˜Â¨Ã™Ë†Ã™Å Ã˜Â¶Ã˜Â§Ã˜Âª/Ã˜Â§Ã™â€Ã˜Â­Ã™Å Ã™Ë†Ã˜Â§Ã™â€ Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€Ã™â€¦Ã™â€ Ã™Ë†Ã™Å Ã˜Â©",
+        treatmentCard2Desc: "Ã˜Â¨Ã˜Â±Ã˜Â§Ã™â€¦Ã˜Â¬ Ã˜ÂªÃ˜Â¨Ã˜Â±Ã˜Â¹ Ã˜Â´Ã˜Â§Ã™â€¦Ã™â€Ã˜Â© Ã™Ë†Ã˜Â³Ã˜Â±Ã™Å Ã˜Â©.",
+        treatmentCard3Title: "Ã˜Â§Ã™â€Ã™ÂÃ˜Â­Ã˜Âµ Ã˜Â§Ã™â€Ã˜Â¬Ã™Å Ã™â€ Ã™Å ",
+        treatmentCard3Desc: "Ã˜Â§Ã™â€Ã˜Â§Ã˜Â®Ã˜ÂªÃ˜Â¨Ã˜Â§Ã˜Â± Ã˜Â§Ã™â€Ã˜Â¬Ã™Å Ã™â€ Ã™Å  Ã™â€Ã˜Â¶Ã™â€¦Ã˜Â§Ã™â€  Ã˜Â§Ã˜Â®Ã˜ÂªÃ™Å Ã˜Â§Ã˜Â± Ã˜Â§Ã™â€Ã˜Â£Ã˜Â¬Ã™â€ Ã˜Â© Ã˜Â§Ã™â€Ã˜Â£Ã™Æ’Ã˜Â«Ã˜Â± Ã˜ÂµÃ˜Â­Ã˜Â©.",
         
-        testimonialsTitle: "Ø´Ø§Ø±ÙƒÙ‡Ø§ Ù…Ø±Ø¶Ø§Ù†Ø§",
-        testimonial1Text: "\"Ø¨ÙØ¶Ù„ Ø§Ù„Ø¯ÙƒØªÙˆØ± Ø¬ÙŠÙ†ÙƒØ³ÙˆÙŠ ÙˆÙØ±ÙŠÙ‚Ù‡ Ø§Ù„Ø±Ø§Ø¦Ø¹ØŒ ØªØ­Ù‚Ù‚ Ø­Ù„Ù…Ù†Ø§ Ø£Ø®ÙŠØ±Ø§Ù‹.\"",
-        testimonial1Author: "- Ø³Ø§Ø±Ø© ÙˆÙ…Ø§ÙŠÙƒÙ„",
+        testimonialsTitle: "Ã˜Â´Ã˜Â§Ã˜Â±Ã™Æ’Ã™â€¡Ã˜Â§ Ã™â€¦Ã˜Â±Ã˜Â¶Ã˜Â§Ã™â€ Ã˜Â§",
+        testimonial1Text: "\"Ã˜Â¨Ã™ÂÃ˜Â¶Ã™â€ Ã˜Â§Ã™â€Ã˜Â¯Ã™Æ’Ã˜ÂªÃ™Ë†Ã˜Â± Ã˜Â¬Ã™Å Ã™â€ Ã™Æ’Ã˜Â³Ã™Ë†Ã™Å  Ã™Ë†Ã™ÂÃ˜Â±Ã™Å Ã™â€šÃ™â€¡ Ã˜Â§Ã™â€Ã˜Â±Ã˜Â§Ã˜Â¦Ã˜Â¹Ã˜Å’ Ã˜ÂªÃ˜Â­Ã™â€šÃ™â€š Ã˜Â­Ã™â€Ã™â€¦Ã™â€ Ã˜Â§ Ã˜Â£Ã˜Â®Ã™Å Ã˜Â±Ã˜Â§Ã™â€¹.\"",
+        testimonial1Author: "- Ã˜Â³Ã˜Â§Ã˜Â±Ã˜Â© Ã™Ë†Ã™â€¦Ã˜Â§Ã™Å Ã™Æ’Ã™â€",
         
-        faqTitle: "Ø§Ù„Ø£Ø³Ø¦Ù„Ø© Ø§Ù„Ù…ØªÙƒØ±Ø±Ø©",
-        faq1Q: "Ù…Ø§ Ù‡ÙŠ Ù†Ø³Ø¨Ø© Ù†Ø¬Ø§Ø­ Ø£Ø·ÙØ§Ù„ Ø§Ù„Ø£Ù†Ø§Ø¨ÙŠØ¨ØŸ",
-        faq1A: "ØªØ®ØªÙ„Ù Ù†Ø³Ø¨ Ø§Ù„Ù†Ø¬Ø§Ø­ØŒ Ù„ÙƒÙ† Ø¹ÙŠØ§Ø¯ØªÙ†Ø§ ØªØ­Ø§ÙØ¸ Ø¹Ù„Ù‰ Ù†Ø³Ø¨ Ø£Ø¹Ù„Ù‰ Ù…Ù† Ø§Ù„Ù…ØªÙˆØ³Ø· Ø§Ù„Ø¹Ø§Ù„Ù…ÙŠ.",
-        faq2Q: "ÙƒÙ… ØªØ³ØªØºØ±Ù‚ Ø¯ÙˆØ±Ø© Ø£Ø·ÙØ§Ù„ Ø§Ù„Ø£Ù†Ø§Ø¨ÙŠØ¨ØŸ",
-        faq2A: "ØªØ³ØªØºØ±Ù‚ Ø§Ù„Ø¯ÙˆØ±Ø© Ø§Ù„Ù†Ù…ÙˆØ°Ø¬ÙŠØ© Ø­ÙˆØ§Ù„ÙŠ 4 Ø¥Ù„Ù‰ 6 Ø£Ø³Ø§Ø¨ÙŠØ¹.",
-        faq3Q: "Ù‡Ù„ Ù‡Ù†Ø§Ùƒ Ø­Ø¯ Ø¹Ù…Ø±ÙŠ Ù„Ù„Ø¹Ù„Ø§Ø¬ØŸ",
-        faq3A: "Ù†Ø­Ù† Ù†Ù‚ÙŠÙ… ÙƒÙ„ Ø­Ø§Ù„Ø© Ø¹Ù„Ù‰ Ø­Ø¯Ø© ÙˆÙ†Ù‚Ø¯Ù… Ø®ÙŠØ§Ø±Ø§Øª Ù…ØªÙ†ÙˆØ¹Ø©.",
+        faqTitle: "Ã˜Â§Ã™â€Ã˜Â£Ã˜Â³Ã˜Â¦Ã™â€Ã˜Â© Ã˜Â§Ã™â€Ã™â€¦Ã˜ÂªÃ™Æ’Ã˜Â±Ã˜Â±Ã˜Â©",
+        faq1Q: "Ã™â€¦Ã˜Â§ Ã™â€¡Ã™Å  Ã™â€ Ã˜Â³Ã˜Â¨Ã˜Â© Ã™â€ Ã˜Â¬Ã˜Â§Ã˜Â­ Ã˜Â£Ã˜Â·Ã™ÂÃ˜Â§Ã™â€ Ã˜Â§Ã™â€Ã˜Â£Ã™â€ Ã˜Â§Ã˜Â¨Ã™Å Ã˜Â¨Ã˜Å¸",
+        faq1A: "Ã˜ÂªÃ˜Â®Ã˜ÂªÃ™â€Ã™Â Ã™â€ Ã˜Â³Ã˜Â¨ Ã˜Â§Ã™â€Ã™â€ Ã˜Â¬Ã˜Â§Ã˜Â­Ã˜Å’ Ã™â€Ã™Æ’Ã™â€  Ã˜Â¹Ã™Å Ã˜Â§Ã˜Â¯Ã˜ÂªÃ™â€ Ã˜Â§ Ã˜ÂªÃ˜Â­Ã˜Â§Ã™ÂÃ˜Â¸ Ã˜Â¹Ã™â€Ã™â€° Ã™â€ Ã˜Â³Ã˜Â¨ Ã˜Â£Ã˜Â¹Ã™â€Ã™â€° Ã™â€¦Ã™â€  Ã˜Â§Ã™â€Ã™â€¦Ã˜ÂªÃ™Ë†Ã˜Â³Ã˜Â· Ã˜Â§Ã™â€Ã˜Â¹Ã˜Â§Ã™â€Ã™â€¦Ã™Å .",
+        faq2Q: "Ã™Æ’Ã™â€¦ Ã˜ÂªÃ˜Â³Ã˜ÂªÃ˜ÂºÃ˜Â±Ã™â€š Ã˜Â¯Ã™Ë†Ã˜Â±Ã˜Â© Ã˜Â£Ã˜Â·Ã™ÂÃ˜Â§Ã™â€ Ã˜Â§Ã™â€Ã˜Â£Ã™â€ Ã˜Â§Ã˜Â¨Ã™Å Ã˜Â¨Ã˜Å¸",
+        faq2A: "Ã˜ÂªÃ˜Â³Ã˜ÂªÃ˜ÂºÃ˜Â±Ã™â€š Ã˜Â§Ã™â€Ã˜Â¯Ã™Ë†Ã˜Â±Ã˜Â© Ã˜Â§Ã™â€Ã™â€ Ã™â€¦Ã™Ë†Ã˜Â°Ã˜Â¬Ã™Å Ã˜Â© Ã˜Â­Ã™Ë†Ã˜Â§Ã™â€Ã™Å  4 Ã˜Â¥Ã™â€Ã™â€° 6 Ã˜Â£Ã˜Â³Ã˜Â§Ã˜Â¨Ã™Å Ã˜Â¹.",
+        faq3Q: "Ã™â€¡Ã™â€ Ã™â€¡Ã™â€ Ã˜Â§Ã™Æ’ Ã˜Â­Ã˜Â¯ Ã˜Â¹Ã™â€¦Ã˜Â±Ã™Å  Ã™â€Ã™â€Ã˜Â¹Ã™â€Ã˜Â§Ã˜Â¬Ã˜Å¸",
+        faq3A: "Ã™â€ Ã˜Â­Ã™â€  Ã™â€ Ã™â€šÃ™Å Ã™â€¦ Ã™Æ’Ã™â€ Ã˜Â­Ã˜Â§Ã™â€Ã˜Â© Ã˜Â¹Ã™â€Ã™â€° Ã˜Â­Ã˜Â¯Ã˜Â© Ã™Ë†Ã™â€ Ã™â€šÃ˜Â¯Ã™â€¦ Ã˜Â®Ã™Å Ã˜Â§Ã˜Â±Ã˜Â§Ã˜Âª Ã™â€¦Ã˜ÂªÃ™â€ Ã™Ë†Ã˜Â¹Ã˜Â©.",
         
-        blogTitle: "Ø£Ø­Ø¯Ø« Ø§Ù„Ù…Ù‚Ø§Ù„Ø§Øª",
-        blog1Title: "ÙÙ‡Ù… Ø§Ù„Ø¬Ø¯ÙˆÙ„ Ø§Ù„Ø²Ù…Ù†ÙŠ Ù„Ø£Ø·ÙØ§Ù„ Ø§Ù„Ø£Ù†Ø§Ø¨ÙŠØ¨",
-        blog2Title: "Ø§Ù„Ù†Ø¸Ø§Ù… Ø§Ù„ØºØ°Ø§Ø¦ÙŠ ÙˆØ§Ù„Ø®ØµÙˆØ¨Ø©",
-        blog3Title: "Ø§Ù„ØµØ­Ø© Ø§Ù„Ù†ÙØ³ÙŠØ© Ø£Ø«Ù†Ø§Ø¡ Ø§Ù„Ø¹Ù„Ø§Ø¬",
-        readMore: "Ø§Ù‚Ø±Ø£ Ø§Ù„Ù…Ø²ÙŠØ¯",
+        blogTitle: "Ã˜Â£Ã˜Â­Ã˜Â¯Ã˜Â« Ã˜Â§Ã™â€Ã™â€¦Ã™â€šÃ˜Â§Ã™â€Ã˜Â§Ã˜Âª",
+        blog1Title: "Ã™ÂÃ™â€¡Ã™â€¦ Ã˜Â§Ã™â€Ã˜Â¬Ã˜Â¯Ã™Ë†Ã™â€ Ã˜Â§Ã™â€Ã˜Â²Ã™â€¦Ã™â€ Ã™Å  Ã™â€Ã˜Â£Ã˜Â·Ã™ÂÃ˜Â§Ã™â€ Ã˜Â§Ã™â€Ã˜Â£Ã™â€ Ã˜Â§Ã˜Â¨Ã™Å Ã˜Â¨",
+        blog2Title: "Ã˜Â§Ã™â€Ã™â€ Ã˜Â¸Ã˜Â§Ã™â€¦ Ã˜Â§Ã™â€Ã˜ÂºÃ˜Â°Ã˜Â§Ã˜Â¦Ã™Å  Ã™Ë†Ã˜Â§Ã™â€Ã˜Â®Ã˜ÂµÃ™Ë†Ã˜Â¨Ã˜Â©",
+        blog3Title: "Ã˜Â§Ã™â€Ã˜ÂµÃ˜Â­Ã˜Â© Ã˜Â§Ã™â€Ã™â€ Ã™ÂÃ˜Â³Ã™Å Ã˜Â© Ã˜Â£Ã˜Â«Ã™â€ Ã˜Â§Ã˜Â¡ Ã˜Â§Ã™â€Ã˜Â¹Ã™â€Ã˜Â§Ã˜Â¬",
+        readMore: "Ã˜Â§Ã™â€šÃ˜Â±Ã˜Â£ Ã˜Â§Ã™â€Ã™â€¦Ã˜Â²Ã™Å Ã˜Â¯",
         
-        contactTitle: "ØªÙˆØ§ØµÙ„ Ù…Ø¹Ù†Ø§",
-        contactInfoTitle: "Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø¹ÙŠØ§Ø¯Ø©",
-        contactInfoDesc: "Ù…Ù†Ø³Ù‚ÙˆÙ†Ø§ Ù…Ø³ØªØ¹Ø¯ÙˆÙ† Ù„Ù„Ø¥Ø¬Ø§Ø¨Ø© Ø¹Ù„Ù‰ Ø£Ø³Ø¦Ù„ØªÙƒ.",
-        formName: "Ø§Ù„Ø§Ø³Ù… Ø§Ù„ÙƒØ§Ù…Ù„",
-        formEmail: "Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ",
-        formMessage: "Ø±Ø³Ø§Ù„ØªÙƒ",
-        formSubmit: "Ø¥Ø±Ø³Ø§Ù„ Ø§Ù„Ø±Ø³Ø§Ù„Ø©",
+        contactTitle: "Ã˜ÂªÃ™Ë†Ã˜Â§Ã˜ÂµÃ™â€ Ã™â€¦Ã˜Â¹Ã™â€ Ã˜Â§",
+        contactInfoTitle: "Ã™â€¦Ã˜Â¹Ã™â€Ã™Ë†Ã™â€¦Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€Ã˜Â¹Ã™Å Ã˜Â§Ã˜Â¯Ã˜Â©",
+        contactInfoDesc: "Ã™â€¦Ã™â€ Ã˜Â³Ã™â€šÃ™Ë†Ã™â€ Ã˜Â§ Ã™â€¦Ã˜Â³Ã˜ÂªÃ˜Â¹Ã˜Â¯Ã™Ë†Ã™â€  Ã™â€Ã™â€Ã˜Â¥Ã˜Â¬Ã˜Â§Ã˜Â¨Ã˜Â© Ã˜Â¹Ã™â€Ã™â€° Ã˜Â£Ã˜Â³Ã˜Â¦Ã™â€Ã˜ÂªÃ™Æ’.",
+        formName: "Ã˜Â§Ã™â€Ã˜Â§Ã˜Â³Ã™â€¦ Ã˜Â§Ã™â€Ã™Æ’Ã˜Â§Ã™â€¦Ã™â€",
+        formEmail: "Ã˜Â§Ã™â€Ã˜Â¨Ã˜Â±Ã™Å Ã˜Â¯ Ã˜Â§Ã™â€Ã˜Â¥Ã™â€Ã™Æ’Ã˜ÂªÃ˜Â±Ã™Ë†Ã™â€ Ã™Å ",
+        formMessage: "Ã˜Â±Ã˜Â³Ã˜Â§Ã™â€Ã˜ÂªÃ™Æ’",
+        formSubmit: "Ã˜Â¥Ã˜Â±Ã˜Â³Ã˜Â§Ã™â€ Ã˜Â§Ã™â€Ã˜Â±Ã˜Â³Ã˜Â§Ã™â€Ã˜Â©",
         
-        footerRights: "Ø¬Ù…ÙŠØ¹ Ø§Ù„Ø­Ù‚ÙˆÙ‚ Ù…Ø­ÙÙˆØ¸Ø©.",
-        footerPagesTitle: "ØµÙØ­Ø§ØªÙ†Ø§",
-        footerContactTitle: "Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø§ØªØµØ§Ù„"
+        footerRights: "Ã˜Â¬Ã™â€¦Ã™Å Ã˜Â¹ Ã˜Â§Ã™â€Ã˜Â­Ã™â€šÃ™Ë†Ã™â€š Ã™â€¦Ã˜Â­Ã™ÂÃ™Ë†Ã˜Â¸Ã˜Â©.",
+        footerPagesTitle: "Ã˜ÂµÃ™ÂÃ˜Â­Ã˜Â§Ã˜ÂªÃ™â€ Ã˜Â§",
+        footerContactTitle: "Ã™â€¦Ã˜Â¹Ã™â€Ã™Ë†Ã™â€¦Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€Ã˜Â§Ã˜ÂªÃ˜ÂµÃ˜Â§Ã™â€", stat1Num: "3640", stat1Label: "TOTAL IVF", stat2Num: "2260", stat2Label: "OOCYTE DONATION", stat2Sub: "84% SUCCESS", stat3Num: "693", stat3Label: "IVF", stat3Sub: "84% SUCCESS", stat4Num: "538", stat4Label: "SPERM DONATION", stat4Sub: "67% SUCCESS", stat5Num: "610", stat5Label: "PGD", stat5Sub: "84% SUCCESS"
     },
     de: {
         logoText: "Dr. Cahit Cenksoy",
@@ -352,13 +352,13 @@ const translations = {
         navContact: "KONTAKT",
         
         heroTitle: "Gemeinsam Wunder schaffen",
-        heroSubtitle: "Modernste IVF-Behandlungen, maÃŸgeschneidert fÃ¼r Ihren Weg zur Elternschaft.",
+        heroSubtitle: "Modernste IVF-Behandlungen, maÃƒÅ¸geschneidert fÃƒÂ¼r Ihren Weg zur Elternschaft.",
         heroBtnPrimary: "Beratung buchen",
         heroBtnSecondary: "Behandlungen erkunden",
         
         teamTitle: "Unser Team",
         teamRole1: "Leitender IVF-Spezialist",
-        teamDesc1: "Ãœber 20 Jahre Erfahrung in der Reproduktionsmedizin.",
+        teamDesc1: "ÃƒÅ“ber 20 Jahre Erfahrung in der Reproduktionsmedizin.",
         teamRole2: "IVF-Koordinator",
         teamRole3: "Embryologe",
         teamRole4: "Krankenschwester",
@@ -374,24 +374,24 @@ const translations = {
         ivfSubTitle: "Fortschrittliche Reproduktionstechnologie",
         ivfDesc: "Wir nutzen die neuesten Fortschritte, um Ihre Chancen auf eine gesunde Schwangerschaft zu maximieren.",
         ivfFeature1: "Umfassende Beurteilung",
-        ivfFeature2: "MaÃŸgeschneiderte Protokolle",
+        ivfFeature2: "MaÃƒÅ¸geschneiderte Protokolle",
         ivfFeature3: "Hohe Erfolgsraten",
         
         treatmentsTitle: "Behandlungsoptionen",
         treatmentCard1Title: "Einfrieren von Eizellen",
-        treatmentCard1Desc: "Bewahren Sie Ihre Fruchtbarkeit fÃ¼r die Zukunft.",
+        treatmentCard1Desc: "Bewahren Sie Ihre Fruchtbarkeit fÃƒÂ¼r die Zukunft.",
         treatmentCard2Title: "Eizellen-/Samenspende",
         treatmentCard2Desc: "Umfassende und vertrauliche Spendenprogramme.",
         treatmentCard3Title: "PID / PGS",
-        treatmentCard3Desc: "Genetische PrÃ¤implantationsdiagnostik.",
+        treatmentCard3Desc: "Genetische PrÃƒÂ¤implantationsdiagnostik.",
         
         testimonialsTitle: "Von unseren Patienten",
         testimonial1Text: "\"Dank Dr. Cenksoy wurde unser Traum endlich wahr.\"",
         testimonial1Author: "- Sarah & Michael",
         
-        faqTitle: "HÃ¤ufig gestellte Fragen",
+        faqTitle: "HÃƒÂ¤ufig gestellte Fragen",
         faq1Q: "Wie hoch ist die Erfolgsrate?",
-        faq1A: "Unsere Klinik liegt konstant Ã¼ber dem weltweiten Durchschnitt.",
+        faq1A: "Unsere Klinik liegt konstant ÃƒÂ¼ber dem weltweiten Durchschnitt.",
         faq2Q: "Wie lange dauert ein IVF-Zyklus?",
         faq2A: "Ein typischer Zyklus dauert etwa 4 bis 6 Wochen.",
         faq3Q: "Gibt es eine Altersgrenze?",
@@ -399,255 +399,254 @@ const translations = {
         
         blogTitle: "Neueste Einblicke",
         blog1Title: "Den IVF-Zeitplan verstehen",
-        blog2Title: "ErnÃ¤hrung und Fruchtbarkeit",
-        blog3Title: "Psychische Gesundheit wÃ¤hrend IVF",
+        blog2Title: "ErnÃƒÂ¤hrung und Fruchtbarkeit",
+        blog3Title: "Psychische Gesundheit wÃƒÂ¤hrend IVF",
         readMore: "Weiterlesen",
         
         contactTitle: "Kontakt aufnehmen",
         contactInfoTitle: "Klinikinformationen",
         contactInfoDesc: "Unsere Koordinatoren stehen bereit, um Ihre Fragen zu beantworten.",
-        formName: "VollstÃ¤ndiger Name",
+        formName: "VollstÃƒÂ¤ndiger Name",
         formEmail: "E-Mail-Adresse",
         formMessage: "Ihre Nachricht",
         formSubmit: "Nachricht senden",
         
         footerRights: "Alle Rechte vorbehalten.",
         footerPagesTitle: "UNSERE SEITEN",
-        footerContactTitle: "KONTAKTINFORMATIONEN"
+        footerContactTitle: "KONTAKTINFORMATIONEN", stat1Num: "3640", stat1Label: "TOTAL IVF", stat2Num: "2260", stat2Label: "OOCYTE DONATION", stat2Sub: "84% SUCCESS", stat3Num: "693", stat3Label: "IVF", stat3Sub: "84% SUCCESS", stat4Num: "538", stat4Label: "SPERM DONATION", stat4Sub: "67% SUCCESS", stat5Num: "610", stat5Label: "PGD", stat5Sub: "84% SUCCESS"
     },
     ru: {
         logoText: "Dr. Cahit Cenksoy",
-        navHome: "Ğ“Ğ›ĞĞ’ĞĞĞ¯",
-        navTeam: "ĞĞĞ¨Ğ ĞšĞĞœĞĞĞ”Ğ",
-        navIVF: "Ğ­ĞšĞ",
-        ivfProcess: "ĞŸÑ€Ğ¾Ñ†ĞµÑÑ Ğ­ĞšĞ",
-        ivfICSI: "Ğ˜ĞšĞ¡Ğ˜",
-        ivfIMSI: "Ğ˜ĞœĞ¡Ğ˜",
-        navTreatments: "Ğ›Ğ•Ğ§Ğ•ĞĞ˜Ğ•",
-        treatmentEggFreezing: "Ğ—Ğ°Ğ¼Ğ¾Ñ€Ğ°Ğ¶Ğ¸Ğ²Ğ°Ğ½Ğ¸Ğµ ÑĞ¹Ñ†ĞµĞºĞ»ĞµÑ‚Ğ¾Ğº",
-        treatmentDonation: "Ğ”Ğ¾Ğ½Ğ¾Ñ€ÑÑ‚Ğ²Ğ¾",
-        treatmentPGD: "ĞŸĞ“Ğ” / ĞŸĞ“Ğ¡",
-        navTestimonials: "ĞĞ¢Ğ—Ğ«Ğ’Ğ« ĞŸĞĞ¦Ğ˜Ğ•ĞĞ¢ĞĞ’",
-        navFAQ: "Ğ§ĞĞ’Ğ",
-        navBlogs: "Ğ‘Ğ›ĞĞ“",
-        navContact: "ĞšĞĞĞ¢ĞĞšĞ¢Ğ«",
+        navHome: "Äâ€œÄâ€ºÄÂÄâ€™ÄÂÄÂÄÂ¯",
+        navTeam: "ÄÂÄÂÄÂ¨ÄÂ ÄÅ¡ÄÂÄÅ“ÄÂÄÂÄâ€ÄÂ",
+        navIVF: "ÄÂ­ÄÅ¡ÄÂ",
+        ivfProcess: "ÄÅ¸Ã‘â‚¬ÄÂ¾Ã‘â€ ÄÂµÃ‘ÂÃ‘Â ÄÂ­ÄÅ¡ÄÂ",
+        ivfICSI: "ÄËœÄÅ¡ÄÂ¡ÄËœ",
+        ivfIMSI: "ÄËœÄÅ“ÄÂ¡ÄËœ",
+        navTreatments: "Äâ€ºÄâ€¢ÄÂ§Äâ€¢ÄÂÄËœÄâ€¢",
+        treatmentEggFreezing: "Äâ€”ÄÂ°ÄÂ¼ÄÂ¾Ã‘â‚¬ÄÂ°ÄÂ¶ÄÂ¸ÄÂ²ÄÂ°ÄÂ½ÄÂ¸ÄÂµ Ã‘ÂÄÂ¹Ã‘â€ ÄÂµÄÂºÄÂ»ÄÂµÃ‘â€šÄÂ¾ÄÂº",
+        treatmentDonation: "Äâ€ÄÂ¾ÄÂ½ÄÂ¾Ã‘â‚¬Ã‘ÂÃ‘â€šÄÂ²ÄÂ¾",
+        treatmentPGD: "ÄÅ¸Äâ€œÄâ€ / ÄÅ¸Äâ€œÄÂ¡",
+        navTestimonials: "ÄÂÄÂ¢Äâ€”ÄÂ«Äâ€™ÄÂ« ÄÅ¸ÄÂÄÂ¦ÄËœÄâ€¢ÄÂÄÂ¢ÄÂÄâ€™",
+        navFAQ: "ÄÂ§ÄÂÄâ€™ÄÂ",
+        navBlogs: "Äâ€˜Äâ€ºÄÂÄâ€œ",
+        navContact: "ÄÅ¡ÄÂÄÂÄÂ¢ÄÂÄÅ¡ÄÂ¢ÄÂ«",
         
-        heroTitle: "Ğ¡Ğ¾Ğ·Ğ´Ğ°ĞµĞ¼ Ñ‡ÑƒĞ´ĞµÑĞ° Ğ²Ğ¼ĞµÑÑ‚Ğµ",
-        heroSubtitle: "Ğ¡Ğ¾Ğ²Ñ€ĞµĞ¼ĞµĞ½Ğ½Ñ‹Ğµ Ğ¼ĞµÑ‚Ğ¾Ğ´Ñ‹ Ğ»ĞµÑ‡ĞµĞ½Ğ¸Ñ Ğ­ĞšĞ, Ğ°Ğ´Ğ°Ğ¿Ñ‚Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ½Ñ‹Ğµ Ğº Ğ²Ğ°ÑˆĞµĞ¼Ñƒ ÑƒĞ½Ğ¸ĞºĞ°Ğ»ÑŒĞ½Ğ¾Ğ¼Ñƒ Ğ¿ÑƒÑ‚Ğ¸ Ğº Ñ€Ğ¾Ğ´Ğ¸Ñ‚ĞµĞ»ÑŒÑÑ‚Ğ²Ñƒ.",
-        heroBtnPrimary: "Ğ—Ğ°Ğ¿Ğ¸ÑĞ°Ñ‚ÑŒÑÑ Ğ½Ğ° ĞºĞ¾Ğ½ÑÑƒĞ»ÑŒÑ‚Ğ°Ñ†Ğ¸Ñ",
-        heroBtnSecondary: "Ğ˜Ğ·ÑƒÑ‡Ğ¸Ñ‚ÑŒ Ğ»ĞµÑ‡ĞµĞ½Ğ¸Ğµ",
+        heroTitle: "ÄÂ¡ÄÂ¾ÄÂ·ÄÂ´ÄÂ°ÄÂµÄÂ¼ Ã‘â€¡Ã‘Æ’ÄÂ´ÄÂµÃ‘ÂÄÂ° ÄÂ²ÄÂ¼ÄÂµÃ‘ÂÃ‘â€šÄÂµ",
+        heroSubtitle: "ÄÂ¡ÄÂ¾ÄÂ²Ã‘â‚¬ÄÂµÄÂ¼ÄÂµÄÂ½ÄÂ½Ã‘â€¹ÄÂµ ÄÂ¼ÄÂµÃ‘â€šÄÂ¾ÄÂ´Ã‘â€¹ ÄÂ»ÄÂµÃ‘â€¡ÄÂµÄÂ½ÄÂ¸Ã‘Â ÄÂ­ÄÅ¡ÄÂ, ÄÂ°ÄÂ´ÄÂ°ÄÂ¿Ã‘â€šÄÂ¸Ã‘â‚¬ÄÂ¾ÄÂ²ÄÂ°ÄÂ½ÄÂ½Ã‘â€¹ÄÂµ ÄÂº ÄÂ²ÄÂ°Ã‘Ë†ÄÂµÄÂ¼Ã‘Æ’ Ã‘Æ’ÄÂ½ÄÂ¸ÄÂºÄÂ°ÄÂ»Ã‘Å’ÄÂ½ÄÂ¾ÄÂ¼Ã‘Æ’ ÄÂ¿Ã‘Æ’Ã‘â€šÄÂ¸ ÄÂº Ã‘â‚¬ÄÂ¾ÄÂ´ÄÂ¸Ã‘â€šÄÂµÄÂ»Ã‘Å’Ã‘ÂÃ‘â€šÄÂ²Ã‘Æ’.",
+        heroBtnPrimary: "Äâ€”ÄÂ°ÄÂ¿ÄÂ¸Ã‘ÂÄÂ°Ã‘â€šÃ‘Å’Ã‘ÂÃ‘Â ÄÂ½ÄÂ° ÄÂºÄÂ¾ÄÂ½Ã‘ÂÃ‘Æ’ÄÂ»Ã‘Å’Ã‘â€šÄÂ°Ã‘â€ ÄÂ¸Ã‘Â",
+        heroBtnSecondary: "ÄËœÄÂ·Ã‘Æ’Ã‘â€¡ÄÂ¸Ã‘â€šÃ‘Å’ ÄÂ»ÄÂµÃ‘â€¡ÄÂµÄÂ½ÄÂ¸ÄÂµ",
         
-        teamTitle: "ĞĞ°ÑˆĞ° ĞºĞ¾Ğ¼Ğ°Ğ½Ğ´Ğ°",
-        teamRole1: "Ğ’ĞµĞ´ÑƒÑ‰Ğ¸Ğ¹ ÑĞ¿ĞµÑ†Ğ¸Ğ°Ğ»Ğ¸ÑÑ‚ Ğ¿Ğ¾ Ğ­ĞšĞ",
-        teamDesc1: "Ğ‘Ğ¾Ğ»ĞµĞµ 20 Ğ»ĞµÑ‚ Ğ¾Ğ¿Ñ‹Ñ‚Ğ° Ğ² Ñ€ĞµĞ¿Ñ€Ğ¾Ğ´ÑƒĞºÑ‚Ğ¸Ğ²Ğ½Ğ¾Ğ¹ Ğ¼ĞµĞ´Ğ¸Ñ†Ğ¸Ğ½Ğµ.",
-        teamRole2: "ĞšĞ¾Ğ¾Ñ€Ğ´Ğ¸Ğ½Ğ°Ñ‚Ğ¾Ñ€ Ğ­ĞšĞ",
-        teamRole3: "Ğ­Ğ¼Ğ±Ñ€Ğ¸Ğ¾Ğ»Ğ¾Ğ³",
-        teamRole4: "ĞœĞµĞ´ÑĞµÑÑ‚Ñ€Ğ°",
-        teamRole5: "ĞšĞ¾Ğ¾Ñ€Ğ´Ğ¸Ğ½Ğ°Ñ‚Ğ¾Ñ€ Ğ¿Ğ°Ñ†Ğ¸ĞµĞ½Ñ‚Ğ¾Ğ²",
-        teamRole6: "ĞÑÑĞ¸ÑÑ‚ĞµĞ½Ñ‚",
-        teamRole7: "ĞœĞµĞ¶Ğ´ÑƒĞ½Ğ°Ñ€Ğ¾Ğ´Ğ½Ñ‹Ğ¹ ĞºĞ¾Ğ¾Ñ€Ğ´Ğ¸Ğ½Ğ°Ñ‚Ğ¾Ñ€",
-        stat1: "Ğ£ÑĞ¿ĞµÑˆĞ½Ñ‹Ñ… Ñ†Ğ¸ĞºĞ»Ğ¾Ğ² Ğ­ĞšĞ",
-        stat2: "ĞŸĞ¾ĞºĞ°Ğ·Ğ°Ñ‚ĞµĞ»ÑŒ ÑƒÑĞ¿ĞµÑ…Ğ°",
-        stat3: "Ğ›ĞµÑ‚ Ğ¾Ğ¿Ñ‹Ñ‚Ğ°",
-        contactLocation: "ĞĞ¸ĞºĞ¾ÑĞ¸Ñ, ĞšĞ¸Ğ¿Ñ€",
+        teamTitle: "ÄÂÄÂ°Ã‘Ë†ÄÂ° ÄÂºÄÂ¾ÄÂ¼ÄÂ°ÄÂ½ÄÂ´ÄÂ°",
+        teamRole1: "Äâ€™ÄÂµÄÂ´Ã‘Æ’Ã‘â€°ÄÂ¸ÄÂ¹ Ã‘ÂÄÂ¿ÄÂµÃ‘â€ ÄÂ¸ÄÂ°ÄÂ»ÄÂ¸Ã‘ÂÃ‘â€š ÄÂ¿ÄÂ¾ ÄÂ­ÄÅ¡ÄÂ",
+        teamDesc1: "Äâ€˜ÄÂ¾ÄÂ»ÄÂµÄÂµ 20 ÄÂ»ÄÂµÃ‘â€š ÄÂ¾ÄÂ¿Ã‘â€¹Ã‘â€šÄÂ° ÄÂ² Ã‘â‚¬ÄÂµÄÂ¿Ã‘â‚¬ÄÂ¾ÄÂ´Ã‘Æ’ÄÂºÃ‘â€šÄÂ¸ÄÂ²ÄÂ½ÄÂ¾ÄÂ¹ ÄÂ¼ÄÂµÄÂ´ÄÂ¸Ã‘â€ ÄÂ¸ÄÂ½ÄÂµ.",
+        teamRole2: "ÄÅ¡ÄÂ¾ÄÂ¾Ã‘â‚¬ÄÂ´ÄÂ¸ÄÂ½ÄÂ°Ã‘â€šÄÂ¾Ã‘â‚¬ ÄÂ­ÄÅ¡ÄÂ",
+        teamRole3: "ÄÂ­ÄÂ¼ÄÂ±Ã‘â‚¬ÄÂ¸ÄÂ¾ÄÂ»ÄÂ¾ÄÂ³",
+        teamRole4: "ÄÅ“ÄÂµÄÂ´Ã‘ÂÄÂµÃ‘ÂÃ‘â€šÃ‘â‚¬ÄÂ°",
+        teamRole5: "ÄÅ¡ÄÂ¾ÄÂ¾Ã‘â‚¬ÄÂ´ÄÂ¸ÄÂ½ÄÂ°Ã‘â€šÄÂ¾Ã‘â‚¬ ÄÂ¿ÄÂ°Ã‘â€ ÄÂ¸ÄÂµÄÂ½Ã‘â€šÄÂ¾ÄÂ²",
+        teamRole6: "ÄÂÃ‘ÂÃ‘ÂÄÂ¸Ã‘ÂÃ‘â€šÄÂµÄÂ½Ã‘â€š",
+        teamRole7: "ÄÅ“ÄÂµÄÂ¶ÄÂ´Ã‘Æ’ÄÂ½ÄÂ°Ã‘â‚¬ÄÂ¾ÄÂ´ÄÂ½Ã‘â€¹ÄÂ¹ ÄÂºÄÂ¾ÄÂ¾Ã‘â‚¬ÄÂ´ÄÂ¸ÄÂ½ÄÂ°Ã‘â€šÄÂ¾Ã‘â‚¬",
+        stat1: "ÄÂ£Ã‘ÂÄÂ¿ÄÂµÃ‘Ë†ÄÂ½Ã‘â€¹Ã‘â€¦ Ã‘â€ ÄÂ¸ÄÂºÄÂ»ÄÂ¾ÄÂ² ÄÂ­ÄÅ¡ÄÂ",
+        stat2: "ÄÅ¸ÄÂ¾ÄÂºÄÂ°ÄÂ·ÄÂ°Ã‘â€šÄÂµÄÂ»Ã‘Å’ Ã‘Æ’Ã‘ÂÄÂ¿ÄÂµÃ‘â€¦ÄÂ°",
+        stat3: "Äâ€ºÄÂµÃ‘â€š ÄÂ¾ÄÂ¿Ã‘â€¹Ã‘â€šÄÂ°",
+        contactLocation: "ÄÂÄÂ¸ÄÂºÄÂ¾Ã‘ÂÄÂ¸Ã‘Â, ÄÅ¡ÄÂ¸ÄÂ¿Ã‘â‚¬",
         
-        aboutSubtitle: "Ğ¡ĞŸĞ•Ğ¦Ğ˜ĞĞ›Ğ˜Ğ¡Ğ¢ ĞŸĞ Ğ“Ğ˜ĞĞ•ĞšĞĞ›ĞĞ“Ğ˜Ğ˜, ĞĞšĞ£Ğ¨Ğ•Ğ Ğ¡Ğ¢Ğ’Ğ£ Ğ˜ Ğ­ĞšĞ",
-        aboutTitle: "ĞĞŸ. Ğ”Ğ . Ğ”Ğ–ĞĞ¥Ğ˜Ğ¢ Ğ”Ğ–Ğ•ĞĞšĞ¡ĞĞ™",
-        aboutP1: "Ğ˜Ğ¼ĞµÑ ÑĞ°Ğ¼Ñ‹Ğ¹ Ğ²Ñ‹ÑĞ¾ĞºĞ¸Ğ¹ Ğ¿Ğ¾ĞºĞ°Ğ·Ğ°Ñ‚ĞµĞ»ÑŒ ÑƒÑĞ¿ĞµÑ…Ğ° Ğ­ĞšĞ Ğ½Ğ° ĞšĞ¸Ğ¿Ñ€Ğµ; Ğ´Ğ¾ĞºÑ‚Ğ¾Ñ€ Ğ”Ğ¶Ğ°Ñ…Ğ¸Ñ‚ Ğ”Ğ¶ĞµĞ½ĞºÑĞ¾Ğ¹, Ğ¾Ğ´Ğ¸Ğ½ Ğ¸Ğ· ÑĞ°Ğ¼Ñ‹Ñ… Ğ¼Ğ¾Ğ»Ğ¾Ğ´Ñ‹Ñ…, Ğ¾Ğ¿Ñ‹Ñ‚Ğ½Ñ‹Ñ… Ğ¸ ÑƒÑĞ¿ĞµÑˆĞ½Ñ‹Ñ… Ğ°ĞºÑƒÑˆĞµÑ€Ğ¾Ğ²-Ğ³Ğ¸Ğ½ĞµĞºĞ¾Ğ»Ğ¾Ğ³Ğ¾Ğ², Ñ…Ğ¾Ñ€Ğ¾ÑˆĞ¾ Ğ¸Ğ·Ğ²ĞµÑÑ‚ĞµĞ½ ĞºĞ°Ğº Ğ²Ñ€Ğ°Ñ‡, Ğ¿Ñ€Ğ¸Ğ½Ğ¸Ğ¼Ğ°ÑÑ‰Ğ¸Ğ¹ Ğ½Ğ°Ğ¸Ğ±Ğ¾Ğ»ÑŒÑˆĞµĞµ ĞºĞ¾Ğ»Ğ¸Ñ‡ĞµÑÑ‚Ğ²Ğ¾ Ñ€Ğ¾Ğ´Ğ¾Ğ² Ğ½Ğ° Ğ¾ÑÑ‚Ñ€Ğ¾Ğ²Ğµ.",
-        aboutP2: "ĞĞ°Ñˆ Ñ†ĞµĞ½Ñ‚Ñ€ Ñ€Ğ°ÑĞ¿Ğ¾Ğ»Ğ¾Ğ¶ĞµĞ½ Ğ² ĞšĞ¸Ñ€ĞµĞ½Ğ¸Ğ¸, Ñ†ĞµĞ½Ñ‚Ñ€Ğµ Ğ¿Ñ€Ğ¸Ñ‚ÑĞ¶ĞµĞ½Ğ¸Ñ Ğ¾ÑÑ‚Ñ€Ğ¾Ğ²Ğ° Ğ¸ Ñ‚ÑƒÑ€Ğ¸ÑÑ‚Ğ¸Ñ‡ĞµÑĞºĞ¾Ğ¼ Ñ€Ğ°Ñ. Ğ­ĞºÑĞºÑƒÑ€ÑĞ¸Ñ Ğ¿Ğ¾ Ğ³Ğ¾Ñ€Ğ¾Ğ´Ñƒ Ğ²Ğ¾ Ğ²Ñ€ĞµĞ¼Ñ Ğ»ĞµÑ‡ĞµĞ½Ğ¸Ñ Ğ¿Ğ¾Ğ¼Ğ¾Ğ¶ĞµÑ‚ ÑĞ½Ğ¸Ğ·Ğ¸Ñ‚ÑŒ ÑÑ‚Ñ€ĞµÑÑ.",
-        aboutP3: "Ğ‘Ğ»Ğ°Ğ³Ğ¾Ğ´Ğ°Ñ€Ñ Ğ½Ğ°ÑˆĞµĞ¹ Ğ¾Ğ¿Ñ‹Ñ‚Ğ½Ğ¾Ğ¹ ĞºĞ¾Ğ¼Ğ°Ğ½Ğ´Ğµ, ÑĞ¾Ğ²Ñ€ĞµĞ¼ĞµĞ½Ğ½Ğ¾Ğ¹ Ğ»Ğ°Ğ±Ğ¾Ñ€Ğ°Ñ‚Ğ¾Ñ€Ğ¸Ğ¸ Ğ¸ ĞºĞ²Ğ°Ğ»Ğ¸Ñ„Ğ¸Ñ†Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ½Ñ‹Ğ¼ Ğ¼ĞµĞ´ÑĞµÑÑ‚Ñ€Ğ°Ğ¼ Ğ½Ğ°Ñˆ ÑƒÑĞ¿ĞµÑ… Ñ€Ğ°ÑÑ‚ĞµÑ‚.",
-        aboutP4: "Ğ’Ğ¾Ğ·Ğ¼Ğ¾Ğ¶Ğ½Ğ¾ÑÑ‚ÑŒ Ğ¿Ğ°Ñ†Ğ¸ĞµĞ½Ñ‚Ğ¾Ğ² Ğ¾Ğ±Ñ‰Ğ°Ñ‚ÑŒÑÑ Ñ Ğ²Ñ€Ğ°Ñ‡Ğ¾Ğ¼ Ğ² Ğ»ÑĞ±Ğ¾Ğµ Ğ²Ñ€ĞµĞ¼Ñ ÑĞ½Ğ¸Ğ¶Ğ°ĞµÑ‚ ÑÑ‚Ñ€ĞµÑÑ Ğ¸ Ğ¿Ğ¾Ğ²Ñ‹ÑˆĞ°ĞµÑ‚ Ğ´Ğ¾Ğ²ĞµÑ€Ğ¸Ğµ.",
-        aboutP5: "ĞŸĞ¾ĞºĞ°Ğ·Ğ°Ñ‚ĞµĞ»Ğ¸ ÑƒÑĞ¿ĞµÑˆĞ½Ğ¾ÑÑ‚Ğ¸ Ğ±ĞµÑ€ĞµĞ¼ĞµĞ½Ğ½Ğ¾ÑÑ‚Ğ¸ Ğ²Ğ°Ñ€ÑŒĞ¸Ñ€ÑƒÑÑ‚ÑÑ Ğ¾Ñ‚ 75% Ğ´Ğ¾ 90%. ĞœÑ‹ Ğ¿Ğ¾Ğ»ÑƒÑ‡Ğ°ĞµĞ¼ Ğ¾Ñ‚Ğ»Ğ¸Ñ‡Ğ½Ñ‹Ğµ Ñ€ĞµĞ·ÑƒĞ»ÑŒÑ‚Ğ°Ñ‚Ñ‹ Ğ±Ğ»Ğ°Ğ³Ğ¾Ğ´Ğ°Ñ€Ñ Ğ¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ğ²Ğ¸Ñ Ğ¾Ñ‡ĞµÑ€ĞµĞ´ĞµĞ¹ Ğ½Ğ° Ğ´Ğ¾Ğ½Ğ¾Ñ€ÑÑ‚Ğ²Ğ¾ Ğ¾Ğ¾Ñ†Ğ¸Ñ‚Ğ¾Ğ².",
-        aboutP6: "ĞĞ°ÑˆĞ¸ Ğ¿Ğ¾ĞºĞ°Ğ·Ğ°Ñ‚ĞµĞ»Ğ¸ ÑƒÑĞ¿ĞµÑ…Ğ° Ğ²ÑĞµĞ³Ğ´Ğ° Ğ¾ÑÑ‚Ğ°ÑÑ‚ÑÑ Ğ½Ğ° Ğ²Ñ‹ÑĞ¾ĞºĞ¾Ğ¼ ÑƒÑ€Ğ¾Ğ²Ğ½Ğµ Ğ±Ğ»Ğ°Ğ³Ğ¾Ğ´Ğ°Ñ€Ñ ÑÑ‚Ñ€Ğ¾Ğ³Ğ¸Ğ¼ ÑÑ‚Ğ°Ğ½Ğ´Ğ°Ñ€Ñ‚Ğ°Ğ¼.",
-        aboutP7: "ĞĞ°ÑˆĞ° Ğ¾Ğ¿Ñ‹Ñ‚Ğ½Ğ°Ñ ĞºĞ¾Ğ¼Ğ°Ğ½Ğ´Ğ° Ğ¶Ğ´ĞµÑ‚ Ğ²Ğ°Ñ Ğ½Ğ° Ğ¾ÑÑ‚Ñ€Ğ¾Ğ²Ğµ, Ñ‡Ñ‚Ğ¾Ğ±Ñ‹ Ğ¿Ğ¾Ğ´Ğ°Ñ€Ğ¸Ñ‚ÑŒ Ğ²Ğ°Ğ¼ Ñ€Ğ°Ğ´Ğ¾ÑÑ‚Ğ½ÑƒÑ Ğ²ĞµÑÑ‚ÑŒ Ğ²Ğ°ÑˆĞµĞ¹ Ğ¼ĞµÑ‡Ñ‚Ñ‹.",
+        aboutSubtitle: "ÄÂ¡ÄÅ¸Äâ€¢ÄÂ¦ÄËœÄÂÄâ€ºÄËœÄÂ¡ÄÂ¢ ÄÅ¸ÄÂ Äâ€œÄËœÄÂÄâ€¢ÄÅ¡ÄÂÄâ€ºÄÂÄâ€œÄËœÄËœ, ÄÂÄÅ¡ÄÂ£ÄÂ¨Äâ€¢ÄÂ ÄÂ¡ÄÂ¢Äâ€™ÄÂ£ ÄËœ ÄÂ­ÄÅ¡ÄÂ",
+        aboutTitle: "ÄÂÄÅ¸. Äâ€ÄÂ . Äâ€Äâ€“ÄÂÄÂ¥ÄËœÄÂ¢ Äâ€Äâ€“Äâ€¢ÄÂÄÅ¡ÄÂ¡ÄÂÄâ„¢",
+        aboutP1: "ÄËœÄÂ¼ÄÂµÃ‘Â Ã‘ÂÄÂ°ÄÂ¼Ã‘â€¹ÄÂ¹ ÄÂ²Ã‘â€¹Ã‘ÂÄÂ¾ÄÂºÄÂ¸ÄÂ¹ ÄÂ¿ÄÂ¾ÄÂºÄÂ°ÄÂ·ÄÂ°Ã‘â€šÄÂµÄÂ»Ã‘Å’ Ã‘Æ’Ã‘ÂÄÂ¿ÄÂµÃ‘â€¦ÄÂ° ÄÂ­ÄÅ¡ÄÂ ÄÂ½ÄÂ° ÄÅ¡ÄÂ¸ÄÂ¿Ã‘â‚¬ÄÂµ; ÄÂ´ÄÂ¾ÄÂºÃ‘â€šÄÂ¾Ã‘â‚¬ Äâ€ÄÂ¶ÄÂ°Ã‘â€¦ÄÂ¸Ã‘â€š Äâ€ÄÂ¶ÄÂµÄÂ½ÄÂºÃ‘ÂÄÂ¾ÄÂ¹, ÄÂ¾ÄÂ´ÄÂ¸ÄÂ½ ÄÂ¸ÄÂ· Ã‘ÂÄÂ°ÄÂ¼Ã‘â€¹Ã‘â€¦ ÄÂ¼ÄÂ¾ÄÂ»ÄÂ¾ÄÂ´Ã‘â€¹Ã‘â€¦, ÄÂ¾ÄÂ¿Ã‘â€¹Ã‘â€šÄÂ½Ã‘â€¹Ã‘â€¦ ÄÂ¸ Ã‘Æ’Ã‘ÂÄÂ¿ÄÂµÃ‘Ë†ÄÂ½Ã‘â€¹Ã‘â€¦ ÄÂ°ÄÂºÃ‘Æ’Ã‘Ë†ÄÂµÃ‘â‚¬ÄÂ¾ÄÂ²-ÄÂ³ÄÂ¸ÄÂ½ÄÂµÄÂºÄÂ¾ÄÂ»ÄÂ¾ÄÂ³ÄÂ¾ÄÂ², Ã‘â€¦ÄÂ¾Ã‘â‚¬ÄÂ¾Ã‘Ë†ÄÂ¾ ÄÂ¸ÄÂ·ÄÂ²ÄÂµÃ‘ÂÃ‘â€šÄÂµÄÂ½ ÄÂºÄÂ°ÄÂº ÄÂ²Ã‘â‚¬ÄÂ°Ã‘â€¡, ÄÂ¿Ã‘â‚¬ÄÂ¸ÄÂ½ÄÂ¸ÄÂ¼ÄÂ°Ã‘ÂÃ‘â€°ÄÂ¸ÄÂ¹ ÄÂ½ÄÂ°ÄÂ¸ÄÂ±ÄÂ¾ÄÂ»Ã‘Å’Ã‘Ë†ÄÂµÄÂµ ÄÂºÄÂ¾ÄÂ»ÄÂ¸Ã‘â€¡ÄÂµÃ‘ÂÃ‘â€šÄÂ²ÄÂ¾ Ã‘â‚¬ÄÂ¾ÄÂ´ÄÂ¾ÄÂ² ÄÂ½ÄÂ° ÄÂ¾Ã‘ÂÃ‘â€šÃ‘â‚¬ÄÂ¾ÄÂ²ÄÂµ.",
+        aboutP2: "ÄÂÄÂ°Ã‘Ë† Ã‘â€ ÄÂµÄÂ½Ã‘â€šÃ‘â‚¬ Ã‘â‚¬ÄÂ°Ã‘ÂÄÂ¿ÄÂ¾ÄÂ»ÄÂ¾ÄÂ¶ÄÂµÄÂ½ ÄÂ² ÄÅ¡ÄÂ¸Ã‘â‚¬ÄÂµÄÂ½ÄÂ¸ÄÂ¸, Ã‘â€ ÄÂµÄÂ½Ã‘â€šÃ‘â‚¬ÄÂµ ÄÂ¿Ã‘â‚¬ÄÂ¸Ã‘â€šÃ‘ÂÄÂ¶ÄÂµÄÂ½ÄÂ¸Ã‘Â ÄÂ¾Ã‘ÂÃ‘â€šÃ‘â‚¬ÄÂ¾ÄÂ²ÄÂ° ÄÂ¸ Ã‘â€šÃ‘Æ’Ã‘â‚¬ÄÂ¸Ã‘ÂÃ‘â€šÄÂ¸Ã‘â€¡ÄÂµÃ‘ÂÄÂºÄÂ¾ÄÂ¼ Ã‘â‚¬ÄÂ°Ã‘Â. ÄÂ­ÄÂºÃ‘ÂÄÂºÃ‘Æ’Ã‘â‚¬Ã‘ÂÄÂ¸Ã‘Â ÄÂ¿ÄÂ¾ ÄÂ³ÄÂ¾Ã‘â‚¬ÄÂ¾ÄÂ´Ã‘Æ’ ÄÂ²ÄÂ¾ ÄÂ²Ã‘â‚¬ÄÂµÄÂ¼Ã‘Â ÄÂ»ÄÂµÃ‘â€¡ÄÂµÄÂ½ÄÂ¸Ã‘Â ÄÂ¿ÄÂ¾ÄÂ¼ÄÂ¾ÄÂ¶ÄÂµÃ‘â€š Ã‘ÂÄÂ½ÄÂ¸ÄÂ·ÄÂ¸Ã‘â€šÃ‘Å’ Ã‘ÂÃ‘â€šÃ‘â‚¬ÄÂµÃ‘ÂÃ‘Â.",
+        aboutP3: "Äâ€˜ÄÂ»ÄÂ°ÄÂ³ÄÂ¾ÄÂ´ÄÂ°Ã‘â‚¬Ã‘Â ÄÂ½ÄÂ°Ã‘Ë†ÄÂµÄÂ¹ ÄÂ¾ÄÂ¿Ã‘â€¹Ã‘â€šÄÂ½ÄÂ¾ÄÂ¹ ÄÂºÄÂ¾ÄÂ¼ÄÂ°ÄÂ½ÄÂ´ÄÂµ, Ã‘ÂÄÂ¾ÄÂ²Ã‘â‚¬ÄÂµÄÂ¼ÄÂµÄÂ½ÄÂ½ÄÂ¾ÄÂ¹ ÄÂ»ÄÂ°ÄÂ±ÄÂ¾Ã‘â‚¬ÄÂ°Ã‘â€šÄÂ¾Ã‘â‚¬ÄÂ¸ÄÂ¸ ÄÂ¸ ÄÂºÄÂ²ÄÂ°ÄÂ»ÄÂ¸Ã‘â€ÄÂ¸Ã‘â€ ÄÂ¸Ã‘â‚¬ÄÂ¾ÄÂ²ÄÂ°ÄÂ½ÄÂ½Ã‘â€¹ÄÂ¼ ÄÂ¼ÄÂµÄÂ´Ã‘ÂÄÂµÃ‘ÂÃ‘â€šÃ‘â‚¬ÄÂ°ÄÂ¼ ÄÂ½ÄÂ°Ã‘Ë† Ã‘Æ’Ã‘ÂÄÂ¿ÄÂµÃ‘â€¦ Ã‘â‚¬ÄÂ°Ã‘ÂÃ‘â€šÄÂµÃ‘â€š.",
+        aboutP4: "Äâ€™ÄÂ¾ÄÂ·ÄÂ¼ÄÂ¾ÄÂ¶ÄÂ½ÄÂ¾Ã‘ÂÃ‘â€šÃ‘Å’ ÄÂ¿ÄÂ°Ã‘â€ ÄÂ¸ÄÂµÄÂ½Ã‘â€šÄÂ¾ÄÂ² ÄÂ¾ÄÂ±Ã‘â€°ÄÂ°Ã‘â€šÃ‘Å’Ã‘ÂÃ‘Â Ã‘Â ÄÂ²Ã‘â‚¬ÄÂ°Ã‘â€¡ÄÂ¾ÄÂ¼ ÄÂ² ÄÂ»Ã‘ÂÄÂ±ÄÂ¾ÄÂµ ÄÂ²Ã‘â‚¬ÄÂµÄÂ¼Ã‘Â Ã‘ÂÄÂ½ÄÂ¸ÄÂ¶ÄÂ°ÄÂµÃ‘â€š Ã‘ÂÃ‘â€šÃ‘â‚¬ÄÂµÃ‘ÂÃ‘Â ÄÂ¸ ÄÂ¿ÄÂ¾ÄÂ²Ã‘â€¹Ã‘Ë†ÄÂ°ÄÂµÃ‘â€š ÄÂ´ÄÂ¾ÄÂ²ÄÂµÃ‘â‚¬ÄÂ¸ÄÂµ.",
+        aboutP5: "ÄÅ¸ÄÂ¾ÄÂºÄÂ°ÄÂ·ÄÂ°Ã‘â€šÄÂµÄÂ»ÄÂ¸ Ã‘Æ’Ã‘ÂÄÂ¿ÄÂµÃ‘Ë†ÄÂ½ÄÂ¾Ã‘ÂÃ‘â€šÄÂ¸ ÄÂ±ÄÂµÃ‘â‚¬ÄÂµÄÂ¼ÄÂµÄÂ½ÄÂ½ÄÂ¾Ã‘ÂÃ‘â€šÄÂ¸ ÄÂ²ÄÂ°Ã‘â‚¬Ã‘Å’ÄÂ¸Ã‘â‚¬Ã‘Æ’Ã‘ÂÃ‘â€šÃ‘ÂÃ‘Â ÄÂ¾Ã‘â€š 75% ÄÂ´ÄÂ¾ 90%. ÄÅ“Ã‘â€¹ ÄÂ¿ÄÂ¾ÄÂ»Ã‘Æ’Ã‘â€¡ÄÂ°ÄÂµÄÂ¼ ÄÂ¾Ã‘â€šÄÂ»ÄÂ¸Ã‘â€¡ÄÂ½Ã‘â€¹ÄÂµ Ã‘â‚¬ÄÂµÄÂ·Ã‘Æ’ÄÂ»Ã‘Å’Ã‘â€šÄÂ°Ã‘â€šÃ‘â€¹ ÄÂ±ÄÂ»ÄÂ°ÄÂ³ÄÂ¾ÄÂ´ÄÂ°Ã‘â‚¬Ã‘Â ÄÂ¾Ã‘â€šÃ‘ÂÃ‘Æ’Ã‘â€šÃ‘ÂÃ‘â€šÄÂ²ÄÂ¸Ã‘Â ÄÂ¾Ã‘â€¡ÄÂµÃ‘â‚¬ÄÂµÄÂ´ÄÂµÄÂ¹ ÄÂ½ÄÂ° ÄÂ´ÄÂ¾ÄÂ½ÄÂ¾Ã‘â‚¬Ã‘ÂÃ‘â€šÄÂ²ÄÂ¾ ÄÂ¾ÄÂ¾Ã‘â€ ÄÂ¸Ã‘â€šÄÂ¾ÄÂ².",
+        aboutP6: "ÄÂÄÂ°Ã‘Ë†ÄÂ¸ ÄÂ¿ÄÂ¾ÄÂºÄÂ°ÄÂ·ÄÂ°Ã‘â€šÄÂµÄÂ»ÄÂ¸ Ã‘Æ’Ã‘ÂÄÂ¿ÄÂµÃ‘â€¦ÄÂ° ÄÂ²Ã‘ÂÄÂµÄÂ³ÄÂ´ÄÂ° ÄÂ¾Ã‘ÂÃ‘â€šÄÂ°Ã‘ÂÃ‘â€šÃ‘ÂÃ‘Â ÄÂ½ÄÂ° ÄÂ²Ã‘â€¹Ã‘ÂÄÂ¾ÄÂºÄÂ¾ÄÂ¼ Ã‘Æ’Ã‘â‚¬ÄÂ¾ÄÂ²ÄÂ½ÄÂµ ÄÂ±ÄÂ»ÄÂ°ÄÂ³ÄÂ¾ÄÂ´ÄÂ°Ã‘â‚¬Ã‘Â Ã‘ÂÃ‘â€šÃ‘â‚¬ÄÂ¾ÄÂ³ÄÂ¸ÄÂ¼ Ã‘ÂÃ‘â€šÄÂ°ÄÂ½ÄÂ´ÄÂ°Ã‘â‚¬Ã‘â€šÄÂ°ÄÂ¼.",
+        aboutP7: "ÄÂÄÂ°Ã‘Ë†ÄÂ° ÄÂ¾ÄÂ¿Ã‘â€¹Ã‘â€šÄÂ½ÄÂ°Ã‘Â ÄÂºÄÂ¾ÄÂ¼ÄÂ°ÄÂ½ÄÂ´ÄÂ° ÄÂ¶ÄÂ´ÄÂµÃ‘â€š ÄÂ²ÄÂ°Ã‘Â ÄÂ½ÄÂ° ÄÂ¾Ã‘ÂÃ‘â€šÃ‘â‚¬ÄÂ¾ÄÂ²ÄÂµ, Ã‘â€¡Ã‘â€šÄÂ¾ÄÂ±Ã‘â€¹ ÄÂ¿ÄÂ¾ÄÂ´ÄÂ°Ã‘â‚¬ÄÂ¸Ã‘â€šÃ‘Å’ ÄÂ²ÄÂ°ÄÂ¼ Ã‘â‚¬ÄÂ°ÄÂ´ÄÂ¾Ã‘ÂÃ‘â€šÄÂ½Ã‘Æ’Ã‘Â ÄÂ²ÄÂµÃ‘ÂÃ‘â€šÃ‘Å’ ÄÂ²ÄÂ°Ã‘Ë†ÄÂµÄÂ¹ ÄÂ¼ÄÂµÃ‘â€¡Ã‘â€šÃ‘â€¹.",
         
-        ivfTitle: "Ğ¦ĞµĞ½Ñ‚Ñ€ Ğ­ĞšĞ",
-        ivfSubTitle: "ĞŸĞµÑ€ĞµĞ´Ğ¾Ğ²Ñ‹Ğµ Ñ€ĞµĞ¿Ñ€Ğ¾Ğ´ÑƒĞºÑ‚Ğ¸Ğ²Ğ½Ñ‹Ğµ Ñ‚ĞµÑ…Ğ½Ğ¾Ğ»Ğ¾Ğ³Ğ¸Ğ¸",
-        ivfDesc: "ĞœÑ‹ Ğ¸ÑĞ¿Ğ¾Ğ»ÑŒĞ·ÑƒĞµĞ¼ Ğ¿Ğ¾ÑĞ»ĞµĞ´Ğ½Ğ¸Ğµ Ğ´Ğ¾ÑÑ‚Ğ¸Ğ¶ĞµĞ½Ğ¸Ñ Ğ² Ğ¾Ğ±Ğ»Ğ°ÑÑ‚Ğ¸ Ğ­ĞšĞ, Ñ‡Ñ‚Ğ¾Ğ±Ñ‹ Ğ¼Ğ°ĞºÑĞ¸Ğ¼Ğ°Ğ»ÑŒĞ½Ğ¾ ÑƒĞ²ĞµĞ»Ğ¸Ñ‡Ğ¸Ñ‚ÑŒ ÑˆĞ°Ğ½ÑÑ‹ Ğ½Ğ° Ğ·Ğ´Ğ¾Ñ€Ğ¾Ğ²ÑƒÑ Ğ±ĞµÑ€ĞµĞ¼ĞµĞ½Ğ½Ğ¾ÑÑ‚ÑŒ.",
-        ivfFeature1: "ĞšĞ¾Ğ¼Ğ¿Ğ»ĞµĞºÑĞ½Ğ°Ñ Ğ¾Ñ†ĞµĞ½ĞºĞ° Ñ„ĞµÑ€Ñ‚Ğ¸Ğ»ÑŒĞ½Ğ¾ÑÑ‚Ğ¸",
-        ivfFeature2: "Ğ˜Ğ½Ğ´Ğ¸Ğ²Ğ¸Ğ´ÑƒĞ°Ğ»ÑŒĞ½Ñ‹Ğµ Ğ¿Ñ€Ğ¾Ñ‚Ğ¾ĞºĞ¾Ğ»Ñ‹ Ğ»ĞµÑ‡ĞµĞ½Ğ¸Ñ",
-        ivfFeature3: "Ğ’Ñ‹ÑĞ¾ĞºĞ¸Ğµ Ğ¿Ğ¾ĞºĞ°Ğ·Ğ°Ñ‚ĞµĞ»Ğ¸ ÑƒÑĞ¿ĞµÑ…Ğ°",
+        ivfTitle: "ÄÂ¦ÄÂµÄÂ½Ã‘â€šÃ‘â‚¬ ÄÂ­ÄÅ¡ÄÂ",
+        ivfSubTitle: "ÄÅ¸ÄÂµÃ‘â‚¬ÄÂµÄÂ´ÄÂ¾ÄÂ²Ã‘â€¹ÄÂµ Ã‘â‚¬ÄÂµÄÂ¿Ã‘â‚¬ÄÂ¾ÄÂ´Ã‘Æ’ÄÂºÃ‘â€šÄÂ¸ÄÂ²ÄÂ½Ã‘â€¹ÄÂµ Ã‘â€šÄÂµÃ‘â€¦ÄÂ½ÄÂ¾ÄÂ»ÄÂ¾ÄÂ³ÄÂ¸ÄÂ¸",
+        ivfDesc: "ÄÅ“Ã‘â€¹ ÄÂ¸Ã‘ÂÄÂ¿ÄÂ¾ÄÂ»Ã‘Å’ÄÂ·Ã‘Æ’ÄÂµÄÂ¼ ÄÂ¿ÄÂ¾Ã‘ÂÄÂ»ÄÂµÄÂ´ÄÂ½ÄÂ¸ÄÂµ ÄÂ´ÄÂ¾Ã‘ÂÃ‘â€šÄÂ¸ÄÂ¶ÄÂµÄÂ½ÄÂ¸Ã‘Â ÄÂ² ÄÂ¾ÄÂ±ÄÂ»ÄÂ°Ã‘ÂÃ‘â€šÄÂ¸ ÄÂ­ÄÅ¡ÄÂ, Ã‘â€¡Ã‘â€šÄÂ¾ÄÂ±Ã‘â€¹ ÄÂ¼ÄÂ°ÄÂºÃ‘ÂÄÂ¸ÄÂ¼ÄÂ°ÄÂ»Ã‘Å’ÄÂ½ÄÂ¾ Ã‘Æ’ÄÂ²ÄÂµÄÂ»ÄÂ¸Ã‘â€¡ÄÂ¸Ã‘â€šÃ‘Å’ Ã‘Ë†ÄÂ°ÄÂ½Ã‘ÂÃ‘â€¹ ÄÂ½ÄÂ° ÄÂ·ÄÂ´ÄÂ¾Ã‘â‚¬ÄÂ¾ÄÂ²Ã‘Æ’Ã‘Â ÄÂ±ÄÂµÃ‘â‚¬ÄÂµÄÂ¼ÄÂµÄÂ½ÄÂ½ÄÂ¾Ã‘ÂÃ‘â€šÃ‘Å’.",
+        ivfFeature1: "ÄÅ¡ÄÂ¾ÄÂ¼ÄÂ¿ÄÂ»ÄÂµÄÂºÃ‘ÂÄÂ½ÄÂ°Ã‘Â ÄÂ¾Ã‘â€ ÄÂµÄÂ½ÄÂºÄÂ° Ã‘â€ÄÂµÃ‘â‚¬Ã‘â€šÄÂ¸ÄÂ»Ã‘Å’ÄÂ½ÄÂ¾Ã‘ÂÃ‘â€šÄÂ¸",
+        ivfFeature2: "ÄËœÄÂ½ÄÂ´ÄÂ¸ÄÂ²ÄÂ¸ÄÂ´Ã‘Æ’ÄÂ°ÄÂ»Ã‘Å’ÄÂ½Ã‘â€¹ÄÂµ ÄÂ¿Ã‘â‚¬ÄÂ¾Ã‘â€šÄÂ¾ÄÂºÄÂ¾ÄÂ»Ã‘â€¹ ÄÂ»ÄÂµÃ‘â€¡ÄÂµÄÂ½ÄÂ¸Ã‘Â",
+        ivfFeature3: "Äâ€™Ã‘â€¹Ã‘ÂÄÂ¾ÄÂºÄÂ¸ÄÂµ ÄÂ¿ÄÂ¾ÄÂºÄÂ°ÄÂ·ÄÂ°Ã‘â€šÄÂµÄÂ»ÄÂ¸ Ã‘Æ’Ã‘ÂÄÂ¿ÄÂµÃ‘â€¦ÄÂ°",
         
-        treatmentsTitle: "Ğ’Ğ°Ñ€Ğ¸Ğ°Ğ½Ñ‚Ñ‹ Ğ»ĞµÑ‡ĞµĞ½Ğ¸Ñ",
-        treatmentCard1Title: "Ğ—Ğ°Ğ¼Ğ¾Ñ€Ğ°Ğ¶Ğ¸Ğ²Ğ°Ğ½Ğ¸Ğµ ÑĞ¹Ñ†ĞµĞºĞ»ĞµÑ‚Ğ¾Ğº",
-        treatmentCard1Desc: "Ğ¡Ğ¾Ñ…Ñ€Ğ°Ğ½Ğ¸Ñ‚Ğµ ÑĞ²Ğ¾Ñ Ñ„ĞµÑ€Ñ‚Ğ¸Ğ»ÑŒĞ½Ğ¾ÑÑ‚ÑŒ Ñ Ğ¿Ğ¾Ğ¼Ğ¾Ñ‰ÑŒÑ Ğ½Ğ°ÑˆĞ¸Ñ… Ğ¿ĞµÑ€ĞµĞ´Ğ¾Ğ²Ñ‹Ñ… Ğ¼ĞµÑ‚Ğ¾Ğ´Ğ¾Ğ² Ğ²Ğ¸Ñ‚Ñ€Ğ¸Ñ„Ğ¸ĞºĞ°Ñ†Ğ¸Ğ¸.",
-        treatmentCard2Title: "Ğ”Ğ¾Ğ½Ğ¾Ñ€ÑÑ‚Ğ²Ğ¾",
-        treatmentCard2Desc: "ĞšĞ¾Ğ¼Ğ¿Ğ»ĞµĞºÑĞ½Ñ‹Ğµ Ğ¸ ĞºĞ¾Ğ½Ñ„Ğ¸Ğ´ĞµĞ½Ñ†Ğ¸Ğ°Ğ»ÑŒĞ½Ñ‹Ğµ Ğ¿Ñ€Ğ¾Ğ³Ñ€Ğ°Ğ¼Ğ¼Ñ‹ Ğ´Ğ¾Ğ½Ğ¾Ñ€ÑÑ‚Ğ²Ğ°.",
-        treatmentCard3Title: "ĞŸĞ“Ğ” / ĞŸĞ“Ğ¡",
-        treatmentCard3Desc: "ĞŸÑ€ĞµĞ´Ğ¸Ğ¼Ğ¿Ğ»Ğ°Ñ‚Ğ°Ñ†Ğ¸Ğ¾Ğ½Ğ½Ğ¾Ğµ Ğ³ĞµĞ½ĞµÑ‚Ğ¸Ñ‡ĞµÑĞºĞ¾Ğµ Ñ‚ĞµÑÑ‚Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ¸Ğµ Ğ´Ğ»Ñ Ğ²Ñ‹Ğ±Ğ¾Ñ€Ğ° Ğ½Ğ°Ğ¸Ğ±Ğ¾Ğ»ĞµĞµ Ğ·Ğ´Ğ¾Ñ€Ğ¾Ğ²Ñ‹Ñ… ÑĞ¼Ğ±Ñ€Ğ¸Ğ¾Ğ½Ğ¾Ğ².",
+        treatmentsTitle: "Äâ€™ÄÂ°Ã‘â‚¬ÄÂ¸ÄÂ°ÄÂ½Ã‘â€šÃ‘â€¹ ÄÂ»ÄÂµÃ‘â€¡ÄÂµÄÂ½ÄÂ¸Ã‘Â",
+        treatmentCard1Title: "Äâ€”ÄÂ°ÄÂ¼ÄÂ¾Ã‘â‚¬ÄÂ°ÄÂ¶ÄÂ¸ÄÂ²ÄÂ°ÄÂ½ÄÂ¸ÄÂµ Ã‘ÂÄÂ¹Ã‘â€ ÄÂµÄÂºÄÂ»ÄÂµÃ‘â€šÄÂ¾ÄÂº",
+        treatmentCard1Desc: "ÄÂ¡ÄÂ¾Ã‘â€¦Ã‘â‚¬ÄÂ°ÄÂ½ÄÂ¸Ã‘â€šÄÂµ Ã‘ÂÄÂ²ÄÂ¾Ã‘Â Ã‘â€ÄÂµÃ‘â‚¬Ã‘â€šÄÂ¸ÄÂ»Ã‘Å’ÄÂ½ÄÂ¾Ã‘ÂÃ‘â€šÃ‘Å’ Ã‘Â ÄÂ¿ÄÂ¾ÄÂ¼ÄÂ¾Ã‘â€°Ã‘Å’Ã‘Â ÄÂ½ÄÂ°Ã‘Ë†ÄÂ¸Ã‘â€¦ ÄÂ¿ÄÂµÃ‘â‚¬ÄÂµÄÂ´ÄÂ¾ÄÂ²Ã‘â€¹Ã‘â€¦ ÄÂ¼ÄÂµÃ‘â€šÄÂ¾ÄÂ´ÄÂ¾ÄÂ² ÄÂ²ÄÂ¸Ã‘â€šÃ‘â‚¬ÄÂ¸Ã‘â€ÄÂ¸ÄÂºÄÂ°Ã‘â€ ÄÂ¸ÄÂ¸.",
+        treatmentCard2Title: "Äâ€ÄÂ¾ÄÂ½ÄÂ¾Ã‘â‚¬Ã‘ÂÃ‘â€šÄÂ²ÄÂ¾",
+        treatmentCard2Desc: "ÄÅ¡ÄÂ¾ÄÂ¼ÄÂ¿ÄÂ»ÄÂµÄÂºÃ‘ÂÄÂ½Ã‘â€¹ÄÂµ ÄÂ¸ ÄÂºÄÂ¾ÄÂ½Ã‘â€ÄÂ¸ÄÂ´ÄÂµÄÂ½Ã‘â€ ÄÂ¸ÄÂ°ÄÂ»Ã‘Å’ÄÂ½Ã‘â€¹ÄÂµ ÄÂ¿Ã‘â‚¬ÄÂ¾ÄÂ³Ã‘â‚¬ÄÂ°ÄÂ¼ÄÂ¼Ã‘â€¹ ÄÂ´ÄÂ¾ÄÂ½ÄÂ¾Ã‘â‚¬Ã‘ÂÃ‘â€šÄÂ²ÄÂ°.",
+        treatmentCard3Title: "ÄÅ¸Äâ€œÄâ€ / ÄÅ¸Äâ€œÄÂ¡",
+        treatmentCard3Desc: "ÄÅ¸Ã‘â‚¬ÄÂµÄÂ´ÄÂ¸ÄÂ¼ÄÂ¿ÄÂ»ÄÂ°Ã‘â€šÄÂ°Ã‘â€ ÄÂ¸ÄÂ¾ÄÂ½ÄÂ½ÄÂ¾ÄÂµ ÄÂ³ÄÂµÄÂ½ÄÂµÃ‘â€šÄÂ¸Ã‘â€¡ÄÂµÃ‘ÂÄÂºÄÂ¾ÄÂµ Ã‘â€šÄÂµÃ‘ÂÃ‘â€šÄÂ¸Ã‘â‚¬ÄÂ¾ÄÂ²ÄÂ°ÄÂ½ÄÂ¸ÄÂµ ÄÂ´ÄÂ»Ã‘Â ÄÂ²Ã‘â€¹ÄÂ±ÄÂ¾Ã‘â‚¬ÄÂ° ÄÂ½ÄÂ°ÄÂ¸ÄÂ±ÄÂ¾ÄÂ»ÄÂµÄÂµ ÄÂ·ÄÂ´ÄÂ¾Ã‘â‚¬ÄÂ¾ÄÂ²Ã‘â€¹Ã‘â€¦ Ã‘ÂÄÂ¼ÄÂ±Ã‘â‚¬ÄÂ¸ÄÂ¾ÄÂ½ÄÂ¾ÄÂ².",
         
-        testimonialsTitle: "ĞŸĞ¾Ğ´ĞµĞ»Ğ¸Ğ»Ğ¸ÑÑŒ Ğ½Ğ°ÑˆĞ¸ Ğ¿Ğ°Ñ†Ğ¸ĞµĞ½Ñ‚Ñ‹",
-        testimonial1Text: "\"Ğ‘Ğ»Ğ°Ğ³Ğ¾Ğ´Ğ°Ñ€Ñ Ğ´Ğ¾ĞºÑ‚Ğ¾Ñ€Ñƒ Ğ”Ğ¶ĞµĞ½ĞºÑĞ¾Ñ Ğ½Ğ°ÑˆĞ° Ğ¼ĞµÑ‡Ñ‚Ğ° ÑÑ‚Ğ°Ğ»Ğ° Ñ€ĞµĞ°Ğ»ÑŒĞ½Ğ¾ÑÑ‚ÑŒÑ.\"",
-        testimonial1Author: "- Ğ¡Ğ°Ñ€Ğ° Ğ¸ ĞœĞ°Ğ¹ĞºĞ»",
+        testimonialsTitle: "ÄÅ¸ÄÂ¾ÄÂ´ÄÂµÄÂ»ÄÂ¸ÄÂ»ÄÂ¸Ã‘ÂÃ‘Å’ ÄÂ½ÄÂ°Ã‘Ë†ÄÂ¸ ÄÂ¿ÄÂ°Ã‘â€ ÄÂ¸ÄÂµÄÂ½Ã‘â€šÃ‘â€¹",
+        testimonial1Text: "\"Äâ€˜ÄÂ»ÄÂ°ÄÂ³ÄÂ¾ÄÂ´ÄÂ°Ã‘â‚¬Ã‘Â ÄÂ´ÄÂ¾ÄÂºÃ‘â€šÄÂ¾Ã‘â‚¬Ã‘Æ’ Äâ€ÄÂ¶ÄÂµÄÂ½ÄÂºÃ‘ÂÄÂ¾Ã‘Â ÄÂ½ÄÂ°Ã‘Ë†ÄÂ° ÄÂ¼ÄÂµÃ‘â€¡Ã‘â€šÄÂ° Ã‘ÂÃ‘â€šÄÂ°ÄÂ»ÄÂ° Ã‘â‚¬ÄÂµÄÂ°ÄÂ»Ã‘Å’ÄÂ½ÄÂ¾Ã‘ÂÃ‘â€šÃ‘Å’Ã‘Â.\"",
+        testimonial1Author: "- ÄÂ¡ÄÂ°Ã‘â‚¬ÄÂ° ÄÂ¸ ÄÅ“ÄÂ°ÄÂ¹ÄÂºÄÂ»",
         
-        faqTitle: "Ğ§Ğ°ÑÑ‚Ğ¾ Ğ·Ğ°Ğ´Ğ°Ğ²Ğ°ĞµĞ¼Ñ‹Ğµ Ğ²Ğ¾Ğ¿Ñ€Ğ¾ÑÑ‹",
-        faq1Q: "ĞšĞ°ĞºĞ¾Ğ² Ğ¿Ğ¾ĞºĞ°Ğ·Ğ°Ñ‚ĞµĞ»ÑŒ ÑƒÑĞ¿ĞµÑ…Ğ° Ğ­ĞšĞ?",
-        faq1A: "ĞĞ°ÑˆĞ° ĞºĞ»Ğ¸Ğ½Ğ¸ĞºĞ° ÑÑ‚Ğ°Ğ±Ğ¸Ğ»ÑŒĞ½Ğ¾ Ğ¿Ğ¾Ğ´Ğ´ĞµÑ€Ğ¶Ğ¸Ğ²Ğ°ĞµÑ‚ Ğ¿Ğ¾ĞºĞ°Ğ·Ğ°Ñ‚ĞµĞ»Ğ¸ Ğ²Ñ‹ÑˆĞµ ÑÑ€ĞµĞ´Ğ½ĞµĞ³Ğ¾ Ğ¿Ğ¾ Ğ¼Ğ¸Ñ€Ñƒ.",
-        faq2Q: "Ğ¡ĞºĞ¾Ğ»ÑŒĞºĞ¾ Ğ²Ñ€ĞµĞ¼ĞµĞ½Ğ¸ Ğ·Ğ°Ğ½Ğ¸Ğ¼Ğ°ĞµÑ‚ Ñ†Ğ¸ĞºĞ» Ğ­ĞšĞ?",
-        faq2A: "Ğ¢Ğ¸Ğ¿Ğ¸Ñ‡Ğ½Ñ‹Ğ¹ Ñ†Ğ¸ĞºĞ» Ğ­ĞšĞ Ğ·Ğ°Ğ½Ğ¸Ğ¼Ğ°ĞµÑ‚ Ğ¾ĞºĞ¾Ğ»Ğ¾ 4-6 Ğ½ĞµĞ´ĞµĞ»ÑŒ.",
-        faq3Q: "Ğ•ÑÑ‚ÑŒ Ğ»Ğ¸ Ğ²Ğ¾Ğ·Ñ€Ğ°ÑÑ‚Ğ½Ñ‹Ğµ Ğ¾Ğ³Ñ€Ğ°Ğ½Ğ¸Ñ‡ĞµĞ½Ğ¸Ñ?",
-        faq3A: "ĞœÑ‹ Ğ¾Ñ†ĞµĞ½Ğ¸Ğ²Ğ°ĞµĞ¼ ĞºĞ°Ğ¶Ğ´Ñ‹Ğ¹ ÑĞ»ÑƒÑ‡Ğ°Ğ¹ Ğ¸Ğ½Ğ´Ğ¸Ğ²Ğ¸Ğ´ÑƒĞ°Ğ»ÑŒĞ½Ğ¾.",
+        faqTitle: "ÄÂ§ÄÂ°Ã‘ÂÃ‘â€šÄÂ¾ ÄÂ·ÄÂ°ÄÂ´ÄÂ°ÄÂ²ÄÂ°ÄÂµÄÂ¼Ã‘â€¹ÄÂµ ÄÂ²ÄÂ¾ÄÂ¿Ã‘â‚¬ÄÂ¾Ã‘ÂÃ‘â€¹",
+        faq1Q: "ÄÅ¡ÄÂ°ÄÂºÄÂ¾ÄÂ² ÄÂ¿ÄÂ¾ÄÂºÄÂ°ÄÂ·ÄÂ°Ã‘â€šÄÂµÄÂ»Ã‘Å’ Ã‘Æ’Ã‘ÂÄÂ¿ÄÂµÃ‘â€¦ÄÂ° ÄÂ­ÄÅ¡ÄÂ?",
+        faq1A: "ÄÂÄÂ°Ã‘Ë†ÄÂ° ÄÂºÄÂ»ÄÂ¸ÄÂ½ÄÂ¸ÄÂºÄÂ° Ã‘ÂÃ‘â€šÄÂ°ÄÂ±ÄÂ¸ÄÂ»Ã‘Å’ÄÂ½ÄÂ¾ ÄÂ¿ÄÂ¾ÄÂ´ÄÂ´ÄÂµÃ‘â‚¬ÄÂ¶ÄÂ¸ÄÂ²ÄÂ°ÄÂµÃ‘â€š ÄÂ¿ÄÂ¾ÄÂºÄÂ°ÄÂ·ÄÂ°Ã‘â€šÄÂµÄÂ»ÄÂ¸ ÄÂ²Ã‘â€¹Ã‘Ë†ÄÂµ Ã‘ÂÃ‘â‚¬ÄÂµÄÂ´ÄÂ½ÄÂµÄÂ³ÄÂ¾ ÄÂ¿ÄÂ¾ ÄÂ¼ÄÂ¸Ã‘â‚¬Ã‘Æ’.",
+        faq2Q: "ÄÂ¡ÄÂºÄÂ¾ÄÂ»Ã‘Å’ÄÂºÄÂ¾ ÄÂ²Ã‘â‚¬ÄÂµÄÂ¼ÄÂµÄÂ½ÄÂ¸ ÄÂ·ÄÂ°ÄÂ½ÄÂ¸ÄÂ¼ÄÂ°ÄÂµÃ‘â€š Ã‘â€ ÄÂ¸ÄÂºÄÂ» ÄÂ­ÄÅ¡ÄÂ?",
+        faq2A: "ÄÂ¢ÄÂ¸ÄÂ¿ÄÂ¸Ã‘â€¡ÄÂ½Ã‘â€¹ÄÂ¹ Ã‘â€ ÄÂ¸ÄÂºÄÂ» ÄÂ­ÄÅ¡ÄÂ ÄÂ·ÄÂ°ÄÂ½ÄÂ¸ÄÂ¼ÄÂ°ÄÂµÃ‘â€š ÄÂ¾ÄÂºÄÂ¾ÄÂ»ÄÂ¾ 4-6 ÄÂ½ÄÂµÄÂ´ÄÂµÄÂ»Ã‘Å’.",
+        faq3Q: "Äâ€¢Ã‘ÂÃ‘â€šÃ‘Å’ ÄÂ»ÄÂ¸ ÄÂ²ÄÂ¾ÄÂ·Ã‘â‚¬ÄÂ°Ã‘ÂÃ‘â€šÄÂ½Ã‘â€¹ÄÂµ ÄÂ¾ÄÂ³Ã‘â‚¬ÄÂ°ÄÂ½ÄÂ¸Ã‘â€¡ÄÂµÄÂ½ÄÂ¸Ã‘Â?",
+        faq3A: "ÄÅ“Ã‘â€¹ ÄÂ¾Ã‘â€ ÄÂµÄÂ½ÄÂ¸ÄÂ²ÄÂ°ÄÂµÄÂ¼ ÄÂºÄÂ°ÄÂ¶ÄÂ´Ã‘â€¹ÄÂ¹ Ã‘ÂÄÂ»Ã‘Æ’Ã‘â€¡ÄÂ°ÄÂ¹ ÄÂ¸ÄÂ½ÄÂ´ÄÂ¸ÄÂ²ÄÂ¸ÄÂ´Ã‘Æ’ÄÂ°ÄÂ»Ã‘Å’ÄÂ½ÄÂ¾.",
         
-        blogTitle: "ĞŸĞ¾ÑĞ»ĞµĞ´Ğ½Ğ¸Ğµ ÑÑ‚Ğ°Ñ‚ÑŒĞ¸",
-        blog1Title: "ĞŸĞ¾Ğ½Ğ¸Ğ¼Ğ°Ğ½Ğ¸Ğµ ÑÑ€Ğ¾ĞºĞ¾Ğ² Ğ­ĞšĞ",
-        blog2Title: "Ğ”Ğ¸ĞµÑ‚Ğ° Ğ¸ Ñ„ĞµÑ€Ñ‚Ğ¸Ğ»ÑŒĞ½Ğ¾ÑÑ‚ÑŒ",
-        blog3Title: "ĞŸÑĞ¸Ñ…Ğ¸Ñ‡ĞµÑĞºĞ¾Ğµ Ğ·Ğ´Ğ¾Ñ€Ğ¾Ğ²ÑŒĞµ",
-        readMore: "Ğ§Ğ¸Ñ‚Ğ°Ñ‚ÑŒ Ğ´Ğ°Ğ»ĞµĞµ",
+        blogTitle: "ÄÅ¸ÄÂ¾Ã‘ÂÄÂ»ÄÂµÄÂ´ÄÂ½ÄÂ¸ÄÂµ Ã‘ÂÃ‘â€šÄÂ°Ã‘â€šÃ‘Å’ÄÂ¸",
+        blog1Title: "ÄÅ¸ÄÂ¾ÄÂ½ÄÂ¸ÄÂ¼ÄÂ°ÄÂ½ÄÂ¸ÄÂµ Ã‘ÂÃ‘â‚¬ÄÂ¾ÄÂºÄÂ¾ÄÂ² ÄÂ­ÄÅ¡ÄÂ",
+        blog2Title: "Äâ€ÄÂ¸ÄÂµÃ‘â€šÄÂ° ÄÂ¸ Ã‘â€ÄÂµÃ‘â‚¬Ã‘â€šÄÂ¸ÄÂ»Ã‘Å’ÄÂ½ÄÂ¾Ã‘ÂÃ‘â€šÃ‘Å’",
+        blog3Title: "ÄÅ¸Ã‘ÂÄÂ¸Ã‘â€¦ÄÂ¸Ã‘â€¡ÄÂµÃ‘ÂÄÂºÄÂ¾ÄÂµ ÄÂ·ÄÂ´ÄÂ¾Ã‘â‚¬ÄÂ¾ÄÂ²Ã‘Å’ÄÂµ",
+        readMore: "ÄÂ§ÄÂ¸Ã‘â€šÄÂ°Ã‘â€šÃ‘Å’ ÄÂ´ÄÂ°ÄÂ»ÄÂµÄÂµ",
         
-        contactTitle: "Ğ¡Ğ²ÑĞ·Ğ°Ñ‚ÑŒÑÑ Ñ Ğ½Ğ°Ğ¼Ğ¸",
-        contactInfoTitle: "Ğ˜Ğ½Ñ„Ğ¾Ñ€Ğ¼Ğ°Ñ†Ğ¸Ñ Ğ¾ ĞºĞ»Ğ¸Ğ½Ğ¸ĞºĞµ",
-        contactInfoDesc: "ĞĞ°ÑˆĞ¸ ĞºĞ¾Ğ¾Ñ€Ğ´Ğ¸Ğ½Ğ°Ñ‚Ğ¾Ñ€Ñ‹ Ğ³Ğ¾Ñ‚Ğ¾Ğ²Ñ‹ Ğ¾Ñ‚Ğ²ĞµÑ‚Ğ¸Ñ‚ÑŒ Ğ½Ğ° Ğ²Ğ°ÑˆĞ¸ Ğ²Ğ¾Ğ¿Ñ€Ğ¾ÑÑ‹.",
-        formName: "ĞŸĞ¾Ğ»Ğ½Ğ¾Ğµ Ğ¸Ğ¼Ñ",
-        formEmail: "Ğ­Ğ»ĞµĞºÑ‚Ñ€Ğ¾Ğ½Ğ½Ğ°Ñ Ğ¿Ğ¾Ñ‡Ñ‚Ğ°",
-        formMessage: "Ğ’Ğ°ÑˆĞµ ÑĞ¾Ğ¾Ğ±Ñ‰ĞµĞ½Ğ¸Ğµ",
-        formSubmit: "ĞÑ‚Ğ¿Ñ€Ğ°Ğ²Ğ¸Ñ‚ÑŒ ÑĞ¾Ğ¾Ğ±Ñ‰ĞµĞ½Ğ¸Ğµ",
+        contactTitle: "ÄÂ¡ÄÂ²Ã‘ÂÄÂ·ÄÂ°Ã‘â€šÃ‘Å’Ã‘ÂÃ‘Â Ã‘Â ÄÂ½ÄÂ°ÄÂ¼ÄÂ¸",
+        contactInfoTitle: "ÄËœÄÂ½Ã‘â€ÄÂ¾Ã‘â‚¬ÄÂ¼ÄÂ°Ã‘â€ ÄÂ¸Ã‘Â ÄÂ¾ ÄÂºÄÂ»ÄÂ¸ÄÂ½ÄÂ¸ÄÂºÄÂµ",
+        contactInfoDesc: "ÄÂÄÂ°Ã‘Ë†ÄÂ¸ ÄÂºÄÂ¾ÄÂ¾Ã‘â‚¬ÄÂ´ÄÂ¸ÄÂ½ÄÂ°Ã‘â€šÄÂ¾Ã‘â‚¬Ã‘â€¹ ÄÂ³ÄÂ¾Ã‘â€šÄÂ¾ÄÂ²Ã‘â€¹ ÄÂ¾Ã‘â€šÄÂ²ÄÂµÃ‘â€šÄÂ¸Ã‘â€šÃ‘Å’ ÄÂ½ÄÂ° ÄÂ²ÄÂ°Ã‘Ë†ÄÂ¸ ÄÂ²ÄÂ¾ÄÂ¿Ã‘â‚¬ÄÂ¾Ã‘ÂÃ‘â€¹.",
+        formName: "ÄÅ¸ÄÂ¾ÄÂ»ÄÂ½ÄÂ¾ÄÂµ ÄÂ¸ÄÂ¼Ã‘Â",
+        formEmail: "ÄÂ­ÄÂ»ÄÂµÄÂºÃ‘â€šÃ‘â‚¬ÄÂ¾ÄÂ½ÄÂ½ÄÂ°Ã‘Â ÄÂ¿ÄÂ¾Ã‘â€¡Ã‘â€šÄÂ°",
+        formMessage: "Äâ€™ÄÂ°Ã‘Ë†ÄÂµ Ã‘ÂÄÂ¾ÄÂ¾ÄÂ±Ã‘â€°ÄÂµÄÂ½ÄÂ¸ÄÂµ",
+        formSubmit: "ÄÂÃ‘â€šÄÂ¿Ã‘â‚¬ÄÂ°ÄÂ²ÄÂ¸Ã‘â€šÃ‘Å’ Ã‘ÂÄÂ¾ÄÂ¾ÄÂ±Ã‘â€°ÄÂµÄÂ½ÄÂ¸ÄÂµ",
         
-        footerRights: "Ğ’ÑĞµ Ğ¿Ñ€Ğ°Ğ²Ğ° Ğ·Ğ°Ñ‰Ğ¸Ñ‰ĞµĞ½Ñ‹.",
-        footerPagesTitle: "ĞĞĞ¨Ğ˜ Ğ¡Ğ¢Ğ ĞĞĞ˜Ğ¦Ğ«",
-        footerContactTitle: "ĞšĞĞĞ¢ĞĞšĞ¢ĞĞĞ¯ Ğ˜ĞĞ¤ĞĞ ĞœĞĞ¦Ğ˜Ğ¯"
+        footerRights: "Äâ€™Ã‘ÂÄÂµ ÄÂ¿Ã‘â‚¬ÄÂ°ÄÂ²ÄÂ° ÄÂ·ÄÂ°Ã‘â€°ÄÂ¸Ã‘â€°ÄÂµÄÂ½Ã‘â€¹.",
+        footerPagesTitle: "ÄÂÄÂÄÂ¨ÄËœ ÄÂ¡ÄÂ¢ÄÂ ÄÂÄÂÄËœÄÂ¦ÄÂ«",
+        footerContactTitle: "ÄÅ¡ÄÂÄÂÄÂ¢ÄÂÄÅ¡ÄÂ¢ÄÂÄÂÄÂ¯ ÄËœÄÂÄÂ¤ÄÂÄÂ ÄÅ“ÄÂÄÂ¦ÄËœÄÂ¯", stat1Num: "3640", stat1Label: "TOTAL IVF", stat2Num: "2260", stat2Label: "OOCYTE DONATION", stat2Sub: "84% SUCCESS", stat3Num: "693", stat3Label: "IVF", stat3Sub: "84% SUCCESS", stat4Num: "538", stat4Label: "SPERM DONATION", stat4Sub: "67% SUCCESS", stat5Num: "610", stat5Label: "PGD", stat5Sub: "84% SUCCESS"
     }
 };
 
+
 // --- Language Switching Logic ---
-let currentLang = localStorage.getItem('lang') || 'tr'; // Default language
+let currentLang = localStorage.getItem("lang") || "tr"; 
 
 function changeLanguage(lang) {
     if (!translations[lang]) return;
     currentLang = lang;
-    localStorage.setItem('lang', lang);
+    localStorage.setItem("lang", lang);
 
-    
-    // Update active button text
-    const langBtn = document.getElementById('currentLang');
-    langBtn.innerHTML = `${lang.toUpperCase()} <i class="fa-solid fa-globe"></i>`;
-
-    // Update RTL/LTR for Arabic
-    if (lang === 'ar') {
-        document.documentElement.setAttribute('dir', 'rtl');
-    } else {
-        document.documentElement.setAttribute('dir', 'ltr');
+    const langBtn = document.getElementById("currentLang");
+    if (langBtn) {
+        langBtn.innerHTML = `${lang.toUpperCase()} <i class="fa-solid fa-globe"></i>`;
     }
 
-    // Update all translatable elements
-    const elements = document.querySelectorAll('[data-i18n]');
+    if (lang === "ar") {
+        document.documentElement.setAttribute("dir", "rtl");
+    } else {
+        document.documentElement.setAttribute("dir", "ltr");
+    }
+
+    const elements = document.querySelectorAll("[data-i18n]");
     elements.forEach(el => {
-        const key = el.getAttribute('data-i18n');
+        const key = el.getAttribute("data-i18n");
         if (translations[lang][key]) {
-            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
                 el.placeholder = translations[lang][key];
             } else {
-                // If the element has a child icon we want to preserve, handle it specially
-                // Here we just replace text directly for simplicity, assuming icons are separate or handled in HTML
                 el.textContent = translations[lang][key];
             }
         }
     });
 
-    // Close mobile nav if open
-    if (typeof renderFAQs === 'function') { renderFAQs(lang); }
-    const navLinks = document.querySelector('.nav-links');
-    if (navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
+    if (typeof renderFAQs === "function") { renderFAQs(lang); }
+    const navLinks = document.querySelector(".nav-links");
+    if (navLinks && navLinks.classList.contains("active")) {
+        navLinks.classList.remove("active");
     }
 }
 
-// Initialize language on load
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     changeLanguage(currentLang);
 });
 
 // --- Dark Mode Toggle ---
-const themeToggleBtn = document.getElementById('themeToggle');
-const body = document.documentElement; // applying to html tag
+const themeToggleBtn = document.getElementById("themeToggle");
+const body = document.documentElement;
 
-themeToggleBtn.addEventListener('click', () => {
-    const currentTheme = body.getAttribute('data-theme');
-    if (currentTheme === 'dark') {
-        body.removeAttribute('data-theme');
-        themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
-        localStorage.setItem('theme', 'light');
+themeToggleBtn?.addEventListener("click", () => {
+    const currentTheme = body.getAttribute("data-theme");
+    if (currentTheme === "dark") {
+        body.removeAttribute("data-theme");
+        if (themeToggleBtn) themeToggleBtn.innerHTML = `<i class="fa-solid fa-moon"></i>`;
+        localStorage.setItem("theme", "light");
     } else {
-        body.setAttribute('data-theme', 'dark');
-        themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
-        localStorage.setItem('theme', 'dark');
+        body.setAttribute("data-theme", "dark");
+        if (themeToggleBtn) themeToggleBtn.innerHTML = `<i class="fa-solid fa-sun"></i>`;
+        localStorage.setItem("theme", "dark");
     }
 });
 
-// Check local storage for theme preference
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-    body.setAttribute('data-theme', 'dark');
-    themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark") {
+    body.setAttribute("data-theme", "dark");
+    if (themeToggleBtn) themeToggleBtn.innerHTML = `<i class="fa-solid fa-sun"></i>`;
 }
 
 // --- Mobile Menu Toggle ---
-const mobileToggle = document.getElementById('mobileToggle');
-const navLinksMenu = document.querySelector('.nav-links');
+const mobileToggle = document.getElementById("mobileToggle");
+const navLinksMenu = document.querySelector(".nav-links");
 
-mobileToggle.addEventListener('click', () => {
-    navLinksMenu.classList.toggle('active');
+mobileToggle?.addEventListener("click", () => {
+    navLinksMenu.classList.toggle("active");
 });
 
 // --- FAQ Accordion Logic ---
-const accordionHeaders = document.querySelectorAll('.accordion-header');
+function renderFAQs(lang) {
+    const faqContainer = document.getElementById("faqAccordion");
+    if (!faqContainer) return;
 
-accordionHeaders.forEach(header => {
-    header.addEventListener('click', () => {
-        const item = header.parentElement;
-        const isActive = item.classList.contains('active');
-        
-        // Close all accordion items
-        document.querySelectorAll('.accordion-item').forEach(accItem => {
-            accItem.classList.remove('active');
+    faqContainer.innerHTML = "";
+    if (typeof faqData === "undefined") return;
+
+    const questions = faqData[lang] || faqData["tr"];
+    questions.forEach((item) => {
+        const accordionItem = document.createElement("div");
+        accordionItem.className = "accordion-item";
+        accordionItem.innerHTML = `
+            <button class="accordion-header">
+                <span>${item.q}</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="accordion-content">
+                <p>${item.a}</p>
+            </div>
+        `;
+        const header = accordionItem.querySelector(".accordion-header");
+        header.addEventListener("click", () => {
+            const isActive = accordionItem.classList.contains("active");
+            document.querySelectorAll(".accordion-item").forEach(i => i.classList.remove("active"));
+            if (!isActive) accordionItem.classList.add("active");
         });
-
-        // If it wasn't active, open it
-        if (!isActive) {
-            item.classList.add('active');
-        }
+        faqContainer.appendChild(accordionItem);
     });
-});
+}
 
-// --- Sticky Navbar Shadow on Scroll ---
-window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 10) {
-        navbar.style.boxShadow = 'var(--shadow-md)';
-    } else {
-        navbar.style.boxShadow = 'var(--shadow-sm)';
+// --- Sticky Navbar Shadow ---
+window.addEventListener("scroll", () => {
+    const navbar = document.getElementById("navbar");
+    if (navbar) {
+        if (window.scrollY > 10) {
+            navbar.style.boxShadow = "var(--shadow-md)";
+        } else {
+            navbar.style.boxShadow = "var(--shadow-sm)";
+        }
     }
 });
 
-function renderFAQs(lang) {
-    const faqContainer = document.getElementById('faqAccordion');
-    if (!faqContainer) return;
+// --- Scroll Reveal Animation ---
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+        }
+    });
+}, { threshold: 0.1 });
 
-    faqContainer.innerHTML = '';
-    
-    const questions = faqData[lang] || faqData['tr'];
+document.querySelectorAll(".section, .card, .stat-item, .team-card").forEach(el => {
+    el.classList.add("reveal-init");
+    revealObserver.observe(el);
+});
 
-    questions.forEach((item) => {
-        const accordionItem = document.createElement('div');
-        accordionItem.className = 'accordion-item';
-        
-        accordionItem.innerHTML = \
-            <button class=" accordion-header\>
- <span>\</span>
- <i class=\fa-solid fa-chevron-down\></i>
- </button>
- <div class=\accordion-content\>
- <p>\</p>
- </div>
- \;
- 
- const header = accordionItem.querySelector('.accordion-header');
- header.addEventListener('click', () => {
- const isActive = accordionItem.classList.contains('active');
- document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
- if (!isActive) accordionItem.classList.add('active');
- });
- 
- faqContainer.appendChild(accordionItem);
- });
-}
+// --- Active Nav Link ---
+const currentPath = window.location.pathname.split("/").pop() || "index.html";
+document.querySelectorAll(".nav-links a").forEach(link => {
+    if (link.getAttribute("href") === currentPath) {
+        link.classList.add("active");
+    }
+});
+
+
+
 
