@@ -15,11 +15,11 @@
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            
-            
-            <div class="nav-menu">
+                <div class="nav-container">
+            <div class="nav-left"></div>
+            <div class="nav-center">
                 <ul class="nav-links">
+                    
                     <li><a href="index.html" data-i18n="navHome">HOME</a></li>
                     <li><a href="team.html" data-i18n="navTeam">OUR TEAM</a></li>
                     <li class="dropdown">
@@ -33,52 +33,13 @@
                             <li><a href="ivf_sperm_extraction.html" data-i18n="ivfItem6">Sperm Extraction</a></li>
                             <li><a href="ivf_denudation.html" data-i18n="ivfItem7">Denudation</a></li>
                             <li><a href="ivf_transfer.html" data-i18n="ivfItem8">Transfer</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="treatments.html"><span data-i18n="navTreatments">TREATMENT OPTIONS</span> <i class="fa-solid fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="treatment_pgd.html" data-i18n="treatmentItem1">PGD/PGS</a></li>
-                            <li><a href="treatment_tandem.html" data-i18n="treatmentItem2">Tandem Cycle</a></li>
-                            <li><a href="treatment_sperm_donation.html" data-i18n="treatmentItem3">Sperm Donation</a></li>
-                            <li><a href="treatment_egg_donation.html" data-i18n="treatmentItem4">Egg Donation</a></li>
-                            <li><a href="treatment_embryo_donation.html" data-i18n="treatmentItem5">Embryo Donation</a></li>
-                            <li><a href="treatment_ngs.html" data-i18n="treatmentItem6">NGS Treatment</a></li>
-                            <li><a href="treatment_icsi.html" data-i18n="treatmentItem7">IVF with ICSI</a></li>
-                            <li><a href="treatment_freezing.html" data-i18n="treatmentItem8">Sperm and Egg Freezing</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="faq.html" data-i18n="navFAQ">FREQUENTLY ASKED</a></li>
-                    <li><a href="blog.html" data-i18n="navBlogs">BLOGS</a></li>
-                    <li><a href="contact.html" data-i18n="navContact">CONTACT</a></li>
+                        
                 </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="treatments.html"><span data-i18n="navTreatments">TREATMENT OPTIONS</span> <i class="fa-solid fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="treatments.html#egg-freezing" data-i18n="treatmentEggFreezing">Egg Freezing</a></li>
-                            <li><a href="treatments.html#donation" data-i18n="treatmentDonation">Donation</a></li>
-                            <li><a href="treatments.html#pgd" data-i18n="treatmentPGD">PGD / PGS</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="faq.html" data-i18n="navFAQ">FREQUENTLY ASKED</a></li>
-                    <li><a href="blog.html" data-i18n="navBlogs">BLOGS</a></li>
-                    <li><a href="contact.html" data-i18n="navContact">CONTACT</a></li>
-                </ul>
-
-                <div class="nav-actions">
-                    <!-- Language Switcher -->
-                    <div class="lang-dropdown">
-                        <button class="lang-btn" id="currentLang">TR <i class="fa-solid fa-globe"></i></button>
-                        <ul class="lang-menu">
-                            <li><a href="#" onclick="changeLanguage('tr')">Turkish (TR)</a></li>
-                            <li><a href="#" onclick="changeLanguage('en')">English (EN)</a></li>
-                            <li><a href="#" onclick="changeLanguage('fr')">French (FR)</a></li>
-                            <li><a href="#" onclick="changeLanguage('ar')">Arabic (AR)</a></li>
-                            <li><a href="#" onclick="changeLanguage('de')">German (DE)</a></li>
-                            <li><a href="#" onclick="changeLanguage('ru')">Russian (RU)</a></li>
-                        </ul>
-                    </div>
+            </div>
+            <div class="nav-right">
+                <button id="themeToggle" class="theme-btn"><i class="fa-solid fa-moon"></i></button>
+            </div>
+        </div>
                     <!-- Dark Mode Toggle -->
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
                         <i class="fa-solid fa-moon"></i>
