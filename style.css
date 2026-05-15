@@ -188,9 +188,9 @@ h1, h2, h3, h4 {
 }
 
 .nav-container {
-    max-width: 100%; /* Full width */
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 40px; /* More padding for aesthetic look */
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -213,12 +213,12 @@ h1, h2, h3, h4 {
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 15px; /* Reduced gap */
+    gap: 30px;
 }
 
 .nav-links {
     display: flex;
-    gap: 12px; /* Reduced gap between links */
+    gap: 20px;
 }
 
 .nav-links li {
@@ -226,10 +226,10 @@ h1, h2, h3, h4 {
 }
 
 .nav-links a {
-    font-size: 0.75rem; /* Smaller font */
-    font-weight: 600;
+    font-size: 0.8rem;
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.3px; /* Reduced letter spacing */
+    letter-spacing: 0.5px;
     color: var(--text-main);
     transition: var(--transition);
     padding: 8px 0;
@@ -245,7 +245,7 @@ h1, h2, h3, h4 {
     top: 100%;
     left: 0;
     background-color: var(--card-bg);
-    min-width: 250px; /* Wider for long titles */
+    min-width: 200px;
     box-shadow: var(--shadow-md);
     border-radius: 8px;
     padding: 10px 0;
@@ -254,7 +254,6 @@ h1, h2, h3, h4 {
     transform: translateY(10px);
     transition: var(--transition);
     border: 1px solid var(--border-color);
-    z-index: 1001;
 }
 
 .dropdown:hover .dropdown-menu {
