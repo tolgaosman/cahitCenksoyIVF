@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     /* Light Theme (Default) */
     --bg-color: #ffffff;
     --bg-light: #f4f8fb;
@@ -1340,73 +1340,67 @@ body { top: 0 !important; }
 
 /* --- Service Cards --- */
 .services-section {
-    padding: 80px 0;
-    background-color: var(--bg-light);
+    padding: 0;
+    background-color: var(--bg-color);
 }
 
 .services-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    gap: 0;
 }
 
 .service-card {
-    background: white;
-    padding: 40px 20px;
+    padding: 60px 20px;
     text-align: center;
-    border-radius: 8px;
-    box-shadow: var(--shadow-sm);
     transition: var(--transition);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    color: white;
 }
 
+.service-card:nth-child(odd) { background-color: #00935e; }
+.service-card:nth-child(even) { background-color: #00a86b; }
+.service-card:nth-child(n+5):nth-child(odd) { background-color: #00a86b; }
+.service-card:nth-child(n+5):nth-child(even) { background-color: #00935e; }
+
 .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-lg);
+    filter: brightness(1.1);
+    z-index: 1;
 }
 
 .service-icon-wrapper {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: #f0fdf4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 3rem;
     margin-bottom: 10px;
-    border: 1px solid #e2e8f0;
-}
-
-.service-icon-wrapper i {
-    font-size: 2.5rem;
-    color: var(--primary-color);
+    color: white;
 }
 
 .service-card h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    color: var(--secondary-color);
+    color: white;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     margin: 0;
 }
 
 .btn-more {
     padding: 8px 25px;
-    background-color: var(--primary-color);
+    background-color: transparent;
+    border: 1px solid white;
     color: white;
     border-radius: 4px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    text-transform: capitalize;
+    text-transform: uppercase;
     transition: var(--transition);
 }
 
 .btn-more:hover {
-    background-color: var(--primary-hover);
+    background-color: white;
+    color: #00a86b;
 }
 
 @media (max-width: 1100px) {
