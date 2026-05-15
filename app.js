@@ -35,6 +35,16 @@ const translations = {
         feat4Title: "IVF SÖZLÜĞÜ",
         feat4Btn: "SÖZLÜĞE GİT >",
         
+        srv1Title: "PGT / PGS",
+        srv2Title: "TANDEM SİKLUS",
+        srv3Title: "SPERM DONASYONU",
+        srv4Title: "YUMURTA DONASYONU",
+        srv5Title: "EMBRİYO DONASYONU",
+        srv6Title: "NGS TEDAVİSİ",
+        srv7Title: "ICSI İLE TÜP BEBEK",
+        srv8Title: "SPERM VE YUMURTA DONDURMA",
+        srvMore: "Detaylı Bilgi",
+        
         teamTitle: "Ekibimiz",
         teamRole1: "Baş Tüp Bebek Uzmanı",
         teamDesc1: "Üreme tıbbı ve ileri tüp bebek teknolojilerinde 20 yılı aşkın deneyim.",
@@ -133,6 +143,16 @@ const translations = {
         feat3Btn: "MAKE AN APPOINTMENT >",
         feat4Title: "IVF DICTIONARY",
         feat4Btn: "GO TO DICTIONARY >",
+        
+        srv1Title: "PGD / PGS",
+        srv2Title: "TANDEM CYCLE",
+        srv3Title: "SPERM DONATION",
+        srv4Title: "EGG DONATION",
+        srv5Title: "EMBRYO DONATION",
+        srv6Title: "NGS TREATMENT",
+        srv7Title: "IVF WITH ICSI",
+        srv8Title: "SPERM AND EGG FREEZING",
+        srvMore: "More Info",
         
         stat1Num: "3640",
         stat1Label: "TOTAL IVF CYCLES",
