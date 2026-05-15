@@ -177,7 +177,7 @@ const translations = {
 
         feat1Title: "TREATMENT OPTIONS",
         feat1Btn: "REVIEW >",
-        feat2Title: "SUCCESS RATES",
+        feat2Title: "PROCESS",
         feat2Btn: "REVIEW >",
         feat3Title: "APPLICATION FORM",
         feat3Btn: "MAKE AN APPOINTMENT >",
@@ -263,7 +263,6 @@ const translations = {
 let currentLang = localStorage.getItem('lang') || 'tr';
 
 function changeLanguage(lang) {
-    // Dictionary translation
     if (translations[lang]) {
         currentLang = lang;
         localStorage.setItem('lang', lang);
@@ -274,6 +273,7 @@ function changeLanguage(lang) {
         }
 
         document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+        document.documentElement.lang = lang;
 
         const elements = document.querySelectorAll('[data-i18n]');
         elements.forEach(el => {
@@ -292,14 +292,12 @@ function changeLanguage(lang) {
         if (typeof renderFAQs === 'function') renderFAQs(lang);
     }
 
-    // Google Translate Universal Fallback
+    // Google Translate Logic
     const triggerGoogleTranslate = (langCode) => {
         const select = document.querySelector('select.goog-te-combo');
         if (select) {
             select.value = langCode;
             select.dispatchEvent(new Event('change'));
-        } else {
-            setTimeout(() => triggerGoogleTranslate(langCode), 500);
         }
     };
 
@@ -315,7 +313,8 @@ function changeLanguage(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => changeLanguage(currentLang), 1000);
+    // Initial language application
+    changeLanguage(currentLang);
 });
 
 // --- Theme Toggle ---
@@ -380,7 +379,7 @@ mobileToggle?.addEventListener('click', () => {
     navLinksMenu?.classList.toggle('active');
 });
 
-// --- FAQ Rendering ---
+// FAQ Rendering
 function renderFAQs(lang) {
     const faqContainer = document.getElementById('faqAccordion');
     if (!faqContainer || typeof faqData === 'undefined') return;
@@ -410,18 +409,6 @@ function renderFAQs(lang) {
     });
 }
 
-// --- Sticky Navbar ---
-window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
-    if (navbar) {
-        if (window.scrollY > 10) {
-            navbar.style.boxShadow = 'var(--shadow-md)';
-        } else {
-            navbar.style.boxShadow = 'var(--shadow-sm)';
-        }
-    }
-});
-
 // Process Modal Logic
 function openProcessModal(step) {
     const modal = document.getElementById('processModal');
@@ -435,16 +422,15 @@ function openProcessModal(step) {
     desc.innerText = content['proc' + step + 'Desc'];
     
     modal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Prevent scrolling
+    document.body.style.overflow = 'hidden'; 
 }
 
 function closeProcessModal() {
     const modal = document.getElementById('processModal');
     modal.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Restore scrolling
+    document.body.style.overflow = 'auto';
 }
 
-// Close modal when clicking outside
 window.onclick = function(event) {
     const modal = document.getElementById('processModal');
     if (event.target == modal) {
