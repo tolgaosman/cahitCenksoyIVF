@@ -206,7 +206,9 @@ h1, h2, h3, h4 {
     gap: 10px;
 }
 
-
+.logo-dark { display: none; }
+[data-theme="dark"] .logo-dark { display: block; }
+[data-theme="dark"] .logo-light { display: none; }
 
 .nav-menu {
     display: flex;
@@ -868,25 +870,5 @@ h1, h2, h3, h4 {
 @media (max-width: 768px) {
     .stats-grid { grid-template-columns: 1fr; }
     .stat-item::after { display: none !important; }
-}
-
-
-/* Unified Logo Styles */
-.logo img, .footer-logo img {
-    max-height: 45px;
-    width: auto;
-    display: block;
-    transition: none; /* Instant switch on theme change */
-}
-
-.logo-dark { display: none !important; }
-.logo-light { display: block !important; }
-
-[data-theme='dark'] .logo-dark { display: block !important; }
-[data-theme='dark'] .logo-light { display: none !important; }
-
-.footer-logo img {
-    max-height: 60px;
-    margin-bottom: 20px;
 }
 
