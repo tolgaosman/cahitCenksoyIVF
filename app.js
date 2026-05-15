@@ -45,6 +45,15 @@ const translations = {
         srv8Title: "SPERM VE YUMURTA DONDURMA",
         srvMore: "Detaylı Bilgi",
         
+        processTitle: "TEDAVİ SÜRECİ",
+        proc1Title: "Ön Görüşme",
+        proc2Title: "Tedavinin Planlanması",
+        proc3Title: "Seyahat",
+        proc4Title: "Konaklama",
+        proc5Title: "Tedavi",
+        proc6Title: "Gebelik Testi",
+        procMore: "Daha Fazla",
+        
         apptTitle: "RANDEVU ALIN",
         apptSubtitle: "Tedavi seçeneklerimizden yararlanmak için randevu alabilirsiniz.",
         formFemaleAge: "Kadın Yaşı",
@@ -171,6 +180,15 @@ const translations = {
         srv7Title: "IVF WITH ICSI",
         srv8Title: "SPERM AND EGG FREEZING",
         srvMore: "More Info",
+        
+        processTitle: "TREATMENT PROCESS",
+        proc1Title: "Initial Consultation",
+        proc2Title: "Treatment Planning",
+        proc3Title: "Travel",
+        proc4Title: "Accommodation",
+        proc5Title: "Treatment",
+        proc6Title: "Pregnancy Test",
+        procMore: "Daha Fazla",
         
         apptTitle: "MAKE AN APPOINTMENT",
         apptSubtitle: "You can make an appointment to take advantage of our treatment options.",
