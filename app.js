@@ -22,6 +22,10 @@ const translations = {
         heroBtnPrimary: "Danışmanlık Alın",
         heroBtnSecondary: "Tedavileri İncele",
         
+        aboutTitle: "Dr. Cahit Cenksoy",
+        aboutText1: "Kıbrıs'ta en yüksek tüp bebek başarı oranına sahip; en genç, en tecrübeli ve en başarılı Kadın Doğum Uzmanlarından biri olan Dr. Cahit Cenksoy'un hem sezaryen hem de doğal doğumlarda adada en fazla doğum yaptıran doktor olduğu da çok iyi bilinmektedir. Hayallerinizin özel müjdesini alacağınız merkezimiz, adanın cazibe merkezi, tüm dünyanın da gözde turistik cenneti Girne'de yer almaktadır. Deniz kıyısındaki şehrimizde hastalarımızın tedavileri devam ederken yapacakları bir şehir gezisi streslerinin azalmasına katkıda bulunacaktır.",
+        aboutText2: "Tecrübeli ekibimiz, modern laboratuvarımız, donanımlı hemşirelerimiz ve her türlü ihtiyacınıza cevap verecek koordinatörlerimiz ile başarımızı günden güne yükseltmektedir. Hastalarımızın doktor ile istedikleri her an iletişim içinde olabilmesi; hastalarımızın stresini azaltırken, merkezimize olan güveni de arttırmaktadır. Merkezimizin gebelik başarı oranları %75-90 arasında değişkenlik göstermektedir. Oosit donasyonunda sıra bekleme zorunluluğu olmaması ve sperm donasyonunda uluslararası tescilli sperm bankaları ile çalışılması sayesinde merkezimiz yüzünüzü güldürecek sonuçlar almaktadır. Hasta başına ayrılan oosit sayılarındaki standartlarımızdan ödün vermediğimizden başarı oranlarımız sürekli en üst düzeyde kalmaktadır.",
+        
         teamTitle: "Ekibimiz",
         teamRole1: "Baş Tüp Bebek Uzmanı",
         teamDesc1: "Üreme tıbbı ve ileri tüp bebek teknolojilerinde 20 yılı aşkın deneyim.",
@@ -97,23 +101,7 @@ const translations = {
         navHome: "HOME",
         navTeam: "OUR TEAM",
         navIVF: "IVF",
-        ivfItem1: "Initial Evaluation",
-        ivfItem2: "IVF Medicines",
-        ivfItem3: "Stimulation of the ovaries",
-        ivfItem4: "Maturation of Eggs",
-        ivfItem5: "OPU (Egg Collection)",
-        ivfItem6: "Sperm Extraction",
-        ivfItem7: "Denudation",
-        ivfItem8: "Transfer",
         navTreatments: "TREATMENT OPTIONS",
-        treatmentItem1: "PGD/PGS",
-        treatmentItem2: "Tandem Cycle",
-        treatmentItem3: "Sperm Donation",
-        treatmentItem4: "Egg Donation",
-        treatmentItem5: "Embryo Donation",
-        treatmentItem6: "NGS Treatment",
-        treatmentItem7: "IVF with ICSI",
-        treatmentItem8: "Sperm and Egg Freezing",
         navTestimonials: "PATIENTS",
         navFAQ: "FAQ",
         navBlogs: "BLOG",
@@ -123,6 +111,10 @@ const translations = {
         heroSubtitle: "State-of-the-art IVF treatments tailored for your unique journey to parenthood.",
         heroBtnPrimary: "Book Consultation",
         heroBtnSecondary: "Explore Treatments",
+
+        aboutTitle: "Dr. Cahit Cenksoy",
+        aboutText1: "Dr Cahit Cenksoy is one of the youngest and most talented Gynaecologists in Cyprus with a high IVF success rate. He has performed the highest number of births on the island in both caesarean section and natural births. Our centre is located in Kyrenia, the most beautiful city of the island. A city trip to the seaside helps release the stress of our patients while their treatment continues.",
+        aboutText2: "We are increasing our success day by day with our experienced team, modern laboratories, specialised nurses and coordinators. Our team is expanding day by day and gaining experience. The fact that our patients can communicate with the doctor at any time gives them confidence. The pregnancy success rates of our centre varies between 75-90%. Our centre does not have an obligation to wait for oocyte donation, and we work with internationally registered sperm banks, allowing our centre to achieve satisfactory results. Since we do not compromise our standards in the number of oocytes allocated per patient, our success rates remain at the highest level.",
         
         stat1Num: "3640",
         stat1Label: "TOTAL IVF CYCLES",
@@ -142,13 +134,18 @@ const translations = {
         footerRights: "All rights reserved.",
         footerPagesTitle: "PAGES",
         footerContactTitle: "CONTACT INFO"
-    }
+    },
+    fr: { navHome: "ACCUEIL", navTeam: "NOTRE ÉQUIPE", navIVF: "FIV", navTreatments: "TRAITEMENTS", navContact: "CONTACT" },
+    de: { navHome: "STARTSEITE", navTeam: "UNSER TEAM", navIVF: "IVF", navTreatments: "BEHANDLUNGEN", navContact: "KONTAKT" },
+    ru: { navHome: "ГЛАВНАЯ", navTeam: "КОМАНДА", navIVF: "ЭКО", navTreatments: "ЛЕЧЕНИЕ", navContact: "КОНТАКТЫ" },
+    ar: { navHome: "الرئيسية", navTeam: "فريقنا", navIVF: "أطفال الأنابيب", navTreatments: "العلاجات", navContact: "اتصل بنا" }
 };
 
 // --- Language Switching Logic ---
 let currentLang = localStorage.getItem('lang') || 'tr';
 
 function changeLanguage(lang) {
+    // Dictionary translation
     if (translations[lang]) {
         currentLang = lang;
         localStorage.setItem('lang', lang);
@@ -158,24 +155,49 @@ function changeLanguage(lang) {
             langBtn.innerHTML = `${lang.toUpperCase()} <i class="fa-solid fa-globe"></i>`;
         }
 
+        document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
         const elements = document.querySelectorAll('[data-i18n]');
         elements.forEach(el => {
             const key = el.getAttribute('data-i18n');
-            if (translations[lang] && translations[lang][key]) {
+            const translation = (translations[lang] && translations[lang][key]) || (translations['en'] && translations['en'][key]) || (translations['tr'] && translations['tr'][key]);
+            
+            if (translation) {
                 if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                    el.placeholder = translations[lang][key];
+                    el.placeholder = translation;
                 } else {
-                    el.textContent = translations[lang][key];
+                    el.textContent = translation;
                 }
             }
         });
 
         if (typeof renderFAQs === 'function') renderFAQs(lang);
     }
+
+    // Google Translate Universal Fallback
+    const triggerGoogleTranslate = (langCode) => {
+        const select = document.querySelector('select.goog-te-combo');
+        if (select) {
+            select.value = langCode;
+            select.dispatchEvent(new Event('change'));
+        } else {
+            setTimeout(() => triggerGoogleTranslate(langCode), 500);
+        }
+    };
+
+    if (lang !== 'tr') {
+        triggerGoogleTranslate(lang);
+    } else {
+        const select = document.querySelector('select.goog-te-combo');
+        if (select) {
+            select.value = '';
+            select.dispatchEvent(new Event('change'));
+        }
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    changeLanguage(currentLang);
+    setTimeout(() => changeLanguage(currentLang), 1000);
 });
 
 // --- Theme Toggle ---
@@ -217,15 +239,13 @@ const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     if (currentScroll <= 0) {
-        navbar.classList.remove('navbar--hidden');
+        navbar?.classList.remove('navbar--hidden');
         return;
     }
-    if (currentScroll > lastScroll && !navbar.classList.contains('navbar--hidden')) {
-        // Scroll down
-        navbar.classList.add('navbar--hidden');
-    } else if (currentScroll < lastScroll && navbar.classList.contains('navbar--hidden')) {
-        // Scroll up
-        navbar.classList.remove('navbar--hidden');
+    if (currentScroll > lastScroll && !navbar?.classList.contains('navbar--hidden')) {
+        navbar?.classList.add('navbar--hidden');
+    } else if (currentScroll < lastScroll && navbar?.classList.contains('navbar--hidden')) {
+        navbar?.classList.remove('navbar--hidden');
     }
     lastScroll = currentScroll;
 });
@@ -243,7 +263,7 @@ function renderFAQs(lang) {
     if (!faqContainer || typeof faqData === 'undefined') return;
 
     faqContainer.innerHTML = '';
-    const questions = faqData[lang] || faqData['tr'];
+    const questions = faqData[lang] || faqData['en'] || faqData['tr'];
 
     questions.forEach((item) => {
         const accordionItem = document.createElement('div');
