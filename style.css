@@ -175,17 +175,7 @@ h1, h2, h3, h4 {
 }
 
 /* Navigation */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--nav-bg);
-    backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-sm);
-    z-index: 1000;
-    transition: var(--transition);
-}
+
 
 
 
@@ -210,42 +200,15 @@ h1, h2, h3, h4 {
 
 
 /* Dropdown */
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: var(--card-bg);
-    min-width: 200px;
-    box-shadow: var(--shadow-md);
-    border-radius: 8px;
-    padding: 10px 0;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: var(--transition);
-    border: 1px solid var(--border-color);
-}
 
-.dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
 
-.dropdown-menu li {
-    padding: 0;
-}
+.dropdown:hover 
 
-.dropdown-menu a {
-    display: block;
-    padding: 10px 20px;
-    font-size: 0.85rem;
-}
 
-.dropdown-menu a:hover {
-    background-color: var(--bg-light);
-    color: var(--primary-color);
-}
+
+
+
+
 
 /* Actions */
 .nav-actions {
@@ -691,19 +654,9 @@ h1, h2, h3, h4 {
 
     
 
-    .dropdown-menu {
-        position: static;
-        box-shadow: none;
-        border: none;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        display: none;
-    }
+    
 
-    .dropdown:hover .dropdown-menu {
-        display: block;
-    }
+    .dropdown:hover 
 
     .mobile-toggle {
         display: block;
@@ -871,19 +824,9 @@ h1, h2, h3, h4 {
 
     
 
-    .dropdown-menu {
-        position: static;
-        box-shadow: none;
-        border: none;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        display: none;
-    }
+    
 
-    .dropdown:hover .dropdown-menu {
-        display: block;
-    }
+    .dropdown:hover 
 
     .mobile-toggle {
         display: block;
@@ -1152,7 +1095,67 @@ h1, h2, h3, h4 {
     padding: 5px 2px;
 }
 
+
+
+
+/* Thicker Navbar and Centered Dropdowns */
+.navbar {
+    height: 90px;
+    background-color: var(--card-bg);
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-container {
+    height: 100%;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    background-color: var(--card-bg);
+    min-width: 240px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    border-radius: 12px;
+    padding: 12px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border: 1px solid var(--border-color);
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
 .dropdown-menu a {
-    font-size: 0.9rem; /* Dropdown items can stay larger */
+    padding: 10px 20px !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    display: block !important;
+    color: var(--text-main) !important;
+    transition: background 0.2s !important;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--bg-light) !important;
+    color: var(--primary-color) !important;
 }
 
