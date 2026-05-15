@@ -3,141 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Cahit Cenksoy | IVF & Medical Clinic</title>
-    <!-- Favicon -->
+    <title>Dr. Cahit Cenksoy | Premium IVF Clinic</title>
     <link rel="icon" type="image/png" href="https://cahitcenksoy.com/admin/images/logo/3781738918favicon.png">
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navbar -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="logo">
-                <a href="#home">
-                    <img src="siyahLogo.png" alt="Dr. Cahit Cenksoy Logo" class="logo-light" style="height: 40px;">
-                    <img src="beyazLogo.png" alt="Dr. Cahit Cenksoy Logo" class="logo-dark" style="height: 40px;">
+                <a href="index.html">
+                    <img src="logo.png" alt="Logo" class="logo-dark" style="height: 45px;">
                 </a>
             </div>
-            
-            <div class="nav-menu">
-                <ul class="nav-links">
-                    <li><a href="index.html" data-i18n="navHome">HOME</a></li>
-                    <li><a href="team.html" data-i18n="navTeam">OUR TEAM</a></li>
-                    <li class="dropdown">
-                        <a href="ivf.html"><span data-i18n="navIVF">IVF</span> <i class="fa-solid fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="ivf_initial_evaluation.html" data-i18n="ivfItem1">Initial Evaluation</a></li>
-                            <li><a href="ivf_medicines.html" data-i18n="ivfItem2">IVF Medicines</a></li>
-                            <li><a href="ivf_stimulation.html" data-i18n="ivfItem3">Stimulation of the ovaries</a></li>
-                            <li><a href="ivf_maturation.html" data-i18n="ivfItem4">Maturation of Eggs</a></li>
-                            <li><a href="ivf_opu.html" data-i18n="ivfItem5">OPU</a></li>
-                            <li><a href="ivf_sperm_extraction.html" data-i18n="ivfItem6">Sperm Extraction</a></li>
-                            <li><a href="ivf_denudation.html" data-i18n="ivfItem7">Denudation</a></li>
-                            <li><a href="ivf_transfer.html" data-i18n="ivfItem8">Transfer</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="treatments.html"><span data-i18n="navTreatments">TREATMENT OPTIONS</span> <i class="fa-solid fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="treatment_pgd.html" data-i18n="treatmentItem1">PGD/PGS</a></li>
-                            <li><a href="treatment_tandem.html" data-i18n="treatmentItem2">Tandem Cycle</a></li>
-                            <li><a href="treatment_sperm_donation.html" data-i18n="treatmentItem3">Sperm Donation</a></li>
-                            <li><a href="treatment_egg_donation.html" data-i18n="treatmentItem4">Egg Donation</a></li>
-                            <li><a href="treatment_embryo_donation.html" data-i18n="treatmentItem5">Embryo Donation</a></li>
-                            <li><a href="treatment_ngs.html" data-i18n="treatmentItem6">NGS Treatment</a></li>
-                            <li><a href="treatment_icsi.html" data-i18n="treatmentItem7">IVF with ICSI</a></li>
-                            <li><a href="treatment_freezing.html" data-i18n="treatmentItem8">Sperm and Egg Freezing</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="testimonials.html" data-i18n="navTestimonials">SHARED BY OUR PATIENTS</a></li>
-                    <li><a href="faq.html" data-i18n="navFAQ">FREQUENTLY ASKED</a></li>
-                    <li><a href="blog.html" data-i18n="navBlogs">BLOGS</a></li>
-                    <li><a href="contact.html" data-i18n="navContact">CONTACT</a></li>
-                </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="treatments.html"><span data-i18n="navTreatments">TREATMENT OPTIONS</span> <i class="fa-solid fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="treatments.html#egg-freezing" data-i18n="treatmentEggFreezing">Egg Freezing</a></li>
-                            <li><a href="treatments.html#donation" data-i18n="treatmentDonation">Donation</a></li>
-                            <li><a href="treatments.html#pgd" data-i18n="treatmentPGD">PGD / PGS</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="testimonials.html" data-i18n="navTestimonials">SHARED BY OUR PATIENTS</a></li>
-                    <li><a href="faq.html" data-i18n="navFAQ">FREQUENTLY ASKED</a></li>
-                    <li><a href="blog.html" data-i18n="navBlogs">BLOGS</a></li>
-                    <li><a href="contact.html" data-i18n="navContact">CONTACT</a></li>
-                </ul>
-
-                <div class="nav-actions">
-                    <!-- Language Switcher -->
-                    <div class="lang-dropdown">
-                        <button class="lang-btn" id="currentLang">TR <i class="fa-solid fa-globe"></i></button>
-                        <ul class="lang-menu">
-                            <li><a href="#" onclick="changeLanguage('tr')">Turkish (TR)</a></li>
-                            <li><a href="#" onclick="changeLanguage('en')">English (EN)</a></li>
-                            <li><a href="#" onclick="changeLanguage('fr')">French (FR)</a></li>
-                            <li><a href="#" onclick="changeLanguage('ar')">Arabic (AR)</a></li>
-                            <li><a href="#" onclick="changeLanguage('de')">German (DE)</a></li>
-                            <li><a href="#" onclick="changeLanguage('ru')">Russian (RU)</a></li>
-                        </ul>
-                    </div>
-                    <!-- Dark Mode Toggle -->
-                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-                        <i class="fa-solid fa-moon"></i>
-                    </button>
-                    <!-- Mobile Menu Toggle -->
-                    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu">
-                        <i class="fa-solid fa-bars"></i>
-                    </button>
-                </div>
-            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active" data-i18n="navHome">Home</a></li>
+                <li><a href="team.html" data-i18n="navTeam">Team</a></li>
+                <li><a href="ivf.html" data-i18n="navIVF">IVF</a></li>
+                <li><a href="treatments.html" data-i18n="navTreatments">Treatments</a></li>
+                <li><a href="faq.html" data-i18n="navFAQ">FAQ</a></li>
+                <li><a href="contact.html" data-i18n="navContact">Contact</a></li>
+                <li class="lang-dropdown">
+                    <button class="lang-btn" id="currentLang">TR <i class="fa-solid fa-globe"></i></button>
+                    <ul class="lang-menu">
+                        <li><a href="#" onclick="changeLanguage('tr')">Turkish</a></li>
+                        <li><a href="#" onclick="changeLanguage('en')">English</a></li>
+                        <li><a href="#" onclick="changeLanguage('fr')">French</a></li>
+                        <li><a href="#" onclick="changeLanguage('ar')">Arabic</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+                </li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle"><i class="fa-solid fa-bars"></i></button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 data-i18n="heroTitle">Creating Miracles, Together</h1>
-            <p data-i18n="heroSubtitle">State-of-the-art IVF treatments tailored for your unique journey to parenthood, guided by expert care and compassion.</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary" data-i18n="heroBtnPrimary">Book a Consultation</a>
-                <a href="#treatments" class="btn btn-secondary" data-i18n="heroBtnSecondary">Explore Treatments</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Doctor Section -->
-    <section id="about-doctor" class="section bg-light">
+    <!-- Hero -->
+    <header class="hero" id="home">
         <div class="container">
-            <div class="about-grid">
-                <div class="about-image">
-                    <img src="https://cahitcenksoy.com/admin/images/takim/cahitcenksoy_foto.png" alt="Op. Dr. Cahit Cenksoy" class="doctor-photo">
+            <div class="hero-content">
+                <h1 data-i18n="heroTitle">Creating Miracles Together</h1>
+                <p data-i18n="heroSubtitle">State-of-the-art IVF treatments tailored for your unique journey to parenthood.</p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-primary" data-i18n="heroBtnPrimary">Book Consultation</a>
+                    <a href="treatments.html" class="btn btn-secondary" data-i18n="heroBtnSecondary">Explore Treatments</a>
                 </div>
-                <div class="about-content">
-                    <h4 class="subtitle" data-i18n="aboutSubtitle">KADIN HASTALIKLARI, DOĞUM VE TÜP BEBEK UZMANI</h4>
-                    <h2 class="title" style="color: var(--secondary-color);" data-i18n="aboutTitle">OP. DR. CAHİT CENKSOY</h2>
-                    
-                    <div class="about-text">
-                        <p data-i18n="aboutP1">Kıbrıs'ta en yüksek tüp bebek başarı oranına sahip; en genç, en tecrübeli ve en başarılı Kadın Doğum Uzmanlarından biri olan Dr. Cahit Cenksoy'un hem sezaryen hem de doğal doğumlarda adada en fazla doğum yaptıran doktor olduğu da çok iyi bilinmektedir.</p>
-                        <p data-i18n="aboutP2">Hayallerinizin özel müjdesini alacağınız merkezimiz, adanın cazibe merkezi, tüm dünyanın da gözde turistik cenneti Girne'de yer almaktadır. Deniz kıyısındaki şehrimizde hastalarımızın tedavileri devam ederken yapacakları bir şehir gezisi streslerinin azalmasına katkıda bulunacaktır.</p>
-                        <p data-i18n="aboutP3">Tecrübeli ekibimiz, modern laboratuvarımız, donanımlı hemşirelerimiz ve her türlü ihtiyacınıza cevap verecek koordinatörlerimiz ile başarımızı günden güne yükseltmektedir.</p>
-                        <p data-i18n="aboutP4">Hastalarımızın doktor ile istedikleri her an iletişim içinde olabilmesi; hastalarımızın stresini azaltırken, merkezimize olan güveni de arttırmaktadır.</p>
-                        <p data-i18n="aboutP5">Merkezimizin gebelik başarı oranları %75-90 arasında değişkenlik göstermektedir. Oosit donasyonunda sıra bekleme zorunluluğu olmaması ve sperm donasyonunda uluslararası tescilli sperm bankaları ile çalışılması sayesinde merkezimiz yüzünüzü güldürecek sonuçlar almaktadır.</p>
-                        <p data-i18n="aboutP6">Hasta başına ayrılan oosit sayılarındaki standartlarımızdan ödün vermediğimizden başarı oranlarımız sürekli en üst düzeyde kalmaktadır.</p>
-                        <p data-i18n="aboutP7">Yukarıda da belirttiğimiz gibi; uzman kadromuz, tecrübeli ve donanımlı ekibimiz güneşin en güzel doğduğu adada, hayalinizin en özel müjdesini vermek için sizleri bekliyor.</p>
-                    </div>
-                    
-                    <img src="https://cahitcenksoy.com/admin/images/takim/80711095276CahitCenksoySigniture.png" alt="Signature" class="doctor-signature">
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <i class="fa-solid fa-flask"></i>
+                    <h2 data-i18n="stat1Num">3640</h2>
+                    <p data-i18n="stat1Label">Total IVF Cycles</p>
+                </div>
+                <div class="stat-box">
+                    <i class="fa-solid fa-egg"></i>
+                    <h2 data-i18n="stat2Num">2260</h2>
+                    <p data-i18n="stat2Label">Oocyte Donation</p>
+                    <span data-i18n="stat2Sub">84% Success</span>
+                </div>
+                <div class="stat-box">
+                    <i class="fa-solid fa-vial"></i>
+                    <h2 data-i18n="stat3Num">693</h2>
+                    <p data-i18n="stat3Label">IVF</p>
+                    <span data-i18n="stat3Sub">84% Success</span>
+                </div>
+                <div class="stat-box">
+                    <i class="fa-solid fa-bacteria"></i>
+                    <h2 data-i18n="stat4Num">538</h2>
+                    <p data-i18n="stat4Label">Sperm Donation</p>
+                    <span data-i18n="stat4Sub">67% Success</span>
+                </div>
+                <div class="stat-box">
+                    <i class="fa-solid fa-dna"></i>
+                    <h2 data-i18n="stat5Num">610</h2>
+                    <p data-i18n="stat5Label">PGD</p>
+                    <span data-i18n="stat5Sub">84% Success</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About -->
+    <section class="section" id="about">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center;">
+                <div>
+                    <img src="https://cahitcenksoy.com/admin/images/takim/3610996843CahitCenksoy.png" alt="Dr. Cahit Cenksoy" style="width: 100%; border-radius: 20px; box-shadow: var(--card-shadow);">
+                </div>
+                <div>
+                    <h2 style="font-size: 2.8rem; color: var(--secondary); margin-bottom: 24px;">Dr. Cahit Cenksoy</h2>
+                    <p style="font-size: 1.15rem; color: var(--text-muted); margin-bottom: 30px;">With over 20 years of expertise in reproductive medicine, Dr. Cahit Cenksoy leads our team with a commitment to clinical excellence and personalized patient care.</p>
+                    <a href="team.html" class="btn btn-primary">Meet Our Team</a>
                 </div>
             </div>
         </div>
     </section>
 
+<<<<<<< HEAD
     <!-- Statistics Section -->
     <section class="section bg-primary text-white text-center" style="padding: 40px 0;"><div class="container"><div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;"><div class="stat-box" style="flex: 1; min-width: 150px; border: none; background: transparent; padding: 10px; border-right: 1px solid rgba(255,255,255,0.3); border-radius: 0;"><i class="fa-solid fa-flask" style="font-size: 2rem; margin-bottom: 10px;"></i><h2 style="font-size: 2.5rem; margin-bottom: 5px;">3640</h2><p style="font-size: 0.9rem; font-weight: 600; text-transform: uppercase;">TOPLAM IVF SIKLUSU</p></div><div class="stat-box" style="flex: 1; min-width: 150px; border: none; background: transparent; padding: 10px; border-right: 1px solid rgba(255,255,255,0.3); border-radius: 0;"><i class="fa-solid fa-egg" style="font-size: 2rem; margin-bottom: 10px;"></i><h2 style="font-size: 2.5rem; margin-bottom: 5px;">2260</h2><p style="font-size: 0.9rem; font-weight: 600; text-transform: uppercase;">OOSİT DONASYONU</p><span style="font-size: 0.8rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px;">%84 BAŞARI</span></div><div class="stat-box" style="flex: 1; min-width: 150px; border: none; background: transparent; padding: 10px; border-right: 1px solid rgba(255,255,255,0.3); border-radius: 0;"><i class="fa-solid fa-vial" style="font-size: 2rem; margin-bottom: 10px;"></i><h2 style="font-size: 2.5rem; margin-bottom: 5px;">693</h2><p style="font-size: 0.9rem; font-weight: 600; text-transform: uppercase;">IVF</p><span style="font-size: 0.8rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px;">%84 BAŞARI</span></div><div class="stat-box" style="flex: 1; min-width: 150px; border: none; background: transparent; padding: 10px; border-right: 1px solid rgba(255,255,255,0.3); border-radius: 0;"><i class="fa-solid fa-bacteria" style="font-size: 2rem; margin-bottom: 10px;"></i><h2 style="font-size: 2.5rem; margin-bottom: 5px;">538</h2><p style="font-size: 0.9rem; font-weight: 600; text-transform: uppercase;">SPERM DONASYONU</p><span style="font-size: 0.8rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px;">%67 BAŞARI</span></div><div class="stat-box" style="flex: 1; min-width: 150px; border: none; background: transparent; padding: 10px; border-radius: 0;"><i class="fa-solid fa-dna" style="font-size: 2rem; margin-bottom: 10px;"></i><h2 style="font-size: 2.5rem; margin-bottom: 5px;">610</h2><p style="font-size: 0.9rem; font-weight: 600; text-transform: uppercase;">PGD</p><span style="font-size: 0.8rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px;">%84 BAŞARI</span></div></div></div></section>
 
@@ -156,12 +128,28 @@
                         <li><i class="fa-solid fa-check-circle"></i> <span data-i18n="ivfFeature1">Comprehensive Fertility Evaluation</span></li>
                         <li><i class="fa-solid fa-check-circle"></i> <span data-i18n="ivfFeature2">Customized Treatment Protocols</span></li>
                         <li><i class="fa-solid fa-check-circle"></i> <span data-i18n="ivfFeature3">High Success Rates</span></li>
+=======
+    <!-- Footer -->
+    <footer style="background: var(--bg-soft); padding: 80px 0 40px; border-top: 1px solid var(--border);">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
+                <div>
+                    <h3 data-i18n="footerContactTitle" style="margin-bottom: 20px; text-transform: uppercase; font-size: 1.1rem; letter-spacing: 1px;">Contact Info</h3>
+                    <p style="margin-bottom: 12px; color: var(--text-muted);"><i class="fa-solid fa-location-dot" style="color: var(--primary); margin-right: 10px;"></i> Nicosia, Cyprus</p>
+                    <p style="margin-bottom: 12px; color: var(--text-muted);"><i class="fa-solid fa-phone" style="color: var(--primary); margin-right: 10px;"></i> +90 533 868 1983</p>
+                    <p style="color: var(--text-muted);"><i class="fa-solid fa-envelope" style="color: var(--primary); margin-right: 10px;"></i> info@cahitcenksoy.com</p>
+                </div>
+                <div>
+                    <h3 data-i18n="footerPagesTitle" style="margin-bottom: 20px; text-transform: uppercase; font-size: 1.1rem; letter-spacing: 1px;">Pages</h3>
+                    <ul style="list-style: none; color: var(--text-muted);">
+                        <li style="margin-bottom: 12px;"><a href="ivf.html" style="transition: var(--transition);">IVF Process</a></li>
+                        <li style="margin-bottom: 12px;"><a href="treatments.html" style="transition: var(--transition);">Treatments</a></li>
+                        <li><a href="faq.html" style="transition: var(--transition);">FAQ</a></li>
+>>>>>>> 13717524449272ce0715fd2596eacb97128dea64
                     </ul>
                 </div>
-                <div class="image-content placeholder-img-large">
-                    <i class="fa-solid fa-microscope"></i>
-                </div>
             </div>
+<<<<<<< HEAD
         </div>
     </section>
 
@@ -378,16 +366,27 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Dr. Cahit Cenksoy IVF Clinic. <span data-i18n="footerRights">All rights reserved.</span></p>
+=======
+            <div style="text-align: center; padding-top: 40px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.9rem;">
+                <p>&copy; 2026 Dr. Cahit Cenksoy. <span data-i18n="footerRights">All rights reserved.</span></p>
+>>>>>>> 13717524449272ce0715fd2596eacb97128dea64
             </div>
         </div>
     </footer>
 
+    <a href="https://wa.me/905338300000" class="whatsapp-btn" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
     <script src="app.js"></script>
 <a href="https://wa.me/905338300000" class="whatsapp-btn" target="_blank" style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1000;"><i class="fa-brands fa-whatsapp"></i></a></body>
 </html>
+<<<<<<< HEAD
 
 
 
 
 
 
+=======
+>>>>>>> 13717524449272ce0715fd2596eacb97128dea64
