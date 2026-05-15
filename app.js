@@ -206,9 +206,14 @@ const body = document.documentElement;
 
 function updateLogo() {
     const navLogo = document.getElementById('navLogo');
+    const footerLogo = document.getElementById('footerLogo');
+    const isDark = body.getAttribute('data-theme') === 'dark';
+    
     if (navLogo) {
-        const isDark = body.getAttribute('data-theme') === 'dark';
         navLogo.src = isDark ? 'beyazLogo.png' : 'siyahLogo.png';
+    }
+    if (footerLogo) {
+        footerLogo.src = isDark ? 'beyazLogo.png' : 'siyahLogo.png';
     }
 }
 
