@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Treatments | Dr. Cahit Cenksoy IVF Clinic</title>
+    <title>Dr. Cahit Cenksoy | IVF & Medical Clinic</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://cahitcenksoy.com/admin/images/logo/3781738918favicon.png">
     <link rel="stylesheet" href="style.css">
@@ -68,31 +68,70 @@
         </div>
     </nav>
 
-    <!-- Spacer -->
-    <div style="height: 90px;"></div>
-
-    <!-- Treatments Content -->
-    <section class="section">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
         <div class="container">
-            <div class="section-header">
-                <h2 data-i18n="treatmentsTitle">Treatment Options</h2>
-                <div class="header-line"></div>
+            <div class="hero-content">
+                <h1 data-i18n="heroTitle">Birlikte Mucizeler Yaratıyoruz</h1>
+                <p data-i18n="heroSubtitle">Uzman bakım ve şefkatle yönlendirilen, ebeveynlik yolculuğunuza özel en son teknoloji tüp bebek tedavileri.</p>
+                <div class="hero-btns">
+                    <a href="contact.html" class="btn btn-primary" data-i18n="heroBtnPrimary">Danışmanlık Alın</a>
+                    <a href="treatments.html" class="btn btn-secondary" data-i18n="heroBtnSecondary">Tedavileri İncele</a>
+                </div>
             </div>
-            <div class="grid-3">
-                <div class="card service-card">
-                    <div class="card-icon"><i class="fa-solid fa-snowflake"></i></div>
-                    <h3 data-i18n="treatmentCard1Title">Egg Freezing</h3>
-                    <p data-i18n="treatmentCard1Desc">Preserve your fertility for the future with our advanced vitrification techniques.</p>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <i class="fa-solid fa-flask"></i>
+                    <h2 data-i18n="stat1Num">3640</h2>
+                    <p data-i18n="stat1Label">TOTAL IVF CYCLES</p>
                 </div>
-                <div class="card service-card">
-                    <div class="card-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
-                    <h3 data-i18n="treatmentCard2Title">Egg/Sperm Donation</h3>
-                    <p data-i18n="treatmentCard2Desc">Comprehensive and confidential donation programs with rigorous screening processes.</p>
+                <div class="stat-item">
+                    <i class="fa-solid fa-egg"></i>
+                    <h2 data-i18n="stat2Num">2260</h2>
+                    <p data-i18n="stat2Label">OOCYTE DONATION</p>
+                    <span class="stat-badge" data-i18n="stat2Sub">84% SUCCESS</span>
                 </div>
-                <div class="card service-card">
-                    <div class="card-icon"><i class="fa-solid fa-dna"></i></div>
-                    <h3 data-i18n="treatmentCard3Title">PGD / PGS</h3>
-                    <p data-i18n="treatmentCard3Desc">Preimplantation genetic testing to ensure the healthiest embryos are selected.</p>
+                <div class="stat-item">
+                    <i class="fa-solid fa-vial"></i>
+                    <h2 data-i18n="stat3Num">693</h2>
+                    <p data-i18n="stat3Label">IVF</p>
+                    <span class="stat-badge" data-i18n="stat3Sub">84% SUCCESS</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-bacteria"></i>
+                    <h2 data-i18n="stat4Num">538</h2>
+                    <p data-i18n="stat4Label">SPERM DONATION</p>
+                    <span class="stat-badge" data-i18n="stat4Sub">67% SUCCESS</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-dna"></i>
+                    <h2 data-i18n="stat5Num">610</h2>
+                    <p data-i18n="stat5Label">PGD</p>
+                    <span class="stat-badge" data-i18n="stat5Sub">84% SUCCESS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="grid-2">
+                <div class="image-content">
+                    <img src="https://cahitcenksoy.com/admin/images/takim/cahitcenksoy_foto.png" alt="Dr. Cahit Cenksoy" class="img-fluid rounded">
+                </div>
+                <div class="text-content">
+                    <h2 style="color: var(--primary-color); margin-bottom: 20px;">Dr. Cahit Cenksoy</h2>
+                    <p style="margin-bottom: 20px;">Dedicated to providing the highest quality of reproductive care with a focus on compassionate, personalized treatment plans.</p>
+                    <p style="margin-bottom: 30px;">With over 20 years of expertise in reproductive medicine, Dr. Cahit Cenksoy leads our team with a commitment to clinical excellence and personalized patient care.</p>
+                    <a href="team.html" class="btn btn-primary">EKİBİMİZİ TANIYIN</a><br>
+                    <img src="https://cahitcenksoy.com/admin/images/takim/80711095276CahitCenksoySigniture.png" alt="Signature" style="max-width: 200px; margin-top: 20px;">
                 </div>
             </div>
         </div>
@@ -124,6 +163,10 @@
         </div>
     </footer>
 
+    <a href="https://wa.me/905338300000" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
     <div id="google_translate_element" style="display:none"></div>
     <script type="text/javascript">
         function googleTranslateElementInit() {
@@ -137,6 +180,7 @@
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="app.js"></script>
+    <script src="faqs.js"></script>
 </body>
 </html>
 

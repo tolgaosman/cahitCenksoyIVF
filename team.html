@@ -41,7 +41,6 @@
                             <li><a href="treatments.html">Sperm Donation</a></li>
                         </ul>
                     </li>
-                    <li><a href="testimonials.html">SHARED BY OUR PATIENTS</a></li>
                     <li><a href="faq.html">FREQUENTLY ASKED</a></li>
                     <li><a href="blog.html">BLOGS</a></li>
                     <li><a href="contact.html">CONTACT</a></li>
@@ -73,61 +72,81 @@
     <div style="height: 80px;"></div>
 
     <!-- Team Section -->
-    <section id="team" class="section">
+    <section class="section">
         <div class="container">
             <div class="section-header">
                 <h2 data-i18n="teamTitle">Our Team</h2>
                 <div class="header-line"></div>
             </div>
-            
             <div class="team-grid-full">
+                <!-- Team Member 1 -->
                 <div class="card team-card">
-                    <div class="card-image placeholder-img" style="background-image: url('https://cahitcenksoy.com/admin/images/takim/cahitcenksoy_foto.png'); background-size: cover; background-position: center;"></div>
+                    <div class="card-image">
+                        <img src="https://cahitcenksoy.com/admin/images/takim/cahitcenksoy_foto.png" alt="Op. Dr. Cahit Cenksoy">
+                    </div>
                     <div class="card-content">
                         <h3>Op. Dr. Cahit Cenksoy</h3>
                         <p class="subtitle" data-i18n="teamRole1">Lead IVF Specialist</p>
                         <p data-i18n="teamDesc1">Over 20 years of experience in reproductive medicine and advanced IVF technologies.</p>
                     </div>
                 </div>
+                <!-- Team Member 2 -->
                 <div class="card team-card">
-                    <div class="card-image placeholder-img" style="background-image: url('https://cahitcenksoy.com/admin/images/takim/Hayriye_Karakaya.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="card-image placeholder-img">
+                        <i class="fa-solid fa-user-nurse"></i>
+                    </div>
                     <div class="card-content">
                         <h3>Hayriye Karakaya</h3>
                         <p class="subtitle" data-i18n="teamRole2">IVF Coordinator</p>
                     </div>
                 </div>
+                <!-- Team Member 3 -->
                 <div class="card team-card">
-                    <div class="card-image placeholder-img" style="background-image: url('https://cahitcenksoy.com/admin/images/takim/Gunes_Ozbas.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="card-image placeholder-img">
+                        <i class="fa-solid fa-user-nurse"></i>
+                    </div>
                     <div class="card-content">
                         <h3>Güneş Özbaş</h3>
                         <p class="subtitle" data-i18n="teamRole3">Embryologist</p>
                     </div>
                 </div>
+                <!-- Team Member 4 -->
                 <div class="card team-card">
-                    <div class="card-image placeholder-img" style="background-image: url('https://cahitcenksoy.com/admin/images/takim/Gulseren_Akbal.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="card-image placeholder-img">
+                        <i class="fa-solid fa-user-nurse"></i>
+                    </div>
                     <div class="card-content">
-                        <h3>Gülseren Akbal</h3>
+                        <h3>Şifa Özkan</h3>
                         <p class="subtitle" data-i18n="teamRole4">Nurse</p>
                     </div>
                 </div>
+                <!-- Team Member 5 -->
                 <div class="card team-card">
-                    <div class="card-image placeholder-img" style="background-image: url('https://cahitcenksoy.com/admin/images/takim/Selcan_Yuksel_Cay.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="card-image placeholder-img">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
                     <div class="card-content">
-                        <h3>Selcan Yüksel Çay</h3>
+                        <h3>Aslı Alioğlu</h3>
                         <p class="subtitle" data-i18n="teamRole5">Patient Coordinator</p>
                     </div>
                 </div>
+                <!-- Team Member 6 -->
                 <div class="card team-card">
-                    <div class="card-image placeholder-img" style="background-image: url('https://cahitcenksoy.com/admin/images/takim/Zekiye.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="card-image placeholder-img">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
                     <div class="card-content">
-                        <h3>Zekiye</h3>
+                        <h3>Gizem Karakaya</h3>
                         <p class="subtitle" data-i18n="teamRole6">Assistant</p>
                     </div>
                 </div>
+                <!-- Team Member 7 -->
                 <div class="card team-card">
-                    <div class="card-image placeholder-img" style="background-image: url('https://cahitcenksoy.com/admin/images/takim/Elham_Morandi.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="card-image placeholder-img">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
                     <div class="card-content">
-                        <h3>Elham Morandi</h3>
+                        <h3>Ufuk Özbaş</h3>
                         <p class="subtitle" data-i18n="teamRole7">International Coordinator</p>
                     </div>
                 </div>
@@ -135,7 +154,7 @@
         </div>
     </section>
 
-        <!-- Footer -->
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-container">
@@ -161,14 +180,19 @@
         </div>
     </footer>
 
+    <div id="google_translate_element" style="display:none"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'tr',
+                includedLanguages: 'en,fr,de,ru,ar,tr',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="app.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
 
