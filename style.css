@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     /* Light Theme (Default) */
     --bg-color: #ffffff;
     --bg-light: #f4f8fb;
@@ -1782,6 +1782,7 @@ body { top: 0 !important; }
         transition: right 0.3s ease;
         gap: 20px;
         overflow-y: auto;
+        z-index: 1001;
     }
     .nav-links.active {
         right: 0;
@@ -1794,7 +1795,7 @@ body { top: 0 !important; }
         box-shadow: none;
         opacity: 1;
         visibility: visible;
-        display: none;
+        display: block;
         padding-left: 15px;
         transform: none;
         margin-top: 10px;

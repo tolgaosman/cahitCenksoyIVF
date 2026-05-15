@@ -270,16 +270,7 @@ function changeLanguage(lang) {
 
         const langBtn = document.getElementById('currentLang');
         if (langBtn) {
-            const flags = {
-                tr: '🇹🇷',
-                en: '🇬🇧',
-                fr: '🇫🇷',
-                de: '🇩🇪',
-                ru: '🇷🇺',
-                ar: '🇸🇦'
-            };
-            const flag = flags[lang] || '🌐';
-            langBtn.innerHTML = `${flag} ${lang.toUpperCase()} <i class="fa-solid fa-chevron-down"></i>`;
+            langBtn.innerHTML = `${lang.toUpperCase()} <i class="fa-solid fa-chevron-down"></i>`;
         }
 
         document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
