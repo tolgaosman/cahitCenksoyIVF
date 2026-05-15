@@ -1075,14 +1075,7 @@ h1, h2, h3, h4 {
 
 
 
-.nav-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
+
 
 @media (max-width: 992px) {
     
@@ -1139,5 +1132,27 @@ h1, h2, h3, h4 {
     .nav-center {
         display: none;
     }
+}
+
+
+/* Fit all nav links */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Minimal gap */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 0.82rem; /* Smaller font */
+    font-weight: 600;
+    white-space: nowrap;
+    padding: 5px 2px;
+}
+
+.dropdown-menu a {
+    font-size: 0.9rem; /* Dropdown items can stay larger */
 }
 
