@@ -1,0 +1,161 @@
+import codecs
+content = r'''<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sıkça Sorulan Sorular | Dr. Cahit Cenksoy IVF Clinic</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://cahitcenksoy.com/admin/images/logo/3781738918favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="siyahLogo.png" alt="Dr. Cahit Cenksoy Logo" class="logo-light" style="height: 40px;">
+                    <img src="beyazLogo.png" alt="Dr. Cahit Cenksoy Logo" class="logo-dark" style="height: 40px;">
+                </a>
+            </div>
+            
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html" data-i18n="navHome">HOME</a></li>
+                    <li><a href="team.html" data-i18n="navTeam">OUR TEAM</a></li>
+                    <li class="dropdown">
+                        <a href="ivf.html"><span data-i18n="navIVF">IVF</span> <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="ivf_initial_evaluation.html" data-i18n="ivfItem1">Initial Evaluation</a></li>
+                            <li><a href="ivf_medicines.html" data-i18n="ivfItem2">IVF Medicines</a></li>
+                            <li><a href="ivf_stimulation.html" data-i18n="ivfItem3">Stimulation of the ovaries</a></li>
+                            <li><a href="ivf_maturation.html" data-i18n="ivfItem4">Maturation of Eggs</a></li>
+                            <li><a href="ivf_opu.html" data-i18n="ivfItem5">OPU</a></li>
+                            <li><a href="ivf_sperm_extraction.html" data-i18n="ivfItem6">Sperm Extraction</a></li>
+                            <li><a href="ivf_denudation.html" data-i18n="ivfItem7">Denudation</a></li>
+                            <li><a href="ivf_transfer.html" data-i18n="ivfItem8">Transfer</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="treatments.html"><span data-i18n="navTreatments">TREATMENT OPTIONS</span> <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="treatment_pgd.html" data-i18n="treatmentItem1">PGD/PGS</a></li>
+                            <li><a href="treatment_tandem.html" data-i18n="treatmentItem2">Tandem Cycle</a></li>
+                            <li><a href="treatment_sperm_donation.html" data-i18n="treatmentItem3">Sperm Donation</a></li>
+                            <li><a href="treatment_egg_donation.html" data-i18n="treatmentItem4">Egg Donation</a></li>
+                            <li><a href="treatment_embryo_donation.html" data-i18n="treatmentItem5">Embryo Donation</a></li>
+                            <li><a href="treatment_ngs.html" data-i18n="treatmentItem6">NGS Treatment</a></li>
+                            <li><a href="treatment_icsi.html" data-i18n="treatmentItem7">IVF with ICSI</a></li>
+                            <li><a href="treatment_freezing.html" data-i18n="treatmentItem8">Sperm and Egg Freezing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="testimonials.html" data-i18n="navTestimonials">SHARED BY OUR PATIENTS</a></li>
+                    <li><a href="faq.html" data-i18n="navFAQ">FREQUENTLY ASKED</a></li>
+                    <li><a href="blog.html" data-i18n="navBlogs">BLOGS</a></li>
+                    <li><a href="contact.html" data-i18n="navContact">CONTACT</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <!-- Language Switcher -->
+                    <div class="lang-dropdown">
+                        <button class="lang-btn" id="currentLang">TR <i class="fa-solid fa-globe"></i></button>
+                        <ul class="lang-menu">
+                            <li><a href="#" onclick="changeLanguage('tr')">Turkish (TR)</a></li>
+                            <li><a href="#" onclick="changeLanguage('en')">English (EN)</a></li>
+                            <li><a href="#" onclick="changeLanguage('fr')">French (FR)</a></li>
+                            <li><a href="#" onclick="changeLanguage('ar')">Arabic (AR)</a></li>
+                            <li><a href="#" onclick="changeLanguage('de')">German (DE)</a></li>
+                            <li><a href="#" onclick="changeLanguage('ru')">Russian (RU)</a></li>
+                        </ul>
+                    </div>
+                    <!-- Dark Mode Toggle -->
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <!-- Mobile Menu Toggle -->
+                    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Spacer for fixed navbar -->
+    <div style="height: 80px;"></div>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="faqTitle">Frequently Asked Questions</h2>
+                <div class="header-line"></div>
+            </div>
+            <div class="accordion" id="faqAccordion">
+                <!-- FAQs will be loaded here dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid" style="grid-template-columns: 1fr 1fr;">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="siyahLogo.png" alt="Dr. Cahit Cenksoy Logo" class="logo-light" style="height: 50px; margin-bottom: 20px;">
+                        <img src="beyazLogo.png" alt="Dr. Cahit Cenksoy Logo" class="logo-dark" style="height: 50px; margin-bottom: 20px;">
+                    </div>
+                    <p class="footer-text">Nicosia IVF - Nicosia Sevinç Hospital</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/drcahitcenksoy/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/people/Dr-Cahit-Cenksoy/100064112829620/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3 data-i18n="footerContactTitle">CONTACT INFORMATION</h3>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+90 548 888 0 112</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+90 542 888 0 112</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+90 392 444 0 112</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+90 533 868 1983</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>c_cenksoy@hotmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>ufukozbas0675@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Dr. Cahit Cenksoy IVF Clinic. <span data-i18n="footerRights">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
+'''
+with codecs.open('faq.html', 'w', 'utf-8') as f:
+    f.write(content)
