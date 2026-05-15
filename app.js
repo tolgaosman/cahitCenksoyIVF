@@ -22,9 +22,9 @@ const translations = {
         heroBtnPrimary: "Danışmanlık Alın",
         heroBtnSecondary: "Tedavileri İncele",
         
-        aboutTitle: "Dr. Cahit Cenksoy",
-        aboutText1: "Kıbrıs'ta en yüksek tüp bebek başarı oranına sahip; en genç, en tecrübeli ve en başarılı Kadın Doğum Uzmanlarından biri olan Dr. Cahit Cenksoy'un hem sezaryen hem de doğal doğumlarda adada en fazla doğum yaptıran doktor olduğu da çok iyi bilinmektedir. Hayallerinizin özel müjdesini alacağınız merkezimiz, adanın cazibe merkezi, tüm dünyanın da gözde turistik cenneti Girne'de yer almaktadır. Deniz kıyısındaki şehrimizde hastalarımızın tedavileri devam ederken yapacakları bir şehir gezisi streslerinin azalmasına katkıda bulunacaktır.",
-        aboutText2: "Tecrübeli ekibimiz, modern laboratuvarımız, donanımlı hemşirelerimiz ve her türlü ihtiyacınıza cevap verecek koordinatörlerimiz ile başarımızı günden güne yükseltmektedir. Hastalarımızın doktor ile istedikleri her an iletişim içinde olabilmesi; hastalarımızın stresini azaltırken, merkezimize olan güveni de arttırmaktadır. Merkezimizin gebelik başarı oranları %75-90 arasında değişkenlik göstermektedir. Oosit donasyonunda sıra bekleme zorunluluğu olmaması ve sperm donasyonunda uluslararası tescilli sperm bankaları ile çalışılması sayesinde merkezimiz yüzünüzü güldürecek sonuçlar almaktadır. Hasta başına ayrılan oosit sayılarındaki standartlarımızdan ödün vermediğimizden başarı oranlarımız sürekli en üst düzeyde kalmaktadır.",
+        aboutTitle: "OP. DR. CAHİT CENKSOY",
+        aboutSubtitle: "KADIN HASTALIKLARI, DOĞUM VE TÜP BEBEK UZMANI",
+        aboutTextFull: "Kıbrıs'ta en yüksek tüp bebek başarı oranına sahip; en genç, en tecrübeli ve en başarılı Kadın Doğum Uzmanlarından biri olan Dr. Cahit Cenksoy'un hem sezaryen hem de doğal doğumlarda adada en fazla doğum yaptıran doktor olduğu da çok iyi bilinmektedir. Hayallerinizin özel müjdesini alacağınız merkezimiz, adanın cazibe merkezi, tüm dünyanın da gözde turistik cenneti Girne'de yer almaktadır. Deniz kıyısındaki şehrimizde hastalarımızın tedavileri devam ederken yapacakları bir şehir gezisi streslerinin azalmasına katkıda bulunacaktır. <br><br> Tecrübeli ekibimiz, modern laboratuvarımız, donanımlı hemşirelerimiz ve her türlü ihtiyacınıza cevap verecek koordinatörlerimiz ile başarımızı günden güne yükseltmektedir. Hastalarımızın doktor ile istedikleri her an iletişim içinde olabilmesi; hastalarımızın stresini azaltırken, merkezimize olan güveni de arttırmaktadır. Merkezimizin gebelik başarı oranları %75-90 arasında değişkenlik göstermektedir. Oosit donasyonunda sıra bekleme zorunluluğu olmaması ve sperm donasyonunda uluslararası tescilli sperm bankaları ile çalışılması sayesinde merkezimiz yüzünüzü güldürecek sonuçlar almaktadır. Hasta başına ayrılan oosit sayılarındaki standartlarımızdan ödün vermediğimizden başarı oranlarımız sürekli en üst düzeyde kalmaktadır.",
         
         teamTitle: "Ekibimiz",
         teamRole1: "Baş Tüp Bebek Uzmanı",
@@ -112,9 +112,9 @@ const translations = {
         heroBtnPrimary: "Book Consultation",
         heroBtnSecondary: "Explore Treatments",
 
-        aboutTitle: "Dr. Cahit Cenksoy",
-        aboutText1: "Dr Cahit Cenksoy is one of the youngest and most talented Gynaecologists in Cyprus with a high IVF success rate. He has performed the highest number of births on the island in both caesarean section and natural births. Our centre is located in Kyrenia, the most beautiful city of the island. A city trip to the seaside helps release the stress of our patients while their treatment continues.",
-        aboutText2: "We are increasing our success day by day with our experienced team, modern laboratories, specialised nurses and coordinators. Our team is expanding day by day and gaining experience. The fact that our patients can communicate with the doctor at any time gives them confidence. The pregnancy success rates of our centre varies between 75-90%. Our centre does not have an obligation to wait for oocyte donation, and we work with internationally registered sperm banks, allowing our centre to achieve satisfactory results. Since we do not compromise our standards in the number of oocytes allocated per patient, our success rates remain at the highest level.",
+        aboutTitle: "OP. DR. CAHİT CENKSOY",
+        aboutSubtitle: "GYNECOLOGY AND OBSTETRICS EXPERT AND IVF SPECIALIST",
+        aboutTextFull: "Dr Cahit Cenksoy is one of the youngest and most talented Gynaecologists in Cyprus with a high IVF success rate. He has performed the highest number of births on the island in both caesarean section and natural births. Our centre is located in Kyrenia, the most beautiful city of the island. A city trip to the seaside helps release the stress of our patients while their treatment continues. We are increasing our success day by day with our experienced team, modern laboratories, specialised nurses and coordinators. Our team is expanding day by day and gaining experience. The fact that our patients can communicate with the doctor at any time gives them confidence. The pregnancy success rates of our centre varies between 75-90%. Our centre does not have an obligation to wait for oocyte donation, and we work with internationally registered sperm banks, allowing our centre to achieve satisfactory results. Since we do not compromise our standards in the number of oocytes allocated per patient, our success rates remain at the highest level.",
         
         stat1Num: "3640",
         stat1Label: "TOTAL IVF CYCLES",
@@ -166,7 +166,7 @@ function changeLanguage(lang) {
                 if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                     el.placeholder = translation;
                 } else {
-                    el.textContent = translation;
+                    el.innerHTML = translation;
                 }
             }
         });
