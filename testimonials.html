@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -47,7 +47,27 @@
                     <li><a href="contact.html">CONTACT</a></li>
                 </ul>
             </div>
-        </div></nav>
+            <div class="nav-right">
+                <button id="themeToggle" class="theme-toggle">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <div class="lang-selector">
+                    <button class="lang-btn" id="currentLang">EN <i class="fa-solid fa-globe"></i></button>
+                    <div class="lang-dropdown">
+                        <a href="#" onclick="changeLanguage('tr')">TR</a>
+                        <a href="#" onclick="changeLanguage('en')">EN</a>
+                        <a href="#" onclick="changeLanguage('fr')">FR</a>
+                        <a href="#" onclick="changeLanguage('de')">DE</a>
+                        <a href="#" onclick="changeLanguage('ru')">RU</a>
+                        <a href="#" onclick="changeLanguage('ar')">AR</a>
+                    </div>
+                </div>
+                <button class="mobile-toggle" id="mobileToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">

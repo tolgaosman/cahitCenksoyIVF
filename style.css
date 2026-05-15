@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     /* Light Theme (Default) */
     --bg-color: #ffffff;
     --bg-light: #f4f8fb;
@@ -1118,8 +1118,52 @@ h4 {
 }
 
 @media (max-width: 992px) {
+    .nav-center {
+        display: none;
+    }
     
-    
+    .mobile-toggle {
+        display: block !important;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 90px;
+        left: 0;
+        width: 100%;
+        background-color: var(--card-bg);
+        padding: 30px;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        border-top: 1px solid var(--border-color);
+        gap: 20px;
+    }
+
+    .nav-links.active {
+        display: flex !important;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .dropdown-menu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        box-shadow: none;
+        border: none;
+        width: 100%;
+        padding: 10px 0;
+        display: none;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
 }
 
 
@@ -1195,6 +1239,7 @@ h4 {
 .nav-right {
     display: flex;
     align-items: center;
+    gap: 20px;
     flex-shrink: 0;
 }
 
