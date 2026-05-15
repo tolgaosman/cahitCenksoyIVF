@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | Dr. Cahit Cenksoy IVF Clinic</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://cahitcenksoy.com/admin/images/logo/3781738918favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://cahitcenksoy.com/admin/images/logo/7689128828210x70.png" alt="Dr. Cahit Cenksoy Logo" style="height: 40px; display: block;">
+                </a>
+            </div>
+            
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html" data-i18n="navHome">HOME</a></li>
+                    <li><a href="team.html" data-i18n="navTeam">OUR TEAM</a></li>
+                    <li class="dropdown">
+                        <a href="ivf.html"><span data-i18n="navIVF">IVF</span> <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="ivf.html#process" data-i18n="ivfProcess">IVF Process</a></li>
+                            <li><a href="ivf.html#icsi" data-i18n="ivfICSI">ICSI</a></li>
+                            <li><a href="ivf.html#imsi" data-i18n="ivfIMSI">IMSI</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="treatments.html"><span data-i18n="navTreatments">TREATMENT OPTIONS</span> <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="treatments.html#egg-freezing" data-i18n="treatmentEggFreezing">Egg Freezing</a></li>
+                            <li><a href="treatments.html#donation" data-i18n="treatmentDonation">Donation</a></li>
+                            <li><a href="treatments.html#pgd" data-i18n="treatmentPGD">PGD / PGS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="testimonials.html" data-i18n="navTestimonials">SHARED BY OUR PATIENTS</a></li>
+                    <li><a href="faq.html" data-i18n="navFAQ">FREQUENTLY ASKED</a></li>
+                    <li><a href="blog.html" data-i18n="navBlogs">BLOGS</a></li>
+                    <li><a href="contact.html" data-i18n="navContact">CONTACT</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <!-- Language Switcher -->
+                    <div class="lang-dropdown">
+                        <button class="lang-btn" id="currentLang">TR <i class="fa-solid fa-globe"></i></button>
+                        <ul class="lang-menu">
+                            <li><a href="#" onclick="changeLanguage('tr')">Turkish (TR)</a></li>
+                            <li><a href="#" onclick="changeLanguage('en')">English (EN)</a></li>
+                            <li><a href="#" onclick="changeLanguage('fr')">French (FR)</a></li>
+                            <li><a href="#" onclick="changeLanguage('ar')">Arabic (AR)</a></li>
+                            <li><a href="#" onclick="changeLanguage('de')">German (DE)</a></li>
+                            <li><a href="#" onclick="changeLanguage('ru')">Russian (RU)</a></li>
+                        </ul>
+                    </div>
+                    <!-- Dark Mode Toggle -->
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <!-- Mobile Menu Toggle -->
+                    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Spacer for fixed navbar -->
+    <div style="height: 80px;"></div>
+
+    <!-- Team Section -->
+    <section id="team" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="teamTitle">Our Team</h2>
+                <div class="header-line"></div>
+            </div>
+            
+            <div class="team-grid-full">
+                <div class="card team-card">
+                    <div class="card-image placeholder-img" style="background-image: url('https://cahitcenksoy.com/admin/images/takim/cahitcenksoy_foto.png'); background-size: cover; background-position: center;"></div>
+                    <div class="card-content">
+                        <h3>Op. Dr. Cahit Cenksoy</h3>
+                        <p class="subtitle" data-i18n="teamRole1">Lead IVF Specialist</p>
+                        <p data-i18n="teamDesc1">Over 20 years of experience in reproductive medicine and advanced IVF technologies.</p>
+                    </div>
+                </div>
+                <div class="card team-card">
+                    <div class="card-image placeholder-img" style="background-image: url('https://cahitcenksoy.com/admin/images/takim/Hayriye_Karakaya.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="card-content">
+                        <h3>Hayriye Karakaya</h3>
+                        <p class="subtitle" data-i18n="teamRole2">IVF Coordinator</p>
+                    </div>
+                </div>
+                <div class="card team-card">
+                    <div class="card-image placeholder-img" style="background-image: url('https://cahitcenksoy.com/admin/images/takim/Gunes_Ozbas.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="card-content">
+                        <h3>Güneş Özbaş</h3>
+                        <p class="subtitle" data-i18n="teamRole3">Embryologist</p>
+                    </div>
+                </div>
+                <div class="card team-card">
+                    <div class="card-image placeholder-img" style="background-image: url('https://cahitcenksoy.com/admin/images/takim/Gulseren_Akbal.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="card-content">
+                        <h3>Gülseren Akbal</h3>
+                        <p class="subtitle" data-i18n="teamRole4">Nurse</p>
+                    </div>
+                </div>
+                <div class="card team-card">
+                    <div class="card-image placeholder-img" style="background-image: url('https://cahitcenksoy.com/admin/images/takim/Selcan_Yuksel_Cay.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="card-content">
+                        <h3>Selcan Yüksel Çay</h3>
+                        <p class="subtitle" data-i18n="teamRole5">Patient Coordinator</p>
+                    </div>
+                </div>
+                <div class="card team-card">
+                    <div class="card-image placeholder-img" style="background-image: url('https://cahitcenksoy.com/admin/images/takim/Zekiye.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="card-content">
+                        <h3>Zekiye</h3>
+                        <p class="subtitle" data-i18n="teamRole6">Assistant</p>
+                    </div>
+                </div>
+                <div class="card team-card">
+                    <div class="card-image placeholder-img" style="background-image: url('https://cahitcenksoy.com/admin/images/takim/Elham_Morandi.jpg'); background-size: cover; background-position: center;"></div>
+                    <div class="card-content">
+                        <h3>Elham Morandi</h3>
+                        <p class="subtitle" data-i18n="teamRole7">International Coordinator</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2026 Dr. Cahit Cenksoy IVF Clinic. <span data-i18n="footerRights">All rights reserved.</span></p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

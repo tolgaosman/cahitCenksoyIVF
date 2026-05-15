@@ -37,7 +37,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Outfit', 'Inter', sans-serif;
 }
 
 html {
@@ -49,6 +49,7 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     transition: var(--transition);
+    font-size: 16px;
 }
 
 a {
@@ -101,6 +102,12 @@ ul {
 .grid-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.team-grid-full {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
 }
 
@@ -214,11 +221,13 @@ h1, h2, h3, h4 {
 }
 
 .nav-links a {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     color: var(--text-main);
     transition: var(--transition);
-    padding: 10px 0;
+    padding: 8px 0;
 }
 
 .nav-links a:hover {

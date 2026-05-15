@@ -27,6 +27,10 @@ const translations = {
         teamDesc1: "Üreme tıbbı ve ileri tüp bebek teknolojilerinde 20 yılı aşkın deneyim.",
         teamRole2: "Tüp Bebek Koordinatörü",
         teamRole3: "Embriyolog",
+        teamRole4: "Hemşire",
+        teamRole5: "Hasta Koordinatörü",
+        teamRole6: "Asistan",
+        teamRole7: "Uluslararası Koordinatör",
         stat1: "Başarılı Tüp Bebek Döngüsü",
         stat2: "Başarı Oranı",
         stat3: "Yıllık Deneyim",
@@ -102,6 +106,10 @@ const translations = {
         teamDesc1: "Over 20 years of experience in reproductive medicine and advanced IVF technologies.",
         teamRole2: "IVF Coordinator",
         teamRole3: "Embryologist",
+        teamRole4: "Nurse",
+        teamRole5: "Patient Coordinator",
+        teamRole6: "Assistant",
+        teamRole7: "International Coordinator",
         stat1: "Successful IVF Cycles",
         stat2: "Success Rate",
         stat3: "Years of Experience",
@@ -177,6 +185,10 @@ const translations = {
         teamDesc1: "Plus de 20 ans d'expérience en médecine de la reproduction.",
         teamRole2: "Coordinateur FIV",
         teamRole3: "Embryologiste",
+        teamRole4: "Infirmière",
+        teamRole5: "Coordinateur des patients",
+        teamRole6: "Assistante",
+        teamRole7: "Coordinateur international",
         stat1: "Cycles de FIV réussis",
         stat2: "Taux de réussite",
         stat3: "Années d'expérience",
@@ -252,6 +264,10 @@ const translations = {
         teamDesc1: "أكثر من 20 عاماً من الخبرة في الطب التناسلي.",
         teamRole2: "منسق أطفال الأنابيب",
         teamRole3: "عالم أجنة",
+        teamRole4: "ممرضة",
+        teamRole5: "منسق المرضى",
+        teamRole6: "مساعد",
+        teamRole7: "المنسق الدولي",
         stat1: "دورات تلقيح ناجحة",
         stat2: "نسبة النجاح",
         stat3: "سنوات من الخبرة",
@@ -327,6 +343,10 @@ const translations = {
         teamDesc1: "Über 20 Jahre Erfahrung in der Reproduktionsmedizin.",
         teamRole2: "IVF-Koordinator",
         teamRole3: "Embryologe",
+        teamRole4: "Krankenschwester",
+        teamRole5: "Patientenkoordinator",
+        teamRole6: "Assistent",
+        teamRole7: "Internationaler Koordinator",
         stat1: "Erfolgreiche IVF-Zyklen",
         stat2: "Erfolgsrate",
         stat3: "Jahre Erfahrung",
@@ -374,15 +394,106 @@ const translations = {
         formSubmit: "Nachricht senden",
         
         footerRights: "Alle Rechte vorbehalten."
+    },
+    ru: {
+        logoText: "Dr. Cahit Cenksoy",
+        navHome: "ГЛАВНАЯ",
+        navTeam: "НАША КОМАНДА",
+        navIVF: "ЭКО",
+        ivfProcess: "Процесс ЭКО",
+        ivfICSI: "ИКСИ",
+        ivfIMSI: "ИМСИ",
+        navTreatments: "ЛЕЧЕНИЕ",
+        treatmentEggFreezing: "Замораживание яйцеклеток",
+        treatmentDonation: "Донорство",
+        treatmentPGD: "ПГД / ПГС",
+        navTestimonials: "ОТЗЫВЫ ПАЦИЕНТОВ",
+        navFAQ: "ЧАВО",
+        navBlogs: "БЛОГ",
+        navContact: "КОНТАКТЫ",
+        
+        heroTitle: "Создаем чудеса вместе",
+        heroSubtitle: "Современные методы лечения ЭКО, адаптированные к вашему уникальному пути к родительству.",
+        heroBtnPrimary: "Записаться на консультацию",
+        heroBtnSecondary: "Изучить лечение",
+        
+        teamTitle: "Наша команда",
+        teamRole1: "Ведущий специалист по ЭКО",
+        teamDesc1: "Более 20 лет опыта в репродуктивной медицине.",
+        teamRole2: "Координатор ЭКО",
+        teamRole3: "Эмбриолог",
+        teamRole4: "Медсестра",
+        teamRole5: "Координатор пациентов",
+        teamRole6: "Ассистент",
+        teamRole7: "Международный координатор",
+        stat1: "Успешных циклов ЭКО",
+        stat2: "Показатель успеха",
+        stat3: "Лет опыта",
+        contactLocation: "Никосия, Кипр",
+        
+        aboutSubtitle: "СПЕЦИАЛИСТ ПО ГИНЕКОЛОГИИ, АКУШЕРСТВУ И ЭКО",
+        aboutTitle: "ОП. ДР. ДЖАХИТ ДЖЕНКСОЙ",
+        aboutP1: "Имея самый высокий показатель успеха ЭКО на Кипре; доктор Джахит Дженксой, один из самых молодых, опытных и успешных акушеров-гинекологов, хорошо известен как врач, принимающий наибольшее количество родов на острове.",
+        aboutP2: "Наш центр расположен в Кирении, центре притяжения острова и туристическом раю. Экскурсия по городу во время лечения поможет снизить стресс.",
+        aboutP3: "Благодаря нашей опытной команде, современной лаборатории и квалифицированным медсестрам наш успех растет.",
+        aboutP4: "Возможность пациентов общаться с врачом в любое время снижает стресс и повышает доверие.",
+        aboutP5: "Показатели успешности беременности варьируются от 75% до 90%. Мы получаем отличные результаты благодаря отсутствию очередей на донорство ооцитов.",
+        aboutP6: "Наши показатели успеха всегда остаются на высоком уровне благодаря строгим стандартам.",
+        aboutP7: "Наша опытная команда ждет вас на острове, чтобы подарить вам радостную весть вашей мечты.",
+        
+        ivfTitle: "Центр ЭКО",
+        ivfSubTitle: "Передовые репродуктивные технологии",
+        ivfDesc: "Мы используем последние достижения в области ЭКО, чтобы максимально увеличить шансы на здоровую беременность.",
+        ivfFeature1: "Комплексная оценка фертильности",
+        ivfFeature2: "Индивидуальные протоколы лечения",
+        ivfFeature3: "Высокие показатели успеха",
+        
+        treatmentsTitle: "Варианты лечения",
+        treatmentCard1Title: "Замораживание яйцеклеток",
+        treatmentCard1Desc: "Сохраните свою фертильность с помощью наших передовых методов витрификации.",
+        treatmentCard2Title: "Донорство",
+        treatmentCard2Desc: "Комплексные и конфиденциальные программы донорства.",
+        treatmentCard3Title: "ПГД / ПГС",
+        treatmentCard3Desc: "Предимплатационное генетическое тестирование для выбора наиболее здоровых эмбрионов.",
+        
+        testimonialsTitle: "Поделились наши пациенты",
+        testimonial1Text: "\"Благодаря доктору Дженксою наша мечта стала реальностью.\"",
+        testimonial1Author: "- Сара и Майкл",
+        
+        faqTitle: "Часто задаваемые вопросы",
+        faq1Q: "Каков показатель успеха ЭКО?",
+        faq1A: "Наша клиника стабильно поддерживает показатели выше среднего по миру.",
+        faq2Q: "Сколько времени занимает цикл ЭКО?",
+        faq2A: "Типичный цикл ЭКО занимает около 4-6 недель.",
+        faq3Q: "Есть ли возрастные ограничения?",
+        faq3A: "Мы оцениваем каждый случай индивидуально.",
+        
+        blogTitle: "Последние статьи",
+        blog1Title: "Понимание сроков ЭКО",
+        blog2Title: "Диета и фертильность",
+        blog3Title: "Психическое здоровье",
+        readMore: "Читать далее",
+        
+        contactTitle: "Связаться с нами",
+        contactInfoTitle: "Информация о клинике",
+        contactInfoDesc: "Наши координаторы готовы ответить на ваши вопросы.",
+        formName: "Полное имя",
+        formEmail: "Электронная почта",
+        formMessage: "Ваше сообщение",
+        formSubmit: "Отправить сообщение",
+        
+        footerRights: "Все права защищены."
     }
 };
 
 // --- Language Switching Logic ---
-let currentLang = 'tr'; // Default language
+let currentLang = localStorage.getItem('lang') || 'tr'; // Default language
 
 function changeLanguage(lang) {
     if (!translations[lang]) return;
     currentLang = lang;
+    localStorage.setItem('lang', lang);
+
     
     // Update active button text
     const langBtn = document.getElementById('currentLang');
