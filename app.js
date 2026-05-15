@@ -189,17 +189,9 @@ document.addEventListener('DOMContentLoaded', () => {
 const themeToggleBtn = document.getElementById('themeToggle');
 const body = document.documentElement;
 
-function updateLogo() {
-    const navLogo = document.getElementById('navLogo');
-    if (navLogo) {
-        const isDark = body.getAttribute('data-theme') === 'dark';
-        navLogo.src = isDark ? 'beyazLogo.png' : 'siyahLogo.png';
-    }
-}
-
 themeToggleBtn?.addEventListener('click', () => {
-    const isDark = body.getAttribute('data-theme') === 'dark';
-    if (isDark) {
+    const currentTheme = body.getAttribute('data-theme');
+    if (currentTheme === 'dark') {
         body.removeAttribute('data-theme');
         themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
         localStorage.setItem('theme', 'light');
@@ -208,14 +200,12 @@ themeToggleBtn?.addEventListener('click', () => {
         themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
         localStorage.setItem('theme', 'dark');
     }
-    updateLogo();
 });
 
 if (localStorage.getItem('theme') === 'dark') {
     body.setAttribute('data-theme', 'dark');
     if (themeToggleBtn) themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
 }
-updateLogo();
 
 // --- Mobile Nav ---
 const mobileToggle = document.getElementById('mobileToggle');
