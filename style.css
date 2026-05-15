@@ -1151,3 +1151,36 @@ h4 {
     padding: 0 40px;
 }
 
+
+/* Logo and Theme Button Styles */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+#navLogo {
+    max-height: 45px;
+    width: auto;
+    display: block;
+}
+
+.theme-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 10px;
+    transition: var(--transition);
+}
+
+.theme-btn:hover {
+    color: var(--primary-color);
+}
+
