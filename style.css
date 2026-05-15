@@ -2,11 +2,11 @@
     /* Light Theme (Default) */
     --bg-color: #ffffff;
     --bg-light: #f4f8fb;
-    --text-main: #2d3748;
-    --text-muted: #4a5568;
-    --primary-color: #2b6cb0; /* Medical Blue */
-    --primary-hover: #2c5282;
-    --secondary-color: #319795; /* Teal */
+    --text-main: #333333;
+    --text-muted: #777777;
+    --primary-color: #007EA3; /* Medical Blue */
+    --primary-hover: #005f7a;
+    --secondary-color: #32bfa7; /* Teal */
     --nav-bg: rgba(255, 255, 255, 0.95);
     --card-bg: #ffffff;
     --border-color: #e2e8f0;
@@ -22,9 +22,9 @@
     --bg-light: #1e1e1e;
     --text-main: #e2e8f0;
     --text-muted: #a0aec0;
-    --primary-color: #63b3ed;
-    --primary-hover: #4299e1;
-    --secondary-color: #4fd1c5;
+    --primary-color: #32bfa7; /* Use teal for dark mode primary */
+    --primary-hover: #19b79c;
+    --secondary-color: #007EA3;
     --nav-bg: rgba(18, 18, 18, 0.95);
     --card-bg: #2d3748;
     --border-color: #4a5568;
@@ -428,6 +428,22 @@ h1, h2, h3, h4 {
 .service-card {
     padding: 30px;
     text-align: center;
+}
+
+/* Statistics */
+.stat-box {
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Testimonials */
