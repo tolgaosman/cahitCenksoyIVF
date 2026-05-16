@@ -1977,18 +1977,21 @@ body { top: 0 !important; }
 
 /* Theme Toggle Styles */
 .theme-toggle {
-    background: none;
-    border: none;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
     color: var(--text-main);
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: var(--transition);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     padding: 0;
+    margin-left: 10px;
 }
 
 .theme-toggle:hover {
