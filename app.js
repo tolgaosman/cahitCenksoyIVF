@@ -10,19 +10,26 @@ function googleTranslateElementInit() {
 
 function changeLanguage(langCode) {
     localStorage.setItem('lang', langCode);
-    
+
+    // Set googtrans cookie for Google Translate
     const domain = window.location.hostname === 'localhost' ? '' : '.' + window.location.hostname;
-    document.cookie = `googtrans=/tr/${langCode}; path=/; domain=${domain}`;
-    
+    document.cookie = `googtrans=/tr/${langCode}; path=/;`;
+    if (domain) {
+        document.cookie = `googtrans=/tr/${langCode}; path=/; domain=${domain}`;
+    }
+
+    // Try to use Google Translate widget combo box
     const select = document.querySelector('.goog-te-combo');
     if (select) {
         select.value = langCode;
         select.dispatchEvent(new Event('change'));
     }
-    
+
+    // Update language button text
     const currentLangText = document.getElementById('currentLangText');
     if (currentLangText) currentLangText.innerText = langCode.toUpperCase();
-    
+
+    // Handle RTL for Arabic
     if (langCode === 'ar') {
         document.documentElement.dir = 'rtl';
         document.body.classList.add('rtl');
@@ -31,9 +38,15 @@ function changeLanguage(langCode) {
         document.body.classList.remove('rtl');
     }
 
+    // Close language dropdown
+    const langSelector = document.querySelector('.lang-selector');
+    if (langSelector) langSelector.classList.remove('active');
+
+    // If Google Translate widget isn't loaded yet, reload to apply
     if (!select) location.reload();
 }
 
+// Restore saved language on page load
 document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('lang') || 'tr';
     if (savedLang !== 'tr') {
@@ -87,7 +100,6 @@ function initTheme() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    applyTranslations();
     initTheme();
     initTeamCarousel();
 
@@ -133,22 +145,19 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Process Modal Logic
+// --- Process Modal Logic ---
 function openProcessModal(step) {
     const modal = document.getElementById('processModal');
     const title = document.getElementById('modalTitle');
     const desc = document.getElementById('modalDescription');
-    const lang = document.documentElement.lang || 'tr';
     
     if (!modal || !title || !desc) return;
 
-    const getTranslation = (key) => (translations[lang] && translations[lang][key]) || (translations['tr'][key]) || "";
-    
-    title.innerText = getTranslation('proc' + step + 'Title');
-    desc.innerHTML = getTranslation('proc' + step + 'Desc');
-    
-    const closeBtn = modal.querySelector('[data-i18n="modalClose"]');
-    if (closeBtn) closeBtn.innerHTML = getTranslation('modalClose');
+    const data = procDescriptions[step];
+    if (data) {
+        title.innerText = data.title;
+        desc.innerHTML = data.desc;
+    }
     
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden'; 

@@ -746,6 +746,13 @@ footer {
     font-size: 30px; z-index: 1000; box-shadow: var(--shadow-md);
 }
 
+
+/* --- Hide Google Translate UI (we use our own language selector) --- */
+.goog-te-banner-frame, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
+.goog-te-gadget { font-size: 0 !important; }
+.skiptranslate { display: none !important; }
+body { top: 0 !important; }
+
 .ltr-text { direction: ltr !important; display: inline-block; }
 
 /* --- Media Queries --- */
