@@ -188,9 +188,9 @@ h1, h2, h3, h4 {
 
 .nav-container {
     width: 100%;
-    max-width: 1400px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -211,7 +211,7 @@ h1, h2, h3, h4 {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 15px;
 }
 
 .nav-links li {
@@ -219,11 +219,11 @@ h1, h2, h3, h4 {
 }
 
 .nav-links a {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--text-main);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
     white-space: nowrap;
     padding: 10px 0;
     transition: var(--transition);
@@ -236,7 +236,7 @@ h1, h2, h3, h4 {
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 /* Dropdowns */
