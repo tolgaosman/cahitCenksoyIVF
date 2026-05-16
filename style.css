@@ -806,6 +806,11 @@ body { top: 0 !important; }
 }
 
 @media (max-width: 576px) {
+    .team-grid-full { grid-template-columns: repeat(2, 1fr) !important; gap: 15px !important; }
+    .team-img { height: 220px !important; }
+    .team-info { padding: 15px 10px !important; }
+    .team-info h3 { font-size: 1rem !important; }
+    .team-info p { font-size: 0.75rem !important; }
     .features-grid, .services-grid, .form-grid { grid-template-columns: 1fr; }
     .form-full, .form-half { grid-column: span 1; }
     .hero h1 { font-size: 2.2rem; }
