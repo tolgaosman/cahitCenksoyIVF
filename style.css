@@ -1,4 +1,4 @@
-:root {
+﻿:root {
     /* Light Theme (Default) */
     --bg-color: #ffffff;
     --bg-light: #fff5f6;
@@ -82,7 +82,7 @@ ul {
 }
 
 .section, .services-section, .process-section, .team-section, .map-section {
-    padding: 100px 0;
+    padding: 40px 0;
 }
 
 .bg-light {
@@ -478,7 +478,7 @@ h1, h2, h3, h4 {
 .stats-bar {
     background-color: var(--primary-color);
     color: white;
-    padding: 80px 0;
+    padding: 40px 0;
 }
 
 .stats-grid {
