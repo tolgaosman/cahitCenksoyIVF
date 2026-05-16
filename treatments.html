@@ -1,4 +1,4 @@
-?<!DOCTYPE html>
+﻿?<!DOCTYPE html>
 
 <html lang="tr">
 
@@ -24,6 +24,38 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+
+    <style>
+        .treatments-page-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px; /* Separating the boxes more */
+            padding: 40px 0;
+        }
+        .treatments-page-grid .service-card {
+            background: transparent !important;
+            border: 2px solid var(--primary-color) !important;
+            box-shadow: none !important;
+            padding: 30px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .treatments-page-grid .service-card:hover {
+            transform: translateY(-5px);
+            background: var(--bg-light) !important;
+        }
+        .treatments-page-grid .service-icon-wrapper {
+            background: transparent !important;
+            color: var(--primary-color) !important;
+            border: 1px solid var(--primary-color);
+            margin-bottom: 20px;
+        }
+        .treatments-page-grid .service-icon-wrapper i {
+            color: var(--primary-color) !important;
+        }
+        .treatments-page-grid h3 {
+            color: var(--text-main);
+        }
+    </style>
 </head>
 
 <body>\n    <div id="google_translate_element" style="display:none;"></div>
@@ -108,7 +140,7 @@
     <!-- Treatments Grid Section -->
     <section class="section" style="background-color: var(--bg-light);">
         <div class="container">
-            <div class="services-grid">
+            <div class="services-grid treatments-page-grid">
                 <!-- Card 1 -->
                 <div class="service-card" style="display: flex; flex-direction: column; height: 100%;">
                     <div class="service-icon-wrapper">
