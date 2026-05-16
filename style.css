@@ -263,6 +263,11 @@ h4 {
     margin-top: 80px;
 }
 
+.hero-small {
+    height: 40vh;
+    min-height: 300px;
+}
+
 .hero-content {
     max-width: 800px;
 }

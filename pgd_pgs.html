@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ | Dr. Cahit Cenksoy IVF Clinic</title>
+    <title>PGD/PGS | Dr. Cahit Cenksoy IVF Clinic</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="browserLogo.png">
     <link rel="stylesheet" href="style.css">
@@ -14,7 +14,8 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">                <div class="nav-container">
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
             <div class="logo">
                 <a href="index.html">
                     <img src="siyahLogo.png" alt="Dr. Cahit Cenksoy" id="navLogo">
@@ -22,8 +23,8 @@
             </div>
             <div class="nav-center">
                 <ul class="nav-links">
-                    <li><a href="index.html" data-i18n="navHome">HOME</a></li>
-                    <li><a href="team.html" data-i18n="navTeam">OUR TEAM</a></li>
+                    <li><a href="index.html" data-i18n="navHome">ANA SAYFA</a></li>
+                    <li><a href="team.html" data-i18n="navTeam">EKİBİMİZ</a></li>
                     <li class="dropdown">
                         <a href="javascript:void(0)" data-i18n="navIVF">TÜP BEBEK (IVF) <i class="fa-solid fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
@@ -50,10 +51,10 @@
                             <li><a href="sperm_ve_yumurta_dondurma.html" data-i18n="navTreat8">Sperm ve Yumurta Dondurma</a></li>
                         </ul>
                     </li>
-                    <li><a href="testimonials.html" data-i18n="navTestimonials">SHARED BY OUR PATIENTS</a></li>
-                    <li><a href="faq.html" data-i18n="navFAQ">FREQUENTLY ASKED</a></li>
-                    <li><a href="blog.html" data-i18n="navBlogs">BLOGS</a></li>
-                    <li><a href="contact.html" data-i18n="navContact">CONTACT</a></li>
+                    <li><a href="testimonials.html" data-i18n="navTestimonials">HASTALARIMIZDAN</a></li>
+                    <li><a href="faq.html" data-i18n="navFAQ">SIK SORULANLAR</a></li>
+                    <li><a href="blog.html" data-i18n="navBlogs">BLOG</a></li>
+                    <li><a href="contact.html" data-i18n="navContact">İLETİŞİM</a></li>
                 </ul>
             </div>
             <div class="nav-right">
@@ -61,8 +62,8 @@
                     <i class="fa-solid fa-moon"></i>
                 </button>
                 <div class="lang-selector dropdown">
-                    <button class="lang-btn" id="currentLang">EN <i class="fa-solid fa-globe"></i></button>
-                                        <ul class="dropdown-menu">
+                    <button class="lang-btn" id="currentLang">TR <i class="fa-solid fa-globe"></i></button>
+                    <ul class="dropdown-menu">
                         <li><a href="#" onclick="changeLanguage('tr')">🇹🇷 TR</a></li>
                         <li><a href="#" onclick="changeLanguage('en')">🇬🇧 EN</a></li>
                         <li><a href="#" onclick="changeLanguage('fr')">🇫🇷 FR</a></li>
@@ -78,60 +79,37 @@
         </div>
     </nav>
 
-    <!-- Spacer for fixed navbar -->
-    <div style="height: 80px;"></div>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="section bg-light">
+    <!-- Hero Section -->
+    <section class="hero hero-small" style="padding: 100px 0 50px;">
         <div class="container">
-            <div class="section-header">
-                <h2 data-i18n="faqTitle">Frequently Asked Questions</h2>
+            <h1 data-i18n="navTreat1">PGD/PGS</h1>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="section">
+        <div class="container">
+            <div class="content-wrapper">
+                <h2 data-i18n="navTreat1">PGD/PGS</h2>
                 <div class="header-line"></div>
-            </div>
-            <div class="accordion">
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <span data-i18n="faq1Q">What is the success rate of IVF?</span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p data-i18n="faq1A">Success rates vary based on individual factors, but our clinic consistently maintains rates above the global average due to our personalized approach and advanced lab techniques.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <span data-i18n="faq2Q">How long does an IVF cycle take?</span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p data-i18n="faq2A">A typical IVF cycle takes about 4 to 6 weeks, depending on the stimulation protocol and individual response.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <span data-i18n="faq3Q">Are there age limits for treatments?</span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p data-i18n="faq3A">We evaluate each case individually. While age affects fertility, we offer various options including egg donation to help patients achieve their dream of parenthood.</p>
-                    </div>
-                </div>
+                <p style="margin-top: 30px; font-size: 1.1rem; line-height: 1.8; color: var(--text-color);" data-i18n="pageContentPlaceholder">
+                    Bu sayfa içeriği yakında güncellenecektir. Detaylı bilgi için lütfen bizimle iletişime geçin.
+                </p>
+                <a href="contact.html" class="btn btn-primary" style="margin-top: 30px;" data-i18n="heroBtnPrimary">Danışmanlık Alın</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-            <footer class="site-footer">
+    <footer class="site-footer">
         <div class="container">
             <div class="footer-container">
                 <div class="footer-left">
                     <img src="siyahLogo.png" alt="Dr. Cahit Cenksoy" class="footer-logo" id="footerLogo">
                     <p class="hospital-name"><i class="fa-solid fa-location-dot" style="margin-right: 8px; color: var(--primary-color);"></i>Nicosia IVF - Nicosia Sevinç Hospital</p>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/drcahitcenksoy/" class="social-box" target="_blank"><i
-                                class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/p/Dr-Cahit-Cenksoy-100064112829620/" class="social-box"
-                            target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/drcahitcenksoy/" class="social-box" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/p/Dr-Cahit-Cenksoy-100064112829620/" class="social-box" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
                     </div>
                 </div>
                 <div class="footer-right">
@@ -163,10 +141,7 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    
-    
-    
-        <div id="google_translate_element" style="display:none"></div>
+    <div id="google_translate_element" style="display:none"></div>
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
@@ -179,22 +154,5 @@
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="app.js"></script>
-    <script src="faqs.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
