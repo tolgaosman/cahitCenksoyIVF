@@ -1835,6 +1835,10 @@ body { top: 0 !important; }
     transition: var(--transition);
     color: inherit;
     display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
 }
 
 .footer-link:hover {
