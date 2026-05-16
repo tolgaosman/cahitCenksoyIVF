@@ -103,42 +103,54 @@ document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initTeamCarousel();
 
-    // Language Selector Toggle
-    const langBtn = document.getElementById('currentLang');
-    const langSelector = document.querySelector('.lang-selector');
-    if (langBtn && langSelector) {
-        langBtn.addEventListener('click', (e) => {
+    // --- Global Dropdown & Menu Toggles (Event Delegation) ---
+    document.addEventListener('click', (e) => {
+        const langBtn = e.target.closest('#currentLang');
+        const langSelector = document.querySelector('.lang-selector');
+        const dropdownLink = e.target.closest('.dropdown > a');
+        const mobileToggleBtn = e.target.closest('#mobileToggle');
+        const navLinksMenu = document.querySelector('.navbar .nav-links');
+
+        // Handle Language Selector
+        if (langBtn) {
             e.stopPropagation();
-            langSelector.classList.toggle('active');
-            // Close other dropdowns
+            langSelector?.classList.toggle('active');
             document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
-        });
-    }
+            return;
+        }
 
-    // Dropdown Toggles (Mobile Support)
-    const dropdowns = document.querySelectorAll('.dropdown');
-    dropdowns.forEach(dropdown => {
-        const link = dropdown.querySelector('a');
-        link?.addEventListener('click', (e) => {
-            if (window.innerWidth <= 992) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                const isActive = dropdown.classList.contains('active');
-                
-                // Close all dropdowns
-                dropdowns.forEach(d => d.classList.remove('active'));
-                langSelector?.classList.remove('active');
+        // Handle Dropdowns (Mobile/Touch)
+        if (dropdownLink && window.innerWidth <= 992) {
+            e.preventDefault();
+            e.stopPropagation();
+            const parent = dropdownLink.parentElement;
+            const isActive = parent.classList.contains('active');
+            
+            // Close all others
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+            langSelector?.classList.remove('active');
 
-                // Toggle current
-                if (!isActive) dropdown.classList.add('active');
-            }
-        });
-    });
+            if (!isActive) parent.classList.add('active');
+            return;
+        }
 
-    document.addEventListener('click', () => {
-        langSelector?.classList.remove('active');
-        dropdowns.forEach(d => d.classList.remove('active'));
+        // Handle Mobile Toggle
+        if (mobileToggleBtn) {
+            e.stopPropagation();
+            navLinksMenu?.classList.toggle('active');
+            return;
+        }
+
+        // Close everything when clicking outside
+        if (!e.target.closest('.lang-selector') && !e.target.closest('.dropdown')) {
+            langSelector?.classList.remove('active');
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+        }
+
+        // Close mobile menu when clicking outside
+        if (navLinksMenu?.classList.contains('active') && !navLinksMenu.contains(e.target) && !mobileToggleBtn) {
+            navLinksMenu.classList.remove('active');
+        }
     });
 });
 
@@ -157,20 +169,6 @@ window.addEventListener('scroll', () => {
         navbar?.classList.remove('navbar--hidden');
     }
     lastScroll = currentScroll;
-});
-
-// --- Mobile Nav ---
-const mobileToggle = document.getElementById('mobileToggle');
-const navLinksMenu = document.querySelector('.navbar .nav-links');
-mobileToggle?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    navLinksMenu?.classList.toggle('active');
-});
-
-document.addEventListener('click', (e) => {
-    if (navLinksMenu?.classList.contains('active') && !navLinksMenu.contains(e.target) && e.target !== mobileToggle) {
-        navLinksMenu.classList.remove('active');
-    }
 });
 
 // --- Process Modal Logic ---
