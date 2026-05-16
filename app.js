@@ -168,7 +168,13 @@ const translations = {
         footerPhone: "TELEFON",
         footerEmail: "E-POSTA",
         modalClose: "Kapat",
-        pageContentPlaceholder: "Bu sayfa içeriği yakında güncellenecektir. Detaylı bilgi için lütfen bizimle iletişime geçin."
+        pageContentPlaceholder: "Bu sayfa içeriği yakında güncellenecektir. Detaylı bilgi için lütfen bizimle iletişime geçin.",
+        teamDesc2: "Dil İngilizce – Bulgarca – İspanyolca Eğitim - Yüksek Lisans 2009-2012 – T.C. İstanbul Bilim Üniversitesi – Sağlık Bilimleri Enstitüsü, Histoloji-Embriyoloji Ana Bilim Dalı Tez Konusu: İnsan Normospermi, Oligospermi, Astenospermi Grupları Arasında Nitrik Oksit İzoformlarının (Nos) Etkisi. Lisans 2004-2008 – T.C. Eskişehir Osmangazi Üniversitesi – Fen-Edebiyat Fakültesi, Biyoloji",
+        teamDesc3: "Dil İngilizce – Bulgarca – İspanyolca Bilgisayar Programcılığı - Turizm 9 Yıllık Bankacılık Ardından 1 Yıldır Euro IVF Tüp Bebek Merkezinde Yabancı Hasta Koordinatörü",
+        teamDesc4: "Dil İngilizce Eğitim - Lisans Girne Amerikan Üniversitesi Sağlık Meslek Yüksek Okulu Tıbbi Dokümantasyon ve Sekreterli",
+        teamDesc5: "Dil İngilizce Eğitim Kastamonu İnebolu Sağlık Meslek Lisesi Acil Tıp Teknisyenliği Özel İş Yeri Hemşireliği Sertifikası",
+        teamDesc6: "Has been working with us for 5 years.",
+        teamDesc7: "Languages: Persian - Turkish - English. Education: Bachelor's in Nursing from Islamic Azad University of Tuyserkan. Master's in Surgical Nursing from Near East University."
     },
     en: {
         logoText: "Dr. Cahit Cenksoy",
@@ -333,7 +339,13 @@ const translations = {
         footerPhone: "PHONE",
         footerEmail: "EMAIL",
         modalClose: "Close",
-        pageContentPlaceholder: "This page content will be updated soon. Please contact us for detailed information."
+        pageContentPlaceholder: "This page content will be updated soon. Please contact us for detailed information.",
+        teamDesc2: "Languages: English – Bulgarian – Spanish. Education: Master's Degree 2009-2012 – Istanbul Bilim University, Institute of Health Sciences, Histology-Embryology. Thesis: Effects of Nitric Oxide Isoforms (NOS) among Human Normospermic, Oligospermic, and Asthenospermic Groups. Bachelor's 2004-2008 – Eskisehir Osmangazi University, Faculty of Arts and Sciences, Biology.",
+        teamDesc3: "Languages: English – Bulgarian – Spanish. Background in Computer Programming and Tourism. After 9 years in banking, has been working as Foreign Patient Coordinator at Euro IVF for 1 year.",
+        teamDesc4: "Languages: English. Education: Bachelor's Degree from Girne American University, School of Health Sciences, Medical Documentation and Secretarial.",
+        teamDesc5: "Languages: English. Education: Kastamonu Inebolu Vocational High School of Health, Emergency Medical Technician. Private Workplace Nursing Certificate.",
+        teamDesc6: "A valuable member of our technical staff.",
+        teamDesc7: "Our experienced nurse, working to provide the best care to our patients."
     },
     ru: {
         logoText: "Д-р Джахит Дженксой",
