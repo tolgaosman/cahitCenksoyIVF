@@ -1072,14 +1072,28 @@ function initTeamCarousel() {
     
     if (!carousel || !prevBtn || !nextBtn) return;
 
-    // Carousel movement
+    // Carousel movement with Loop
     nextBtn.addEventListener('click', () => {
         const cardWidth = carousel.querySelector('.team-card').offsetWidth + 30;
-        carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+        
+        // If we are at the end, jump to start
+        if (carousel.scrollLeft + 10 >= maxScroll) {
+            carousel.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        }
     });
 
     prevBtn.addEventListener('click', () => {
         const cardWidth = carousel.querySelector('.team-card').offsetWidth + 30;
-        carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+        
+        // If we are at the start, jump to end
+        if (carousel.scrollLeft <= 10) {
+            carousel.scrollTo({ left: maxScroll, behavior: 'smooth' });
+        } else {
+            carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+        }
     });
 }
