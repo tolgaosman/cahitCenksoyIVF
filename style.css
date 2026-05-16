@@ -186,7 +186,7 @@ h1, h2, h3, h4 {
     transform: translateY(-100%);
 }
 
-.nav-container {
+.nav-container { min-width: 0;
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
@@ -202,7 +202,7 @@ h1, h2, h3, h4 {
     display: block;
 }
 
-.nav-center {
+.nav-center { flex: 1; min-width: 0; overflow: hidden;
     flex: 1;
     display: flex;
     justify-content: center;
@@ -839,4 +839,29 @@ body { top: 0 !important; }
     .hero-btns { flex-direction: column; width: 100%; gap: 15px; }
     .hero-btns .btn { width: 100%; }
     .team-card { flex: 0 0 100%; }
+}
+
+/* Russian Language Adjustments */
+.lang-ru .nav-links {
+    gap: 10px;
+}
+.lang-ru .nav-links a {
+    font-size: 0.65rem;
+    letter-spacing: 0;
+}
+@media (max-width: 1200px) {
+    .nav-links {
+        gap: 10px;
+    }
+    .nav-links a {
+        font-size: 0.7rem;
+    }
+}
+@media (max-width: 1100px) {
+    .nav-links {
+        gap: 8px;
+    }
+    .nav-links a {
+        font-size: 0.65rem;
+    }
 }

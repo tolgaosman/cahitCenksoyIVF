@@ -1,4 +1,4 @@
-// --- Google Translate Integration ---
+﻿// --- Google Translate Integration ---
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
         pageLanguage: 'tr',
@@ -30,7 +30,7 @@ function changeLanguage(langCode) {
     if (currentLangText) currentLangText.innerText = langCode.toUpperCase();
 
     // Handle RTL for Arabic
-    if (langCode === 'ar') {
+    document.body.classList.remove('lang-ru'); if (langCode === 'ru') { document.body.classList.add('lang-ru'); } if (langCode === 'ar') {
         document.documentElement.dir = 'rtl';
         document.body.classList.add('rtl');
     } else {
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedLang !== 'tr') {
         const currentLangText = document.getElementById('currentLangText');
         if (currentLangText) currentLangText.innerText = savedLang.toUpperCase();
-        if (savedLang === 'ar') {
+        if (savedLang === 'ru') { document.body.classList.add('lang-ru'); } if (savedLang === 'ar') {
             document.documentElement.dir = 'rtl';
             document.body.classList.add('rtl');
         }
