@@ -1978,20 +1978,20 @@ body { top: 0 !important; }
 /* Theme Toggle Styles */
 .theme-toggle {
     background: none;
-    border: 1px solid var(--primary-color);
+    border: none;
     color: var(--text-main);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    width: 35px;
+    height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: var(--transition);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    padding: 0;
 }
 
 .theme-toggle:hover {
-    background-color: var(--primary-color);
-    color: white;
+    color: var(--primary-color);
+    transform: scale(1.1);
 }
