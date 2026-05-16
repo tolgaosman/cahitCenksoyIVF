@@ -274,15 +274,17 @@ h1, h2, h3, h4 {
 .lang-selector.active .dropdown-menu {
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) translateY(10px);
+    transform: translateX(-50%) translateY(0); /* Remove the extra 10px jump on hover for stability */
+    pointer-events: auto;
 }
 
 .dropdown-menu a {
     display: block;
-    padding: 10px 20px;
+    padding: 12px 20px;
     font-size: 0.85rem;
     text-transform: none;
     color: var(--text-main);
+    transition: var(--transition);
 }
 
 .dropdown-menu a:hover {

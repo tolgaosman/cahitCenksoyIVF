@@ -119,19 +119,21 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Handle Dropdowns (Mobile/Touch)
-        if (dropdownLink && window.innerWidth <= 992) {
-            e.preventDefault();
-            e.stopPropagation();
-            const parent = dropdownLink.parentElement;
-            const isActive = parent.classList.contains('active');
-            
-            // Close all others
-            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
-            langSelector?.classList.remove('active');
+        // Handle Dropdowns (Mobile/Touch Only)
+        if (dropdownLink) {
+            if (window.innerWidth <= 992) {
+                e.preventDefault();
+                e.stopPropagation();
+                const parent = dropdownLink.parentElement;
+                const isActive = parent.classList.contains('active');
+                
+                // Close all others
+                document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+                langSelector?.classList.remove('active');
 
-            if (!isActive) parent.classList.add('active');
-            return;
+                if (!isActive) parent.classList.add('active');
+                return;
+            }
         }
 
         // Handle Mobile Toggle
