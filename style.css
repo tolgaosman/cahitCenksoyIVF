@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     /* Light Theme (Default) */
     --bg-color: #ffffff;
     --bg-light: #fff5f6;
@@ -202,8 +202,8 @@ h1, h2, h3, h4 {
     display: block;
 }
 
-.nav-center { flex: 1; min-width: 0; overflow: hidden;
-    flex: 1;
+.nav-center { 
+    flex: 1; 
     display: flex;
     justify-content: center;
 }
@@ -254,9 +254,11 @@ h1, h2, h3, h4 {
     visibility: hidden;
     transition: var(--transition);
     border: 1px solid var(--border-color);
+    z-index: 1000; /* Added z-index */
 }
 
 .dropdown:hover .dropdown-menu,
+.dropdown.active .dropdown-menu,
 .lang-selector.active .dropdown-menu {
     opacity: 1;
     visibility: visible;

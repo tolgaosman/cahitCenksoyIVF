@@ -1,4 +1,4 @@
-﻿// --- Google Translate Integration ---
+// --- Google Translate Integration ---
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
         pageLanguage: 'tr',
@@ -103,15 +103,43 @@ document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initTeamCarousel();
 
+    // Language Selector Toggle
     const langBtn = document.getElementById('currentLang');
     const langSelector = document.querySelector('.lang-selector');
     if (langBtn && langSelector) {
         langBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             langSelector.classList.toggle('active');
+            // Close other dropdowns
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
         });
-        document.addEventListener('click', () => langSelector.classList.remove('active'));
     }
+
+    // Dropdown Toggles (Mobile Support)
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+        const link = dropdown.querySelector('a');
+        link?.addEventListener('click', (e) => {
+            if (window.innerWidth <= 992) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const isActive = dropdown.classList.contains('active');
+                
+                // Close all dropdowns
+                dropdowns.forEach(d => d.classList.remove('active'));
+                langSelector?.classList.remove('active');
+
+                // Toggle current
+                if (!isActive) dropdown.classList.add('active');
+            }
+        });
+    });
+
+    document.addEventListener('click', () => {
+        langSelector?.classList.remove('active');
+        dropdowns.forEach(d => d.classList.remove('active'));
+    });
 });
 
 // --- Navbar Scroll Logic ---
