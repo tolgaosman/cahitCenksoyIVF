@@ -1,0 +1,2 @@
+Test file with Turkish characters: ğüşıöç ĞÜŞİÖÇ.
+Flags: 🇹🇷 TR, 🇬🇧 EN.

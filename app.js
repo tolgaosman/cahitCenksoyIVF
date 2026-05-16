@@ -402,9 +402,17 @@ window.addEventListener('scroll', () => {
 
 // --- Mobile Nav ---
 const mobileToggle = document.getElementById('mobileToggle');
-const navLinksMenu = document.querySelector('.nav-links');
-mobileToggle?.addEventListener('click', () => {
+const navLinksMenu = document.querySelector('.navbar .nav-links'); // Specific selector
+mobileToggle?.addEventListener('click', (e) => {
+    e.stopPropagation();
     navLinksMenu?.classList.toggle('active');
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (navLinksMenu?.classList.contains('active') && !navLinksMenu.contains(e.target) && e.target !== mobileToggle) {
+        navLinksMenu.classList.remove('active');
+    }
 });
 
 // FAQ Rendering
@@ -444,10 +452,16 @@ function openProcessModal(step) {
     const desc = document.getElementById('modalDescription');
     const lang = document.documentElement.lang || 'tr';
     
-    const content = translations[lang];
+    // Fallback logic for translations
+    const getTranslation = (key) => {
+        return (translations[lang] && translations[lang][key]) || 
+               (translations['en'] && translations['en'][key]) || 
+               (translations['tr'] && translations['tr'][key]) || 
+               "";
+    };
     
-    title.innerText = content['proc' + step + 'Title'];
-    desc.innerText = content['proc' + step + 'Desc'];
+    title.innerText = getTranslation('proc' + step + 'Title');
+    desc.innerText = getTranslation('proc' + step + 'Desc');
     
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden'; 
