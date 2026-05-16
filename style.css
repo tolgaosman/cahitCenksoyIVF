@@ -1831,3 +1831,21 @@ body { top: 0 !important; }
     }
 }
 
+.footer-link {
+    transition: var(--transition);
+    color: inherit;
+    display: inline-block;
+}
+
+.footer-link:hover {
+    color: var(--primary-color) !important;
+    transform: translateX(5px);
+}
+
+.footer-contact-item span {
+    transition: var(--transition);
+}
+
+.footer-link:hover span {
+    color: var(--primary-color);
+}
