@@ -54,7 +54,7 @@
                     <li><a href="testimonials.html" data-i18n="navTestimonials">Hastalarımızdan</a></li>
                     <li><a href="faq.html" data-i18n="navFAQ">Sık Sorulanlar</a></li>
                     
-                    <li><a href="contact.html" data-i18n="navContact">İletişim</a></li>
+                    <li><a href="contact.html" data-i18n="navContact">İletişim & Randevu</a></li>
                 </ul>
             </div>
                         <div class="nav-right">
@@ -106,11 +106,29 @@
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
                             <div class="form-group">
                                 <label style="font-size: 0.85rem; font-weight: 600;">Kan Grubu (K)</label>
-                                <input type="text" id="blood_f" name="blood_f" required placeholder="Blood Group (F)" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-light);">
+                                <select id="blood_f" name="blood_f" required style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-light); color: var(--text-main);">
+                                    <option value="" disabled selected>Seçiniz</option>
+                                    <option value="A+">A Rh(+)</option>
+                                    <option value="A-">A Rh(-)</option>
+                                    <option value="B+">B Rh(+)</option>
+                                    <option value="B-">B Rh(-)</option>
+                                    <option value="AB+">AB Rh(+)</option>
+                                    <option value="AB-">AB Rh(-)</option>
+                                    <option value="0+">0 Rh(+)</option>
+                                    <option value="0-">0 Rh(-)</option></select>
                             </div>
                             <div class="form-group">
                                 <label style="font-size: 0.85rem; font-weight: 600;">Kan Grubu (E)</label>
-                                <input type="text" id="blood_m" name="blood_m" required placeholder="Blood Group (M)" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-light);">
+                                <select id="blood_m" name="blood_m" required style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-light); color: var(--text-main);">
+                                    <option value="" disabled selected>Seçiniz</option>
+                                    <option value="A+">A Rh(+)</option>
+                                    <option value="A-">A Rh(-)</option>
+                                    <option value="B+">B Rh(+)</option>
+                                    <option value="B-">B Rh(-)</option>
+                                    <option value="AB+">AB Rh(+)</option>
+                                    <option value="AB-">AB Rh(-)</option>
+                                    <option value="0+">0 Rh(+)</option>
+                                    <option value="0-">0 Rh(-)</option></select>
                             </div>
                         </div>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
@@ -234,7 +252,7 @@
             "Sperm": document.getElementById("sperm").value,
             "Evlilik Süresi": document.getElementById("marriage").value,
             "Deneme Süresi": document.getElementById("trying").value,
-            "Test Yapıldı mı?": document.getElementById("test_done").value,
+            "Test Yapıldı mı?": document.querySelector('input[name="test_done"]:checked').value,
             "E-posta": document.getElementById("app_email").value,
             "Telefon": document.getElementById("app_phone").value
         };
