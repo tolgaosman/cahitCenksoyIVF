@@ -425,6 +425,20 @@ function initTheme() {
 document.addEventListener('DOMContentLoaded', () => {
     applyTranslations();
     initTheme();
+
+    // Lang selector click toggle for extra robustness
+    const langBtn = document.getElementById('currentLang');
+    const langSelector = document.querySelector('.lang-selector');
+    if (langBtn && langSelector) {
+        langBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langSelector.classList.toggle('active');
+        });
+        
+        document.addEventListener('click', () => {
+            langSelector.classList.remove('active');
+        });
+    }
 });
 
 // --- Navbar Scroll Logic ---
@@ -494,7 +508,7 @@ function openProcessModal(step) {
     const modal = document.getElementById('processModal');
     const title = document.getElementById('modalTitle');
     const desc = document.getElementById('modalDescription');
-    const lang = 'tr';
+    const lang = localStorage.getItem('lang') || 'tr';
     
     if (!modal || !title || !desc) {
         console.error('Modal elements missing');
@@ -502,7 +516,8 @@ function openProcessModal(step) {
     }
 
     const getTranslation = (key) => {
-        return (translations[lang] && translations[lang][key]) || "";
+        const trans = (translations[lang] && translations[lang][key]) || (translations['tr'] && translations['tr'][key]);
+        return trans || "";
     };
     
     title.innerText = getTranslation('proc' + step + 'Title');
