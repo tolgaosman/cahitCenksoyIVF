@@ -7,7 +7,7 @@
     --primary-color: #f8c8dc; /* Baby Pink */
     --primary-color: #f8c8dc; /* Baby Pink */
     --primary-hover: #f4b0cf;
-    --secondary-color: #f2d2bd; /* Powder Pink */
+    --secondary-color: #fbcce2; /* Soft Blush Pink */
     --nav-bg: rgba(255, 255, 255, 0.95);
     --card-bg: #ffffff;
     --border-color: #fce4ec;
@@ -26,7 +26,7 @@
     --primary-color: #f8c8dc;
     --primary-color: #f8c8dc;
     --primary-hover: #f4b0cf;
-    --secondary-color: #f2d2bd;
+    --secondary-color: #fbcce2;
     --nav-bg: rgba(18, 18, 18, 0.95);
     --card-bg: #2d3748;
     --border-color: #4a5568;
@@ -1280,7 +1280,7 @@ body { top: 0 !important; }
 
 .feature-item:nth-child(1) { background-color: #f8c8dc; }
 .feature-item:nth-child(2) { background-color: #f4b0cf; }
-.feature-item:nth-child(3) { background-color: #f2d2bd; }
+.feature-item:nth-child(3) { background-color: #fbcce2; }
 .feature-item:nth-child(4) { background-color: #ecc4ca; }
 
 .feature-item i {
@@ -1693,7 +1693,7 @@ body { top: 0 !important; }
 
 /* --- Stats Bar --- */
 .stats-bar {
-    background: linear-gradient(rgba(242, 210, 189, 0.88), rgba(242, 210, 189, 0.88)), url('ekip.jpeg') no-repeat center center/cover;
+    background-color: var(--primary-color);
     color: white;
     padding: 80px 0;
     position: relative;
