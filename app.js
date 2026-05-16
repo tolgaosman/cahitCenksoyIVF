@@ -939,6 +939,7 @@ function initTheme() {
 document.addEventListener('DOMContentLoaded', () => {
     applyTranslations();
     initTheme();
+    initTeamCarousel();
 
     // Lang selector click toggle for extra robustness
     const langBtn = document.getElementById('currentLang');
@@ -1061,3 +1062,24 @@ window.addEventListener('click', (event) => {
         closeProcessModal();
     }
 });
+
+
+// --- Team Carousel Logic ---
+function initTeamCarousel() {
+    const carousel = document.getElementById('teamCarousel');
+    const prevBtn = document.getElementById('teamPrev');
+    const nextBtn = document.getElementById('teamNext');
+    
+    if (!carousel || !prevBtn || !nextBtn) return;
+
+    // Carousel movement
+    nextBtn.addEventListener('click', () => {
+        const cardWidth = carousel.querySelector('.team-card').offsetWidth + 30;
+        carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener('click', () => {
+        const cardWidth = carousel.querySelector('.team-card').offsetWidth + 30;
+        carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    });
+}

@@ -1,122 +1,63 @@
-�<!DOCTYPE html>
-
+<!DOCTYPE html>
 <html lang="tr">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Our Team | Dr. Cahit Cenksoy IVF Clinic</title>
-
+    <title>Ekibimiz | Dr. Cahit Cenksoy IVF Clinic</title>
     <!-- Favicon -->
-
     <link rel="icon" type="image/png" href="browserLogo.png">
-
     <link rel="stylesheet" href="style.css">
-
     <!-- Font Awesome for Icons -->
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <!-- Google Fonts -->
-
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 </head>
-
 <body>
-
     <!-- Navigation -->
-
     <nav class="navbar" id="navbar">
-
         <div class="nav-container">
-
             <div class="logo">
-
                 <a href="index.html">
-
                     <img src="siyahLogo.png" alt="Dr. Cahit Cenksoy" id="navLogo">
-
                 </a>
-
             </div>
-
             <div class="nav-center">
-
                 <ul class="nav-links">
-
                     <li><a href="index.html" data-i18n="navHome">ANA SAYFA</a></li>
-
                     <li><a href="team.html" data-i18n="navTeam">EKİBİMİZ</a></li>
-
                     <li class="dropdown">
-
                         <a href="javascript:void(0)" data-i18n="navIVF">TÜP BEBEK (IVF) <i class="fa-solid fa-chevron-down"></i></a>
-
                         <ul class="dropdown-menu">
-
                             <li><a href="ilk_degerlendirme.html" data-i18n="navIVF1">İlk Değerlendirme</a></li>
-
                             <li><a href="tup_bebek_ilaclari.html" data-i18n="navIVF2">Tüp Bebek İlaçları</a></li>
-
                             <li><a href="yumurtaliklarin_uyarilmasi.html" data-i18n="navIVF3">Yumurtalıkların Uyarılması (Ovulasyon İndüksiyonu)</a></li>
-
                             <li><a href="yumurtalarin_olgunlastirilmasi.html" data-i18n="navIVF4">Yumurtaların Olgunlaştırılması (Yumurta Çatlatma)</a></li>
-
                             <li><a href="yumurta_toplama.html" data-i18n="navIVF5">OPU (Yumurta Toplama)</a></li>
-
                             <li><a href="spermin_alinmasi.html" data-i18n="navIVF6">Spermin Alınması</a></li>
-
                             <li><a href="yumurtalarin_soyulmasi.html" data-i18n="navIVF7">Denudasyon (Yumurtaların Soyulması)</a></li>
-
                             <li><a href="transfer.html" data-i18n="navIVF8">Transfer</a></li>
-
                         </ul>
-
                     </li>
-
                     <li class="dropdown">
-
                         <a href="javascript:void(0)" data-i18n="navTreatments">TEDAVİ SEÇENEKLERİ <i class="fa-solid fa-chevron-down"></i></a>
-
                         <ul class="dropdown-menu">
-
                             <li><a href="pgd_pgs.html" data-i18n="navTreat1">PGD/PGS</a></li>
-
                             <li><a href="tandem_dongusu.html" data-i18n="navTreat2">Tandem Döngüsü</a></li>
-
                             <li><a href="sperm_bagisi.html" data-i18n="navTreat3">Sperm Bağışı</a></li>
-
                             <li><a href="yumurta_bagisi.html" data-i18n="navTreat4">Yumurta Bağışı</a></li>
-
                             <li><a href="embriyo_donasyonu.html" data-i18n="navTreat5">Embriyo Donasyonu</a></li>
-
                             <li><a href="ngs_tedavisi.html" data-i18n="navTreat6">NGS Tedavisi</a></li>
-
                             <li><a href="icsi_ile_ivf.html" data-i18n="navTreat7">ICSI ile IVF</a></li>
-
                             <li><a href="sperm_ve_yumurta_dondurma.html" data-i18n="navTreat8">Sperm ve Yumurta Dondurma</a></li>
-
                         </ul>
-
                     </li>
-
                     <li><a href="testimonials.html" data-i18n="navTestimonials">HASTALARIMIZDAN</a></li>
-
                     <li><a href="faq.html" data-i18n="navFAQ">SIK SORULANLAR</a></li>
-
                     <li><a href="blog.html" data-i18n="navBlogs">BLOG</a></li>
-
                     <li><a href="contact.html" data-i18n="navContact">İLETİŞİM</a></li>
-
                 </ul>
-
             </div>
-
-                        <div class="nav-right">
+            <div class="nav-right">
                 <div class="lang-selector">
                     <button class="lang-btn" id="currentLang">
                         <span id="currentLangText">TR</span> <i class="fa-solid fa-globe"></i>
@@ -136,178 +77,104 @@
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
-
+        </div>
     </nav>
 
     <!-- Spacer for fixed navbar -->
-
     <div style="height: 80px;"></div>
 
-    <!-- Team Section -->
-
-    <section class="section">
-
+    <!-- Page Header -->
+    <section class="hero-small" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('ekip.jpeg') no-repeat center center/cover;">
         <div class="container">
-
-            <div class="section-header">
-
-                <h2 data-i18n="teamTitle">Ekibimiz</h2>
-
-                <div class="header-line"></div>
-
+            <div class="hero-content">
+                <h1 data-i18n="navTeam">EKİBİMİZ</h1>
             </div>
-
-            <div class="team-grid-full">
-
-                <!-- Team Member 1 -->
-
-                <div class="card team-card">
-
-                    <div class="card-image">
-
-                        <img src="https://cahitcenksoy.com/admin/images/takim/cahitcenksoy_foto.png" alt="Op. Dr. Cahit Cenksoy">
-
-                    </div>
-
-                    <div class="card-content">
-
-                        <h3>Op. Dr. Cahit Cenksoy</h3>
-
-                        <p class="subtitle" data-i18n="teamRole1">Baş Tüp Bebek Uzmanı</p>
-
-                        <p data-i18n="teamDesc1">Üreme tıbbı ve ileri tüp bebek teknolojilerinde 20 yılı aşkın deneyim.</p>
-
-                    </div>
-
-                </div>
-
-                <!-- Team Member 2 -->
-
-                <div class="card team-card">
-
-                    <div class="card-image placeholder-img">
-
-                        <i class="fa-solid fa-user-nurse"></i>
-
-                    </div>
-
-                    <div class="card-content">
-
-                        <h3>Hayriye Karakaya</h3>
-
-                        <p class="subtitle" data-i18n="teamRole2">Tüp Bebek Koordinatörü</p>
-
-                    </div>
-
-                </div>
-
-                <!-- Team Member 3 -->
-
-                <div class="card team-card">
-
-                    <div class="card-image placeholder-img">
-
-                        <i class="fa-solid fa-user-nurse"></i>
-
-                    </div>
-
-                    <div class="card-content">
-
-                        <h3>Güne�x �zba�x</h3>
-
-                        <p class="subtitle" data-i18n="teamRole3">Embriyolog</p>
-
-                    </div>
-
-                </div>
-
-                <!-- Team Member 4 -->
-
-                <div class="card team-card">
-
-                    <div class="card-image placeholder-img">
-
-                        <i class="fa-solid fa-user-nurse"></i>
-
-                    </div>
-
-                    <div class="card-content">
-
-                        <h3>�&ifa �zkan</h3>
-
-                        <p class="subtitle" data-i18n="teamRole4">Hemşire</p>
-
-                    </div>
-
-                </div>
-
-                <!-- Team Member 5 -->
-
-                <div class="card team-card">
-
-                    <div class="card-image placeholder-img">
-
-                        <i class="fa-solid fa-user"></i>
-
-                    </div>
-
-                    <div class="card-content">
-
-                        <h3>Aslı Alio�xlu</h3>
-
-                        <p class="subtitle" data-i18n="teamRole5">Hasta Koordinatörü</p>
-
-                    </div>
-
-                </div>
-
-                <!-- Team Member 6 -->
-
-                <div class="card team-card">
-
-                    <div class="card-image placeholder-img">
-
-                        <i class="fa-solid fa-user"></i>
-
-                    </div>
-
-                    <div class="card-content">
-
-                        <h3>Gizem Karakaya</h3>
-
-                        <p class="subtitle" data-i18n="teamRole6">Asistan</p>
-
-                    </div>
-
-                </div>
-
-                <!-- Team Member 7 -->
-
-                <div class="card team-card">
-
-                    <div class="card-image placeholder-img">
-
-                        <i class="fa-solid fa-globe"></i>
-
-                    </div>
-
-                    <div class="card-content">
-
-                        <h3>Ufuk �zba�x</h3>
-
-                        <p class="subtitle" data-i18n="teamRole7">Uluslararası Koordinatör</p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
         </div>
-
     </section>
 
-        
+    <!-- Team Grid Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="teamTitle">EKİBİMİZ</h2>
+                <div class="header-line"></div>
+            </div>
+            
+            <div class="team-grid-full">
+                <!-- Member 1 -->
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="cahit.jpg" alt="Op. Dr. Cahit Cenksoy">
+                    </div>
+                    <div class="team-info">
+                        <h3>Op. Dr. Cahit Cenksoy</h3>
+                        <p data-i18n="teamRole1">Gynecology and Obstetrics Specialist and IVF Specialist</p>
+                    </div>
+                </div>
+                <!-- Member 2 -->
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="hayriye.jpg" alt="Hayriye Karakaya">
+                    </div>
+                    <div class="team-info">
+                        <h3>Hayriye Karakaya</h3>
+                        <p data-i18n="teamRole2">Embryologist</p>
+                    </div>
+                </div>
+                <!-- Member 3 -->
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="gunes.jpg" alt="Güneş Özbaş">
+                    </div>
+                    <div class="team-info">
+                        <h3>Güneş Özbaş</h3>
+                        <p data-i18n="teamRole3">Foreign Patient Coordinator</p>
+                    </div>
+                </div>
+                <!-- Member 4 -->
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="gulseren.jpg" alt="Gülseren Akbal">
+                    </div>
+                    <div class="team-info">
+                        <h3>Gülseren Akbal</h3>
+                        <p data-i18n="teamRole4">Medical Documentation and Secretary</p>
+                    </div>
+                </div>
+                <!-- Member 5 -->
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="selcan.jpg" alt="Selcan Yüksel Çay">
+                    </div>
+                    <div class="team-info">
+                        <h3>Selcan Yüksel Çay</h3>
+                        <p data-i18n="teamRole5">Patient Coordinator</p>
+                    </div>
+                </div>
+                <!-- Member 6 -->
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="zekiye.jpg" alt="Zekiye">
+                    </div>
+                    <div class="team-info">
+                        <h3>Zekiye</h3>
+                        <p data-i18n="teamRole6">Technical Staff</p>
+                    </div>
+                </div>
+                <!-- Member 7 -->
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="elham.jpg" alt="Elham Morandi">
+                    </div>
+                    <div class="team-info">
+                        <h3>Elham Morandi</h3>
+                        <p data-i18n="teamRole7">Nurse</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
@@ -346,26 +213,9 @@
     </footer>
 
     <a href="https://wa.me/905488880112" class="whatsapp-float" target="_blank">
-
         <i class="fa-brands fa-whatsapp"></i>
-
     </a>
 
-    
-
-    
-
-    
-
-        
-
-    
-
-    
-
     <script src="app.js"></script>
-
 </body>
-
 </html>
-
