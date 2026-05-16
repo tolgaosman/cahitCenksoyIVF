@@ -761,7 +761,7 @@ body { top: 0 !important; }
 }
 
 @media (max-width: 992px) {
-    .nav-center { display: none; }
+    /* Let nav-center remain so nav-links inside it can be visible when fixed */
     .mobile-toggle { display: block; }
     
     .nav-links {
@@ -775,12 +775,18 @@ body { top: 0 !important; }
     
     .nav-links.active { right: 0; }
     
-    .dropdown-menu {
+    .nav-links .dropdown-menu {
         position: static; transform: none; opacity: 1; visibility: visible;
         display: none; box-shadow: none; border: none; width: 100%; padding-left: 15px;
     }
     
-    .dropdown:hover .dropdown-menu { display: block; }
+    .nav-links .dropdown:hover .dropdown-menu,
+    .nav-links .dropdown:focus-within .dropdown-menu { display: block; }
+
+    /* Lang selector should remain absolute on mobile but show correctly */
+    .lang-selector.active .dropdown-menu { 
+        display: block; 
+    }
 
     .features-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
     .hero h1 { font-size: 3rem; }
