@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -227,6 +227,53 @@
             </div>
         </div>
     </section>
+    <!-- Process Section -->
+    <section id="process" class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="processTitle" style="color: #0bb598; text-transform: uppercase;">SÜREÇ</h2>
+                <div class="header-line" style="background-color: #0bb598;"></div>
+            </div>
+            <div class="process-grid">
+                <!-- Step 1 -->
+                <div class="process-card">
+                    <div class="process-icon" style="color: #0bb598;"><i class="fa-solid fa-calendar-check"></i></div>
+                    <h3 data-i18n="proc1Title">Ön Görüşme</h3>
+                    <button class="btn-process" onclick="openProcessModal(1)" data-i18n="procMore" style="background-color: #0bb598 !important; border-radius: 4px !important;">Daha Fazla</button>
+                </div>
+                <!-- Step 2 -->
+                <div class="process-card">
+                    <div class="process-icon" style="color: #0bb598;"><i class="fa-solid fa-clipboard-check"></i></div>
+                    <h3 data-i18n="proc2Title">Tedavinin Planlanması</h3>
+                    <button class="btn-process" onclick="openProcessModal(2)" data-i18n="procMore" style="background-color: #0bb598 !important; border-radius: 4px !important;">Daha Fazla</button>
+                </div>
+                <!-- Step 3 -->
+                <div class="process-card">
+                    <div class="process-icon" style="color: #0bb598;"><i class="fa-solid fa-earth-americas"></i></div>
+                    <h3 data-i18n="proc3Title">Seyahat</h3>
+                    <button class="btn-process" onclick="openProcessModal(3)" data-i18n="procMore" style="background-color: #0bb598 !important; border-radius: 4px !important;">Daha Fazla</button>
+                </div>
+                <!-- Step 4 -->
+                <div class="process-card">
+                    <div class="process-icon" style="color: #0bb598;"><i class="fa-solid fa-hotel"></i></div>
+                    <h3 data-i18n="proc4Title">Konaklama</h3>
+                    <button class="btn-process" onclick="openProcessModal(4)" data-i18n="procMore" style="background-color: #0bb598 !important; border-radius: 4px !important;">Daha Fazla</button>
+                </div>
+                <!-- Step 5 -->
+                <div class="process-card">
+                    <div class="process-icon" style="color: #0bb598;"><i class="fa-solid fa-stethoscope"></i></div>
+                    <h3 data-i18n="proc5Title">Tedavi</h3>
+                    <button class="btn-process" onclick="openProcessModal(5)" data-i18n="procMore" style="background-color: #0bb598 !important; border-radius: 4px !important;">Daha Fazla</button>
+                </div>
+                <!-- Step 6 -->
+                <div class="process-card">
+                    <div class="process-icon" style="color: #0bb598;"><i class="fa-solid fa-baby"></i></div>
+                    <h3 data-i18n="proc6Title">Gebelik Testi</h3>
+                    <button class="btn-process" onclick="openProcessModal(6)" data-i18n="procMore" style="background-color: #0bb598 !important; border-radius: 4px !important;">Daha Fazla</button>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Team Section -->
     <section id="team" class="team-section">
         <div class="container">
@@ -426,6 +473,21 @@
     <a href="https://wa.me/905488880112" class="whatsapp-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
+    <!-- Process Detail Modal -->
+    <div id="processModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <span class="close-modal" onclick="closeProcessModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="modalDescription"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="closeProcessModal()" data-i18n="modalClose" style="background-color: #0bb598; border-color: #0bb598;">Kapat</button>
+            </div>
+        </div>
+    </div>
 <script src="translations.js"></script>
     <script src="app.js"></script>
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
