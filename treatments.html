@@ -1,4 +1,4 @@
-﻿?<!DOCTYPE html>
+?<!DOCTYPE html>
 
 <html lang="tr">
 
@@ -29,12 +29,13 @@
         .treatments-page-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px; /* Separating the boxes more */
+            gap: 40px; 
             padding: 40px 0;
         }
         .treatments-page-grid .service-card {
             background: transparent !important;
-            border: 2px solid var(--primary-color) !important;
+            border: 3px solid var(--primary-color) !important; /* Thicker border */
+            border-radius: 20px !important; /* Rounded corners */
             box-shadow: none !important;
             padding: 30px;
             transition: transform 0.3s ease, background 0.3s ease;
@@ -46,8 +47,9 @@
         .treatments-page-grid .service-icon-wrapper {
             background: transparent !important;
             color: var(--primary-color) !important;
-            border: 1px solid var(--primary-color);
+            border: none !important; /* Removed icon border */
             margin-bottom: 20px;
+            font-size: 2.5rem; /* Slightly larger icons */
         }
         .treatments-page-grid .service-icon-wrapper i {
             color: var(--primary-color) !important;
