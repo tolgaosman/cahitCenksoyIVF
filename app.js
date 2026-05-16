@@ -167,6 +167,7 @@ const translations = {
         formMessage: "Mesajınız",
         formSubmit: "Mesaj Gönder",
 
+        addressTitle: "ADRESİMİZ",
         footerRights: "Tüm hakları saklıdır.",
         footerPagesTitle: "SAYFALARIMIZ",
         footerContactTitle: "İLETİŞİM BİLGİLERİ",
@@ -338,6 +339,7 @@ const translations = {
         formMessage: "Your Message",
         formSubmit: "Send Message",
 
+        addressTitle: "OUR ADDRESS",
         footerRights: "All rights reserved.",
         footerPagesTitle: "OUR PAGES",
         footerContactTitle: "CONTACT INFORMATION",
@@ -509,6 +511,7 @@ const translations = {
         formMessage: "Ваше сообщение",
         formSubmit: "Отправить сообщение",
 
+        addressTitle: "НАШ АДРЕС",
         footerRights: "Все права защищены.",
         footerPagesTitle: "НАШИ СТРАНИЦЫ",
         footerContactTitle: "КОНТАКТНАЯ ИНФОРМАЦИЯ",
@@ -674,6 +677,7 @@ const translations = {
         formMessage: "Ihre Nachricht",
         formSubmit: "Nachricht senden",
 
+        addressTitle: "UNSERE ADRESSE",
         footerRights: "Alle Rechte vorbehalten.",
         footerPagesTitle: "UNSERE SEITEN",
         footerContactTitle: "KONTAKTINFORMATIONEN",
@@ -839,6 +843,7 @@ const translations = {
         formMessage: "رسالتك",
         formSubmit: "إرسال الرسالة",
 
+        addressTitle: "عنواننا",
         footerRights: "جميع الحقوق محفوظة.",
         footerPagesTitle: "صفحاتنا",
         footerContactTitle: "معلومات الاتصال",
