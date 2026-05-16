@@ -1315,10 +1315,10 @@ body { top: 0 !important; }
     color: white;
 }
 
-.service-card:nth-child(odd) { background-color: #f8c8dc; }
-.service-card:nth-child(even) { background-color: #f4b0cf; }
-.service-card:nth-child(n+5):nth-child(odd) { background-color: #f4b0cf; }
-.service-card:nth-child(n+5):nth-child(even) { background-color: #f8c8dc; }
+.service-card:nth-child(4n+1) { background-color: #f8c8dc; }
+.service-card:nth-child(4n+2) { background-color: #f4b0cf; }
+.service-card:nth-child(4n+3) { background-color: #fbcce2; }
+.service-card:nth-child(4n+4) { background-color: #ecc4ca; }
 
 .service-card:hover {
     filter: brightness(1.1);
