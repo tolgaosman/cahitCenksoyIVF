@@ -806,6 +806,15 @@ body { top: 0 !important; }
 }
 
 @media (max-width: 576px) {
+    .team-overlay { 
+        display: block !important; 
+        overflow-y: auto !important; 
+        text-align: left !important;
+        padding: 15px !important;
+    }
+    .team-overlay ul { 
+        margin-top: 0 !important; 
+    }
     .team-grid-full { grid-template-columns: repeat(2, 1fr) !important; gap: 15px !important; }
     .team-img { height: 220px !important; }
     .team-info { padding: 15px 10px !important; }
