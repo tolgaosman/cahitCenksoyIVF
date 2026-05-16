@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tüp Bebek Sözlüğü | Dr. Cahit Cenksoy</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="browserLogo.png">
+    <link rel="stylesheet" href="style.css?v=1.5">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .glossary-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 50px;
+            padding: 80px 20px;
+        }
+
+        .glossary-sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+            background: var(--card-bg);
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .glossary-sidebar h4 {
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .glossary-nav {
+            list-style: none;
+        }
+
+        .glossary-nav li {
+            margin-bottom: 15px;
+        }
+
+        .glossary-nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 1rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            border-left: 3px solid transparent;
+            padding-left: 15px;
+        }
+
+        .glossary-nav a:hover {
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+            background: var(--bg-light);
+            border-radius: 0 10px 10px 0;
+        }
+
+        .glossary-content {
+            background: var(--card-bg);
+            padding: 60px;
+            border-radius: 30px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .glossary-item {
+            margin-bottom: 80px;
+            scroll-margin-top: 120px;
+        }
+
+        .glossary-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .glossary-item h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .glossary-item h2 i {
+            margin-right: 20px;
+            font-size: 2.2rem;
+            color: var(--secondary-color);
+        }
+
+        .glossary-item p {
+            line-height: 1.9;
+            color: var(--text-main);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .drug-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .drug-card {
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 5px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .drug-card:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .drug-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .drug-card p {
+            margin-bottom: 0;
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+
+        @media (max-width: 992px) {
+            .glossary-container {
+                grid-template-columns: 1fr;
+                padding: 40px 20px;
+            }
+            .glossary-sidebar {
+                position: relative;
+                top: 0;
+                margin-bottom: 40px;
+            }
+            .glossary-content {
+                padding: 30px;
+            }
+            .glossary-item h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="google_translate_element" style="display:none;"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="siyahLogo.png" alt="Dr. Cahit Cenksoy" id="navLogo">
+                </a>
+            </div>
+            <div class="nav-center">
+                <ul class="nav-links">
+                    <li><a href="index.html" data-i18n="navHome">Ana Sayfa</a></li>
+                    <li><a href="team.html" data-i18n="navTeam">Ekibimiz</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" data-i18n="navIVF">Tüp Bebek (IVF) <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="ilk_degerlendirme.html" data-i18n="navIVF1">İlk Değerlendirme</a></li>
+                            <li><a href="tup_bebek_ilaclari.html" data-i18n="navIVF2">Tüp Bebek İlaçları</a></li>
+                            <li><a href="yumurtaliklarin_uyarilmasi.html" data-i18n="navIVF3">Yumurtalıkların Uyarılması</a></li>
+                            <li><a href="yumurtalarin_olgunlastirilmasi.html" data-i18n="navIVF4">Yumurtaların Olgunlaştırılması</a></li>
+                            <li><a href="yumurta_toplama.html" data-i18n="navIVF5">Yumurta Toplama</a></li>
+                            <li><a href="transfer.html" data-i18n="navIVF8">Transfer</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="treatments.html" data-i18n="navTreatments">Tedaviler</a></li>
+                    <li><a href="contact.html" data-i18n="navContact">İletişim</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <button id="themeToggle" class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div style="height: 80px;"></div>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background: linear-gradient(135deg, #f8c8dc, #fbcce2); padding: 100px 0; text-align: center;">
+        <div class="container">
+            <h1 style="font-size: 3.5rem; color: #2c3e50; font-weight: 800;">Tüp Bebek Sözlüğü</h1>
+            <p style="font-size: 1.2rem; color: #444; max-width: 800px; margin: 20px auto 0;">Tedavi sürecinden ilaç kullanımlarına kadar tüm tıbbi terimlerin detaylı açıklamaları.</p>
+            <div class="header-line" style="background: #2c3e50; margin: 30px auto 0;"></div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="glossary-container">
+        <!-- Sidebar -->
+        <aside class="glossary-sidebar">
+            <h4>HIZLI ERİŞİM</h4>
+            <ul class="glossary-nav">
+                <li><a href="#ilk-degerlendirme"><i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-right: 10px;"></i> İlk Değerlendirme</a></li>
+                <li><a href="#ilaclar"><i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-right: 10px;"></i> Tüp Bebek İlaçları</a></li>
+                <li><a href="#uyarilma"><i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-right: 10px;"></i> Yumurtalıkların Uyarılması</a></li>
+                <li><a href="#olgunlasma"><i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-right: 10px;"></i> Yumurtaların Olgunlaştırılması</a></li>
+                <li><a href="#opu"><i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-right: 10px;"></i> OPU (Yumurta Toplama)</a></li>
+                <li><a href="#sperm"><i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-right: 10px;"></i> Spermin Alınması</a></li>
+                <li><a href="#denudasyon"><i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-right: 10px;"></i> Denudasyon (Soyma)</a></li>
+                <li><a href="#transfer"><i class="fa-solid fa-chevron-right" style="font-size: 0.7rem; margin-right: 10px;"></i> Transfer Süreci</a></li>
+            </ul>
+        </aside>
+
+        <!-- Content -->
+        <main class="glossary-content">
+            <!-- İlk Değerlendirme -->
+            <article id="ilk-degerlendirme" class="glossary-item">
+                <h2><i class="fa-solid fa-clipboard-user"></i> İlk Değerlendirme</h2>
+                <p>Gebelik istemi olan ve düzenli korunmasız ilişkiye rağmen bir yıldır gebelik elde edememiş bir çifte kısırlık ( infertilite ) tanısı konur. Bu süre anne adayının yaşı 35 ‘ in üzerinde ise 6 ayla sınırlıdır. Öncelikle 3 tane testin yapılması önerilir. Bunlar; sperm tahlili, histerosalpingografi ( rahim filmi) ve anne adayının hormonal testleridir.</p>
+                <p>Erkek faktör kısırlık yani sperm testinde sorun olması tedavi planını değiştirir. Spermin hiç olmaması (azospermi) ve testis biyopsisinde fonksiyonel spermin bulunamaması durumunda sperm donasyonu (bağışı) yapılabilir. HSG (histerosalpingografi) yani rahim filmi çok değerli bir testtir. Bu basit görüntüleme yöntemi ile rahim içi yapışıklıklar, rahmin yapısal anomalileri, tüplerdeki yapışıklıklar veya hidrosalpinks kolaylıkla anlaşılır.</p>
+                <p>Yumurtalık rezervinde belirgin azalma olan anne adaylarında da beklenmeden tüp bebek tedavisine başlanması önerilir. Tamamen tükenmiş yumurta rezervi veya menopoz durumunda yumurta donasyonu doğru seçenektir. Tedaviye başlamadan eksik vitaminler varsa takviye edilmeli ve folik asitle b12 vitamini başlanmalıdır.</p>
+            </article>
+
+            <!-- İlaçlar -->
+            <article id="ilaclar" class="glossary-item">
+                <h2><i class="fa-solid fa-prescription-bottle-medical"></i> Tüp Bebek İlaçları</h2>
+                <p>İlaç teknolojilerindeki ilerlemeler, en fazla miktar ve kalitede yumurta toplanmasını sağlamayı amaçlar. Ayrıca embriyo transferi sonrası düşük oranlarını azaltır ve anneyi yüksek doz östrojenin yan etkilerinden korurlar.</p>
+                
+                <div class="drug-grid">
+                    <div class="drug-card">
+                        <h4>Folik asit ve B12 Vitamini</h4>
+                        <p>Bebekte sinir sistemi anomalilerini azaltır. Hücre bölünmesi ve çoğalmasında hayati önem taşır.</p>
+                    </div>
+                    <div class="drug-card">
+                        <h4>Klomifen ve Letrazole</h4>
+                        <p>İnsan beyninden doğal FSH salgılanmasını artıran en basit tedavi seçeneğidir.</p>
+                    </div>
+                    <div class="drug-card">
+                        <h4>HMG (Human Menopozal Gonadotropinler)</h4>
+                        <p>Menopozal idrardan elde edilen FSH ve LH hormonu içerir. Yumurtalıkları uyarır.</p>
+                    </div>
+                    <div class="drug-card">
+                        <h4>Rekombinant FSH</h4>
+                        <p>Genetik mühendislik ile üretilen saf FSH'tır. Doz kalibrasyonu çok hassastır.</p>
+                    </div>
+                    <div class="drug-card">
+                        <h4>Progesteron</h4>
+                        <p>Endometriumun olgunlaşmasını ve embriyonun tutunmasını sağlar. Gebeliğin devamı için kritiktir.</p>
+                    </div>
+                    <div class="drug-card">
+                        <h4>hCG (Yumurta Çatlatma)</h4>
+                        <p>Tüp bebek tedavilerinde yumurtaların olgunlaştırılması amacıyla cilt altından uygulanır.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Yumurtalıkların Uyarılması -->
+            <article id="uyarilma" class="glossary-item">
+                <h2><i class="fa-solid fa-vial-circle-check"></i> Yumurtalıkların Uyarılması</h2>
+                <p>Tüp bebek tedavisinde başarı toplanan yumurta sayısı ile doğru orantılıdır. Bu aşamada FSH içeren ilaçlar göbek çevresinden oldukça ince iğneler ile uygulanır; ağrılı bir tedavi değildir.</p>
+                <p>Genellikle ilaçların başlanmasından 4-6 gün sonra ilk ultrason kontrolü yapılır. Hedef folikül çaplarının senkron şekilde ortalama 17-19 mm çapa ulaştırılmasıdır.</p>
+            </article>
+
+            <!-- Yumurtaların Olgunlaştırılması -->
+            <article id="olgunlasma" class="glossary-item">
+                <h2><i class="fa-solid fa-certificate"></i> Yumurtaların Olgunlaştırılması</h2>
+                <p>Foliküller istenilen büyüklüğe ulaştığı zaman yumurta çatlatma iğneleri yapılır. Zamanlama hayati önem taşır; iğnelerden yaklaşık 35.5-36 saat sonra yumurta toplama işlemi gerçekleştirilir.</p>
+            </article>
+
+            <!-- OPU -->
+            <article id="opu" class="glossary-item">
+                <h2><i class="fa-solid fa-hospital-user"></i> OPU (Yumurta Toplama)</h2>
+                <p>Anestezi altında, tüp bebek ameliyathanesinde uygulanır. Vajinal ultrason yardımıyla yumurtalıklardaki folikül sıvısı aspire edilerek yumurtalar toplanır. İşlem genellikle 10-30 dakika sürer.</p>
+            </article>
+
+            <!-- Spermin Alınması -->
+            <article id="sperm" class="glossary-item">
+                <h2><i class="fa-solid fa-microscope"></i> Spermin Alınması</h2>
+                <p>Baba adayı yumurta toplama gününde sperm örneği verir. Sperm verme aşamasında sorun yaşayan veya azospermi olan adaylardan TESE işlemi ile sperm cerrahi olarak alınabilir.</p>
+            </article>
+
+            <!-- Denudasyon -->
+            <article id="denudasyon" class="glossary-item">
+                <h2><i class="fa-solid fa-flask-vial"></i> Denudasyon (Soyulma)</h2>
+                <p>Toplanan yumurtalar etraflarındaki kümülüs hücrelerinden temizlenir. Bu sayede yumurtaların olgunluk evresi net olarak belirlenir ve döllenme işlemine hazırlanır.</p>
+            </article>
+
+            <!-- Transfer -->
+            <article id="transfer" class="glossary-item">
+                <h2><i class="fa-solid fa-baby-carriage"></i> Transfer</h2>
+                <p>Embriyoların anne rahmine yerleştirilmesi işlemidir. Ultrason eşliğinde, ince ve yumuşak bir kanül yardımıyla endometriuma hassas bir şekilde ulaşılır. Anestezi gerektirmeyen, ağrısız bir işlemdir.</p>
+            </article>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-left">
+                    <img src="siyahLogo.png" alt="Dr. Cahit Cenksoy Logo" id="footerLogo" style="max-height: 80px; margin-bottom: 20px;">
+                    <p class="hospital-name"><i class="fa-solid fa-location-dot" style="margin-right: 8px; color: var(--primary-color);"></i> <span>Nicosia IVF - Nicosia Sevinç Hospital</span></p>
+                </div>
+                <div class="footer-right">
+                    <p>&copy; 2024 Dr. Cahit Cenksoy IVF Clinic. Tüm hakları saklıdır.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/905488880112" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="translations.js"></script>
+    <script src="app.js"></script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
