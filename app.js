@@ -1,7 +1,5 @@
-// --- Translations Dictionary ---
 const translations = {
     tr: {
-        logoText: "Dr. Cahit Cenksoy",
         navHome: "ANA SAYFA",
         navTeam: "EKİBİMİZ",
         navIVF: "TÜP BEBEK (IVF)",
@@ -34,7 +32,7 @@ const translations = {
 
         aboutTitle: "OP. DR. CAHİT CENKSOY",
         aboutSubtitle: "KADIN HASTALIKLARI, DOĞUM VE TÜP BEBEK UZMANI",
-        aboutTextFull: "Kıbrıs'ta en yüksek tüp bebek başarı oranına sahip; en genç, en tecrübeli ve en başarılı Kadın Doğum Uzmanlarından biri olan Dr. Cahit Cenksoy'un hem sezaryen hem de doğal doğumlarda adada en fazla doğum yaptıran doktor olduğu da çok iyi bilinmektedir. Hayallerinizin özel müjdesini alacağınız merkezimiz, adanın cazibe merkezi, tüm dünyanın da gözde turistik cenneti Girne'de yer almaktadır. Deniz kıyısındaki şehrimizde hastalarımızın tedavileri devam ederken yapacakları bir şehir gezisi streslerinin azalmasına katkıda bulunacaktır. <br><br> Tecrübeli ekibimiz, modern laboratuvarımız, donanımlı hemşirelerimiz ve her türlü ihtiyacınıza cevap verecek koordinatörlerimiz ile başarımızı günden güne yükseltmektedir. Hastalarımızın doktor ile istedikleri her an iletişim içinde olabilmesi; hastalarımızın stresini azaltırken, merkezimize olan güveni de arttırmaktadır. Merkezimizin gebelik başarı oranları %75-90 arasında değişkenlik göstermektedir. Oosit donasyonunda sıra bekleme zorunluluğu olmaması ve sperm donasyonunda uluslararası tescilli sperm bankaları ile çalışılması sayesinde merkezimiz yüzünüzü güldürecek sonuçlar almaktadır. Hasta başına ayrılan oosit sayılarındaki standartlarımızdan ödün vermediğimizden başarı oranlarımız sürekli en üst düzeyde kalmaktadır.",
+        aboutTextFull: "Kıbrıs'ta en yüksek tüp bebek başarı oranına sahip; en genç, en tecrübeli ve en başarılı Kadın Doğum Uzmanlarından biri olan Dr. Cahit Cenksoy'un hem sezaryen hem de doğal doğumlarda adada en fazla doğum yaptıran doktor olduğu da çok iyi bilinmektedir. Hayallerinizin özel müjdesini alacağınız merkezimiz, adanın cazibe merkezi, tüm dünyanın da gözde turistik cenneti Girne'de yer almaktadır. Deniz kıyısındaki şehrimizde hastalarımızın tedavileri devam ederken yapacakları bir şehir gezisi streslerinin azalmasına katkıda bulunacaktır. <br><br> Tecrübeli ekibimiz, modern laboratuvarımız, donanımlı hemşirelerimiz ve her türlü ihtiyacınıza cevap verecek koordinatörlerimiz ile başarımızı günden güne yükseltmektedir. Hastalarımızın doktor ile istedikleri her an iletişim içinde olabilmesi; hastalarımızın stresini azaltırken, merkezimize olan güveni de arttırmaktadır. Merkezimizin gebelik başarı oranları %75-90 arasında değişkenlik göstermektedir. Oosit donasyonunda sıra bekleme zorunluluğu olmaması ve sperm donasyonunda uluslararası tescilli sperm bankaları ile çalışılması sayesinde merkezimiz yüzünüzü güllürecek sonuçlar almaktadır. Hasta başına ayrılan oosit sayılarındaki standartlarımızdan ödün vermediğimizden başarı oranlarımız sürekli en üst düzeyde kalmaktadır.",
 
         feat1Title: "TEDAVİ SEÇENEKLERİ",
         feat1Btn: "İNCELE >",
@@ -70,11 +68,20 @@ const translations = {
         proc5Desc: "Kıbrıs’ta Tüp Bebek Tedavisi seçilecek yönteme göre değişkenlik gösterse de tedavilerin oldukça geniş açıklaması ana sayfamızda yer almaktadır. Daha fazla bilgi ve ayrıntı için bizimle iletişime geçebilirsiniz.",
         proc6Desc: "Kıbrıs’ta tüp bebek tedavisi sonrası çiftlerin çoğu transferden bir gün sonra kendi yaşadıkları ülkeye dönmektedir. Bizim önerimiz transferden 12 gün sonra kanda gebelik testi (b-HCG ) yapılmasıdır. Öncesinde yapılan idrar veya kan testleri yanıltıcı olabilmektedir.",
         
+        stat1Num: "3640",
         stat1Label: "TOPLAM IVF SIKLUSU",
+        stat2Num: "2260",
         stat2Label: "OOSİT DONASYONU",
+        stat2Sub: "%84 BAŞARI",
+        stat3Num: "693",
         stat3Label: "IVF",
+        stat3Sub: "%84 BAŞARI",
+        stat4Num: "538",
         stat4Label: "SPERM DONASYONU",
+        stat4Sub: "%67 BAŞARI",
+        stat5Num: "610",
         stat5Label: "PGD",
+        stat5Sub: "%84 BAŞARI",
         statSuccess: "BAŞARI",
         
         apptTitle: "RANDEVU ALIN",
@@ -110,21 +117,6 @@ const translations = {
         teamDesc6: "5 Yıldır Bizimle Çalışmaktadır.",
         teamRole7: "Uluslararası Koordinatör",
         teamDesc7: "Dil Farsça - Türkçe - İngilizce Eğitim - Lisans Hemşirelik - Islamic Azad University of Tuyserkan Master Cerrahi Hemşirelik - Yakın Doğu Üniversitesi",
-
-        stat1Num: "3640",
-        stat1Label: "TOPLAM IVF SIKLUSU",
-        stat2Num: "2260",
-        stat2Label: "OOSİT DONASYONU",
-        stat2Sub: "%84 BAŞARI",
-        stat3Num: "693",
-        stat3Label: "IVF",
-        stat3Sub: "%84 BAŞARI",
-        stat4Num: "538",
-        stat4Label: "SPERM DONASYONU",
-        stat4Sub: "%67 BAŞARI",
-        stat5Num: "610",
-        stat5Label: "PGD",
-        stat5Sub: "%84 BAŞARI",
 
         ivfTitle: "Tüp Bebek Merkezi",
         ivfSubTitle: "İleri Üreme Teknolojisi",
@@ -177,7 +169,6 @@ const translations = {
         pageContentPlaceholder: "Bu sayfa içeriği yakında güncellenecektir. Detaylı bilgi için lütfen bizimle iletişime geçin."
     },
     en: {
-        logoText: "Dr. Cahit Cenksoy",
         navHome: "HOME",
         navTeam: "OUR TEAM",
         navIVF: "IVF",
@@ -246,11 +237,20 @@ const translations = {
         proc5Desc: "Although IVF treatment in Cyprus varies according to the method to be chosen, a very wide explanation of the treatments is available on our home page. You can contact us for more information and details.",
         proc6Desc: "Most couples return to their own country one day after the transfer after IVF treatment in Cyprus. Our recommendation is to have a blood pregnancy test (b-HCG) 12 days after the transfer. Urine or blood tests performed before then can be misleading.",
         
+        stat1Num: "3640",
         stat1Label: "TOTAL IVF CYCLES",
+        stat2Num: "2260",
         stat2Label: "OOCYTE DONATION",
+        stat2Sub: "%84 SUCCESS",
+        stat3Num: "693",
         stat3Label: "IVF",
+        stat3Sub: "%84 SUCCESS",
+        stat4Num: "538",
         stat4Label: "SPERM DONATION",
+        stat4Sub: "%67 SUCCESS",
+        stat5Num: "610",
         stat5Label: "PGD",
+        stat5Sub: "%84 SUCCESS",
         statSuccess: "SUCCESS",
         
         apptTitle: "GET APPOINTMENT",
@@ -274,28 +274,18 @@ const translations = {
         teamTitle: "Our Team",
         teamRole1: "Lead IVF Specialist",
         teamDesc1: "Dr. Cahit Cenksoy is one of the youngest and most talented Gynecology and Obstetrics Specialists with a leading IVF success rate in Cyprus. He is also well known as the doctor who has performed the most births on the island, both cesarean and natural.",
-        teamDesc2: "Languages: English – Bulgarian – Spanish. Education: Master's Degree 2009-2012 – Istanbul Bilim University, Institute of Health Sciences, Histology-Embryology. Thesis: Effects of Nitric Oxide Isoforms (NOS) among Human Normospermic, Oligospermic, and Asthenospermic Groups. Bachelor's 2004-2008 – Eskisehir Osmangazi University, Faculty of Arts and Sciences, Biology.",
-        teamDesc3: "Languages: English – Bulgarian – Spanish. Background in Computer Programming and Tourism. After 9 years in banking, has been working as Foreign Patient Coordinator at Euro IVF for 1 year.",
-        teamDesc4: "Languages: English. Education: Bachelor's Degree from Girne American University, School of Health Sciences, Medical Documentation and Secretarial.",
-        teamDesc5: "Languages: English. Education: Kastamonu Inebolu Vocational High School of Health, Emergency Medical Technician. Private Workplace Nursing Certificate.",
-        teamDesc6: "Has been working with us for 5 years.",
-        teamDesc7: "Languages: Persian - Turkish - English. Education: Bachelor's in Nursing from Islamic Azad University of Tuyserkan. Master's in Surgical Nursing from Near East University.",
         teamRole2: "IVF Coordinator",
+        teamDesc2: "Languages: English – Bulgarian – Spanish. Education: Master's Degree 2009-2012 – Istanbul Bilim University, Institute of Health Sciences, Histology-Embryology. Thesis: Effects of Nitric Oxide Isoforms (NOS) among Human Normospermic, Oligospermic, and Asthenospermic Groups. Bachelor's 2004-2008 – Eskisehir Osmangazi University, Faculty of Arts and Sciences, Biology.",
         teamRole3: "Embryologist",
+        teamDesc3: "Languages: English – Bulgarian – Spanish. Background in Computer Programming and Tourism. After 9 years in banking, has been working as Foreign Patient Coordinator at Euro IVF for 1 year.",
         teamRole4: "Nurse",
+        teamDesc4: "Languages: English. Education: Bachelor's Degree from Girne American University, School of Health Sciences, Medical Documentation and Secretarial.",
         teamRole5: "Patient Coordinator",
+        teamDesc5: "Languages: English. Education: Kastamonu Inebolu Vocational High School of Health, Emergency Medical Technician. Private Workplace Nursing Certificate.",
         teamRole6: "Assistant",
+        teamDesc6: "Has been working with us for 5 years.",
         teamRole7: "International Coordinator",
-
-        stat1Num: "3640",
-        stat2Num: "2260",
-        stat2Sub: "%84 SUCCESS",
-        stat3Num: "693",
-        stat3Sub: "%84 SUCCESS",
-        stat4Num: "538",
-        stat4Sub: "%67 SUCCESS",
-        stat5Num: "610",
-        stat5Sub: "%84 SUCCESS",
+        teamDesc7: "Languages: Persian - Turkish - English. Education: Bachelor's in Nursing from Islamic Azad University of Tuyserkan. Master's in Surgical Nursing from Near East University.",
 
         ivfTitle: "IVF Center",
         ivfSubTitle: "Advanced Reproductive Technology",
@@ -345,16 +335,9 @@ const translations = {
         footerPhone: "PHONE",
         footerEmail: "EMAIL",
         modalClose: "Close",
-        pageContentPlaceholder: "This page content will be updated soon. Please contact us for detailed information.",
-        teamDesc2: "Languages: English – Bulgarian – Spanish. Education: Master's Degree 2009-2012 – Istanbul Bilim University, Institute of Health Sciences, Histology-Embryology. Thesis: Effects of Nitric Oxide Isoforms (NOS) among Human Normospermic, Oligospermic, and Asthenospermic Groups. Bachelor's 2004-2008 – Eskisehir Osmangazi University, Faculty of Arts and Sciences, Biology.",
-        teamDesc3: "Languages: English – Bulgarian – Spanish. Background in Computer Programming and Tourism. After 9 years in banking, has been working as Foreign Patient Coordinator at Euro IVF for 1 year.",
-        teamDesc4: "Languages: English. Education: Bachelor's Degree from Girne American University, School of Health Sciences, Medical Documentation and Secretarial.",
-        teamDesc5: "Languages: English. Education: Kastamonu Inebolu Vocational High School of Health, Emergency Medical Technician. Private Workplace Nursing Certificate.",
-        teamDesc6: "A valuable member of our technical staff.",
-        teamDesc7: "Our experienced nurse, working to provide the best care to our patients."
+        pageContentPlaceholder: "This page content will be updated soon. Please contact us for detailed information."
     },
     ru: {
-        logoText: "Д-р Джахит Дженксой",
         navHome: "ГЛАВНАЯ",
         navTeam: "НАША КОМАНДА",
         navIVF: "ЭКО (IVF)",
@@ -423,11 +406,20 @@ const translations = {
         proc5Desc: "Хотя лечение ЭКО на Кипре варьируется в зависимости от выбранного метода, очень подробное описание процедур доступно на нашей главной странице. Вы можете связаться с нами для получения дополнительной информации и подробностей.",
         proc6Desc: "Большинство пар возвращаются в свою страну через день после переноса после лечения ЭКО на Кипре. Наша рекомендация — сделать анализ крови на беременность (b-HCG) через 12 дней после переноса. Тесты мочи или крови, проведенные раньше, могут быть ошибочными.",
         
+        stat1Num: "3640",
         stat1Label: "ВСЕГО ЦИКЛОВ ЭКО",
+        stat2Num: "2260",
         stat2Label: "ДОНОРСТВО ООЦИТОВ",
+        stat2Sub: "%84 УСПЕХ",
+        stat3Num: "693",
         stat3Label: "ЭКО",
+        stat3Sub: "%84 УСПЕХ",
+        stat4Num: "538",
         stat4Label: "ДОНОРСТВО СПЕРМЫ",
+        stat4Sub: "%67 УСПЕХ",
+        stat5Num: "610",
         stat5Label: "ПГД",
+        stat5Sub: "%84 УСПЕХ",
         statSuccess: "УСПЕХ",
         
         apptTitle: "ЗАПИСАТЬСЯ НА ПРИЕМ",
@@ -457,16 +449,6 @@ const translations = {
         teamRole5: "Координатор по работе с пациентами",
         teamRole6: "Ассистент",
         teamRole7: "Международный координатор",
-
-        stat1Num: "3640",
-        stat2Num: "2260",
-        stat2Sub: "%84 УСПЕХ",
-        stat3Num: "693",
-        stat3Sub: "%84 УСПЕХ",
-        stat4Num: "538",
-        stat4Sub: "%67 УСПЕХ",
-        stat5Num: "610",
-        stat5Sub: "%84 УСПЕХ",
 
         ivfTitle: "Центр ЭКО",
         ivfSubTitle: "Передовые репродуктивные технологии",
@@ -519,7 +501,6 @@ const translations = {
         pageContentPlaceholder: "Содержимое этой страницы будет обновлено в ближайшее время. Пожалуйста, свяжитесь с нами для получения подробной информации."
     },
     de: {
-        logoText: "Dr. Cahit Cenksoy",
         navHome: "STARTSEITE",
         navTeam: "UNSER TEAM",
         navIVF: "IVF",
@@ -569,7 +550,7 @@ const translations = {
         srv4Title: "EIZELLSPENDE",
         srv5Title: "EMBRYONENSPENDE",
         srv6Title: "NGS-BEHANDLUNG",
-        srv7Title: "IVF MIT ICSI",
+        srv7Title: "IVF mit ICSI",
         srv8Title: "EINFRIEREN VON SPERMIEN & EIZELLEN",
         srvMore: "Mehr Details",
         
@@ -588,11 +569,20 @@ const translations = {
         proc5Desc: "Obwohl die IVF-Behandlung in Zypern je nach gewählter Methode variiert, finden Sie auf unserer Homepage eine sehr ausführliche Erklärung der Behandlungen. Für weitere Informationen und Details können Sie uns gerne kontaktieren.",
         proc6Desc: "Die meisten Paare kehren nach einer IVF-Behandlung in Zypern einen Tag nach dem Transfer in ihr eigenes Land zurück. Unsere Empfehlung ist, 12 Tage nach dem Transfer einen Blut-Schwangerschaftstest (b-HCG) durchzuführen. Zuvor durchgeführte Urin- oder Bluttests können irreführend sein.",
         
+        stat1Num: "3640",
         stat1Label: "GESAMT IVF-ZYKLEN",
+        stat2Num: "2260",
         stat2Label: "OOCYTEN-SPENDE",
+        stat2Sub: "%84 ERFOLG",
+        stat3Num: "693",
         stat3Label: "IVF",
+        stat3Sub: "%84 ERFOLG",
+        stat4Num: "538",
         stat4Label: "SAMENSPENDE",
+        stat4Sub: "%67 ERFOLG",
+        stat5Num: "610",
         stat5Label: "PID",
+        stat5Sub: "%84 ERFOLG",
         statSuccess: "ERFOLG",
         
         apptTitle: "TERMIN VEREINBAREN",
@@ -606,7 +596,7 @@ const translations = {
         formAMH: "AMH-Wert",
         formSperm: "Spermienergebnis",
         formMarriage: "Dauer der Ehe",
-        formPregnancy: "Dauer des Kinderwunsches",
+        formPregnancy: "Kinderwunschdauer",
         formTest: "Wurde ein Test durchgeführt?",
         formEmailPlace: "Ihre E-Mail-Adresse",
         formPhonePlace: "Ihre Telefonnummer",
@@ -622,16 +612,6 @@ const translations = {
         teamRole5: "Patientenkoordinator",
         teamRole6: "Assistent",
         teamRole7: "Internationaler Koordinator",
-
-        stat1Num: "3640",
-        stat2Num: "2260",
-        stat2Sub: "%84 ERFOLG",
-        stat3Num: "693",
-        stat3Sub: "%84 ERFOLG",
-        stat4Num: "538",
-        stat4Sub: "%67 ERFOLG",
-        stat5Num: "610",
-        stat5Sub: "%84 ERFOLG",
 
         ivfTitle: "IVF-Zentrum",
         ivfSubTitle: "Fortschrittliche Reproduktionstechnologie",
@@ -684,7 +664,6 @@ const translations = {
         pageContentPlaceholder: "Dieser Seiteninhalt wird in Kürze aktualisiert. Bitte kontaktieren Sie uns für detaillierte Informationen."
     },
     ar: {
-        logoText: "د. جاهيت جنكسوي",
         navHome: "الصفحة الرئيسية",
         navTeam: "فريقنا",
         navIVF: "أطفال الأنابيب (IVF)",
@@ -753,11 +732,20 @@ const translations = {
         proc5Desc: "على الرغم من أن علاج أطفال الأنابيب في قبرص يختلف باختلاف الطريقة المختارة، إلا أن شرحاً واسعاً جداً للعلاجات متاح في صفحتنا الرئيسية. يمكنك الاتصال بنا للحصول على مزيد من المعلومات والتفاصيل.",
         proc6Desc: "يعود معظم الأزواج إلى بلدهم الأصلي بعد يوم واحد من النقل بعد علاج أطفال الأنابيب في قبرص. توصيتنا هي إجراء اختبار حمل بالدم (b-HCG) بعد 12 يوماً من النقل. يمكن أن تكون اختبارات البول أو الدم التي تُجرى قبل ذلك مضللة.",
         
+        stat1Num: "3640",
         stat1Label: "إجمالي دورات أطفال الأنابيب",
+        stat2Num: "2260",
         stat2Label: "التبرع بالبويضات",
+        stat2Sub: "نجاح %84",
+        stat3Num: "693",
         stat3Label: "أطفال الأنابيب",
+        stat3Sub: "نجاح %84",
+        stat4Num: "538",
         stat4Label: "التبرع بالحيوانات المنوية",
+        stat4Sub: "نجاح %67",
+        stat5Num: "610",
         stat5Label: "PGD",
+        stat5Sub: "نجاح %84",
         statSuccess: "نجاح",
         
         apptTitle: "احصل على موعد",
@@ -787,16 +775,6 @@ const translations = {
         teamRole5: "منسق المرضى",
         teamRole6: "مساعد",
         teamRole7: "المنسق الدولي",
-
-        stat1Num: "3640",
-        stat2Num: "2260",
-        stat2Sub: "نجاح %84",
-        stat3Num: "693",
-        stat3Sub: "نجاح %84",
-        stat4Num: "538",
-        stat4Sub: "نجاح %67",
-        stat5Num: "610",
-        stat5Sub: "نجاح %84",
 
         ivfTitle: "مركز أطفال الأنابيب",
         ivfSubTitle: "تقنية الإنجاب المتقدمة",
@@ -855,22 +833,17 @@ function applyTranslations() {
     const lang = (localStorage.getItem('lang') || 'tr').toLowerCase();
     document.documentElement.lang = lang;
     
-    // Select nav and footer elements
     const nav = document.querySelector('nav');
     const footer = document.querySelector('footer');
     
-    // RTL Support for Arabic
     if (lang === 'ar') {
         document.documentElement.dir = 'rtl';
         document.body.classList.add('rtl');
-        
-        // Force Nav and Footer to stay LTR so elements don't swap places
         if (nav) nav.setAttribute('dir', 'ltr');
         if (footer) footer.setAttribute('dir', 'ltr');
     } else {
         document.documentElement.dir = 'ltr';
         document.body.classList.remove('rtl');
-        
         if (nav) nav.removeAttribute('dir');
         if (footer) footer.removeAttribute('dir');
     }
@@ -888,15 +861,9 @@ function applyTranslations() {
         }
     });
 
-    // Update current lang text if exists
     const currentLangText = document.getElementById('currentLangText');
     if (currentLangText) {
         currentLangText.innerText = lang.toUpperCase();
-    }
-    
-    // Update FAQs if on FAQ page
-    if (typeof renderFAQs === 'function') {
-        renderFAQs(lang);
     }
 }
 
@@ -913,27 +880,20 @@ function initTheme() {
     function updateLogo(isDark) {
         const navLogo = document.getElementById('navLogo');
         const footerLogo = document.getElementById('footerLogo');
+        const logoSrc = isDark ? 'beyazLogo.png' : 'siyahLogo.png';
         
-        if (navLogo) {
-            navLogo.src = isDark ? 'beyazLogo.png' : 'siyahLogo.png';
-        }
-        if (footerLogo) {
-            footerLogo.src = isDark ? 'beyazLogo.png' : 'siyahLogo.png';
-        }
+        if (navLogo) navLogo.src = logoSrc;
+        if (footerLogo) footerLogo.src = logoSrc;
     }
 
     function setTheme(isDark) {
         if (isDark) {
             htmlElement.setAttribute('data-theme', 'dark');
-            if (themeToggleBtn) {
-                themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
-            }
+            if (themeToggleBtn) themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
             localStorage.setItem('theme', 'dark');
         } else {
             htmlElement.removeAttribute('data-theme');
-            if (themeToggleBtn) {
-                themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
-            }
+            if (themeToggleBtn) themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
             localStorage.setItem('theme', 'light');
         }
         updateLogo(isDark);
@@ -946,11 +906,9 @@ function initTheme() {
         });
     }
 
-    // Initial Load
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     const isDark = savedTheme === 'dark' || (savedTheme === null && prefersDark);
-    
     setTheme(isDark);
 }
 
@@ -959,7 +917,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initTeamCarousel();
 
-    // Lang selector click toggle for extra robustness
     const langBtn = document.getElementById('currentLang');
     const langSelector = document.querySelector('.lang-selector');
     if (langBtn && langSelector) {
@@ -967,17 +924,13 @@ document.addEventListener('DOMContentLoaded', () => {
             e.stopPropagation();
             langSelector.classList.toggle('active');
         });
-        
-        document.addEventListener('click', () => {
-            langSelector.classList.remove('active');
-        });
+        document.addEventListener('click', () => langSelector.classList.remove('active'));
     }
 });
 
 // --- Navbar Scroll Logic ---
 let lastScroll = 0;
 const navbar = document.querySelector('.navbar');
-
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     if (currentScroll <= 0) {
@@ -1006,36 +959,6 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// FAQ Rendering
-function renderFAQs(lang) {
-    const faqContainer = document.getElementById('faqAccordion');
-    if (!faqContainer || typeof faqData === 'undefined') return;
-
-    faqContainer.innerHTML = '';
-    const questions = faqData[lang] || faqData['tr'];
-
-    questions.forEach((item) => {
-        const accordionItem = document.createElement('div');
-        accordionItem.className = 'accordion-item';
-        accordionItem.innerHTML = `
-            <button class="accordion-header">
-                <span>${item.q}</span>
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="accordion-content">
-                <p>${item.a}</p>
-            </div>
-        `;
-        const header = accordionItem.querySelector('.accordion-header');
-        header.addEventListener('click', () => {
-            const isActive = accordionItem.classList.contains('active');
-            document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
-            if (!isActive) accordionItem.classList.add('active');
-        });
-        faqContainer.appendChild(accordionItem);
-    });
-}
-
 // Process Modal Logic
 function openProcessModal(step) {
     const modal = document.getElementById('processModal');
@@ -1043,23 +966,15 @@ function openProcessModal(step) {
     const desc = document.getElementById('modalDescription');
     const lang = document.documentElement.lang || 'tr';
     
-    if (!modal || !title || !desc) {
-        console.error('Modal elements missing');
-        return;
-    }
+    if (!modal || !title || !desc) return;
 
-    const getTranslation = (key) => {
-        const trans = (translations[lang] && translations[lang][key]) || (translations['tr'] && translations['tr'][key]);
-        return trans || "";
-    };
+    const getTranslation = (key) => (translations[lang] && translations[lang][key]) || (translations['tr'][key]) || "";
     
     title.innerText = getTranslation('proc' + step + 'Title');
-    desc.innerHTML = getTranslation('proc' + step + 'Desc'); // Use innerHTML to support <br> if any
+    desc.innerHTML = getTranslation('proc' + step + 'Desc');
     
     const closeBtn = modal.querySelector('[data-i18n="modalClose"]');
-    if (closeBtn) {
-        closeBtn.innerHTML = getTranslation('modalClose');
-    }
+    if (closeBtn) closeBtn.innerHTML = getTranslation('modalClose');
     
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden'; 
@@ -1073,45 +988,33 @@ function closeProcessModal() {
     }
 }
 
-// Close modal when clicking outside
-window.addEventListener('click', (event) => {
-    const modal = document.getElementById('processModal');
-    if (event.target === modal) {
-        closeProcessModal();
-    }
+window.addEventListener('click', (e) => {
+    if (e.target === document.getElementById('processModal')) closeProcessModal();
 });
-
 
 // --- Team Carousel Logic ---
 function initTeamCarousel() {
     const carousel = document.getElementById('teamCarousel');
     const prevBtn = document.getElementById('teamPrev');
     const nextBtn = document.getElementById('teamNext');
-    
     if (!carousel || !prevBtn || !nextBtn) return;
 
-    // Carousel movement with Loop
+    const scrollWidth = () => carousel.querySelector('.team-card').offsetWidth + 30;
+
     nextBtn.addEventListener('click', () => {
-        const cardWidth = carousel.querySelector('.team-card').offsetWidth + 30;
         const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-        
-        // If we are at the end, jump to start
         if (carousel.scrollLeft + 10 >= maxScroll) {
             carousel.scrollTo({ left: 0, behavior: 'smooth' });
         } else {
-            carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+            carousel.scrollBy({ left: scrollWidth(), behavior: 'smooth' });
         }
     });
 
     prevBtn.addEventListener('click', () => {
-        const cardWidth = carousel.querySelector('.team-card').offsetWidth + 30;
-        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-        
-        // If we are at the start, jump to end
         if (carousel.scrollLeft <= 10) {
-            carousel.scrollTo({ left: maxScroll, behavior: 'smooth' });
+            carousel.scrollTo({ left: carousel.scrollWidth, behavior: 'smooth' });
         } else {
-            carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+            carousel.scrollBy({ left: -scrollWidth(), behavior: 'smooth' });
         }
     });
 }
