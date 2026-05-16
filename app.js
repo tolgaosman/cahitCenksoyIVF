@@ -169,20 +169,184 @@ const translations = {
         footerEmail: "E-POSTA",
         modalClose: "Kapat",
         pageContentPlaceholder: "Bu sayfa içeriği yakında güncellenecektir. Detaylı bilgi için lütfen bizimle iletişime geçin."
+    },
+    en: {
+        logoText: "Dr. Cahit Cenksoy",
+        navHome: "HOME",
+        navTeam: "OUR TEAM",
+        navIVF: "IVF",
+        navIVF1: "Initial Evaluation",
+        navIVF2: "IVF Medications",
+        navIVF3: "Ovarian Stimulation",
+        navIVF4: "Egg Maturation",
+        navIVF5: "OPU (Egg Collection)",
+        navIVF6: "Sperm Collection",
+        navIVF7: "Denudation",
+        navIVF8: "Transfer",
+        navTreatments: "TREATMENT OPTIONS",
+        navTreat1: "PGD/PGS",
+        navTreat2: "Tandem Cycle",
+        navTreat3: "Sperm Donation",
+        navTreat4: "Egg Donation",
+        navTreat5: "Embryo Donation",
+        navTreat6: "NGS Treatment",
+        navTreat7: "IVF with ICSI",
+        navTreat8: "Sperm & Egg Freezing",
+        navTestimonials: "TESTIMONIALS",
+        navFAQ: "FAQ",
+        navBlogs: "BLOG",
+        navContact: "CONTACT",
+
+        heroTitle: "Dr. Cahit Cenksoy<br>Nicosia Sevinç Hospital",
+        heroSubtitle: "State-of-the-art IVF treatments tailored to your parenthood journey, guided by expert care and compassion.",
+        heroBtnPrimary: "Get Consultation",
+        heroBtnSecondary: "View Treatments",
+
+        aboutTitle: "OP. DR. CAHİT CENKSOY",
+        aboutSubtitle: "OBSTETRICS, GYNECOLOGY AND IVF SPECIALIST",
+        aboutTextFull: "Dr. Cahit Cenksoy, one of the youngest, most experienced, and most successful gynecologists in Cyprus with the highest IVF success rates, is well known for performing the most deliveries on the island, both cesarean and natural. Our center, where you will receive the special news of your dreams, is located in Kyrenia, the attraction center of the island and a favorite tourist paradise for the whole world. While our patients continue their treatments in our seaside city, a city tour will contribute to reducing their stress. <br><br> Our experienced team, modern laboratory, equipped nurses, and coordinators who will respond to all your needs increase our success day by day. The fact that our patients can communicate with the doctor at any time reduces their stress while increasing their trust in our center. Our center's pregnancy success rates range between 75-90%. Thanks to the absence of waiting lists in oocyte donation and working with internationally registered sperm banks in sperm donation, our center achieves results that will make you smile. Since we do not compromise on our standards in the number of oocytes allocated per patient, our success rates constantly remain at the highest level.",
+
+        feat1Title: "TREATMENT OPTIONS",
+        feat1Btn: "EXPLORE >",
+        feat2Title: "PROCESS",
+        feat2Btn: "EXPLORE >",
+        feat3Title: "APPLICATION FORM",
+        feat3Btn: "BOOK NOW >",
+        feat4Title: "IVF DICTIONARY",
+        feat4Btn: "GO TO DICTIONARY >",
+
+        srv1Title: "PGD / PGS",
+        srv2Title: "TANDEM CYCLE",
+        srv3Title: "SPERM DONATION",
+        srv4Title: "EGG DONATION",
+        srv5Title: "EMBRYO DONATION",
+        srv6Title: "NGS TREATMENT",
+        srv7Title: "IVF WITH ICSI",
+        srv8Title: "SPERM & EGG FREEZING",
+        srvMore: "More Details",
+        
+        processTitle: "TREATMENT PROCESS",
+        proc1Title: "Initial Consultation",
+        proc2Title: "Treatment Planning",
+        proc3Title: "Travel",
+        proc4Title: "Accommodation",
+        proc5Title: "Treatment",
+        proc6Title: "Pregnancy Test",
+        procMore: "Read More",
+        proc1Desc: "In IVF treatment, regardless of the treatment option, detailed information of the mother and father candidates is primarily obtained. In addition to this information, all previous surgeries, imaging methods (such as HSG), blood and sperm test results are evaluated. Analyzing this information is vital for IVF success. The couple is asked about the treatment they request.",
+        proc2Desc: "Appropriate treatment is planned in light of existing data. Before starting IVF treatment in Cyprus, performing the preliminary preparation in the country where the couple lives shortens the travel time. Couples who do not have time constraints or plan a holiday in Cyprus during the treatment process prefer to spend the entire process here. If the planned treatment is egg donation in Cyprus, the mother candidate's hormone levels are checked on the 2nd or 3rd day of her period. If it is at the appropriate level, uterine lining preparation begins. When the uterine lining thickness reaches the appropriate level, progesterone hormone treatment must be started. Since the husband must also give a sperm sample on the day progesterone is started, the couple must be in Cyprus. If the father candidate has given a sperm sample beforehand, it is sufficient for the mother candidate to be in Cyprus only one day before the transfer. In sperm donation, it is sufficient for the mother candidate to be in Cyprus only one day before the eggs are collected (OPU). If the treatment is embryo donation, it is sufficient for the couple to be in Cyprus only one day before the transfer date.",
+        proc3Desc: "The transportation route for IVF treatment in Cyprus is usually air travel. It is also possible to reach by sea from Turkey by sea bus with a 2-3 hour journey. Transportation can be easily provided from Nicosia Ercan Airport or Larnaca Airport by air. Direct flights to Larnaca Airport are available for our passengers coming from Europe. Our center provides assistance at every point from the beginning to the end of the journey if requested. All kinds of transportation facilities including airport transfers, flight tickets, transportation from the hotel to the IVF center, and tourist trips can be provided.",
+        proc4Desc: "There are many options for accommodation during IVF treatment in Cyprus. There may be five-star very comfortable hotels within walking distance of the center, as well as very affordable boutique hotels. Choosing to have IVF treatment in Cyprus reduces the stress of the mother and father candidates. You can have a baby while vacationing in this beautiful island where the climate is mild in almost every season.",
+        proc5Desc: "Although IVF treatment in Cyprus varies according to the method to be chosen, a very wide explanation of the treatments is available on our home page. You can contact us for more information and details.",
+        proc6Desc: "Most couples return to their own country one day after the transfer after IVF treatment in Cyprus. Our recommendation is to have a blood pregnancy test (b-HCG) 12 days after the transfer. Urine or blood tests performed before then can be misleading.",
+        
+        stat1Label: "TOTAL IVF CYCLES",
+        stat2Label: "OOCYTE DONATION",
+        stat3Label: "IVF",
+        stat4Label: "SPERM DONATION",
+        stat5Label: "PGD",
+        statSuccess: "SUCCESS",
+        
+        apptTitle: "GET APPOINTMENT",
+        apptSubtitle: "You can book an appointment to benefit from our treatment options.",
+        formFemaleAge: "Female Age",
+        formMaleAge: "Male Age",
+        formBloodF: "Blood Group (F)",
+        formBloodM: "Blood Group (M)",
+        formSize: "Height",
+        formKilo: "Weight",
+        formAMH: "AMH Value",
+        formSperm: "Sperm Result",
+        formMarriage: "Marriage Duration",
+        formPregnancy: "Desired Pregnancy Duration",
+        formTest: "Was Test Done?",
+        formEmailPlace: "Your Email Address",
+        formPhonePlace: "Your Phone Number",
+        formMessagePlace: "Your Message",
+        formSend: "SEND",
+
+        teamTitle: "Our Team",
+        teamRole1: "Lead IVF Specialist",
+        teamDesc1: "Over 20 years of experience in reproductive medicine and advanced IVF technologies.",
+        teamRole2: "IVF Coordinator",
+        teamRole3: "Embryologist",
+        teamRole4: "Nurse",
+        teamRole5: "Patient Coordinator",
+        teamRole6: "Assistant",
+        teamRole7: "International Coordinator",
+
+        stat1Num: "3640",
+        stat2Num: "2260",
+        stat2Sub: "%84 SUCCESS",
+        stat3Num: "693",
+        stat3Sub: "%84 SUCCESS",
+        stat4Num: "538",
+        stat4Sub: "%67 SUCCESS",
+        stat5Num: "610",
+        stat5Sub: "%84 SUCCESS",
+
+        ivfTitle: "IVF Center",
+        ivfSubTitle: "Advanced Reproductive Technology",
+        ivfDesc: "We use the latest developments in in-vitro fertilization to maximize your chance of a healthy pregnancy. Our laboratory is equipped with the latest technology to handle complex cases with precision.",
+        ivfFeature1: "Comprehensive Fertility Assessment",
+        ivfFeature2: "Personalized Treatment Protocols",
+        ivfFeature3: "High Success Rates",
+
+        treatmentsTitle: "Treatment Options",
+        treatmentCard1Title: "Egg Freezing",
+        treatmentCard1Desc: "Protect your fertility for the future with our advanced vitrification techniques.",
+        treatmentCard2Title: "Egg/Sperm Donation",
+        treatmentCard2Desc: "Comprehensive and confidential donation programs with rigorous screening processes.",
+        treatmentCard3Title: "PGD / PGS",
+        treatmentCard3Desc: "Preimplantation genetic testing to ensure the healthiest embryos are selected.",
+
+        testimonialsTitle: "From Our Patients",
+        testimonial1Text: "\"Thanks to Dr. Cenksoy and his wonderful team, our dream of becoming parents finally came true. The care and support we received was beyond our expectations.\"",
+        testimonial1Author: "- Sarah & Michael, UK",
+
+        faqTitle: "Frequently Asked Questions",
+        faq1Q: "What is the success rate of IVF?",
+        faq1A: "Success rates vary by age and medical history, but our clinic consistently achieves rates above global averages thanks to our personalized protocols and advanced laboratory.",
+        faq2Q: "How long does an IVF cycle take?",
+        faq2A: "A typical IVF cycle takes about 4 to 6 weeks from the start of medication to embryo transfer.",
+        faq3Q: "Is there an age limit for treatment?",
+        faq3A: "While age affects success, we evaluate each case individually. We offer various options, including donor programs, for older patients.",
+
+        blogTitle: "Latest Updates",
+        blog1Title: "Understanding the IVF Timeline",
+        blog2Title: "Diet and Fertility: What to Eat",
+        blog3Title: "Mental Health During IVF",
+        readMore: "Read More",
+
+        contactTitle: "Contact Us",
+        contactInfoTitle: "Clinic Information",
+        contactInfoDesc: "Our patient coordinators are ready to answer your questions and schedule your first consultation.",
+        formName: "Full Name",
+        formEmail: "Email Address",
+        formMessage: "Your Message",
+        formSubmit: "Send Message",
+
+        footerRights: "All rights reserved.",
+        footerPagesTitle: "OUR PAGES",
+        footerContactTitle: "CONTACT INFORMATION",
+        footerHospital: "Nicosia IVF - Nicosia Sevinç Hospital",
+        footerPhone: "PHONE",
+        footerEmail: "EMAIL",
+        modalClose: "Close",
+        pageContentPlaceholder: "This page content will be updated soon. Please contact us for detailed information."
     }
 };
 
 // --- Language Logic ---
 function applyTranslations() {
-    const lang = 'tr';
+    const lang = localStorage.getItem('lang') || 'tr';
     document.documentElement.lang = lang;
     document.documentElement.setAttribute('dir', 'ltr');
 
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
-        const translation = translations[lang][key];
-
+        const translation = (translations[lang] && translations[lang][key]) || (translations['tr'][key]);
         if (translation) {
             if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                 el.placeholder = translation;
@@ -192,9 +356,22 @@ function applyTranslations() {
         }
     });
 
-    if (typeof renderFAQs === 'function') renderFAQs(lang);
+    // Update current lang text if exists
+    const currentLangText = document.getElementById('currentLangText');
+    if (currentLangText) {
+        currentLangText.innerText = lang.toUpperCase();
+    }
+    
+    // Update FAQs if on FAQ page
+    if (typeof renderFAQs === 'function') {
+        renderFAQs(lang);
+    }
 }
 
+function changeLanguage(lang) {
+    localStorage.setItem('lang', lang);
+    applyTranslations();
+}
 
 // --- Theme Toggle Logic ---
 function initTheme() {
