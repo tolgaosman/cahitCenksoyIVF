@@ -106,7 +106,7 @@
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
                             <div class="form-group">
                                 <label style="font-size: 0.85rem; font-weight: 600;">Kan Grubu (K)</label>
-                                <select id="blood_f" name="blood_f" required style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-light); color: var(--text-main);">
+                                <select id="blood_f" name="blood_f" required style="width: 100%; padding: 12px; border: none; border-radius: 8px; background: var(--bg-light); color: var(--text-main); font-family: inherit; font-size: 0.9rem; cursor: pointer; transition: background 0.3s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.03);">
                                     <option value="" disabled selected>Grup Seçiniz</option>
                                     <option value="A+">A Rh(+)</option>
                                     <option value="A-">A Rh(-)</option>
@@ -119,7 +119,7 @@
                             </div>
                             <div class="form-group">
                                 <label style="font-size: 0.85rem; font-weight: 600;">Kan Grubu (E)</label>
-                                <select id="blood_m" name="blood_m" required style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-light); color: var(--text-main);">
+                                <select id="blood_m" name="blood_m" required style="width: 100%; padding: 12px; border: none; border-radius: 8px; background: var(--bg-light); color: var(--text-main); font-family: inherit; font-size: 0.9rem; cursor: pointer; transition: background 0.3s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.03);">
                                     <option value="" disabled selected>Grup Seçiniz</option>
                                     <option value="A+">A Rh(+)</option>
                                     <option value="A-">A Rh(-)</option>
@@ -160,7 +160,15 @@
                         </div>
                         <div class="form-group" style="margin-bottom: 15px;">
                             <label style="font-size: 0.85rem; font-weight: 600;">Daha Önce Test Yapıldı mı?</label>
-                            <input type="text" id="test_done" name="test_done" required placeholder="Has The Test Been Done?" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-light);">
+                            
+                            <div style="display: flex; gap: 30px; align-items: center; padding: 5px 0;">
+                                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.9rem;">
+                                    <input type="radio" name="test_done" value="Evet" required style="width: 18px; height: 18px; accent-color: var(--primary-color);"> Evet
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.9rem;">
+                                    <input type="radio" name="test_done" value="Hayır" style="width: 18px; height: 18px; accent-color: var(--primary-color);"> Hayır
+                                </label>
+                            </div>
                         </div>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
                             <div class="form-group">
