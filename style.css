@@ -65,6 +65,13 @@ body {
     top: 0 !important;
 }
 
+/* Hide Google Translate top bar & widget */
+.goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon, .goog-te-banner-frame { display: none !important; }
+body { top: 0px !important; }
+#google_translate_element { display: none; }
+.goog-te-gadget-simple { background-color: transparent !important; border: none !important; padding: 0 !important; }
+.skiptranslate iframe { display: none !important; }
+
 a {
     text-decoration: none;
     color: inherit;
