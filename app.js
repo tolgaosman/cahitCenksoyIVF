@@ -289,8 +289,8 @@ const translations = {
         modalClose: "Close",
         pageContentPlaceholder: "This page content will be updated soon. Please contact us for detailed information."
     },
-    fr: { navHome: "ACCUEIL", navTeam: "NOTRE ÉQUIPE", navIVF: "FIV", navTreatments: "TRAITEMENTS", navContact: "CONTACT" },
-    de: { navHome: "STARTSEITE", navTeam: "UNSER TEAM", navIVF: "IVF", navTreatments: "BEHANDLUNGEN", navContact: "KONTAKT" },
+    fr: { navHome: "ACCUEIL", navTeam: "NOTRE ÉQUIPE", navIVF: "FIV", navTreatments: "TRAITEMENTS", navContact: "CONTACT", modalClose: "Fermer" },
+    de: { navHome: "STARTSEITE", navTeam: "UNSER TEAM", navIVF: "IVF", navTreatments: "BEHANDLUNGEN", navContact: "KONTAKT", modalClose: "Schließen" },
     ru: {
         logoText: "Доктор Джахит Дженксой",
         navHome: "ГЛАВНАЯ",
@@ -456,7 +456,7 @@ const translations = {
         footerEmail: "ЭЛ. ПОЧТА",
         modalClose: "Закрыть",
     },
-    ar: { navHome: "الرئيسية", navTeam: "فريقنا", navIVF: "أطفال الأنابيب", navTreatments: "العلاجات", navContact: "اتصل بنا" }
+    ar: { navHome: "الرئيسية", navTeam: "فريقنا", navIVF: "أطفال الأنابيب", navTreatments: "العلاجات", navContact: "اتصل بنا", modalClose: "إغلاق" }
 };
 
 // --- Language Switching Logic ---
@@ -634,6 +634,12 @@ function openProcessModal(step) {
     
     title.innerText = getTranslation('proc' + step + 'Title');
     desc.innerText = getTranslation('proc' + step + 'Desc');
+    
+    // Explicitly translate the close button
+    const closeBtn = modal.querySelector('[data-i18n="modalClose"]');
+    if (closeBtn) {
+        closeBtn.innerHTML = getTranslation('modalClose');
+    }
     
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden'; 
