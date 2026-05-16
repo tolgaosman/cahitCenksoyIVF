@@ -166,6 +166,7 @@ const translations = {
         footerPhone: "TELEFON",
         footerEmail: "E-POSTA",
         modalClose: "Kapat",
+        addressTitle: "Adresimiz",
         pageContentPlaceholder: "Bu sayfa içeriği yakında güncellenecektir. Detaylı bilgi için lütfen bizimle iletişime geçin."
     },
     en: {
@@ -335,6 +336,7 @@ const translations = {
         footerPhone: "PHONE",
         footerEmail: "EMAIL",
         modalClose: "Close",
+        addressTitle: "Our Location",
         pageContentPlaceholder: "This page content will be updated soon. Please contact us for detailed information."
     },
     ru: {

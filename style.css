@@ -649,6 +649,20 @@ h1, h2, h3, h4 {
     display: flex;
     justify-content: center;
 }
+
+/* --- Map Section --- */
+.map-section {
+    padding: 80px 0;
+    background-color: var(--bg-color);
+}
+
+.map-wrapper {
+    margin-top: 30px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
 .close-modal { font-size: 2rem; cursor: pointer; color: #999; }
 
 /* --- FAQ & Testimonials --- */
@@ -694,6 +708,34 @@ footer {
 }
 
 .footer-link:hover { color: var(--primary-color) !important; transform: translateX(5px); }
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.social-box {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--text-main);
+    transition: var(--transition);
+    background: var(--card-bg);
+}
+
+.social-box:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+}
 
 /* --- Global Utilities --- */
 .whatsapp-float {
