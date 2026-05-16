@@ -1,4 +1,4 @@
-:root {
+﻿:root {
     /* Light Theme (Default) */
     --bg-color: #ffffff;
     --bg-light: #fff5f6;
@@ -1938,4 +1938,39 @@ body { top: 0 !important; }
     .modal-footer {
         padding: 15px 20px;
     }
+}
+
+/* Equal height fix for feature boxes */
+.feature-item {
+    height: 100%;
+}
+.feature-item .btn-outline-white {
+    margin-top: auto;
+}
+
+/* LTR utility for phone numbers in RTL */
+.ltr-text {
+    direction: ltr !important;
+    display: inline-block;
+}
+/* Language dropdown mobile fix */
+@media (max-width: 768px) {
+    .lang-selector .dropdown-menu {
+        top: 100% !important;
+        bottom: auto !important;
+        transform: translateY(10px) !important;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+}
+
+/* Feature Item alignment fix */
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.feature-item h3 {
+    margin-bottom: auto !important;
+    padding-bottom: 20px;
 }
