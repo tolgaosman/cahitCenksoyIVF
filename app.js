@@ -12,7 +12,7 @@ function changeLanguage(langCode) {
     localStorage.setItem('lang', langCode);
     
     const domain = window.location.hostname === 'localhost' ? '' : '.' + window.location.hostname;
-    document.cookie = `googtrans=/tr/${langCode}; path=/; ${domain ? 'domain=' + domain + ';' : ''}`;
+    document.cookie = googtrans=/tr/; path=/; ;
     
     const select = document.querySelector('.goog-te-combo');
     if (select) {
