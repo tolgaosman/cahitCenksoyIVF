@@ -882,7 +882,7 @@ function initTheme() {
     function updateLogo(isDark) {
         const navLogo = document.getElementById('navLogo');
         const footerLogo = document.getElementById('footerLogo');
-        const logoSrc = isDark ? 'beyazLogo.png' : 'siyahlogo.png';
+        const logoSrc = isDark ? 'beyazLogo.png' : 'siyahLogo.png';
         
         if (navLogo) navLogo.src = logoSrc;
         if (footerLogo) footerLogo.src = logoSrc;
