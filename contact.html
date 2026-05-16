@@ -180,7 +180,7 @@
                                 <input type="text" id="app_phone" name="phone" required placeholder="Your telephone number" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-light);">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-weight: 700;">GÖNDER</button>
+                        <button type="submit" id="appointmentSubmit" class="btn btn-primary" style="width: 100%; padding: 12px; font-weight: 700;" disabled>GÖNDER</button>
                     </form>
                 </div>
 
@@ -200,7 +200,7 @@
                             <label for="message" style="font-size: 0.85rem; font-weight: 600;">Mesajınız</label>
                             <textarea id="contact_message" name="message" rows="5" required style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-light); resize: none;"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-weight: 700;">MESAJ GÖNDER</button>
+                        <button type="submit" id="contactSubmit" class="btn btn-primary" style="width: 100%; padding: 12px; font-weight: 700;" disabled>MESAJ GÖNDER</button>
                     </form>
                 </div>
             </div>
@@ -247,6 +247,38 @@
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <script>
+    
+    <script>
+    function validateForm(formId, btnId) {
+        const form = document.getElementById(formId);
+        const btn = document.getElementById(btnId);
+        const inputs = form.querySelectorAll("input, select, textarea");
+        let isValid = true;
+
+        inputs.forEach(input => {
+            if (input.type === "radio") {
+                const checked = form.querySelector(`input[name="${input.name}"]:checked`);
+                if (!checked) isValid = false;
+            } else if (input.tagName === "SELECT") {
+                if (!input.value) isValid = false;
+            } else {
+                if (input.value.trim().length < 2) isValid = false;
+            }
+        });
+
+        btn.disabled = !isValid;
+        btn.style.opacity = isValid ? "1" : "0.5";
+        btn.style.cursor = isValid ? "pointer" : "not-allowed";
+    }
+
+    ["appointmentForm", "contactMsgForm"].forEach(formId => {
+        const btnId = formId === "appointmentForm" ? "appointmentSubmit" : "contactSubmit";
+        const form = document.getElementById(formId);
+        form.addEventListener("input", () => validateForm(formId, btnId));
+        // Run once on load
+        validateForm(formId, btnId);
+    });
+
     document.getElementById("appointmentForm").addEventListener("submit", function(e) {
         e.preventDefault();
         const data = {
