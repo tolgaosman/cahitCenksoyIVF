@@ -2203,18 +2203,19 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(210, 145, 188, 0.9); /* Primary color with alpha */
+    background-color: rgba(210, 145, 188, 0.95); /* Slightly more opaque for readability */
     color: white;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start; /* Align content to the left */
     justify-content: center;
-    padding: 20px;
-    text-align: center;
+    padding: 25px;
+    text-align: left; /* Align text to the left */
     opacity: 0;
     visibility: hidden;
     transition: var(--transition);
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: 0.85rem; /* Slightly smaller for dense info */
+    line-height: 1.6;
     z-index: 2;
 }
 
@@ -2227,7 +2228,13 @@ body {
 .team-overlay p {
     color: white !important;
     margin: 0;
-    font-weight: 500;
+    font-weight: 400;
+}
+
+.team-overlay b {
+    font-weight: 700;
+    color: #fff;
+    margin-right: 5px;
 }
 
 .team-card:hover .team-img img {
