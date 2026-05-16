@@ -834,16 +834,27 @@ const translations = {
 
 // --- Language Logic ---
 function applyTranslations() {
-    const lang = localStorage.getItem('lang') || 'tr';
+    const lang = (localStorage.getItem('lang') || 'tr').toLowerCase();
     document.documentElement.lang = lang;
+    
+    // Select nav and footer elements
+    const nav = document.querySelector('nav');
+    const footer = document.querySelector('footer');
     
     // RTL Support for Arabic
     if (lang === 'ar') {
         document.documentElement.dir = 'rtl';
         document.body.classList.add('rtl');
+        
+        // Force Nav and Footer to stay LTR so elements don't swap places
+        if (nav) nav.setAttribute('dir', 'ltr');
+        if (footer) footer.setAttribute('dir', 'ltr');
     } else {
         document.documentElement.dir = 'ltr';
         document.body.classList.remove('rtl');
+        
+        if (nav) nav.removeAttribute('dir');
+        if (footer) footer.removeAttribute('dir');
     }
 
     const elements = document.querySelectorAll('[data-i18n]');
