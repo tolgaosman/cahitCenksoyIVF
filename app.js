@@ -164,6 +164,9 @@ const translations = {
         footerRights: "Tüm hakları saklıdır.",
         footerPagesTitle: "SAYFALARIMIZ",
         footerContactTitle: "İLETİŞİM BİLGİLERİ",
+        footerHospital: "Lefkoşa Tüp Bebek - Lefkoşa Sevinç Hastanesi",
+        footerPhone: "TELEFON",
+        footerEmail: "E-POSTA",
         pageContentPlaceholder: "Bu sayfa içeriği yakında güncellenecektir. Detaylı bilgi için lütfen bizimle iletişime geçin."
     },
     en: {
@@ -279,6 +282,9 @@ const translations = {
         footerRights: "All rights reserved.",
         footerPagesTitle: "PAGES",
         footerContactTitle: "CONTACT INFO",
+        footerHospital: "Nicosia IVF - Nicosia Sevinç Hospital",
+        footerPhone: "PHONE",
+        footerEmail: "EMAIL",
         pageContentPlaceholder: "This page content will be updated soon. Please contact us for detailed information."
     },
     fr: { navHome: "ACCUEIL", navTeam: "NOTRE ÉQUIPE", navIVF: "FIV", navTreatments: "TRAITEMENTS", navContact: "CONTACT" },
@@ -443,6 +449,9 @@ const translations = {
         formEmail: "Адрес электронной почты",
         formMessage: "Ваше сообщение",
         formSubmit: "Отправить сообщение",
+        footerHospital: "ЭКО Никосия - Больница Севинч Никосия",
+        footerPhone: "ТЕЛЕФОН",
+        footerEmail: "ЭЛ. ПОЧТА",
     },
     ar: { navHome: "الرئيسية", navTeam: "فريقنا", navIVF: "أطفال الأنابيب", navTreatments: "العلاجات", navContact: "اتصل بنا" }
 };
