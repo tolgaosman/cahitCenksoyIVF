@@ -195,46 +195,54 @@ function applyTranslations() {
     if (typeof renderFAQs === 'function') renderFAQs(lang);
 }
 
+
+// --- Theme Toggle Logic ---
+function initTheme() {
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+
+    function updateLogo(isDark) {
+        const navLogo = document.getElementById('navLogo');
+        const footerLogo = document.getElementById('footerLogo');
+        
+        if (navLogo) {
+            navLogo.src = isDark ? 'beyazLogo.png' : 'siyahLogo.png';
+        }
+        if (footerLogo) {
+            footerLogo.src = isDark ? 'beyazLogo.png' : 'siyahLogo.png';
+        }
+    }
+
+    function setTheme(isDark) {
+        if (isDark) {
+            htmlElement.setAttribute('data-theme', 'dark');
+            if (themeToggleBtn) themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            htmlElement.removeAttribute('data-theme');
+            if (themeToggleBtn) themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            localStorage.setItem('theme', 'light');
+        }
+        updateLogo(isDark);
+    }
+
+    themeToggleBtn?.addEventListener('click', () => {
+        const isDark = htmlElement.getAttribute('data-theme') === 'dark';
+        setTheme(!isDark);
+    });
+
+    // Initial Load
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+    
+    setTheme(isDark);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     applyTranslations();
+    initTheme();
 });
-
-// --- Theme Toggle ---
-const themeToggleBtn = document.getElementById('themeToggle');
-const body = document.documentElement;
-
-function updateLogo() {
-    const navLogo = document.getElementById('navLogo');
-    const footerLogo = document.getElementById('footerLogo');
-    const isDark = body.getAttribute('data-theme') === 'dark';
-
-    if (navLogo) {
-        navLogo.src = isDark ? 'beyazLogo.png' : 'siyahLogo.png';
-    }
-    if (footerLogo) {
-        footerLogo.src = isDark ? 'beyazLogo.png' : 'siyahLogo.png';
-    }
-}
-
-themeToggleBtn?.addEventListener('click', () => {
-    const isDark = body.getAttribute('data-theme') === 'dark';
-    if (isDark) {
-        body.removeAttribute('data-theme');
-        themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
-        localStorage.setItem('theme', 'light');
-    } else {
-        body.setAttribute('data-theme', 'dark');
-        themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
-        localStorage.setItem('theme', 'dark');
-    }
-    updateLogo();
-});
-
-if (localStorage.getItem('theme') === 'dark') {
-    body.setAttribute('data-theme', 'dark');
-    if (themeToggleBtn) themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
-}
-updateLogo();
 
 // --- Navbar Scroll Logic ---
 let lastScroll = 0;
