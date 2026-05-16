@@ -1,185 +1,296 @@
-�<!DOCTYPE html>
+﻿�<!DOCTYPE html>
+
 <html lang="tr">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Treatments | Dr. Cahit Cenksoy IVF Clinic</title>
+
     <!-- Favicon -->
+
     <link rel="icon" type="image/png" href="browserLogo.png">
+
     <link rel="stylesheet" href="style.css">
+
     <!-- Font Awesome for Icons -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Google Fonts -->
+
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
+
     <!-- Navigation -->
+
     <nav class="navbar" id="navbar">
+
         <div class="nav-container">
+
             <div class="logo">
+
                 <a href="index.html">
+
                     <img src="siyahLogo.png" alt="Dr. Cahit Cenksoy" id="navLogo">
+
                 </a>
+
             </div>
+
             <div class="nav-center">
+
                 <ul class="nav-links">
+
                     <li><a href="index.html" data-i18n="navHome">ANA SAYFA</a></li>
+
                     <li><a href="team.html" data-i18n="navTeam">EKİBİMİZ</a></li>
+
                     <li class="dropdown">
-                        <a href="javascript:void(0)" data-i18n="navIVF">TÜP BEBEK (IVF) <i
-                                class="fa-solid fa-chevron-down"></i></a>
+
+                        <a href="javascript:void(0)" data-i18n="navIVF">TÜP BEBEK (IVF) <i class="fa-solid fa-chevron-down"></i></a>
+
                         <ul class="dropdown-menu">
+
                             <li><a href="ilk_degerlendirme.html" data-i18n="navIVF1">İlk Değerlendirme</a></li>
+
                             <li><a href="tup_bebek_ilaclari.html" data-i18n="navIVF2">Tüp Bebek İlaçları</a></li>
+
                             <li><a href="yumurtaliklarin_uyarilmasi.html" data-i18n="navIVF3">Yumurtalıkların Uyarılması (Ovulasyon İndüksiyonu)</a></li>
+
                             <li><a href="yumurtalarin_olgunlastirilmasi.html" data-i18n="navIVF4">Yumurtaların Olgunlaştırılması (Yumurta Çatlatma)</a></li>
+
                             <li><a href="yumurta_toplama.html" data-i18n="navIVF5">OPU (Yumurta Toplama)</a></li>
+
                             <li><a href="spermin_alinmasi.html" data-i18n="navIVF6">Spermin Alınması</a></li>
+
                             <li><a href="yumurtalarin_soyulmasi.html" data-i18n="navIVF7">Denudasyon (Yumurtaların Soyulması)</a></li>
+
                             <li><a href="transfer.html" data-i18n="navIVF8">Transfer</a></li>
+
                         </ul>
+
                     </li>
+
                     <li class="dropdown">
-                        <a href="javascript:void(0)" data-i18n="navTreatments">TEDAVİ SEÇENEKLERİ <i
-                                class="fa-solid fa-chevron-down"></i></a>
+
+                        <a href="javascript:void(0)" data-i18n="navTreatments">TEDAVİ SEÇENEKLERİ <i class="fa-solid fa-chevron-down"></i></a>
+
                         <ul class="dropdown-menu">
+
                             <li><a href="pgd_pgs.html" data-i18n="navTreat1">PGD/PGS</a></li>
+
                             <li><a href="tandem_dongusu.html" data-i18n="navTreat2">Tandem Döngüsü</a></li>
+
                             <li><a href="sperm_bagisi.html" data-i18n="navTreat3">Sperm Bağışı</a></li>
+
                             <li><a href="yumurta_bagisi.html" data-i18n="navTreat4">Yumurta Bağışı</a></li>
+
                             <li><a href="embriyo_donasyonu.html" data-i18n="navTreat5">Embriyo Donasyonu</a></li>
+
                             <li><a href="ngs_tedavisi.html" data-i18n="navTreat6">NGS Tedavisi</a></li>
+
                             <li><a href="icsi_ile_ivf.html" data-i18n="navTreat7">ICSI ile IVF</a></li>
+
                             <li><a href="sperm_ve_yumurta_dondurma.html" data-i18n="navTreat8">Sperm ve Yumurta Dondurma</a></li>
+
                         </ul>
+
                     </li>
+
                     <li><a href="testimonials.html" data-i18n="navTestimonials">HASTALARIMIZDAN</a></li>
+
                     <li><a href="faq.html" data-i18n="navFAQ">SIK SORULANLAR</a></li>
+
                     <li><a href="blog.html" data-i18n="navBlogs">BLOG</a></li>
+
                     <li><a href="contact.html" data-i18n="navContact">İLETİŞİM</a></li>
+
                 </ul>
+
             </div>
+
             <div class="nav-right">
+
                 <button id="themeToggle" class="theme-toggle">
+
                     <i class="fa-solid fa-moon"></i>
+
                 </button>
+
                 <div class="lang-selector dropdown">
+
                     <button class="lang-btn" id="currentLang">TR <i class="fa-solid fa-globe"></i></button>
+
                     <ul class="dropdown-menu">
+
                         <li><a href="#" onclick="changeLanguage('tr')">TR</a></li>
+
                         <li><a href="#" onclick="changeLanguage('en')">EN</a></li>
+
                         <li><a href="#" onclick="changeLanguage('fr')">FR</a></li>
+
                         <li><a href="#" onclick="changeLanguage('de')">DE</a></li>
+
                         <li><a href="#" onclick="changeLanguage('ru')">RU</a></li>
+
                         <li><a href="#" onclick="changeLanguage('ar')">AR</a></li>
+
                     </ul>
+
                 </div>
+
                 <button class="mobile-toggle" id="mobileToggle">
+
                     <i class="fa-solid fa-bars"></i>
+
                 </button>
+
             </div>
+
         </div>
+
     </nav>
 
     <!-- Spacer -->
+
     <div style="height: 90px;"></div>
 
     <!-- Treatments Content -->
+
     <section class="section">
+
         <div class="container">
+
             <div class="section-header">
-                <h2 data-i18n="treatmentsTitle">Treatment Options</h2>
+
+                <h2 data-i18n="treatmentsTitle">Tedavi Seçenekleri</h2>
+
                 <div class="header-line"></div>
+
             </div>
+
             <div class="grid-3">
+
                 <div class="card service-card">
+
                     <div class="card-icon"><i class="fa-solid fa-snowflake"></i></div>
-                    <h3 data-i18n="treatmentCard1Title">Egg Freezing</h3>
-                    <p data-i18n="treatmentCard1Desc">Preserve your fertility for the future with our advanced vitrification techniques.</p>
+
+                    <h3 data-i18n="treatmentCard1Title">Yumurta Dondurma</h3>
+
+                    <p data-i18n="treatmentCard1Desc">Gelişmiş vitrifikasyon tekniklerimizle doğurganlığınızı gelecek için koruyun.</p>
+
                 </div>
+
                 <div class="card service-card">
+
                     <div class="card-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
-                    <h3 data-i18n="treatmentCard2Title">Egg/Sperm Donation</h3>
-                    <p data-i18n="treatmentCard2Desc">Comprehensive and confidential donation programs with rigorous screening processes.</p>
+
+                    <h3 data-i18n="treatmentCard2Title">Yumurta/Sperm Donasyonu</h3>
+
+                    <p data-i18n="treatmentCard2Desc">Titiz tarama süreçlerine sahip kapsamlı ve gizli donasyon programları.</p>
+
                 </div>
+
                 <div class="card service-card">
+
                     <div class="card-icon"><i class="fa-solid fa-dna"></i></div>
-                    <h3 data-i18n="treatmentCard3Title">PGD / PGS</h3>
-                    <p data-i18n="treatmentCard3Desc">Preimplantation genetic testing to ensure the healthiest embryos are selected.</p>
+
+                    <h3 data-i18n="treatmentCard3Title">PGT / PGS</h3>
+
+                    <p data-i18n="treatmentCard3Desc">En sağlıklı embriyoların seçilmesini sağlamak için preimplantasyon genetik test.</p>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
 
+        
     <!-- Footer -->
-                            <footer class="footer">
+    <footer class="site-footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-info">
-                    <img src="siyahLogo.png" alt="Dr. Cahit Cenksoy" id="footerLogo" class="footer-logo">
-                    <p data-i18n="footerHospital">Nicosia IVF - Lefkoşa Sevinç Hastanesi</p>
+            <div class="footer-container">
+                <div class="footer-left">
+                    <img src="siyahLogo.png" alt="Dr. Cahit Cenksoy" class="footer-logo" id="footerLogo">
+                    <p class="hospital-name"><i class="fa-solid fa-location-dot" style="margin-right: 8px; color: var(--primary-color);"></i> <span data-i18n="footerHospital">Nicosia IVF - Nicosia Sevinç Hospital</span></p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/drcahitcenksoy/" class="social-box" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/p/Dr-Cahit-Cenksoy-100064112829620/" class="social-box" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <h3 data-i18n="footerPagesTitle">SAYFALARIMIZ</h3>
-                    <ul>
-                        <li><a href="index.html" data-i18n="navHome">ANA SAYFA</a></li>
-                        <li><a href="team.html" data-i18n="navTeam">EKİBİMİZ</a></li>
-                        <li><a href="testimonials.html" data-i18n="navTestimonials">HASTALARIMIZDAN</a></li>
-                        <li><a href="contact.html" data-i18n="navContact">İLETİŞİM</a></li>
-                    </ul>
+                <div class="footer-right">
+                    <h3 class="contact-title" data-i18n="footerContactTitle">İLETİŞİM BİLGİLERİ</h3>
+                    <div class="contact-columns">
+                        <div class="contact-col">
+                            <h4 class="contact-col-title"><i class="fa-solid fa-phone"></i> <span data-i18n="footerPhone">TELEFON</span></h4>
+                            <ul class="footer-contact-list">
+                                <li class="footer-contact-item"><a href="tel:+905488880112" target="_blank" class="footer-link"><span>+90 548 888 0 112</span></a></li>
+                                <li class="footer-contact-item"><a href="tel:+905428880112" target="_blank" class="footer-link"><span class="ltr-text">+90 542 888 0 112</span></a></li>
+                                <li class="footer-contact-item"><a href="tel:+903924440112" target="_blank" class="footer-link"><span class="ltr-text">+90 392 444 0 112</span></a></li>
+                                <li class="footer-contact-item"><a href="tel:+905338681983" target="_blank" class="footer-link"><span class="ltr-text">+90 533 868 1983</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="contact-col">
+                            <h4 class="contact-col-title"><i class="fa-solid fa-envelope"></i> <span data-i18n="footerEmail">E-POSTA</span></h4>
+                            <ul class="footer-contact-list">
+                                <li class="footer-contact-item"><a href="mailto:c_cenksoy@hotmail.com" target="_blank" class="footer-link"><span>c_cenksoy@hotmail.com</span></a></li>
+                                <li class="footer-contact-item"><a href="mailto:ufukozbas0675@gmail.com" target="_blank" class="footer-link"><span>ufukozbas0675@gmail.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-contact">
-                    <h3 data-i18n="footerContactTitle">İLETİŞİM BİLGİLERİ</h3>
-                    <p><i class="fa-solid fa-phone"></i> <span data-i18n="footerPhone">TELEFON</span>: <span class="ltr-text">+90 533 838 31 31</span></p>
-                    <p><i class="fa-solid fa-envelope"></i> <span data-i18n="footerEmail">E-POSTA</span>: info@cahitcenksoy.com</p>
-                </div>
-            </div>
-            <div class="footer-bottom text-center">
-                <p>&copy; 2024 Dr. Cahit Cenksoy. <span data-i18n="footerRights">Tüm hakları saklıdır.</span></p>
             </div>
         </div>
     </footer>
 
     <a href="https://wa.me/905488880112" class="whatsapp-float" target="_blank">
+
         <i class="fa-brands fa-whatsapp"></i>
+
     </a>
 
     
+
     
+
     
+
         <div id="google_translate_element" style="display:none"></div>
+
     <script type="text/javascript">
+
         function googleTranslateElementInit() {
+
             new google.translate.TranslateElement({
+
                 pageLanguage: 'tr',
+
                 includedLanguages: 'en,fr,de,ru,ar,tr',
+
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+
                 autoDisplay: false
+
             }, 'google_translate_element');
+
         }
+
     </script>
+
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <script src="app.js"></script>
+
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
