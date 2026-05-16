@@ -246,7 +246,7 @@ h1, h2, h3, h4 {
     left: 50%;
     transform: translateX(-50%) translateY(15px);
     background-color: var(--card-bg);
-    min-width: 220px;
+    min-width: 180px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 15px 0;
