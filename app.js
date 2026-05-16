@@ -313,12 +313,17 @@ function openProcessModal(step) {
     const desc = document.getElementById('modalDescription');
     const lang = 'tr';
     
+    if (!modal || !title || !desc) {
+        console.error('Modal elements missing');
+        return;
+    }
+
     const getTranslation = (key) => {
         return (translations[lang] && translations[lang][key]) || "";
     };
     
     title.innerText = getTranslation('proc' + step + 'Title');
-    desc.innerText = getTranslation('proc' + step + 'Desc');
+    desc.innerHTML = getTranslation('proc' + step + 'Desc'); // Use innerHTML to support <br> if any
     
     const closeBtn = modal.querySelector('[data-i18n="modalClose"]');
     if (closeBtn) {
@@ -331,13 +336,16 @@ function openProcessModal(step) {
 
 function closeProcessModal() {
     const modal = document.getElementById('processModal');
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-window.onclick = function(event) {
-    const modal = document.getElementById('processModal');
-    if (event.target == modal) {
-        closeProcessModal();
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
     }
 }
+
+// Close modal when clicking outside
+window.addEventListener('click', (event) => {
+    const modal = document.getElementById('processModal');
+    if (event.target === modal) {
+        closeProcessModal();
+    }
+});
