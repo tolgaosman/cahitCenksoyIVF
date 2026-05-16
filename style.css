@@ -20,10 +20,6 @@
     --card-color-2: #f4b0cf;
     --card-color-3: #fbcce2;
     --card-color-4: #ecc4ca;
-    --card-color-5: #f2a2c0;
-    --card-color-6: #f9d1d1;
-    --card-color-7: #f3b4c1;
-    --card-color-8: #eab8c4;
 }
 
 [data-theme="dark"] {
@@ -49,10 +45,6 @@
     --card-color-2: #3d242f;
     --card-color-3: #4d2d3e;
     --card-color-4: #3b2528;
-    --card-color-5: #542a3a;
-    --card-color-6: #422a2a;
-    --card-color-7: #4b2a32;
-    --card-color-8: #3e2a30;
 }
 
 * {
@@ -1468,36 +1460,20 @@ body {
     color: white;
 }
 
-.service-card:nth-child(8n+1) {
+.service-card:nth-child(4n+1) {
     background-color: var(--card-color-1);
 }
 
-.service-card:nth-child(8n+2) {
+.service-card:nth-child(4n+2) {
     background-color: var(--card-color-2);
 }
 
-.service-card:nth-child(8n+3) {
+.service-card:nth-child(4n+3) {
     background-color: var(--card-color-3);
 }
 
-.service-card:nth-child(8n+4) {
+.service-card:nth-child(4n+4) {
     background-color: var(--card-color-4);
-}
-
-.service-card:nth-child(8n+5) {
-    background-color: var(--card-color-5);
-}
-
-.service-card:nth-child(8n+6) {
-    background-color: var(--card-color-6);
-}
-
-.service-card:nth-child(8n+7) {
-    background-color: var(--card-color-7);
-}
-
-.service-card:nth-child(8n+8) {
-    background-color: var(--card-color-8);
 }
 
 .service-card:hover {
@@ -2415,31 +2391,3 @@ body {
         color: var(--primary-color);
         transform: scale(1.1);
     }
-/* --- Map Section --- */
-.map-section {
-    padding: 80px 0;
-    background-color: var(--bg-color);
-}
-
-.map-wrapper {
-    max-width: 900px;
-    margin: 40px auto 0;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    border: 1px solid var(--border-color);
-}
-
-.map-wrapper iframe {
-    display: block;
-}
-
-@media (max-width: 768px) {
-    .map-section {
-        padding: 50px 0;
-    }
-    
-    .map-wrapper {
-        margin-top: 30px;
-    }
-}
