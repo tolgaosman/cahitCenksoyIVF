@@ -216,25 +216,31 @@ function initTheme() {
     function setTheme(isDark) {
         if (isDark) {
             htmlElement.setAttribute('data-theme', 'dark');
-            if (themeToggleBtn) themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            if (themeToggleBtn) {
+                themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            }
             localStorage.setItem('theme', 'dark');
         } else {
             htmlElement.removeAttribute('data-theme');
-            if (themeToggleBtn) themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            if (themeToggleBtn) {
+                themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
             localStorage.setItem('theme', 'light');
         }
         updateLogo(isDark);
     }
 
-    themeToggleBtn?.addEventListener('click', () => {
-        const isDark = htmlElement.getAttribute('data-theme') === 'dark';
-        setTheme(!isDark);
-    });
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = htmlElement.getAttribute('data-theme') === 'dark';
+            setTheme(!isDark);
+        });
+    }
 
     // Initial Load
     const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = savedTheme === 'dark' || (savedTheme === null && prefersDark);
     
     setTheme(isDark);
 }
