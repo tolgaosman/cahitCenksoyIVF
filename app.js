@@ -167,6 +167,7 @@ const translations = {
         footerHospital: "Lefkoşa Tüp Bebek - Lefkoşa Sevinç Hastanesi",
         footerPhone: "TELEFON",
         footerEmail: "E-POSTA",
+        modalClose: "Kapat",
         pageContentPlaceholder: "Bu sayfa içeriği yakında güncellenecektir. Detaylı bilgi için lütfen bizimle iletişime geçin."
     },
     en: {
@@ -285,6 +286,7 @@ const translations = {
         footerHospital: "Nicosia IVF - Nicosia Sevinç Hospital",
         footerPhone: "PHONE",
         footerEmail: "EMAIL",
+        modalClose: "Close",
         pageContentPlaceholder: "This page content will be updated soon. Please contact us for detailed information."
     },
     fr: { navHome: "ACCUEIL", navTeam: "NOTRE ÉQUIPE", navIVF: "FIV", navTreatments: "TRAITEMENTS", navContact: "CONTACT" },
@@ -452,6 +454,7 @@ const translations = {
         footerHospital: "ЭКО Никосия - Больница Севинч Никосия",
         footerPhone: "ТЕЛЕФОН",
         footerEmail: "ЭЛ. ПОЧТА",
+        modalClose: "Закрыть",
     },
     ar: { navHome: "الرئيسية", navTeam: "فريقنا", navIVF: "أطفال الأنابيب", navTreatments: "العلاجات", navContact: "اتصل بنا" }
 };
@@ -632,7 +635,7 @@ function openProcessModal(step) {
     title.innerText = getTranslation('proc' + step + 'Title');
     desc.innerText = getTranslation('proc' + step + 'Desc');
     
-    modal.style.display = 'block';
+    modal.style.display = 'flex';
     document.body.style.overflow = 'hidden'; 
 }
 
