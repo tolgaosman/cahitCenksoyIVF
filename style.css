@@ -81,8 +81,8 @@ ul {
     padding: 0 20px;
 }
 
-.section {
-    padding: 80px 0;
+.section, .services-section, .process-section, .team-section, .map-section {
+    padding: 100px 0;
 }
 
 .bg-light {
@@ -118,7 +118,7 @@ h1, h2, h3, h4 {
 
 .section-header {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 }
 
 .section-header h2 {

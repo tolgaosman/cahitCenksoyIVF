@@ -2,7 +2,7 @@
 const procDescriptions = {
     1: {
         title: "Ön Görüşme",
-        desc: "Tüp bebek tedavisinde, tedavi seçeneği ne olursa olsun öncelikle anne ve baba adayının detaylı bilgileri alınır. Bu bilgilere ek olarak öncesinde yapılmış olan tüm ameliyat, görüntüleme yöntemleri (rahim filmi gibi..), kan ve sperm test sonuçları değerlendirilir. Bu bilgilerin analiz edilmesi tüp bebek başarısında hayati önem taşır. Çifte talep ettikleri tedavi sorulur."
+        desc: "Tüp bebek tedavisinde, tedavi seçeneği ne olursa olsun öncelikle anne ve baba adayının detaylı bilgileri alınır. Bu bilgilere ek olarak öncesinde yapılmış olan tüm ameliyat,görüntüleme yöntemleri (rahim filmi, vb.), kan ve sperm test sonuçları değerlendirilir. Bu bilgilerin analiz edilmesi tüp bebek başarısında hayati önem taşır. Çifte talep ettikleri tedavi sorulur."
     },
     2: {
         title: "Tedavinin Planlanması",
