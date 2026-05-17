@@ -435,21 +435,16 @@
     <!-- Blog Hero Section -->
     <header class="blog-hero">
         <div class="container">
-            <h1 data-i18n="blogTitle">Blog & Güncel Bilgiler</h1>
+            <h1 data-i18n="blogTitle" id="blogHeroTitle" style="cursor: default;">Blog & Güncel Bilgiler</h1>
             <p data-i18n="blogSubtitle">Tüp bebek süreçleri, Kıbrıs'taki modern tedavi uygulamaları ve sağlıklı yaşam önerilerine dair en güncel makalelerimiz.</p>
         </div>
     </header>
 
     <main class="blog-container">
         <!-- Search Field -->
-        <div class="blog-search-wrapper" style="display: flex; align-items: center; background-color: var(--card-bg);">
-            <div style="position: relative; flex: 1;">
-                <i class="fa-solid fa-magnifying-glass blog-search-icon"></i>
-                <input type="text" id="blogSearch" class="blog-search-input" placeholder="Makale veya konu içinde arayın..." data-i18n="blogSearchPlaceholder" style="border: none; width: 100%;">
-            </div>
-            <button id="adminLoginBtn" style="background: none; border: none; font-size: 1.25rem; color: var(--primary-color); padding: 0 25px; cursor: pointer; transition: var(--transition);" title="Yönetici Girişi">
-                <i class="fa-solid fa-user-gear"></i>
-            </button>
+        <div class="blog-search-wrapper">
+            <i class="fa-solid fa-magnifying-glass blog-search-icon"></i>
+            <input type="text" id="blogSearch" class="blog-search-input" placeholder="Makale veya konu içinde arayın..." data-i18n="blogSearchPlaceholder">
         </div>
 
         <!-- Category Filters -->
