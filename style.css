@@ -895,41 +895,46 @@ body { top: 0 !important; }
     .team-card { flex: 0 0 100%; }
 }
 
-/* Aggressive Language Spacing Overrides to Prevent Navbar Breakage */
+/* Language Spacing Overrides to Prevent Navbar Breakage with Minimal Shrinking */
 html[lang="ru"] .nav-links, html[lang="de"] .nav-links, html[lang="fr"] .nav-links, .lang-ru .nav-links {
-    gap: clamp(4px, 0.6vw, 10px);
+    display: flex !important;
+    gap: clamp(4px, 0.6vw, 12px) !important;
 }
 html[lang="ru"] .nav-links a, html[lang="de"] .nav-links a, html[lang="fr"] .nav-links a, .lang-ru .nav-links a {
-    font-size: clamp(0.65rem, 0.68vw, 0.75rem) !important;
-    padding: 30px clamp(3px, 0.4vw, 6px) !important;
-    letter-spacing: -0.2px !important;
+    font-size: clamp(0.72rem, 0.75vw, 0.78rem) !important; /* Shrink as little as possible */
+    padding: 30px clamp(3px, 0.45vw, 8px) !important; /* Fluid horizontal padding */
+    letter-spacing: -0.15px !important;
 }
 
 /* Global translated page fluid compression */
 html.translated-ltr .nav-links {
-    gap: clamp(4px, 0.6vw, 10px);
+    display: flex !important;
+    gap: clamp(4px, 0.6vw, 12px) !important;
 }
 html.translated-ltr .nav-links a {
-    font-size: clamp(0.65rem, 0.68vw, 0.75rem) !important;
-    padding: 30px clamp(3px, 0.4vw, 6px) !important;
-    letter-spacing: -0.2px !important;
+    font-size: clamp(0.72rem, 0.75vw, 0.78rem) !important; /* Shrink as little as possible */
+    padding: 30px clamp(3px, 0.45vw, 8px) !important;
+    letter-spacing: -0.15px !important;
 }
 
+/* Screen width media query adjustments keeping text large and utilizing flex space */
 @media (max-width: 1200px) {
     .nav-links {
-        gap: clamp(5px, 0.8vw, 10px);
+        display: flex !important;
+        gap: clamp(4px, 0.5vw, 8px) !important;
     }
     .nav-links a {
-        font-size: clamp(0.58rem, 0.65vw, 0.7rem);
-        padding: 30px clamp(3px, 0.5vw, 8px);
+        font-size: clamp(0.7rem, 0.72vw, 0.75rem) !important;
+        padding: 30px clamp(3px, 0.4vw, 6px) !important;
     }
 }
 @media (max-width: 1100px) {
     .nav-links {
-        gap: clamp(4px, 0.7vw, 8px);
+        display: flex !important;
+        gap: clamp(3px, 0.4vw, 6px) !important;
     }
     .nav-links a {
-        font-size: clamp(0.55rem, 0.6vw, 0.65rem);
-        padding: 30px clamp(2px, 0.4vw, 6px);
+        font-size: clamp(0.68rem, 0.7vw, 0.73rem) !important;
+        padding: 30px clamp(2px, 0.35vw, 5px) !important;
     }
 }
