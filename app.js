@@ -2,7 +2,7 @@
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
         pageLanguage: 'tr',
-        includedLanguages: 'en,ru,de,ar,tr',
+        includedLanguages: 'en,ru,de,ar,fa,tr',
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
         autoDisplay: false
     }, 'google_translate_element');
@@ -29,8 +29,12 @@ function changeLanguage(langCode) {
     const currentLangText = document.getElementById('currentLangText');
     if (currentLangText) currentLangText.innerText = langCode.toUpperCase();
 
-    // Handle RTL for Arabic
-    document.body.classList.remove('lang-ru'); if (langCode === 'ru') { document.body.classList.add('lang-ru'); } if (langCode === 'ar') {
+    // Handle RTL for Arabic and Persian
+    document.body.classList.remove('lang-ru');
+    if (langCode === 'ru') {
+        document.body.classList.add('lang-ru');
+    }
+    if (langCode === 'ar' || langCode === 'fa') {
         document.documentElement.dir = 'rtl';
         document.body.classList.add('rtl');
     } else {
@@ -52,7 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedLang !== 'tr') {
         const currentLangText = document.getElementById('currentLangText');
         if (currentLangText) currentLangText.innerText = savedLang.toUpperCase();
-        if (savedLang === 'ru') { document.body.classList.add('lang-ru'); } if (savedLang === 'ar') {
+        if (savedLang === 'ru') {
+            document.body.classList.add('lang-ru');
+        }
+        if (savedLang === 'ar' || savedLang === 'fa') {
             document.documentElement.dir = 'rtl';
             document.body.classList.add('rtl');
         }
