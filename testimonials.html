@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testimonials | Dr. Cahit Cenksoy IVF Clinic</title>
+    <title>Hastalarımızdan Testimoniallar | Dr. Cahit Cenksoy IVF Clinic</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="browserLogo.png?v=1.1">
     <link rel="stylesheet" href="style.css?v=3.0">
@@ -11,6 +11,178 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Testimonials Custom Premium Styling */
+        .testimonials-hero {
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-color) 100%);
+            padding: 80px 0 50px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .testimonials-hero h1 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .testimonials-hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .testimonials-container {
+            max-width: 1100px;
+            margin: 50px auto 80px auto;
+            padding: 0 20px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .testimonial-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--bg-light);
+            padding: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+        }
+
+        .testimonial-img {
+            max-width: 100%;
+            max-height: 480px;
+            border-radius: 12px;
+            object-fit: contain;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover .testimonial-img {
+            transform: scale(1.02);
+        }
+
+        .testimonial-body {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex-grow: 1;
+        }
+
+        .testimonial-quote-icon {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            opacity: 0.3;
+            margin-bottom: -5px;
+        }
+
+        .testimonial-text-tr {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            line-height: 1.7;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .testimonial-text-en {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 15px;
+            margin-top: 5px;
+        }
+
+        .testimonial-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border: 2px solid var(--primary-color);
+        }
+
+        .testimonial-author-info h4 {
+            font-size: 1rem;
+            color: var(--text-main);
+            margin-bottom: 2px;
+            font-weight: 600;
+        }
+
+        .testimonial-author-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .testimonial-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* RTL Alignment */
+        .rtl .testimonial-body {
+            text-align: right;
+        }
+        .rtl .testimonial-meta {
+            flex-direction: row-reverse;
+        }
+        .rtl .testimonial-author {
+            flex-direction: row-reverse;
+        }
+    </style>
 </head>
 <body>
     <div id="google_translate_element" style="display:none;"></div>
@@ -54,11 +226,11 @@
                     </li>
                     <li><a href="testimonials.html" data-i18n="navTestimonials">Hastalarımızdan</a></li>
                     <li><a href="faq.html" data-i18n="navFAQ">Sık Sorulanlar</a></li>
-                    
+                    <li><a href="blog.html" data-i18n="navBlog">Blog</a></li>
                     <li><a href="contact.html" data-i18n="navContact">İletişim & Randevu</a></li>
                 </ul>
             </div>
-                        <div class="nav-right">
+            <div class="nav-right">
                 <div class="lang-selector notranslate">
                     <button class="lang-btn" id="currentLang">
                         <span id="currentLangText">TR</span> <i class="fa-solid fa-globe"></i>
@@ -80,12 +252,74 @@
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
+        </div>
     </nav>
     <!-- Spacer for fixed navbar -->
-    <div style="height: 80px;"></div>
-    <main style="min-height: 60vh; display: flex; align-items: center; justify-content: center;">
-        <h2 style="color: var(--text-muted); font-weight: 300;">Yapım Aşamasında...</h2>
+    <div style="height: 90px;"></div>
+
+    <!-- Testimonials Hero Section -->
+    <header class="testimonials-hero">
+        <div class="container">
+            <h1 data-i18n="testimonialsTitle">Hastalarımızın Mutluluk Hikayeleri</h1>
+            <p data-i18n="testimonialsSubtitle">Mucizelerine kavuşan ailelerimizin sevincini ve klinikteki tedavi süreçleri hakkındaki samimi düşüncelerini paylaşıyoruz.</p>
+        </div>
+    </header>
+
+    <main class="testimonials-container">
+        <!-- Testimonials Grid Layout -->
+        <div class="testimonials-grid">
+            
+            <!-- TESTIMONIAL 1 (Baby Oran) -->
+            <div class="testimonial-card">
+                <div class="testimonial-img-wrapper">
+                    <img src="testimonial1.png" alt="Baby boy Òran" class="testimonial-img" loading="lazy">
+                </div>
+                <div class="testimonial-body">
+                    <i class="fa-solid fa-quote-left testimonial-quote-icon"></i>
+                    <p class="testimonial-text-tr" data-i18n="testTextTr1">"Carl ve bana hayal edebileceğimiz en güzel hediyeyi verdiğiniz için size ve klinikteki herkese çok teşekkür ederiz. Erkek bebeğimiz Òran, 13 Ağustos 2022 Cumartesi günü saat 20:54'te 3.8 kg olarak dünyaya geldi. Mutluluktan havalara uçuyoruz ve size minnettarız ❤️"</p>
+                    <p class="testimonial-text-en" data-i18n="testTextEn1">"Thank you to you and everyone at the clinic for giving Carl and I the best present that we could ever have hoped for. Our baby boy, Òran, was born at 20:54 on Saturday 13 August 2022 weighing 3.8kg. We’re over the moon 🌙 and so grateful to you ❤️"</p>
+                    <div class="testimonial-meta">
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">O</div>
+                            <div class="testimonial-author-info">
+                                <h4 data-i18n="testAuthor1">Oran's Family</h4>
+                                <p data-i18n="testLocation1">İngiltere (UK)</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-date">
+                            <i class="fa-solid fa-calendar-days"></i> <span>13.08.2022</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TESTIMONIAL 2 (Baby in Red Pajamas) -->
+            <div class="testimonial-card">
+                <div class="testimonial-img-wrapper">
+                    <img src="testimonial2.png" alt="Baby in red pajamas" class="testimonial-img" loading="lazy">
+                </div>
+                <div class="testimonial-body">
+                    <i class="fa-solid fa-quote-left testimonial-quote-icon"></i>
+                    <p class="testimonial-text-tr" data-i18n="testTextTr2">"Mutlu yıllar! Siz ve aileniz nasılsınız? Her şey yolunda mı? Bebeğimizle hayat harika. Büyük gülümsemeleri ve kahkahalarıyla günlerimizi neşeyle dolduruyor. Onu dünyamıza getirdiğiniz için tekrar çok teşekkür ederim. Ne kadar minnettar olduğumuzu anlatamam. Umarım siz ve klinikteki herkes çok sağlıklı ve mutlu bir 2023 geçirirsiniz. Bizden en iyi dileklerle xxx"</p>
+                    <p class="testimonial-text-en" data-i18n="testTextEn2">"Happy new year! How are you and your family doing? Are you ok? Life with our baby is great. He fills our days with joy with his big smiles and laughter. Thank you again for bringing him into our world. I can't tell you how grateful we are. I hope that you and everyone at the clinic have a very healthy and happy 2023. All the best from us xxx"</p>
+                    <div class="testimonial-meta">
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">A</div>
+                            <div class="testimonial-author-info">
+                                <h4 data-i18n="testAuthor2">Happy Family</h4>
+                                <p data-i18n="testLocation2">Avrupa</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-date">
+                            <i class="fa-solid fa-calendar-days"></i> <span>01.01.2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </main>
+
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container">

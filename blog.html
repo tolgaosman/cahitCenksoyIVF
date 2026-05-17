@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Güncel Bilgiler | Dr. Cahit Cenksoy IVF Clinic</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="browserLogo.png?v=1.1">
+    <link rel="stylesheet" href="style.css?v=3.0">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Blog Custom Premium Styling */
+        .blog-hero {
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-color) 100%);
+            padding: 80px 0 50px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .blog-hero h1 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .blog-hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .blog-container {
+            max-width: 1100px;
+            margin: 50px auto 80px auto;
+            padding: 0 20px;
+        }
+
+        /* Search Bar & Categories */
+        .blog-search-wrapper {
+            position: relative;
+            margin-bottom: 35px;
+            box-shadow: var(--shadow-md);
+            border-radius: 50px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        .blog-search-input {
+            width: 100%;
+            padding: 18px 24px 18px 60px;
+            font-size: 1.05rem;
+            border: none;
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+        .blog-search-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(248, 200, 220, 0.3);
+        }
+        [data-theme="dark"] .blog-search-input:focus {
+            box-shadow: 0 0 0 3px rgba(210, 145, 188, 0.3);
+        }
+        .blog-search-icon {
+            position: absolute;
+            left: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+
+        .blog-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+        .blog-cat-btn {
+            background-color: var(--card-bg);
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .blog-cat-btn:hover, .blog-cat-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .blog-results-counter {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .blog-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .blog-img-placeholder {
+            height: 220px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #ffdfeb 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        [data-theme="dark"] .blog-img-placeholder {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #3a1c2e 100%);
+        }
+        .blog-img-placeholder::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 10%, transparent 10.01%);
+            background-size: 20px 20px;
+            opacity: 0.4;
+        }
+
+        .blog-body {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex-grow: 1;
+        }
+
+        .blog-tag {
+            align-self: flex-start;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 20px;
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid var(--border-color);
+        }
+
+        .blog-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.4;
+            transition: var(--transition);
+            margin: 0;
+        }
+        .blog-card:hover .blog-title {
+            color: var(--primary-color);
+        }
+
+        .blog-excerpt {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            margin-top: auto;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .blog-author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .blog-author-avatar {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.75rem;
+        }
+
+        .blog-readmore {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            margin-top: 5px;
+        }
+        .blog-card:hover .blog-readmore {
+            gap: 10px;
+        }
+
+        /* No Results Section */
+        .blog-no-results {
+            text-align: center;
+            padding: 60px 40px;
+            display: none;
+        }
+        .blog-no-results i {
+            font-size: 3.5rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+        .blog-no-results h3 {
+            font-size: 1.4rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+        .blog-no-results p {
+            color: var(--text-muted);
+        }
+
+        /* RTL Alignment */
+        .rtl .blog-body {
+            text-align: right;
+        }
+        .rtl .blog-tag {
+            align-self: flex-end;
+        }
+        .rtl .blog-meta {
+            flex-direction: row-reverse;
+        }
+        .rtl .blog-author {
+            flex-direction: row-reverse;
+        }
+        .rtl .blog-search-input {
+            padding: 18px 60px 18px 24px;
+        }
+        .rtl .blog-search-icon {
+            left: auto;
+            right: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div id="google_translate_element" style="display:none;"></div>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="siyahLogo.png" alt="Dr. Cahit Cenksoy" id="navLogo">
+                </a>
+            </div>
+            <div class="nav-center">
+                <ul class="nav-links">
+                    <li><a href="index.html" data-i18n="navHome">Ana Sayfa</a></li>
+                    <li><a href="team.html" data-i18n="navTeam">Ekibimiz</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" data-i18n="navIVF">Tüp Bebek (IVF) <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="ilk_degerlendirme.html" data-i18n="navIVF1">İlk Değerlendirme</a></li>
+                            <li><a href="tup_bebek_ilaclari.html" data-i18n="navIVF2">Tüp Bebek İlaçları</a></li>
+                            <li><a href="yumurtaliklarin_uyarilmasi.html" data-i18n="navIVF3">Yumurtalıkların Uyarılması</a></li>
+                            <li><a href="yumurtalarin_olgunlastirilmasi.html" data-i18n="navIVF4">Yumurtaların Olgunlaştırılması</a></li>
+                            <li><a href="yumurta_toplama.html" data-i18n="navIVF5">Yumurta Toplama</a></li>
+                            <li><a href="spermin_alinmasi.html" data-i18n="navIVF6">Spermin Alınması</a></li>
+                            <li><a href="yumurtalarin_soyulmasi.html" data-i18n="navIVF7">Yumurtaların Soyulması</a></li>
+                            <li><a href="transfer.html" data-i18n="navIVF8">Transfer</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" data-i18n="navTreatments">Tedavi Seçenekleri <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="pgd_pgs.html" data-i18n="navTreat1">PGD/PGS</a></li>
+                            <li><a href="tandem_dongusu.html" data-i18n="navTreat2">Tandem Döngüsü</a></li>
+                            <li><a href="sperm_bagisi.html" data-i18n="navTreat3">Sperm Bağışı</a></li>
+                            <li><a href="yumurta_bagisi.html" data-i18n="navTreat4">Yumurta Bağışı</a></li>
+                            <li><a href="embriyo_donasyonu.html" data-i18n="navTreat5">Embriyo Donasyonu</a></li>
+                            <li><a href="ngs_tedavisi.html" data-i18n="navTreat6">NGS Tedavisi</a></li>
+                            <li><a href="icsi_ile_ivf.html" data-i18n="navTreat7">ICSI ile IVF</a></li>
+                            <li><a href="sperm_ve_yumurta_dondurma.html" data-i18n="navTreat8">Sperm ve Yumurta Dondurma</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="testimonials.html" data-i18n="navTestimonials">Hastalarımızdan</a></li>
+                    <li><a href="faq.html" data-i18n="navFAQ">Sık Sorulanlar</a></li>
+                    <li><a href="blog.html" data-i18n="navBlog">Blog</a></li>
+                    <li><a href="contact.html" data-i18n="navContact">İletişim & Randevu</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <div class="lang-selector notranslate">
+                    <button class="lang-btn" id="currentLang">
+                        <span id="currentLangText">TR</span> <i class="fa-solid fa-globe"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)" onclick="changeLanguage('tr')">🇹🇷 TR</a></li>
+                        <li><a href="javascript:void(0)" onclick="changeLanguage('en')">🇬🇧 EN</a></li>
+                        <li><a href="javascript:void(0)" onclick="changeLanguage('ru')">🇷🇺 RU</a></li>
+                        <li><a href="javascript:void(0)" onclick="changeLanguage('de')">🇩🇪 DE</a></li>
+                        <li><a href="javascript:void(0)" onclick="changeLanguage('fr')">🇫🇷 FR</a></li>
+                        <li><a href="javascript:void(0)" onclick="changeLanguage('ar')">🇸🇦 AR</a></li>
+                        <li><a href="javascript:void(0)" onclick="changeLanguage('fa')">🇮🇷 FA</a></li>
+                    </ul>
+                </div>
+                <button id="themeToggle" class="theme-toggle">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- Spacer for fixed navbar -->
+    <div style="height: 90px;"></div>
+
+    <!-- Blog Hero Section -->
+    <header class="blog-hero">
+        <div class="container">
+            <h1 data-i18n="blogTitle">Blog & Güncel Bilgiler</h1>
+            <p data-i18n="blogSubtitle">Tüp bebek süreçleri, Kıbrıs'taki modern tedavi uygulamaları ve sağlıklı yaşam önerilerine dair en güncel makalelerimiz.</p>
+        </div>
+    </header>
+
+    <main class="blog-container">
+        <!-- Search Field -->
+        <div class="blog-search-wrapper">
+            <i class="fa-solid fa-magnifying-glass blog-search-icon"></i>
+            <input type="text" id="blogSearch" class="blog-search-input" placeholder="Makale veya konu içinde arayın..." data-i18n="blogSearchPlaceholder">
+        </div>
+
+        <!-- Category Filters -->
+        <div class="blog-categories">
+            <button class="blog-cat-btn active" data-filter="all">
+                <i class="fa-solid fa-list"></i> <span data-i18n="blogCatAll">HEPSİ</span>
+            </button>
+            <button class="blog-cat-btn" data-filter="ivf-treatment">
+                <i class="fa-solid fa-baby"></i> <span data-i18n="blogCatIVF">TÜP BEBEK & TEDAVİ</span>
+            </button>
+            <button class="blog-cat-btn" data-filter="cyprus-donation">
+                <i class="fa-solid fa-palm-tree"></i> <span data-i18n="blogCatDonation">KIBRIS'TA BAĞIŞ</span>
+            </button>
+            <button class="blog-cat-btn" data-filter="health-lifestyle">
+                <i class="fa-solid fa-heart"></i> <span data-i18n="blogCatLifestyle">SAĞLIK & YAŞAM</span>
+            </button>
+        </div>
+
+        <!-- Dynamic Counter -->
+        <div class="blog-results-counter" id="blogCounter">Toplam 3 makale listeleniyor</div>
+
+        <!-- Blog Grid -->
+        <div class="blog-grid" id="blogGrid">
+            
+            <!-- POST 1: IVF Success -->
+            <article class="blog-card" data-category="ivf-treatment">
+                <div class="blog-img-placeholder">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                <div class="blog-body">
+                    <span class="blog-tag" data-i18n="postTag1">TÜP BEBEK</span>
+                    <h3 class="blog-title" data-i18n="postTitle1">Tüp Bebek Tedavisinde Başarı Şansını Artırmanın 5 Yolu</h3>
+                    <p class="blog-excerpt" data-i18n="postExcerpt1">Tüp bebek tedavisinde başarı, kişiye özel doğru tedavi planının yanı sıra yaşam tarzı ve beslenme alışkanlıklarıyla yakından ilişkilidir. İşte başarı oranınızı artıracak 5 altın öneri...</p>
+                    <a href="javascript:void(0)" class="blog-readmore">
+                        <span data-i18n="blogReadMore">Devamını Oku</span> <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <div class="blog-meta">
+                        <div class="blog-author">
+                            <div class="blog-author-avatar">C</div>
+                            <span data-i18n="postAuthor1">Dr. Cahit Cenksoy</span>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-clock"></i> <span>4 dk okuma</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- POST 2: Cyprus Donation -->
+            <article class="blog-card" data-category="cyprus-donation">
+                <div class="blog-img-placeholder" style="background: linear-gradient(135deg, var(--primary-color) 0%, #ffeedd 100%);">
+                    <i class="fa-solid fa-circle-nodes"></i>
+                </div>
+                <div class="blog-body">
+                    <span class="blog-tag" data-i18n="postTag2">DONASYON</span>
+                    <h3 class="blog-title" data-i18n="postTitle2">Kıbrıs'ta Yumurta Donasyonu Süreci Nasıl İşler?</h3>
+                    <p class="blog-excerpt" data-i18n="postExcerpt2">Kıbrıs, esnek ve gelişmiş tüp bebek yönetmeliği ile yumurta donasyonu (bağışı) tedavilerinde dünyanın önde gelen merkezlerinden biridir. Sürecin tüm aşamalarını sizler için derledik...</p>
+                    <a href="javascript:void(0)" class="blog-readmore">
+                        <span data-i18n="blogReadMore">Devamını Oku</span> <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <div class="blog-meta">
+                        <div class="blog-author">
+                            <div class="blog-author-avatar">C</div>
+                            <span data-i18n="postAuthor2">Dr. Cahit Cenksoy</span>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-clock"></i> <span>6 dk okuma</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- POST 3: Stress Management -->
+            <article class="blog-card" data-category="health-lifestyle">
+                <div class="blog-img-placeholder" style="background: linear-gradient(135deg, var(--primary-color) 0%, #d4fcd4 100%);">
+                    <i class="fa-solid fa-spa"></i>
+                </div>
+                <div class="blog-body">
+                    <span class="blog-tag" data-i18n="postTag3">YAŞAM & SAĞLIK</span>
+                    <h3 class="blog-title" data-i18n="postTitle3">Tüp Bebek Tedavisinde Stres ve Ruh Sağlığı Yönetimi</h3>
+                    <p class="blog-excerpt" data-i18n="postExcerpt3">Tüp bebek süreci fiziksel olduğu kadar psikolojik olarak da yönetilmesi gereken hassas bir dönemdir. Tedavi sırasında stres seviyenizi düşürecek kanıtlanmış yöntemler...</p>
+                    <a href="javascript:void(0)" class="blog-readmore">
+                        <span data-i18n="blogReadMore">Devamını Oku</span> <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <div class="blog-meta">
+                        <div class="blog-author">
+                            <div class="blog-author-avatar">G</div>
+                            <span data-i18n="postAuthor3">Uzm. Psk. Güneş Cenksoy</span>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-clock"></i> <span>5 dk okuma</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- No Results Found Div -->
+        <div class="blog-no-results" id="blogNoResults">
+            <i class="fa-solid fa-magnifying-glass-minus"></i>
+            <h3 data-i18n="blogNoResultsTitle">Makale Bulunamadı</h3>
+            <p data-i18n="blogNoResultsText">Arama teriminize veya seçili kategoriye uygun yazı bulunamadı. Lütfen başka bir anahtar kelime deneyin.</p>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-left">
+                    <img src="siyahLogo.png" alt="Dr. Cahit Cenksoy Logo" id="footerLogo" style="max-height: 80px; margin-bottom: 20px;">
+                    <p class="hospital-name"><i class="fa-solid fa-location-dot" style="margin-right: 8px; color: var(--primary-color);"></i> <span data-i18n="footerHospital">Nicosia IVF - Nicosia Sevinç Hospital</span></p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/drcahitcenksoy/" class="social-box" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/p/Dr-Cahit-Cenksoy-100064112829620/" class="social-box" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <h3 class="contact-title" data-i18n="footerContactTitle">İLETİŞİM BİLGİLERİ</h3>
+                    <div class="contact-columns">
+                        <div class="contact-col">
+                            <h4 class="contact-col-title"><i class="fa-solid fa-phone"></i> <span data-i18n="footerPhone">TELEFON</span></h4>
+                            <ul class="footer-contact-list">
+                                <li class="footer-contact-item"><a href="tel:+905488880112" target="_blank" rel="noopener noreferrer" class="footer-link"><span>+90 548 888 0 112</span></a></li>
+                                <li class="footer-contact-item"><a href="tel:+905428880112" target="_blank" rel="noopener noreferrer" class="footer-link"><span class="ltr-text">+90 542 888 0 112</span></a></li>
+                                <li class="footer-contact-item"><a href="tel:+903924440112" target="_blank" rel="noopener noreferrer" class="footer-link"><span class="ltr-text">+90 392 444 0 112</span></a></li>
+                                <li class="footer-contact-item"><a href="tel:+905338681983" target="_blank" rel="noopener noreferrer" class="footer-link"><span class="ltr-text">+90 533 868 1983</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="contact-col">
+                            <h4 class="contact-col-title"><i class="fa-solid fa-envelope"></i> <span data-i18n="footerEmail">E-POSTA</span></h4>
+                            <ul class="footer-contact-list">
+                                <li class="footer-contact-item"><a href="mailto:c_cenksoy@hotmail.com" target="_blank" rel="noopener noreferrer" class="footer-link"><span>c_cenksoy@hotmail.com</span></a></li>
+                                <li class="footer-contact-item"><a href="mailto:ufukozbas0675@gmail.com" target="_blank" rel="noopener noreferrer" class="footer-link"><span>ufukozbas0675@gmail.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="https://wa.me/905488880112" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    
+    <script src="translations.js"></script>
+    <script src="app.js"></script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Blog Filtering Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('blogSearch');
+            const categoryButtons = document.querySelectorAll('.blog-cat-btn');
+            const blogCards = document.querySelectorAll('.blog-card');
+            const counterDiv = document.getElementById('blogCounter');
+            const noResultsDiv = document.getElementById('blogNoResults');
+
+            let currentCategory = 'all';
+            let searchQuery = '';
+
+            function filterBlog() {
+                let matchCount = 0;
+
+                blogCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    const title = card.querySelector('.blog-title').innerText.toLowerCase();
+                    const excerpt = card.querySelector('.blog-excerpt').innerText.toLowerCase();
+
+                    const categoryMatch = currentCategory === 'all' || category === currentCategory;
+                    const searchMatch = searchQuery === '' || title.includes(searchQuery) || excerpt.includes(searchQuery);
+
+                    if (categoryMatch && searchMatch) {
+                        card.style.display = 'flex';
+                        matchCount++;
+                        // Fade in transition
+                        card.style.opacity = '0';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transition = 'opacity 0.3s ease';
+                        }, 10);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Update Counter text
+                if (counterDiv) {
+                    if (searchQuery || currentCategory !== 'all') {
+                        counterDiv.innerText = `${blogCards.length} makaleden ${matchCount} tanesi listeleniyor`;
+                    } else {
+                        counterDiv.innerText = `Toplam ${blogCards.length} makale listeleniyor`;
+                    }
+                }
+
+                // Handle no results message
+                if (noResultsDiv) {
+                    if (matchCount === 0) {
+                        noResultsDiv.style.display = 'block';
+                    } else {
+                        noResultsDiv.style.display = 'none';
+                    }
+                }
+            }
+
+            // Real-time Search Event
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    searchQuery = e.target.value.toLowerCase().trim();
+                    filterBlog();
+                });
+            }
+
+            // Category Button Event
+            categoryButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    categoryButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentCategory = btn.getAttribute('data-filter');
+                    filterBlog();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
