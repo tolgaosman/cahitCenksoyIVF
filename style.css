@@ -895,8 +895,7 @@ body { top: 0 !important; }
     .team-card { flex: 0 0 100%; }
 }
 
-/* Nav link fitting is handled dynamically by fitNavLinks() in app.js.
-   These are fallback responsive breakpoints only (desktop-first). */
+/* ── Responsive fallbacks (Turkish / short languages) ── */
 @media (max-width: 1200px) {
     .nav-links { gap: clamp(4px, 0.5vw, 10px); }
     .nav-links a { padding: 30px clamp(2px, 0.4vw, 7px); }
@@ -904,4 +903,33 @@ body { top: 0 !important; }
 @media (max-width: 1100px) {
     .nav-links { gap: clamp(3px, 0.4vw, 7px); }
     .nav-links a { padding: 30px clamp(2px, 0.3vw, 5px); }
+}
+
+/* ── Google Translate active (Russian, French, German …) ──────────────────
+   html.translated-ltr is injected by the Google Translate widget.
+   We aggressively compress the nav so long translated words fit on one line.
+   Order of compression: letter-spacing → padding → gap → font-size.        */
+html.translated-ltr .nav-links,
+html.translated-rtl .nav-links {
+    gap: 2px !important;
+}
+html.translated-ltr .nav-links a,
+html.translated-rtl .nav-links a {
+    font-size:      clamp(0.48rem, 0.55vw, 0.60rem) !important;
+    letter-spacing: -0.5px !important;
+    padding-left:   clamp(1px, 0.25vw, 4px) !important;
+    padding-right:  clamp(1px, 0.25vw, 4px) !important;
+    white-space:    nowrap !important;
+}
+
+/* Slightly looser on large screens where there is room */
+@media (min-width: 1400px) {
+    html.translated-ltr .nav-links,
+    html.translated-rtl .nav-links { gap: 4px !important; }
+    html.translated-ltr .nav-links a,
+    html.translated-rtl .nav-links a {
+        font-size:    clamp(0.52rem, 0.58vw, 0.65rem) !important;
+        padding-left: clamp(2px, 0.3vw, 5px) !important;
+        padding-right:clamp(2px, 0.3vw, 5px) !important;
+    }
 }
