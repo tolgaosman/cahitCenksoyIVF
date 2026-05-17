@@ -780,6 +780,19 @@ footer {
     color: white;
 }
 
+#appointmentSubmit, #contactSubmit {
+    background-color: #25D366 !important;
+    border-color: #25D366 !important;
+    color: white !important;
+    transition: var(--transition);
+}
+
+#appointmentSubmit:hover:not(:disabled), #contactSubmit:hover:not(:disabled) {
+    background-color: #20ba5a !important;
+    border-color: #20ba5a !important;
+    transform: translateY(-2px) !important;
+}
+
 
 /* --- Hide Google Translate UI (we use our own language selector) --- */
 .goog-te-banner-frame, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
