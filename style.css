@@ -908,15 +908,14 @@ body { top: 0 !important; }
 
 /* ── Google Translate active (Russian, French, German …) ──────────────────
    html.translated-ltr is injected by the Google Translate widget.
-   We aggressively compress the nav so long translated words fit on one line.
-   Order of compression: letter-spacing → padding → gap → font-size.        */
+   We compress padding and letter-spacing so translated words fit on one line.
+   Font sizes are equal across all languages. */
 html.translated-ltr .nav-links,
 html.translated-rtl .nav-links {
     gap: 2px !important;
 }
 html.translated-ltr .nav-links a,
 html.translated-rtl .nav-links a {
-    font-size:      clamp(0.685rem, 0.74vw, 0.805rem) !important;
     letter-spacing: -0.5px !important;
     padding-left:   clamp(1px, 0.25vw, 4px) !important;
     padding-right:  clamp(1px, 0.25vw, 4px) !important;
@@ -929,19 +928,16 @@ html.translated-rtl .nav-links a {
     html.translated-rtl .nav-links { gap: 4px !important; }
     html.translated-ltr .nav-links a,
     html.translated-rtl .nav-links a {
-        font-size:    clamp(0.745rem, 0.8vw, 0.865rem) !important;
         padding-left: clamp(2px, 0.3vw, 5px) !important;
         padding-right:clamp(2px, 0.3vw, 5px) !important;
     }
 }
 
 /* ── Russian-only Aggressive Compression ──────────────────────────────────
-   Since Russian translations are extremely long (e.g. "ЭКСТРАКОРПОРАЛЬНОЕ..."),
-   we target Russian specifically using body.lang-ru to shrink it to fit.
-   We use high specificity to override html.translated-ltr. */
+   Since Russian translations can still be long, we compress its spacing further
+   but retain the equal font size. */
 html.translated-ltr body.lang-ru .nav-links a,
 html[lang="ru"] .nav-links a {
-    font-size:      clamp(0.605rem, 0.645vw, 0.705rem) !important;
     letter-spacing: -0.8px !important;
     padding-left:   clamp(0px, 0.1vw, 2px) !important;
     padding-right:  clamp(0px, 0.1vw, 2px) !important;
@@ -950,7 +946,6 @@ html[lang="ru"] .nav-links a {
 @media (min-width: 1400px) {
     html.translated-ltr body.lang-ru .nav-links a,
     html[lang="ru"] .nav-links a {
-        font-size:    clamp(0.645rem, 0.705vw, 0.765rem) !important;
         padding-left: clamp(1px, 0.2vw, 3px) !important;
         padding-right:clamp(1px, 0.2vw, 3px) !important;
     }
