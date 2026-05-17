@@ -62,10 +62,6 @@ function changeLanguage(langCode) {
 
     // If Google Translate widget isn't loaded yet, reload to apply
     if (!select) location.reload();
-
-    // Re-fit nav after translation redraws text (give GT 600ms to finish)
-    setTimeout(fitNavLinks, 600);
-    setTimeout(fitNavLinks, 1400); // second pass for slow connections
 }
 
 // Restore saved language on page load
@@ -127,100 +123,9 @@ function initTheme() {
     setTheme(isDark);
 }
 
-// --- Dynamic Navbar Fit Engine ---
-// Measures real pixel overflow and shrinks nav properties in order of
-// visual impact (gap → letter-spacing → padding → font-size) until all
-// links fit on one line, regardless of language or viewport width.
-function fitNavLinks() {
-    if (window.innerWidth <= 992) return; // Mobile uses hamburger menu
-
-    const navCenter = document.querySelector('.nav-center');
-    const navLinks  = document.querySelector('.navbar .nav-links');
-    if (!navCenter || !navLinks) return;
-
-    const links = Array.from(navLinks.querySelectorAll('a'));
-    if (!links.length) return;
-
-    // ── Limits ──────────────────────────────────────────────────────────
-    const MAX_FONT  = 0.82;  // rem  — ideal desktop size
-    const MIN_FONT  = 0.55;  // rem  — absolute readability floor
-    const MAX_GAP   = 12;    // px
-    const MIN_GAP   = 2;     // px
-    const MAX_HPAD  = 8;     // px  — horizontal padding per link
-    const MIN_HPAD  = 1;     // px
-    const MAX_LS    = 0.3;   // px  — letter-spacing
-    const MIN_LS    = -0.8;  // px  — allows tighter packing for long languages
-
-    // ── Reset to maximum values ──────────────────────────────────────────
-    let fontSize      = MAX_FONT;
-    let gap           = MAX_GAP;
-    let letterSpacing = MAX_LS;
-    let hPad          = MAX_HPAD;
-
-    const apply = () => {
-        navLinks.style.gap = gap + 'px';
-        links.forEach(a => {
-            a.style.fontSize      = fontSize + 'rem';
-            a.style.letterSpacing = letterSpacing + 'px';
-            a.style.paddingLeft   = hPad + 'px';
-            a.style.paddingRight  = hPad + 'px';
-        });
-    };
-
-    // Force a reset before measuring
-    navLinks.style.gap = '';
-    links.forEach(a => {
-        a.style.fontSize = a.style.letterSpacing =
-        a.style.paddingLeft = a.style.paddingRight = '';
-    });
-
-    apply();
-
-    const overflowing = () => navLinks.scrollWidth > navCenter.clientWidth + 1;
-
-    // Step 1 — reduce gap (no text impact)
-    while (overflowing() && gap > MIN_GAP) {
-        gap--; apply();
-    }
-
-    // Step 2 — tighten letter-spacing
-    while (overflowing() && letterSpacing > MIN_LS) {
-        letterSpacing = Math.max(MIN_LS, parseFloat((letterSpacing - 0.1).toFixed(2)));
-        apply();
-    }
-
-    // Step 3 — reduce horizontal padding
-    while (overflowing() && hPad > MIN_HPAD) {
-        hPad--; apply();
-    }
-
-    // Step 4 — shrink font size last (most visible change)
-    while (overflowing() && fontSize > MIN_FONT) {
-        fontSize = Math.max(MIN_FONT, parseFloat((fontSize - 0.005).toFixed(3)));
-        apply();
-    }
-}
-
-// Debounced resize listener
-let _navFitTimer = null;
-window.addEventListener('resize', () => {
-    clearTimeout(_navFitTimer);
-    _navFitTimer = setTimeout(fitNavLinks, 120);
-});
-
-// Watch for Google Translate rewriting nav text (changes innerText of <a> nodes)
-const _navMutationTarget = document.querySelector('.navbar');
-if (_navMutationTarget) {
-    new MutationObserver(() => {
-        clearTimeout(_navFitTimer);
-        _navFitTimer = setTimeout(fitNavLinks, 200);
-    }).observe(_navMutationTarget, { subtree: true, childList: true, characterData: true });
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initTeamCarousel();
-    fitNavLinks(); // initial fit on page load
 
     // --- Global Dropdown & Menu Toggles (Event Delegation) ---
     document.addEventListener('click', (e) => {
