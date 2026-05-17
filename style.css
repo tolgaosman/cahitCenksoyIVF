@@ -233,7 +233,7 @@ h1, h2, h3, h4 {
 }
 
 .nav-links a {
-    font-size: clamp(0.6rem, 0.7vw, 0.75rem);
+    font-size: clamp(0.725rem, 0.8vw, 0.875rem);
     font-weight: 600;
     color: var(--text-main);
     text-transform: uppercase;
@@ -296,10 +296,11 @@ h1, h2, h3, h4 {
 .dropdown-menu a {
     display: block;
     padding: 12px 20px;
-    font-size: 0.85rem;
+    font-size: 0.975rem;
     text-transform: none;
     color: var(--text-main);
     transition: var(--transition);
+    text-align: center;
 }
 
 .dropdown-menu a:hover {
@@ -319,7 +320,7 @@ h1, h2, h3, h4 {
     padding: 6px 16px;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 0.85rem;
+    font-size: 0.975rem;
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -915,7 +916,7 @@ html.translated-rtl .nav-links {
 }
 html.translated-ltr .nav-links a,
 html.translated-rtl .nav-links a {
-    font-size:      clamp(0.48rem, 0.55vw, 0.60rem) !important;
+    font-size:      clamp(0.685rem, 0.74vw, 0.805rem) !important;
     letter-spacing: -0.5px !important;
     padding-left:   clamp(1px, 0.25vw, 4px) !important;
     padding-right:  clamp(1px, 0.25vw, 4px) !important;
@@ -928,7 +929,7 @@ html.translated-rtl .nav-links a {
     html.translated-rtl .nav-links { gap: 4px !important; }
     html.translated-ltr .nav-links a,
     html.translated-rtl .nav-links a {
-        font-size:    clamp(0.52rem, 0.58vw, 0.65rem) !important;
+        font-size:    clamp(0.745rem, 0.8vw, 0.865rem) !important;
         padding-left: clamp(2px, 0.3vw, 5px) !important;
         padding-right:clamp(2px, 0.3vw, 5px) !important;
     }
