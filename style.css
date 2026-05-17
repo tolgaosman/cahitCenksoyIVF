@@ -934,3 +934,23 @@ html.translated-rtl .nav-links a {
         padding-right:clamp(2px, 0.3vw, 5px) !important;
     }
 }
+
+/* ── Russian-only Aggressive Compression ──────────────────────────────────
+   Since Russian translations are extremely long (e.g. "ЭКСТРАКОРПОРАЛЬНОЕ..."),
+   we target Russian specifically using html[lang="ru"] and .lang-ru to shrink it to fit. */
+html[lang="ru"] .nav-links a,
+.lang-ru .nav-links a {
+    font-size:      clamp(0.52rem, 0.58vw, 0.65rem) !important;
+    letter-spacing: -0.6px !important;
+    padding-left:   clamp(1px, 0.22vw, 3px) !important;
+    padding-right:  clamp(1px, 0.22vw, 3px) !important;
+}
+
+@media (min-width: 1400px) {
+    html[lang="ru"] .nav-links a,
+    .lang-ru .nav-links a {
+        font-size:    clamp(0.58rem, 0.64vw, 0.70rem) !important;
+        padding-left: clamp(2px, 0.25vw, 4px) !important;
+        padding-right:clamp(2px, 0.25vw, 4px) !important;
+    }
+}
