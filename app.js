@@ -8,6 +8,17 @@ function googleTranslateElementInit() {
     }, 'google_translate_element');
 }
 
+// Map language codes to flag emojis
+const flags = {
+    tr: '🇹🇷',
+    en: '🇬🇧',
+    ru: '🇷🇺',
+    de: '🇩🇪',
+    ar: '🇸🇦',
+    fa: '🇮🇷',
+    fr: '🇫🇷'
+};
+
 function changeLanguage(langCode) {
     localStorage.setItem('lang', langCode);
 
@@ -25,9 +36,12 @@ function changeLanguage(langCode) {
         select.dispatchEvent(new Event('change'));
     }
 
-    // Update language button text
+    // Update language button text with dynamic flag emoji
     const currentLangText = document.getElementById('currentLangText');
-    if (currentLangText) currentLangText.innerText = langCode.toUpperCase();
+    if (currentLangText) {
+        const flag = flags[langCode] || '🇹🇷';
+        currentLangText.innerText = `${flag} ${langCode.toUpperCase()}`;
+    }
 
     // Handle RTL for Arabic and Persian
     document.body.classList.remove('lang-ru');
@@ -53,9 +67,12 @@ function changeLanguage(langCode) {
 // Restore saved language on page load
 document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('lang') || 'tr';
+    const currentLangText = document.getElementById('currentLangText');
+    if (currentLangText) {
+        const flag = flags[savedLang] || '🇹🇷';
+        currentLangText.innerText = `${flag} ${savedLang.toUpperCase()}`;
+    }
     if (savedLang !== 'tr') {
-        const currentLangText = document.getElementById('currentLangText');
-        if (currentLangText) currentLangText.innerText = savedLang.toUpperCase();
         if (savedLang === 'ru') {
             document.body.classList.add('lang-ru');
         }
