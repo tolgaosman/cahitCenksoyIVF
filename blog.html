@@ -632,7 +632,7 @@
             const noResultsDiv = document.getElementById('blogNoResults');
             
             // Modal Elements
-            const adminLoginBtn = document.getElementById('adminLoginBtn');
+            const blogHeroTitle = document.getElementById('blogHeroTitle');
             const adminLoginModal = document.getElementById('adminLoginModal');
             const adminDashboardModal = document.getElementById('adminDashboardModal');
             const closeLoginModal = document.getElementById('closeLoginModal');
@@ -750,16 +750,18 @@
                 });
             });
 
-            // Admin Login Modals Trigger
-            adminLoginBtn.addEventListener('click', () => {
-                const isAdmin = sessionStorage.getItem('isAdmin') === 'true';
-                if (isAdmin) {
-                    adminDashboardModal.style.display = 'flex';
-                } else {
-                    adminLoginModal.style.display = 'flex';
-                    adminPassInput.focus();
-                }
-            });
+            // Secret Admin Login Modals Trigger: Double click the main title
+            if (blogHeroTitle) {
+                blogHeroTitle.addEventListener('dblclick', () => {
+                    const isAdmin = sessionStorage.getItem('isAdmin') === 'true';
+                    if (isAdmin) {
+                        adminDashboardModal.style.display = 'flex';
+                    } else {
+                        adminLoginModal.style.display = 'flex';
+                        adminPassInput.focus();
+                    }
+                });
+            }
 
             // Modal Close Events
             closeLoginModal.addEventListener('click', () => {
