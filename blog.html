@@ -286,6 +286,77 @@
             left: auto;
             right: 24px;
         }
+
+        /* Admin Modal Styles */
+        .admin-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+        }
+        .admin-modal-content {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+            text-align: center;
+        }
+        .admin-modal-content.dashboard-content {
+            max-width: 700px;
+        }
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .close-modal {
+            position: absolute;
+            right: 25px;
+            top: 20px;
+            color: var(--text-muted);
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .close-modal:hover {
+            color: var(--primary-color);
+        }
+        .admin-post-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .admin-post-item button {
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .admin-post-item button:hover {
+            background: #cc0000;
+        }
     </style>
 </head>
 <body>
@@ -371,9 +442,14 @@
 
     <main class="blog-container">
         <!-- Search Field -->
-        <div class="blog-search-wrapper">
-            <i class="fa-solid fa-magnifying-glass blog-search-icon"></i>
-            <input type="text" id="blogSearch" class="blog-search-input" placeholder="Makale veya konu içinde arayın..." data-i18n="blogSearchPlaceholder">
+        <div class="blog-search-wrapper" style="display: flex; align-items: center; background-color: var(--card-bg);">
+            <div style="position: relative; flex: 1;">
+                <i class="fa-solid fa-magnifying-glass blog-search-icon"></i>
+                <input type="text" id="blogSearch" class="blog-search-input" placeholder="Makale veya konu içinde arayın..." data-i18n="blogSearchPlaceholder" style="border: none; width: 100%;">
+            </div>
+            <button id="adminLoginBtn" style="background: none; border: none; font-size: 1.25rem; color: var(--primary-color); padding: 0 25px; cursor: pointer; transition: var(--transition);" title="Yönetici Girişi">
+                <i class="fa-solid fa-user-gear"></i>
+            </button>
         </div>
 
         <!-- Category Filters -->
@@ -391,85 +467,12 @@
                 <i class="fa-solid fa-heart"></i> <span data-i18n="blogCatLifestyle">SAĞLIK & YAŞAM</span>
             </button>
         </div>
-
         <!-- Dynamic Counter -->
-        <div class="blog-results-counter" id="blogCounter">Toplam 3 makale listeleniyor</div>
+        <div class="blog-results-counter" id="blogCounter">Toplam 0 makale listeleniyor</div>
 
         <!-- Blog Grid -->
         <div class="blog-grid" id="blogGrid">
             
-            <!-- POST 1: IVF Success -->
-            <article class="blog-card" data-category="ivf-treatment">
-                <div class="blog-img-placeholder">
-                    <i class="fa-solid fa-heart-pulse"></i>
-                </div>
-                <div class="blog-body">
-                    <span class="blog-tag" data-i18n="postTag1">TÜP BEBEK</span>
-                    <h3 class="blog-title" data-i18n="postTitle1">Tüp Bebek Tedavisinde Başarı Şansını Artırmanın 5 Yolu</h3>
-                    <p class="blog-excerpt" data-i18n="postExcerpt1">Tüp bebek tedavisinde başarı, kişiye özel doğru tedavi planının yanı sıra yaşam tarzı ve beslenme alışkanlıklarıyla yakından ilişkilidir. İşte başarı oranınızı artıracak 5 altın öneri...</p>
-                    <a href="javascript:void(0)" class="blog-readmore">
-                        <span data-i18n="blogReadMore">Devamını Oku</span> <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                    <div class="blog-meta">
-                        <div class="blog-author">
-                            <div class="blog-author-avatar">C</div>
-                            <span data-i18n="postAuthor1">Dr. Cahit Cenksoy</span>
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-clock"></i> <span>4 dk okuma</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <!-- POST 2: Cyprus Donation -->
-            <article class="blog-card" data-category="cyprus-donation">
-                <div class="blog-img-placeholder" style="background: linear-gradient(135deg, var(--primary-color) 0%, #ffeedd 100%);">
-                    <i class="fa-solid fa-circle-nodes"></i>
-                </div>
-                <div class="blog-body">
-                    <span class="blog-tag" data-i18n="postTag2">DONASYON</span>
-                    <h3 class="blog-title" data-i18n="postTitle2">Kıbrıs'ta Yumurta Donasyonu Süreci Nasıl İşler?</h3>
-                    <p class="blog-excerpt" data-i18n="postExcerpt2">Kıbrıs, esnek ve gelişmiş tüp bebek yönetmeliği ile yumurta donasyonu (bağışı) tedavilerinde dünyanın önde gelen merkezlerinden biridir. Sürecin tüm aşamalarını sizler için derledik...</p>
-                    <a href="javascript:void(0)" class="blog-readmore">
-                        <span data-i18n="blogReadMore">Devamını Oku</span> <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                    <div class="blog-meta">
-                        <div class="blog-author">
-                            <div class="blog-author-avatar">C</div>
-                            <span data-i18n="postAuthor2">Dr. Cahit Cenksoy</span>
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-clock"></i> <span>6 dk okuma</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <!-- POST 3: Stress Management -->
-            <article class="blog-card" data-category="health-lifestyle">
-                <div class="blog-img-placeholder" style="background: linear-gradient(135deg, var(--primary-color) 0%, #d4fcd4 100%);">
-                    <i class="fa-solid fa-spa"></i>
-                </div>
-                <div class="blog-body">
-                    <span class="blog-tag" data-i18n="postTag3">YAŞAM & SAĞLIK</span>
-                    <h3 class="blog-title" data-i18n="postTitle3">Tüp Bebek Tedavisinde Stres ve Ruh Sağlığı Yönetimi</h3>
-                    <p class="blog-excerpt" data-i18n="postExcerpt3">Tüp bebek süreci fiziksel olduğu kadar psikolojik olarak da yönetilmesi gereken hassas bir dönemdir. Tedavi sırasında stres seviyenizi düşürecek kanıtlanmış yöntemler...</p>
-                    <a href="javascript:void(0)" class="blog-readmore">
-                        <span data-i18n="blogReadMore">Devamını Oku</span> <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                    <div class="blog-meta">
-                        <div class="blog-author">
-                            <div class="blog-author-avatar">G</div>
-                            <span data-i18n="postAuthor3">Uzm. Psk. Güneş Cenksoy</span>
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-clock"></i> <span>5 dk okuma</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
         </div>
 
         <!-- No Results Found Div -->
@@ -521,48 +524,210 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
     
+    <!-- Admin Login Modal -->
+    <div id="adminLoginModal" class="admin-modal">
+        <div class="admin-modal-content">
+            <span class="close-modal" id="closeLoginModal">&times;</span>
+            <h2 style="color: var(--primary-color); margin-bottom: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 10px;"><i class="fa-solid fa-lock"></i> Yönetici Girişi</h2>
+            <div class="form-group" style="margin-bottom: 20px; text-align: left;">
+                <label for="adminPass" style="font-weight: 600; display: block; margin-bottom: 8px; color: var(--text-main);">Yönetici Şifresi</label>
+                <input type="password" id="adminPass" class="form-input" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-light); color: var(--text-main);" placeholder="Şifrenizi girin...">
+            </div>
+            <button id="submitLoginBtn" class="btn btn-primary" style="width: 100%; padding: 12px; border-radius: 8px; font-weight: 600;">Giriş Yap</button>
+            <p id="loginError" style="color: red; margin-top: 10px; display: none; font-size: 0.9rem;">Hatalı şifre! Lütfen tekrar deneyin.</p>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Modal -->
+    <div id="adminDashboardModal" class="admin-modal">
+        <div class="admin-modal-content dashboard-content">
+            <span class="close-modal" id="closeDashboardModal">&times;</span>
+            <h2 style="color: var(--primary-color); margin-bottom: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 10px;"><i class="fa-solid fa-sliders"></i> Blog Yönetim Paneli</h2>
+            
+            <div class="admin-tabs" style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
+                <button class="tab-btn active" id="tabAddPost" style="background: none; border: none; padding: 10px 15px; color: var(--primary-color); font-weight: 600; cursor: pointer; border-bottom: 2px solid var(--primary-color);">Yeni Makale Ekle</button>
+                <button class="tab-btn" id="tabManagePosts" style="background: none; border: none; padding: 10px 15px; color: var(--text-muted); font-weight: 600; cursor: pointer;">Makaleleri Yönet</button>
+            </div>
+
+            <!-- Tab 1: Add Post Form -->
+            <form id="addPostForm" style="display: flex; flex-direction: column; gap: 15px; text-align: left;">
+                <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                    <div>
+                        <label class="form-label" style="font-weight:600; display:block; margin-bottom:5px;">Makale Başlığı (TR)</label>
+                        <input type="text" id="postTitleTr" class="form-input" style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border-color); background:var(--bg-light); color:var(--text-main);" required placeholder="Örn: Tüp Bebek Tedavisinde Başarı Şansını Artırmanın 5 Yolu">
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div>
+                        <label class="form-label" style="font-weight:600; display:block; margin-bottom:5px;">Kategori</label>
+                        <select id="postCategory" class="form-input" style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border-color); background:var(--bg-light); color:var(--text-main);" required>
+                            <option value="ivf-treatment">Tüp Bebek & Tedavi</option>
+                            <option value="cyprus-donation">Kıbrıs'ta Bağış</option>
+                            <option value="health-lifestyle">Sağlık & Yaşam</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label" style="font-weight:600; display:block; margin-bottom:5px;">Etiket</label>
+                        <input type="text" id="postTagTr" class="form-input" style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border-color); background:var(--bg-light); color:var(--text-main);" required placeholder="Örn: TÜP BEBEK">
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div>
+                        <label class="form-label" style="font-weight:600; display:block; margin-bottom:5px;">Okuma Süresi</label>
+                        <input type="text" id="postReadTimeTr" class="form-input" style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border-color); background:var(--bg-light); color:var(--text-main);" required placeholder="Örn: 5 dk okuma">
+                    </div>
+                    <div>
+                        <label class="form-label" style="font-weight:600; display:block; margin-bottom:5px;">Yazar</label>
+                        <input type="text" id="postAuthorTr" class="form-input" style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border-color); background:var(--bg-light); color:var(--text-main);" required placeholder="Örn: Dr. Cahit Cenksoy">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="form-label" style="font-weight:600; display:block; margin-bottom:5px;">Kısa Özet (TR)</label>
+                    <textarea id="postExcerptTr" class="form-input" style="width:100%; height:80px; padding:10px; border-radius:8px; border:1px solid var(--border-color); background:var(--bg-light); color:var(--text-main); resize:none;" required placeholder="Makalenin kısa bir özeti..."></textarea>
+                </div>
+
+                <div>
+                    <label class="form-label" style="font-weight:600; display:block; margin-bottom:5px;">Görsel Tasarımı (Arka Plan Teması)</label>
+                    <div style="display:flex; gap:15px;">
+                        <label style="display:flex; align-items:center; gap:5px; cursor:pointer;">
+                            <input type="radio" name="postTheme" value="pink" checked>
+                            <span style="width:20px; height:20px; border-radius:50%; background:linear-gradient(135deg, var(--primary-color) 0%, #ffdfeb 100%); display:inline-block;"></span> Pembe
+                        </label>
+                        <label style="display:flex; align-items:center; gap:5px; cursor:pointer;">
+                            <input type="radio" name="postTheme" value="orange">
+                            <span style="width:20px; height:20px; border-radius:50%; background:linear-gradient(135deg, var(--primary-color) 0%, #ffeedd 100%); display:inline-block;"></span> Turuncu
+                        </label>
+                        <label style="display:flex; align-items:center; gap:5px; cursor:pointer;">
+                            <input type="radio" name="postTheme" value="green">
+                            <span style="width:20px; height:20px; border-radius:50%; background:linear-gradient(135deg, var(--primary-color) 0%, #d4fcd4 100%); display:inline-block;"></span> Yeşil
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="padding: 12px; border-radius: 8px; font-weight: 600; margin-top:10px; width: 100%;">Makaleyi Yayınla</button>
+            </form>
+
+            <!-- Tab 2: Manage Posts List -->
+            <div id="managePostsList" style="display: none; flex-direction: column; gap: 15px; max-height: 400px; overflow-y: auto; text-align: left; padding-right: 5px;">
+                <!-- Dynamically populated list of posts with delete buttons -->
+            </div>
+            
+            <div style="margin-top: 20px; text-align: right; border-top: 1px solid var(--border-color); padding-top: 15px;">
+                <button id="adminLogoutBtn" class="btn btn-secondary" style="padding: 8px 16px; border-radius: 8px; border: 1px solid var(--primary-color); cursor: pointer; background: transparent; color: var(--text-main);">Oturumu Kapat</button>
+            </div>
+        </div>
+    </div>
+    
     <script src="translations.js"></script>
     <script src="app.js"></script>
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    <!-- Blog Filtering Script -->
+    <!-- Blog Management & Filtering Script -->
     <script>
+        const getBlogs = () => JSON.parse(localStorage.getItem('ivf_blogs') || '[]');
+        const saveBlogs = (blogs) => localStorage.setItem('ivf_blogs', JSON.stringify(blogs));
+
         document.addEventListener('DOMContentLoaded', () => {
             const searchInput = document.getElementById('blogSearch');
             const categoryButtons = document.querySelectorAll('.blog-cat-btn');
-            const blogCards = document.querySelectorAll('.blog-card');
             const counterDiv = document.getElementById('blogCounter');
             const noResultsDiv = document.getElementById('blogNoResults');
+            
+            // Modal Elements
+            const adminLoginBtn = document.getElementById('adminLoginBtn');
+            const adminLoginModal = document.getElementById('adminLoginModal');
+            const adminDashboardModal = document.getElementById('adminDashboardModal');
+            const closeLoginModal = document.getElementById('closeLoginModal');
+            const closeDashboardModal = document.getElementById('closeDashboardModal');
+            const submitLoginBtn = document.getElementById('submitLoginBtn');
+            const adminPassInput = document.getElementById('adminPass');
+            const loginError = document.getElementById('loginError');
+            const adminLogoutBtn = document.getElementById('adminLogoutBtn');
+            
+            // Tab Elements
+            const tabAddPost = document.getElementById('tabAddPost');
+            const tabManagePosts = document.getElementById('tabManagePosts');
+            const addPostForm = document.getElementById('addPostForm');
+            const managePostsList = document.getElementById('managePostsList');
 
-            let currentCategory = 'all';
-            let searchQuery = '';
+            // Render blogs dynamically
+            function renderBlogs() {
+                const blogs = getBlogs();
+                const grid = document.getElementById('blogGrid');
+                grid.innerHTML = '';
+                
+                blogs.forEach(blog => {
+                    let gradient = 'linear-gradient(135deg, var(--primary-color) 0%, #ffdfeb 100%)';
+                    let icon = 'fa-heart-pulse';
+                    if (blog.theme === 'orange') {
+                        gradient = 'linear-gradient(135deg, var(--primary-color) 0%, #ffeedd 100%)';
+                        icon = 'fa-circle-nodes';
+                    } else if (blog.theme === 'green') {
+                        gradient = 'linear-gradient(135deg, var(--primary-color) 0%, #d4fcd4 100%)';
+                        icon = 'fa-spa';
+                    }
+                    
+                    const article = document.createElement('article');
+                    article.className = 'blog-card';
+                    article.setAttribute('data-category', blog.category);
+                    article.setAttribute('data-id', blog.id);
+                    article.innerHTML = `
+                        <div class="blog-img-placeholder" style="background: ${gradient};">
+                            <i class="fa-solid ${icon}"></i>
+                        </div>
+                        <div class="blog-body">
+                            <span class="blog-tag">${blog.tag}</span>
+                            <h3 class="blog-title">${blog.title}</h3>
+                            <p class="blog-excerpt">${blog.excerpt}</p>
+                            <a href="javascript:void(0)" class="blog-readmore">
+                                <span data-i18n="blogReadMore">Devamını Oku</span> <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                            <div class="blog-meta">
+                                <div class="blog-author">
+                                    <div class="blog-author-avatar">${blog.author.charAt(0).toUpperCase()}</div>
+                                    <span>${blog.author}</span>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-clock"></i> <span>${blog.readTime}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    grid.appendChild(article);
+                });
+                
+                filterBlog();
+            }
 
+            // Filter logic
             function filterBlog() {
+                const searchQuery = searchInput ? searchInput.value.toLowerCase().trim() : '';
+                const activeBtn = document.querySelector('.blog-cat-btn.active');
+                const currentCategory = activeBtn ? activeBtn.getAttribute('data-filter') : 'all';
+                
+                const blogCards = document.querySelectorAll('.blog-card');
                 let matchCount = 0;
-
+                
                 blogCards.forEach(card => {
                     const category = card.getAttribute('data-category');
                     const title = card.querySelector('.blog-title').innerText.toLowerCase();
                     const excerpt = card.querySelector('.blog-excerpt').innerText.toLowerCase();
-
+                    
                     const categoryMatch = currentCategory === 'all' || category === currentCategory;
                     const searchMatch = searchQuery === '' || title.includes(searchQuery) || excerpt.includes(searchQuery);
-
+                    
                     if (categoryMatch && searchMatch) {
                         card.style.display = 'flex';
                         matchCount++;
-                        // Fade in transition
-                        card.style.opacity = '0';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transition = 'opacity 0.3s ease';
-                        }, 10);
+                        card.style.opacity = '1';
                     } else {
                         card.style.display = 'none';
                     }
                 });
-
-                // Update Counter text
+                
                 if (counterDiv) {
                     if (searchQuery || currentCategory !== 'all') {
                         counterDiv.innerText = `${blogCards.length} makaleden ${matchCount} tanesi listeleniyor`;
@@ -570,23 +735,15 @@
                         counterDiv.innerText = `Toplam ${blogCards.length} makale listeleniyor`;
                     }
                 }
-
-                // Handle no results message
+                
                 if (noResultsDiv) {
-                    if (matchCount === 0) {
-                        noResultsDiv.style.display = 'block';
-                    } else {
-                        noResultsDiv.style.display = 'none';
-                    }
+                    noResultsDiv.style.display = matchCount === 0 ? 'block' : 'none';
                 }
             }
 
             // Real-time Search Event
             if (searchInput) {
-                searchInput.addEventListener('input', (e) => {
-                    searchQuery = e.target.value.toLowerCase().trim();
-                    filterBlog();
-                });
+                searchInput.addEventListener('input', filterBlog);
             }
 
             // Category Button Event
@@ -594,10 +751,146 @@
                 btn.addEventListener('click', () => {
                     categoryButtons.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
-                    currentCategory = btn.getAttribute('data-filter');
                     filterBlog();
                 });
             });
+
+            // Admin Login Modals Trigger
+            adminLoginBtn.addEventListener('click', () => {
+                const isAdmin = sessionStorage.getItem('isAdmin') === 'true';
+                if (isAdmin) {
+                    adminDashboardModal.style.display = 'flex';
+                } else {
+                    adminLoginModal.style.display = 'flex';
+                    adminPassInput.focus();
+                }
+            });
+
+            // Modal Close Events
+            closeLoginModal.addEventListener('click', () => {
+                adminLoginModal.style.display = 'none';
+                loginError.style.display = 'none';
+                adminPassInput.value = '';
+            });
+
+            closeDashboardModal.addEventListener('click', () => {
+                adminDashboardModal.style.display = 'none';
+            });
+
+            // Handle login submit
+            submitLoginBtn.addEventListener('click', () => {
+                const password = adminPassInput.value;
+                if (password === 'cenksoy123') {
+                    sessionStorage.setItem('isAdmin', 'true');
+                    adminLoginModal.style.display = 'none';
+                    adminDashboardModal.style.display = 'flex';
+                    loginError.style.display = 'none';
+                    adminPassInput.value = '';
+                } else {
+                    loginError.style.display = 'block';
+                }
+            });
+
+            adminPassInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    submitLoginBtn.click();
+                }
+            });
+
+            // Logout
+            adminLogoutBtn.addEventListener('click', () => {
+                sessionStorage.removeItem('isAdmin');
+                adminDashboardModal.style.display = 'none';
+                alert('Yönetici oturumu kapatıldı.');
+            });
+
+            // Tab Switching in Dashboard
+            tabAddPost.addEventListener('click', () => {
+                tabAddPost.classList.add('active');
+                tabAddPost.style.borderBottom = '2px solid var(--primary-color)';
+                tabAddPost.style.color = 'var(--primary-color)';
+                
+                tabManagePosts.classList.remove('active');
+                tabManagePosts.style.borderBottom = 'none';
+                tabManagePosts.style.color = 'var(--text-muted)';
+                
+                addPostForm.style.display = 'flex';
+                managePostsList.style.display = 'none';
+            });
+
+            tabManagePosts.addEventListener('click', () => {
+                tabManagePosts.classList.add('active');
+                tabManagePosts.style.borderBottom = '2px solid var(--primary-color)';
+                tabManagePosts.style.color = 'var(--primary-color)';
+                
+                tabAddPost.classList.remove('active');
+                tabAddPost.style.borderBottom = 'none';
+                tabAddPost.style.color = 'var(--text-muted)';
+                
+                addPostForm.style.display = 'none';
+                managePostsList.style.display = 'flex';
+                populateManageList();
+            });
+
+            // Populate manage tab list
+            function populateManageList() {
+                const blogs = getBlogs();
+                managePostsList.innerHTML = '';
+                
+                if (blogs.length === 0) {
+                    managePostsList.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 20px;">Henüz yayınlanmış makale yok.</p>';
+                    return;
+                }
+                
+                blogs.forEach(blog => {
+                    const item = document.createElement('div');
+                    item.className = 'admin-post-item';
+                    item.innerHTML = `
+                        <div style="font-weight: 600; color: var(--text-main); font-size: 0.95rem;">${blog.title}</div>
+                        <button onclick="deleteBlogPost('${blog.id}')"><i class="fa-solid fa-trash"></i> Sil</button>
+                    `;
+                    managePostsList.appendChild(item);
+                });
+            }
+
+            // Handle Blog Form Submission
+            addPostForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const newPost = {
+                    id: 'post_' + Date.now(),
+                    title: document.getElementById('postTitleTr').value,
+                    category: document.getElementById('postCategory').value,
+                    tag: document.getElementById('postTagTr').value,
+                    readTime: document.getElementById('postReadTimeTr').value,
+                    author: document.getElementById('postAuthorTr').value,
+                    excerpt: document.getElementById('postExcerptTr').value,
+                    theme: document.querySelector('input[name="postTheme"]:checked').value,
+                    date: new Date().toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })
+                };
+                
+                const blogs = getBlogs();
+                blogs.push(newPost);
+                saveBlogs(blogs);
+                
+                addPostForm.reset();
+                adminDashboardModal.style.display = 'none';
+                renderBlogs();
+            });
+
+            // Global window function for deletion
+            window.deleteBlogPost = function(id) {
+                if (confirm('Bu makaleyi silmek istediğinizden emin misiniz?')) {
+                    let blogs = getBlogs();
+                    blogs = blogs.filter(b => b.id !== id);
+                    saveBlogs(blogs);
+                    renderBlogs();
+                    populateManageList();
+                }
+            }
+
+            // Initial load
+            renderBlogs();
         });
     </script>
 </body>
