@@ -951,34 +951,4 @@ html[lang="ru"] .nav-links a {
     }
 }
 
-/* ── Custom Translation Trick for "Sizden Gelenler" ───────────────────────
-   In Turkish (default), we show .text-tr ("Sizden Gelenler") and hide .text-gt ("Hastalarımızdan").
-   Google Translate will still read and translate the hidden .text-gt into "Testimonials" (EN).
-   When a translation applies, we hide the Turkish text and reveal the correctly translated .text-gt. */
-.text-gt {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
 
-html.translated-ltr .text-tr,
-html.translated-rtl .text-tr {
-    display: none !important;
-}
-
-html.translated-ltr .text-gt,
-html.translated-rtl .text-gt {
-    position: static;
-    width: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    clip: auto;
-    white-space: nowrap;
-}
