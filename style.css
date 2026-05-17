@@ -895,23 +895,24 @@ body { top: 0 !important; }
     .team-card { flex: 0 0 100%; }
 }
 
-/* Russian & Google Translate Spacing Safety Overrides */
-.lang-ru .nav-links, html[lang="ru"] .nav-links, html[lang="de"] .nav-links, html[lang="fr"] .nav-links {
-    gap: clamp(5px, 0.9vw, 12px);
+/* Aggressive Language Spacing Overrides to Prevent Navbar Breakage */
+html[lang="ru"] .nav-links, html[lang="de"] .nav-links, html[lang="fr"] .nav-links, .lang-ru .nav-links {
+    gap: clamp(3px, 0.5vw, 8px);
 }
-.lang-ru .nav-links a, html[lang="ru"] .nav-links a, html[lang="de"] .nav-links a, html[lang="fr"] .nav-links a {
-    font-size: clamp(0.58rem, 0.65vw, 0.7rem);
-    padding: 30px clamp(3px, 0.5vw, 8px);
+html[lang="ru"] .nav-links a, html[lang="de"] .nav-links a, html[lang="fr"] .nav-links a, .lang-ru .nav-links a {
+    font-size: clamp(0.5rem, 0.55vw, 0.6rem) !important;
+    padding: 30px clamp(2px, 0.3vw, 5px) !important;
+    letter-spacing: 0 !important;
 }
 
 /* Global translated page fluid compression */
 html.translated-ltr .nav-links {
-    gap: clamp(5px, 0.9vw, 12px);
+    gap: clamp(3px, 0.5vw, 8px);
 }
 html.translated-ltr .nav-links a {
-    font-size: clamp(0.58rem, 0.65vw, 0.7rem);
-    padding: 30px clamp(3px, 0.5vw, 8px);
-    letter-spacing: 0.1px;
+    font-size: clamp(0.5rem, 0.55vw, 0.6rem) !important;
+    padding: 30px clamp(2px, 0.3vw, 5px) !important;
+    letter-spacing: 0 !important;
 }
 
 @media (max-width: 1200px) {
