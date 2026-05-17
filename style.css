@@ -45,11 +45,17 @@
     --card-color-4: #3b2528;
 }
 
+@font-face {
+    font-family: "Twemoji Country Flags";
+    src: url("https://cdn.jsdelivr.net/npm/country-flag-emoji-polyfill@0.1.8/dist/TwemojiCountryFlags.woff2") format("woff2");
+    unicode-range: U+1F1E6-1F1FF;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Outfit', 'Inter', sans-serif;
+    font-family: "Twemoji Country Flags", 'Outfit', 'Inter', sans-serif;
 }
 
 html {
