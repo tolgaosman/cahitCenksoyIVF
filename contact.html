@@ -293,10 +293,19 @@
 
     document.getElementById("contactMsgForm").addEventListener("submit", function(e) {
         e.preventDefault();
-        const name = document.getElementById("contact_name").value;
-        const email = document.getElementById("contact_email").value;
+        const name    = document.getElementById("contact_name").value;
+        const email   = document.getElementById("contact_email").value;
         const message = document.getElementById("contact_message").value;
-        let text = `*YENİ İLETİŞİM MESAJI*\n\n*Ad Soyad:* ${name}\n*E-posta:* ${email}\n*Mesaj:* ${message}`;
+
+        // Silently save to admin panel inquiries
+        fetch('https://cahit-cenksoy-admin.onrender.com/api/basvuru', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: name, email: email, message: message })
+        }).catch(() => {});
+
+        // Open WhatsApp as usual
+        let text = `*YEN\u0130 \u0130LET\u0130\u015e\u0130M MESAJI*\n\n*Ad Soyad:* ${name}\n*E-posta:* ${email}\n*Mesaj:* ${message}`;
         window.open(`https://wa.me/905488880112?text=${encodeURIComponent(text)}`, "_blank");
     });
     </script>

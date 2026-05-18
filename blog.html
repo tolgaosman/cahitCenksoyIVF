@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -609,273 +609,103 @@
 
     <!-- Blog Management & Filtering Script -->
     <script>
-        const getBlogs = () => JSON.parse(localStorage.getItem('ivf_blogs') || '[]');
-        const saveBlogs = (blogs) => localStorage.setItem('ivf_blogs', JSON.stringify(blogs));
+        /* ── Live Blog Fetcher ─────────────────────────────────────────────── */
+        const API_BASE = 'https://cahit-cenksoy-admin.onrender.com';
 
         document.addEventListener('DOMContentLoaded', () => {
-            const searchInput = document.getElementById('blogSearch');
-            const categoryButtons = document.querySelectorAll('.blog-cat-btn');
-            const counterDiv = document.getElementById('blogCounter');
+            const searchInput  = document.getElementById('blogSearch');
+            const catBtns      = document.querySelectorAll('.blog-cat-btn');
+            const counterDiv   = document.getElementById('blogCounter');
             const noResultsDiv = document.getElementById('blogNoResults');
-            
-            // Modal Elements
-            const blogHeroTitle = document.getElementById('blogHeroTitle');
-            const adminLoginModal = document.getElementById('adminLoginModal');
-            const adminDashboardModal = document.getElementById('adminDashboardModal');
-            const closeLoginModal = document.getElementById('closeLoginModal');
-            const closeDashboardModal = document.getElementById('closeDashboardModal');
-            const submitLoginBtn = document.getElementById('submitLoginBtn');
-            const adminPassInput = document.getElementById('adminPass');
-            const loginError = document.getElementById('loginError');
-            const adminLogoutBtn = document.getElementById('adminLogoutBtn');
-            
-            // Tab Elements
-            const tabAddPost = document.getElementById('tabAddPost');
-            const tabManagePosts = document.getElementById('tabManagePosts');
-            const addPostForm = document.getElementById('addPostForm');
-            const managePostsList = document.getElementById('managePostsList');
+            const grid         = document.getElementById('blogGrid');
 
-            // Render blogs dynamically
-            function renderBlogs() {
-                const blogs = getBlogs();
-                const grid = document.getElementById('blogGrid');
-                grid.innerHTML = '';
-                
-                blogs.forEach(blog => {
-                    let gradient = 'linear-gradient(135deg, var(--primary-color) 0%, #ffdfeb 100%)';
-                    let icon = 'fa-heart-pulse';
-                    if (blog.theme === 'orange') {
-                        gradient = 'linear-gradient(135deg, var(--primary-color) 0%, #ffeedd 100%)';
-                        icon = 'fa-circle-nodes';
-                    } else if (blog.theme === 'green') {
-                        gradient = 'linear-gradient(135deg, var(--primary-color) 0%, #d4fcd4 100%)';
-                        icon = 'fa-spa';
-                    }
-                    
-                    const article = document.createElement('article');
-                    article.className = 'blog-card';
-                    article.setAttribute('data-category', blog.category);
-                    article.setAttribute('data-id', blog.id);
-                    article.innerHTML = `
-                        <div class="blog-img-placeholder" style="background: ${gradient};">
-                            <i class="fa-solid ${icon}"></i>
-                        </div>
+            /* Build a single blog card HTML string */
+            function buildCard(post) {
+                const gradients = [
+                    'linear-gradient(135deg, var(--primary-color) 0%, #ffdfeb 100%)',
+                    'linear-gradient(135deg, var(--primary-color) 0%, #ffeedd 100%)',
+                    'linear-gradient(135deg, var(--primary-color) 0%, #d4fcd4 100%)'
+                ];
+                const icons = ['fa-heart-pulse', 'fa-circle-nodes', 'fa-spa'];
+                const idx   = post.id % 3;
+
+                const imgHtml = post.image_path
+                    ? `<img src="${API_BASE}/static/${post.image_path}" alt="${post.title}" style="width:100%;height:220px;object-fit:cover;">`
+                    : `<div class="blog-img-placeholder" style="background:${gradients[idx]}"><i class="fa-solid ${icons[idx]}"></i></div>`;
+
+                return `
+                    <article class="blog-card" data-category="ivf-treatment" data-id="${post.id}">
+                        ${imgHtml}
                         <div class="blog-body">
-                            <span class="blog-tag">${blog.tag}</span>
-                            <h3 class="blog-title">${blog.title}</h3>
-                            <p class="blog-excerpt">${blog.excerpt}</p>
-                            <a href="javascript:void(0)" class="blog-readmore">
-                                <span data-i18n="blogReadMore">Devamını Oku</span> <i class="fa-solid fa-arrow-right"></i>
-                            </a>
+                            <span class="blog-tag">IVF</span>
+                            <h3 class="blog-title">${post.title}</h3>
+                            <p class="blog-excerpt">${post.summary || ''}</p>
                             <div class="blog-meta">
                                 <div class="blog-author">
-                                    <div class="blog-author-avatar">${blog.author.charAt(0).toUpperCase()}</div>
-                                    <span>${blog.author}</span>
+                                    <div class="blog-author-avatar">C</div>
+                                    <span>Dr. Cahit Cenksoy</span>
                                 </div>
-                                <div>
-                                    <i class="fa-solid fa-clock"></i> <span>${blog.readTime}</span>
-                                </div>
+                                <div><i class="fa-solid fa-calendar"></i> ${post.date}</div>
                             </div>
                         </div>
-                    `;
-                    grid.appendChild(article);
-                });
-                
-                filterBlog();
+                    </article>`;
             }
 
-            // Filter logic
+            /* Filter already-rendered cards */
             function filterBlog() {
-                const searchQuery = searchInput ? searchInput.value.toLowerCase().trim() : '';
-                const activeBtn = document.querySelector('.blog-cat-btn.active');
-                const currentCategory = activeBtn ? activeBtn.getAttribute('data-filter') : 'all';
-                
-                const blogCards = document.querySelectorAll('.blog-card');
-                let matchCount = 0;
-                
-                blogCards.forEach(card => {
-                    const category = card.getAttribute('data-category');
-                    const title = card.querySelector('.blog-title').innerText.toLowerCase();
-                    const excerpt = card.querySelector('.blog-excerpt').innerText.toLowerCase();
-                    
-                    const categoryMatch = currentCategory === 'all' || category === currentCategory;
-                    const searchMatch = searchQuery === '' || title.includes(searchQuery) || excerpt.includes(searchQuery);
-                    
-                    if (categoryMatch && searchMatch) {
-                        card.style.display = 'flex';
-                        matchCount++;
-                        card.style.opacity = '1';
-                    } else {
-                        card.style.display = 'none';
-                    }
+                const q    = searchInput ? searchInput.value.toLowerCase().trim() : '';
+                const cat  = (document.querySelector('.blog-cat-btn.active') || {}).dataset?.filter || 'all';
+                const cards = document.querySelectorAll('.blog-card');
+                let count  = 0;
+
+                cards.forEach(card => {
+                    const title   = (card.querySelector('.blog-title')?.innerText  || '').toLowerCase();
+                    const excerpt = (card.querySelector('.blog-excerpt')?.innerText || '').toLowerCase();
+                    const catMatch = cat === 'all' || card.dataset.category === cat;
+                    const qMatch   = !q   || title.includes(q) || excerpt.includes(q);
+                    const show     = catMatch && qMatch;
+                    card.style.display = show ? 'flex' : 'none';
+                    if (show) count++;
                 });
-                
-                if (counterDiv) {
-                    if (searchQuery || currentCategory !== 'all') {
-                        counterDiv.innerText = `${blogCards.length} makaleden ${matchCount} tanesi listeleniyor`;
-                    } else {
-                        counterDiv.innerText = `Toplam ${blogCards.length} makale listeleniyor`;
-                    }
-                }
-                
-                if (noResultsDiv) {
-                    noResultsDiv.style.display = matchCount === 0 ? 'block' : 'none';
-                }
+
+                if (counterDiv) counterDiv.innerText = `Toplam ${count} makale listeleniyor`;
+                if (noResultsDiv) noResultsDiv.style.display = count === 0 ? 'block' : 'none';
             }
 
-            // Real-time Search Event
-            if (searchInput) {
-                searchInput.addEventListener('input', filterBlog);
+            /* Fetch posts from Render API */
+            function loadPosts() {
+                grid.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:40px;">Makaleler yükleniyor...</p>';
+
+                fetch(`${API_BASE}/api/posts`)
+                    .then(res => res.json())
+                    .then(posts => {
+                        grid.innerHTML = '';
+                        if (!posts.length) {
+                            if (noResultsDiv) noResultsDiv.style.display = 'block';
+                            if (counterDiv)   counterDiv.innerText = 'Toplam 0 makale listeleniyor';
+                            return;
+                        }
+                        posts.forEach(post => { grid.innerHTML += buildCard(post); });
+                        filterBlog();
+                    })
+                    .catch(() => {
+                        grid.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:40px;">Makaleler yüklenirken bir hata oluştu. Lütfen sayfayı yenileyin.</p>';
+                    });
             }
 
-            // Category Button Event
-            categoryButtons.forEach(btn => {
+            /* Wire events */
+            if (searchInput) searchInput.addEventListener('input', filterBlog);
+            catBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
-                    categoryButtons.forEach(b => b.classList.remove('active'));
+                    catBtns.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
                     filterBlog();
                 });
             });
 
-            // Secret Admin Login Modals Trigger: Double click the main title
-            if (blogHeroTitle) {
-                blogHeroTitle.addEventListener('dblclick', () => {
-                    const isAdmin = sessionStorage.getItem('isAdmin') === 'true';
-                    if (isAdmin) {
-                        adminDashboardModal.style.display = 'flex';
-                    } else {
-                        adminLoginModal.style.display = 'flex';
-                        adminPassInput.focus();
-                    }
-                });
-            }
-
-            // Modal Close Events
-            closeLoginModal.addEventListener('click', () => {
-                adminLoginModal.style.display = 'none';
-                loginError.style.display = 'none';
-                adminPassInput.value = '';
-            });
-
-            closeDashboardModal.addEventListener('click', () => {
-                adminDashboardModal.style.display = 'none';
-            });
-
-            // Handle login submit
-            submitLoginBtn.addEventListener('click', () => {
-                const password = adminPassInput.value;
-                if (password === 'cenksoy123') {
-                    sessionStorage.setItem('isAdmin', 'true');
-                    adminLoginModal.style.display = 'none';
-                    adminDashboardModal.style.display = 'flex';
-                    loginError.style.display = 'none';
-                    adminPassInput.value = '';
-                } else {
-                    loginError.style.display = 'block';
-                }
-            });
-
-            adminPassInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    submitLoginBtn.click();
-                }
-            });
-
-            // Logout
-            adminLogoutBtn.addEventListener('click', () => {
-                sessionStorage.removeItem('isAdmin');
-                adminDashboardModal.style.display = 'none';
-                alert('Yönetici oturumu kapatıldı.');
-            });
-
-            // Tab Switching in Dashboard
-            tabAddPost.addEventListener('click', () => {
-                tabAddPost.classList.add('active');
-                tabAddPost.style.borderBottom = '2px solid var(--primary-color)';
-                tabAddPost.style.color = 'var(--primary-color)';
-                
-                tabManagePosts.classList.remove('active');
-                tabManagePosts.style.borderBottom = 'none';
-                tabManagePosts.style.color = 'var(--text-muted)';
-                
-                addPostForm.style.display = 'flex';
-                managePostsList.style.display = 'none';
-            });
-
-            tabManagePosts.addEventListener('click', () => {
-                tabManagePosts.classList.add('active');
-                tabManagePosts.style.borderBottom = '2px solid var(--primary-color)';
-                tabManagePosts.style.color = 'var(--primary-color)';
-                
-                tabAddPost.classList.remove('active');
-                tabAddPost.style.borderBottom = 'none';
-                tabAddPost.style.color = 'var(--text-muted)';
-                
-                addPostForm.style.display = 'none';
-                managePostsList.style.display = 'flex';
-                populateManageList();
-            });
-
-            // Populate manage tab list
-            function populateManageList() {
-                const blogs = getBlogs();
-                managePostsList.innerHTML = '';
-                
-                if (blogs.length === 0) {
-                    managePostsList.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 20px;">Henüz yayınlanmış makale yok.</p>';
-                    return;
-                }
-                
-                blogs.forEach(blog => {
-                    const item = document.createElement('div');
-                    item.className = 'admin-post-item';
-                    item.innerHTML = `
-                        <div style="font-weight: 600; color: var(--text-main); font-size: 0.95rem;">${blog.title}</div>
-                        <button onclick="deleteBlogPost('${blog.id}')"><i class="fa-solid fa-trash"></i> Sil</button>
-                    `;
-                    managePostsList.appendChild(item);
-                });
-            }
-
-            // Handle Blog Form Submission
-            addPostForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                const newPost = {
-                    id: 'post_' + Date.now(),
-                    title: document.getElementById('postTitleTr').value,
-                    category: document.getElementById('postCategory').value,
-                    tag: document.getElementById('postTagTr').value,
-                    readTime: document.getElementById('postReadTimeTr').value,
-                    author: document.getElementById('postAuthorTr').value,
-                    excerpt: document.getElementById('postExcerptTr').value,
-                    theme: document.querySelector('input[name="postTheme"]:checked').value,
-                    date: new Date().toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })
-                };
-                
-                const blogs = getBlogs();
-                blogs.push(newPost);
-                saveBlogs(blogs);
-                
-                addPostForm.reset();
-                adminDashboardModal.style.display = 'none';
-                renderBlogs();
-            });
-
-            // Global window function for deletion
-            window.deleteBlogPost = function(id) {
-                if (confirm('Bu makaleyi silmek istediğinizden emin misiniz?')) {
-                    let blogs = getBlogs();
-                    blogs = blogs.filter(b => b.id !== id);
-                    saveBlogs(blogs);
-                    renderBlogs();
-                    populateManageList();
-                }
-            }
-
-            // Initial load
-            renderBlogs();
+            loadPosts();
         });
     </script>
+
 </body>
 </html>

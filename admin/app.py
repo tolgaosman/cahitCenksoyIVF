@@ -206,6 +206,51 @@ def logout():
     return redirect(url_for('login'))
 
 
+# ─── Public API (CORS — callable from GitHub Pages) ──────────────────────────
+
+@app.after_request
+def add_cors(response):
+    """Attach CORS headers to all /api/* responses so static frontends can call them."""
+    if request.path.startswith('/api/'):
+        response.headers['Access-Control-Allow-Origin']  = '*'
+        response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
+        response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+    return response
+
+
+@app.route('/api/posts', methods=['GET', 'OPTIONS'])
+def public_posts():
+    """Return all PUBLISHED blog posts — no authentication required."""
+    if request.method == 'OPTIONS':
+        return '', 200
+    db    = get_db()
+    posts = db.execute(
+        "SELECT id, title, slug, summary, image_path, date FROM blog_posts WHERE status='published' ORDER BY date DESC"
+    ).fetchall()
+    return jsonify([dict(p) for p in posts])
+
+
+@app.route('/api/basvuru', methods=['POST', 'OPTIONS'])
+def public_basvuru():
+    """Save a contact/inquiry form submission — no authentication required."""
+    if request.method == 'OPTIONS':
+        return '', 200
+    data    = request.get_json(silent=True) or request.form
+    name    = html.escape(str(data.get('name',    '')).strip()[:100])
+    email   = html.escape(str(data.get('email',   '')).strip()[:100])
+    phone   = html.escape(str(data.get('phone',   '')).strip()[:30])
+    message = html.escape(str(data.get('message', '')).strip()[:2000])
+    if not name:
+        return jsonify({'error': 'Ad Soyad zorunludur.'}), 400
+    db = get_db()
+    db.execute(
+        "INSERT INTO patient_inquiries (name, email, phone, message, status) VALUES (?, ?, ?, ?, 'new')",
+        (name, email, phone, message)
+    )
+    db.commit()
+    return jsonify({'success': True})
+
+
 # ─── Dashboard (SPA) ─────────────────────────────────────────────────────────
 
 @app.route('/yonetim')
