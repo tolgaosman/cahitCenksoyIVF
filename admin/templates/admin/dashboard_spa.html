@@ -1046,7 +1046,7 @@
             document.getElementById("blog-form").reset();
             document.getElementById("blog-id").value = "";
             document.getElementById("image-preview").style.display = "none";
-            document.getElementById("drawer-title").innerText = "Yeni Makale Ekle";
+            document.getElementById("drawer-title").innerHTML = `Yeni Makale Ekle <i class="fa-solid fa-circle-plus" style="font-size: 1.0rem; color: var(--color-primary); margin-left: 6px; vertical-align: middle;"></i>`;
             
             // Reset Author checkbox & field
             document.getElementById("blog-author-default").checked = true;
@@ -1054,7 +1054,7 @@
             document.getElementById("blog-author").value = "Dr. Cahit Cenksoy";
             
             if (postId) {
-                document.getElementById("drawer-title").innerText = "Makaleyi Düzenle";
+                document.getElementById("drawer-title").innerHTML = `Makaleyi Düzenle <i class="fa-solid fa-gear" style="font-size: 1.0rem; color: var(--color-primary); margin-left: 6px; vertical-align: middle;"></i>`;
                 fetch(`/api/admin/posts/${postId}`)
                     .then(res => res.json())
                     .then(post => {
