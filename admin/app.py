@@ -103,6 +103,16 @@ class PostgreSQLWrapper:
     def close(self):
         self.conn.close()
 
+class PostgreSQLRow(dict):
+    def __init__(self, dict_row):
+        super().__init__(dict_row)
+        self._keys = list(dict_row.keys())
+
+    def __getitem__(self, key):
+        if isinstance(key, int):
+            return super().__getitem__(self._keys[key])
+        return super().__getitem__(key)
+
 class CursorWrapper:
     def __init__(self, cur):
         self.cur = cur
@@ -110,11 +120,12 @@ class CursorWrapper:
     def fetchone(self):
         row = self.cur.fetchone()
         if row is not None:
-            return row
+            return PostgreSQLRow(row)
         return None
 
     def fetchall(self):
-        return self.cur.fetchall()
+        rows = self.cur.fetchall()
+        return [PostgreSQLRow(r) for r in rows]
 
 
 # ─── Database Helpers ─────────────────────────────────────────────────────────
