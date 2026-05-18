@@ -562,9 +562,108 @@
             margin-top: 1rem;
             display: none;
         }
+
+        /* ── Mobile Responsiveness Media Queries ───────────────────────────────────── */
+        .mobile-top-bar {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 65px;
+            background: rgba(10, 10, 12, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 998;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.5rem;
+        }
+
+        .menu-toggle-btn {
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+        }
+        .menu-toggle-btn:hover {
+            color: var(--color-primary);
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 999;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .sidebar-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        @media (max-width: 991px) {
+            .mobile-top-bar {
+                display: flex;
+            }
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -280px;
+                bottom: 0;
+                z-index: 1000;
+                box-shadow: 10px 0 40px rgba(0, 0, 0, 0.6);
+                transition: var(--transition-smooth);
+            }
+            .sidebar.active {
+                left: 0;
+            }
+            .main-content {
+                padding: 1.5rem;
+                padding-top: 5.5rem; /* Spacer for fixed mobile top bar */
+            }
+            .page-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                margin-bottom: 2rem;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Mobile Top Header -->
+    <div class="mobile-top-bar">
+        <button class="menu-toggle-btn" onclick="toggleSidebar(true)" aria-label="Menüyü Aç">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fa-solid fa-heart-pulse" style="color: var(--color-primary); font-size: 1.2rem;"></i>
+            <span class="logo-title" style="font-size: 1.1rem; margin: 0;">Dr. C. Cenksoy</span>
+        </div>
+        <div class="user-avatar" id="mobile-admin-avatar" style="width: 32px; height: 32px; font-size: 0.8rem; cursor: pointer;" onclick="toggleSidebar(true)">C</div>
+    </div>
+    
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar(false)"></div>
 
     <div class="ambient-glow glow-top-right"></div>
     <div class="ambient-glow glow-bottom-left"></div>
