@@ -594,9 +594,33 @@ h1, h2, h3, h4 {
 
 .carousel-btn {
     position: absolute; top: 50%; transform: translateY(-50%);
-    width: 45px; height: 45px; background: var(--card-bg);
-    border: 1px solid var(--border-color); border-radius: 50%;
+    width: 45px; height: 45px; background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important; border-radius: 50%;
     cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;
+    color: var(--text-main) !important;
+    transition: var(--transition);
+}
+
+.carousel-btn i {
+    color: inherit !important;
+}
+
+.carousel-btn:hover {
+    background: var(--primary-color) !important;
+    color: white !important;
+    border-color: var(--primary-color) !important;
+}
+
+[data-theme="dark"] .carousel-btn {
+    background: #1a1a1a !important; /* Lighter background for pure visibility against black background */
+    border-color: var(--primary-color) !important;
+    color: var(--primary-color) !important;
+}
+
+[data-theme="dark"] .carousel-btn:hover {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    border-color: var(--primary-color) !important;
 }
 
 .carousel-btn.prev { left: 0; }
