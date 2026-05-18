@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -1007,7 +1007,7 @@
         function uploadContentImage(input) {
             if (!input.files || !input.files[0]) return;
             
-            showToast("FotoÄŸraf yÃ¼kleniyor...", "info");
+            showToast("Fotoğraf yükleniyor...", "info");
             const formData = new FormData();
             formData.append("image", input.files[0]);
 
@@ -1018,10 +1018,10 @@
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    showToast("FotoÄŸraf baÅŸarÄ±yla yÃ¼klendi ve eklendi.", "success");
+                    showToast("Fotoğraf başarıyla yüklendi ve eklendi.", "success");
                     
                     const textarea = document.getElementById("blog-content");
-                    const imgTag = `\n<img src="${data.url}" alt="GÃ¶rsel" style="max-width:100%; border-radius:8px; display:block; margin: 15px auto;">\n`;
+                    const imgTag = `\n<img src="${data.url}" alt="Görsel" style="max-width:100%; border-radius:8px; display:block; margin: 15px auto;">\n`;
                     
                     const startPos = textarea.selectionStart;
                     const endPos = textarea.selectionEnd;
@@ -1037,7 +1037,7 @@
                 input.value = "";
             })
             .catch(err => {
-                showToast("FotoÄŸraf yÃ¼klenemedi.", "error");
+                showToast("Fotoğraf yüklenemedi.", "error");
                 input.value = "";
             });
         }
@@ -1054,12 +1054,12 @@
             document.getElementById("blog-author").value = "Dr. Cahit Cenksoy";
             
             if (postId) {
-                document.getElementById("drawer-title").innerText = "Makaleyi DÃ¼zenle";
+                document.getElementById("drawer-title").innerText = "Makaleyi Düzenle";
                 fetch(`/api/admin/posts/${postId}`)
                     .then(res => res.json())
                     .then(post => {
                         if (!post || post.error) {
-                            showToast("Hata: Makale bulunamadÄ± veya silinmiÅŸ.", "error");
+                            showToast("Hata: Makale bulunamadı veya silinmiş.", "error");
                             closeBlogDrawer();
                             return;
                         }
@@ -1087,7 +1087,7 @@
                         }
                     })
                     .catch(err => {
-                        showToast("Makale yÃ¼klenirken hata oluÅŸtu.", "error");
+                        showToast("Makale yüklenirken hata oluştu.", "error");
                         closeBlogDrawer();
                     });
             } else {
