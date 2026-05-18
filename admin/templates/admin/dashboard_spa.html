@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -755,6 +755,17 @@
                 </select>
             </div>
 
+            <div class="form-group" style="background: rgba(255, 255, 255, 0.02); padding: 1.25rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.06); margin-bottom: 1.5rem;">
+                <label class="form-label" style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; user-select: none; margin-bottom: 0px; text-transform: none; letter-spacing: normal;">
+                    <input type="checkbox" id="blog-author-default" checked onchange="toggleAuthorField()" style="width: 18px; height: 18px; accent-color: var(--color-primary); cursor: pointer;">
+                    <span style="font-weight: 600; font-size: 0.9rem; color: var(--text-main);">Yazar "Dr. Cahit Cenksoy" Olsun</span>
+                </label>
+                <div id="blog-author-custom-group" style="display: none; margin-top: 1rem;">
+                    <label class="form-label" for="blog-author">Özel Yazar Adı</label>
+                    <input type="text" class="form-control" id="blog-author" name="author" placeholder="Örn: Dr. Ayşe Yılmaz" value="Dr. Cahit Cenksoy">
+                </div>
+            </div>
+
             <div class="form-group">
                 <label class="form-label">Kapak Görseli</label>
                 <div class="image-upload-box">
@@ -771,7 +782,14 @@
             </div>
 
             <div class="form-group">
-                <label class="form-label" for="blog-content">Makale İçeriği (HTML Destekli)</label>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                    <label class="form-label" for="blog-content" style="margin-bottom: 0;">Makale İçeriği (HTML Destekli)</label>
+                    
+                    <label class="btn btn-secondary" style="padding: 4px 10px; font-size: 0.75rem; display: flex; align-items: center; gap: 4px; cursor: pointer; border-radius: 6px; margin: 0; border: 1px solid rgba(255,255,255,0.08);">
+                        <i class="fa-solid fa-image" style="color: var(--color-primary);"></i> Fotoğraf Ekle
+                        <input type="file" id="content-image-uploader" accept="image/*" onchange="uploadContentImage(this)" style="display: none;">
+                    </label>
+                </div>
                 <textarea class="form-control" id="blog-content" name="content" style="min-height: 250px;" placeholder="Tüm makale içeriği buraya yazılır..."></textarea>
             </div>
 
@@ -939,41 +957,109 @@
         }
 
         // Add / Edit Blog Drawers
+        function toggleAuthorField() {
+            const isDefault = document.getElementById("blog-author-default").checked;
+            const customGroup = document.getElementById("blog-author-custom-group");
+            const authorInput = document.getElementById("blog-author");
+            if (isDefault) {
+                customGroup.style.display = "none";
+                authorInput.value = "Dr. Cahit Cenksoy";
+            } else {
+                customGroup.style.display = "block";
+                if (authorInput.value === "Dr. Cahit Cenksoy") {
+                    authorInput.value = "";
+                }
+            }
+        }
+
+        function uploadContentImage(input) {
+            if (!input.files || !input.files[0]) return;
+            
+            showToast("FotoÄŸraf yÃ¼kleniyor...", "info");
+            const formData = new FormData();
+            formData.append("image", input.files[0]);
+
+            fetch("/api/admin/upload_image", {
+                method: "POST",
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    showToast("FotoÄŸraf baÅŸarÄ±yla yÃ¼klendi ve eklendi.", "success");
+                    
+                    const textarea = document.getElementById("blog-content");
+                    const imgTag = `\n<img src="${data.url}" alt="GÃ¶rsel" style="max-width:100%; border-radius:8px; display:block; margin: 15px auto;">\n`;
+                    
+                    const startPos = textarea.selectionStart;
+                    const endPos = textarea.selectionEnd;
+                    const beforeText = textarea.value.substring(0, startPos);
+                    const afterText = textarea.value.substring(endPos);
+                    
+                    textarea.value = beforeText + imgTag + afterText;
+                    textarea.focus();
+                    textarea.selectionStart = textarea.selectionEnd = startPos + imgTag.length;
+                } else {
+                    showToast("Hata: " + data.error, "error");
+                }
+                input.value = "";
+            })
+            .catch(err => {
+                showToast("FotoÄŸraf yÃ¼klenemedi.", "error");
+                input.value = "";
+            });
+        }
+
         function openBlogDrawer(postId = null) {
-            document.getElementById('blog-form').reset();
-            document.getElementById('blog-id').value = '';
-            document.getElementById('image-preview').style.display = 'none';
-            document.getElementById('drawer-title').innerText = 'Yeni Makale Ekle';
+            document.getElementById("blog-form").reset();
+            document.getElementById("blog-id").value = "";
+            document.getElementById("image-preview").style.display = "none";
+            document.getElementById("drawer-title").innerText = "Yeni Makale Ekle";
+            
+            // Reset Author checkbox & field
+            document.getElementById("blog-author-default").checked = true;
+            document.getElementById("blog-author-custom-group").style.display = "none";
+            document.getElementById("blog-author").value = "Dr. Cahit Cenksoy";
             
             if (postId) {
-                document.getElementById('drawer-title').innerText = 'Makaleyi Düzenle';
+                document.getElementById("drawer-title").innerText = "Makaleyi DÃ¼zenle";
                 fetch(`/api/admin/posts/${postId}`)
                     .then(res => res.json())
                     .then(post => {
-                        document.getElementById('blog-id').value = post.id;
-                        document.getElementById('blog-title').value = post.title;
-                        document.getElementById('blog-date').value = post.date;
-                        document.getElementById('blog-status').value = post.status;
-                        document.getElementById('blog-summary').value = post.summary || '';
-                        document.getElementById('blog-content').value = post.content || '';
+                        document.getElementById("blog-id").value = post.id;
+                        document.getElementById("blog-title").value = post.title;
+                        document.getElementById("blog-date").value = post.date;
+                        document.getElementById("blog-status").value = post.status;
+                        document.getElementById("blog-summary").value = post.summary || "";
+                        document.getElementById("blog-content").value = post.content || "";
+                        
+                        const author = post.author || "Dr. Cahit Cenksoy";
+                        if (author === "Dr. Cahit Cenksoy") {
+                            document.getElementById("blog-author-default").checked = true;
+                            document.getElementById("blog-author-custom-group").style.display = "none";
+                        } else {
+                            document.getElementById("blog-author-default").checked = false;
+                            document.getElementById("blog-author-custom-group").style.display = "block";
+                        }
+                        document.getElementById("blog-author").value = author;
                         
                         if (post.image_path) {
-                            const preview = document.getElementById('image-preview');
+                            const preview = document.getElementById("image-preview");
                             preview.src = `/static/${post.image_path}`;
-                            preview.style.display = 'block';
+                            preview.style.display = "block";
                         }
                     });
             } else {
-                document.getElementById('blog-date').value = new Date().toISOString().split('T')[0];
+                document.getElementById("blog-date").value = new Date().toISOString().split("T")[0];
             }
-
-            document.getElementById('drawer-overlay').classList.add('active');
-            document.getElementById('blog-drawer').classList.add('active');
+ 
+            document.getElementById("drawer-overlay").classList.add("active");
+            document.getElementById("blog-drawer").classList.add("active");
         }
-
+ 
         function closeBlogDrawer() {
-            document.getElementById('drawer-overlay').classList.remove('active');
-            document.getElementById('blog-drawer').classList.remove('active');
+            document.getElementById("drawer-overlay").classList.remove("active");
+            document.getElementById("blog-drawer").classList.remove("active");
         }
 
         function editBlogPost(postId) {

@@ -655,8 +655,8 @@
                             <p class="blog-excerpt">${post.summary || ''}</p>
                             <div class="blog-meta">
                                 <div class="blog-author">
-                                    <div class="blog-author-avatar">C</div>
-                                    <span>Dr. Cahit Cenksoy</span>
+                                    <div class="blog-author-avatar">${(post.author || 'Dr. Cahit Cenksoy').charAt(0).toUpperCase()}</div>
+                                    <span>${post.author || 'Dr. Cahit Cenksoy'}</span>
                                 </div>
                                 <div><i class="fa-solid fa-calendar"></i> ${post.date}</div>
                             </div>

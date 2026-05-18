@@ -79,7 +79,8 @@ def init_db():
             content     TEXT,
             image_path  TEXT,
             status      TEXT    NOT NULL DEFAULT 'draft',
-            date        TEXT    NOT NULL DEFAULT (date('now'))
+            date        TEXT    NOT NULL DEFAULT (date('now')),
+            author      TEXT    DEFAULT 'Dr. Cahit Cenksoy'
         );
 
         CREATE TABLE IF NOT EXISTS site_content (
@@ -99,6 +100,14 @@ def init_db():
             created_at  TEXT    NOT NULL DEFAULT (datetime('now'))
         );
     """)
+
+    # Dynamic schema migration: add 'author' if it doesn't exist
+    try:
+        db.execute("ALTER TABLE blog_posts ADD COLUMN author TEXT DEFAULT 'Dr. Cahit Cenksoy'")
+        db.commit()
+    except sqlite3.OperationalError:
+        pass # Column already exists
+
 
     # Seed default admin user if none exists
     existing = db.execute("SELECT id FROM users LIMIT 1").fetchone()
@@ -225,7 +234,7 @@ def public_posts():
         return '', 200
     db    = get_db()
     posts = db.execute(
-        "SELECT id, title, slug, summary, image_path, date FROM blog_posts WHERE status='published' ORDER BY date DESC"
+        "SELECT id, title, slug, summary, image_path, date, author FROM blog_posts WHERE status='published' ORDER BY date DESC"
     ).fetchall()
     return jsonify([dict(p) for p in posts])
 
@@ -524,10 +533,11 @@ def api_post_create():
     summary = request.form.get('summary', '').strip()
     content = request.form.get('content', '')
     status  = request.form.get('status', 'draft')
+    author  = request.form.get('author', '').strip() or 'Dr. Cahit Cenksoy'
     date    = request.form.get('date') or datetime.now().strftime('%Y-%m-%d')
     slug    = slugify(title)
     if not title:
-        return jsonify({'error': 'Ba\u015fl\u0131k zorunludur.'}), 400
+        return jsonify({'error': 'Başlık zorunludur.'}), 400
     db = get_db()
     if db.execute("SELECT id FROM blog_posts WHERE slug = ?", (slug,)).fetchone():
         slug = f"{slug}-{uuid.uuid4().hex[:6]}"
@@ -539,8 +549,8 @@ def api_post_create():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], sn))
             image_path = f"uploads/{sn}"
     db.execute(
-        "INSERT INTO blog_posts (title,slug,summary,content,image_path,status,date) VALUES(?,?,?,?,?,?,?)",
-        (title, slug, summary, content, image_path, status, date)
+        "INSERT INTO blog_posts (title,slug,summary,content,image_path,status,date,author) VALUES(?,?,?,?,?,?,?,?)",
+        (title, slug, summary, content, image_path, status, date, author)
     )
     db.commit()
     new_id = db.execute("SELECT last_insert_rowid()").fetchone()[0]
@@ -553,11 +563,12 @@ def api_post_update(post_id):
     db   = get_db()
     post = db.execute("SELECT * FROM blog_posts WHERE id = ?", (post_id,)).fetchone()
     if not post:
-        return jsonify({'error': 'Bulunamad\u0131'}), 404
+        return jsonify({'error': 'Bulunamadı'}), 404
     title      = request.form.get('title', '').strip()
     summary    = request.form.get('summary', '').strip()
     content    = request.form.get('content', '')
     status     = request.form.get('status', 'draft')
+    author     = request.form.get('author', '').strip() or 'Dr. Cahit Cenksoy'
     date       = request.form.get('date') or post['date']
     image_path = post['image_path']
     if 'image' in request.files:
@@ -567,8 +578,8 @@ def api_post_update(post_id):
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], sn))
             image_path = f"uploads/{sn}"
     db.execute(
-        "UPDATE blog_posts SET title=?,summary=?,content=?,image_path=?,status=?,date=? WHERE id=?",
-        (title, summary, content, image_path, status, date, post_id)
+        "UPDATE blog_posts SET title=?,summary=?,content=?,image_path=?,status=?,date=?,author=? WHERE id=?",
+        (title, summary, content, image_path, status, date, author, post_id)
     )
     db.commit()
     return jsonify({'success': True})
@@ -636,6 +647,27 @@ def api_inquiry_delete_json(inq_id):
     db.execute("DELETE FROM patient_inquiries WHERE id=?", (inq_id,))
     db.commit()
     return jsonify({'success': True})
+
+
+@app.route('/api/admin/upload_image', methods=['POST'])
+@login_required
+def api_upload_image():
+    if 'image' not in request.files:
+        return jsonify({'error': 'Dosya bulunamadı'}), 400
+    file = request.files['image']
+    if not file or not file.filename:
+        return jsonify({'error': 'Geçersiz dosya'}), 400
+    if not allowed_file(file.filename):
+        return jsonify({'error': 'İzin verilmeyen dosya türü'}), 400
+    sn = sanitize_filename(file.filename)
+    fn, ext = os.path.splitext(sn)
+    while os.path.exists(os.path.join(app.config['UPLOAD_FOLDER'], sn)):
+        sn = f"{fn}-{uuid.uuid4().hex[:6]}{ext}"
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'], sn))
+    return jsonify({
+        'success': True,
+        'url': f"/static/uploads/{sn}"
+    })
 
 
 # ─── Entry Point ──────────────────────────────────────────────────────────────
