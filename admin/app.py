@@ -283,6 +283,7 @@ def blog_edit(post_id):
     post = db.execute("SELECT * FROM blog_posts WHERE id = ?", (post_id,)).fetchone()
     if not post:
         abort(404)
+        return  # unreachable — tells type checker post is not None below
 
     if request.method == 'POST':
         title   = request.form.get('title', '').strip()
@@ -438,7 +439,7 @@ def not_found(_e):
     return render_template('errors/404.html'), 404
 
 @app.errorhandler(413)
-def too_large(e):
+def too_large(_e):
     flash('Dosya boyutu 5MB sınırını aşıyor.', 'danger')
     return redirect(request.referrer or url_for('dashboard'))
 

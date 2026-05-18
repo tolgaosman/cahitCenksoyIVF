@@ -74,7 +74,7 @@ def init_db(username: str, password: str):
 
     # Seed default site content
     defaults = [
-        ('about_doctor',  'Dr. Cahit Cenksoy, Kıbrıs\'ta en yüksek tüp bebek başarı oranına sahip uzman hekimdir.', 'Doktor Hakkında'),
+        ('about_doctor',  "Dr. Cahit Cenksoy, Kıbrıs'ta en yüksek tüp bebek başarı oranına sahip uzman hekimdir.", 'Doktor Hakkında'),
         ('contact_phone', '+90 548 888 0 112',   'İletişim Telefonu'),
         ('contact_email', 'c_cenksoy@hotmail.com','İletişim E-postası'),
         ('clinic_address','Nicosia IVF - Sevinç Hastanesi, Lefkoşa, Kıbrıs', 'Klinik Adresi'),
