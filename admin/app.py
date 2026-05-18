@@ -16,7 +16,7 @@ from flask import (
     session, flash, g, jsonify, abort
 )
 from werkzeug.security import generate_password_hash, check_password_hash
-from werkzeug.utils import secure_filename
+# werkzeug.utils.secure_filename not used — using uuid-based sanitize_filename instead
 import html
 
 # ─── App Configuration ────────────────────────────────────────────────────────
@@ -434,7 +434,7 @@ def public_blog_post(slug):
 # ─── Error Handlers ───────────────────────────────────────────────────────────
 
 @app.errorhandler(404)
-def not_found(e):
+def not_found(_e):
     return render_template('errors/404.html'), 404
 
 @app.errorhandler(413)
@@ -443,7 +443,7 @@ def too_large(e):
     return redirect(request.referrer or url_for('dashboard'))
 
 @app.errorhandler(500)
-def server_error(e):
+def server_error(_e):
     return render_template('errors/500.html'), 500
 
 
