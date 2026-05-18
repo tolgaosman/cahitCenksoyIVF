@@ -38,14 +38,100 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(os.path.join(BASE_DIR, 'database'), exist_ok=True)
 
 
+# ─── Dual Database Adapter (SQLite & PostgreSQL) ──────────────────────────────
+DATABASE_URL = os.environ.get('DATABASE_URL')
+IS_POSTGRES = False
+
+if DATABASE_URL:
+    try:
+        import psycopg2
+        import psycopg2.extras
+        IS_POSTGRES = True
+    except ImportError:
+        print("Warning: DATABASE_URL is set but 'psycopg2' is not installed. Falling back to SQLite.")
+
+class PostgreSQLWrapper:
+    def __init__(self, conn):
+        self.conn = conn
+
+    def execute(self, sql, params=None):
+        sql = sql.replace('?', '%s')
+        
+        if "INSERT OR IGNORE" in sql:
+            sql = sql.replace("INSERT OR IGNORE INTO", "INSERT INTO")
+            if "site_content" in sql:
+                sql += " ON CONFLICT (key) DO NOTHING"
+            elif "users" in sql:
+                sql += " ON CONFLICT (username) DO NOTHING"
+            else:
+                sql += " ON CONFLICT DO NOTHING"
+
+        if "SELECT last_insert_rowid()" in sql:
+            cur = self.conn.cursor()
+            cur.execute("SELECT lastval()")
+            val = cur.fetchone()[0]
+            class MockCursor:
+                def fetchone(self):
+                    return [val]
+            return MockCursor()
+
+        cur = self.conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        try:
+            cur.execute(sql, params)
+        except Exception as e:
+            self.conn.rollback()
+            raise e
+        return CursorWrapper(cur)
+
+    def executescript(self, sql_script):
+        cur = self.conn.cursor()
+        statements = [s.strip() for s in sql_script.split(';') if s.strip()]
+        for stmt in statements:
+            if stmt.upper().startswith("PRAGMA"):
+                continue
+            stmt = stmt.replace('?', '%s')
+            try:
+                cur.execute(stmt)
+            except Exception as e:
+                self.conn.rollback()
+                raise e
+        self.conn.commit()
+
+    def commit(self):
+        self.conn.commit()
+
+    def close(self):
+        self.conn.close()
+
+class CursorWrapper:
+    def __init__(self, cur):
+        self.cur = cur
+
+    def fetchone(self):
+        row = self.cur.fetchone()
+        if row is not None:
+            return row
+        return None
+
+    def fetchall(self):
+        return self.cur.fetchall()
+
+
 # ─── Database Helpers ─────────────────────────────────────────────────────────
 
 def get_db():
     if 'db' not in g:
-        g.db = sqlite3.connect(DB_PATH)
-        g.db.row_factory = sqlite3.Row
-        g.db.execute("PRAGMA journal_mode=WAL;")
-        g.db.execute("PRAGMA foreign_keys=ON;")
+        if IS_POSTGRES:
+            url = DATABASE_URL
+            if url.startswith("postgres://"):
+                url = url.replace("postgres://", "postgresql://", 1)
+            conn = psycopg2.connect(url)
+            g.db = PostgreSQLWrapper(conn)
+        else:
+            g.db = sqlite3.connect(DB_PATH)
+            g.db.row_factory = sqlite3.Row
+            g.db.execute("PRAGMA journal_mode=WAL;")
+            g.db.execute("PRAGMA foreign_keys=ON;")
     return g.db
 
 @app.teardown_appcontext
@@ -57,64 +143,110 @@ def close_db(e=None):
 
 def init_db():
     """Initialize database schema and seed admin user."""
-    db = sqlite3.connect(DB_PATH)
-    db.row_factory = sqlite3.Row
-    db.execute("PRAGMA journal_mode=WAL;")
-    db.execute("PRAGMA foreign_keys=ON;")
+    if IS_POSTGRES:
+        url = DATABASE_URL
+        if url.startswith("postgres://"):
+            url = url.replace("postgres://", "postgresql://", 1)
+        conn = psycopg2.connect(url)
+        db = PostgreSQLWrapper(conn)
+        
+        db.executescript("""
+            CREATE TABLE IF NOT EXISTS users (
+                id          SERIAL PRIMARY KEY,
+                username    TEXT    NOT NULL UNIQUE,
+                password_hash TEXT  NOT NULL,
+                role        TEXT    NOT NULL DEFAULT 'admin',
+                created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                avatar_path TEXT
+            );
 
-    db.executescript("""
-        CREATE TABLE IF NOT EXISTS users (
-            id          INTEGER PRIMARY KEY AUTOINCREMENT,
-            username    TEXT    NOT NULL UNIQUE,
-            password_hash TEXT  NOT NULL,
-            role        TEXT    NOT NULL DEFAULT 'admin',
-            created_at  TEXT    NOT NULL DEFAULT (datetime('now')),
-            avatar_path TEXT
-        );
+            CREATE TABLE IF NOT EXISTS blog_posts (
+                id          SERIAL PRIMARY KEY,
+                title       TEXT    NOT NULL,
+                slug        TEXT    NOT NULL UNIQUE,
+                summary     TEXT,
+                content     TEXT,
+                image_path  TEXT,
+                status      TEXT    NOT NULL DEFAULT 'draft',
+                date        DATE    NOT NULL DEFAULT CURRENT_DATE,
+                author      TEXT    DEFAULT 'Dr. Cahit Cenksoy'
+            );
 
-        CREATE TABLE IF NOT EXISTS blog_posts (
-            id          INTEGER PRIMARY KEY AUTOINCREMENT,
-            title       TEXT    NOT NULL,
-            slug        TEXT    NOT NULL UNIQUE,
-            summary     TEXT,
-            content     TEXT,
-            image_path  TEXT,
-            status      TEXT    NOT NULL DEFAULT 'draft',
-            date        TEXT    NOT NULL DEFAULT (date('now')),
-            author      TEXT    DEFAULT 'Dr. Cahit Cenksoy'
-        );
+            CREATE TABLE IF NOT EXISTS site_content (
+                key         TEXT    PRIMARY KEY,
+                value       TEXT,
+                label       TEXT,
+                updated_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+            );
 
-        CREATE TABLE IF NOT EXISTS site_content (
-            key         TEXT    PRIMARY KEY,
-            value       TEXT,
-            label       TEXT,
-            updated_at  TEXT    NOT NULL DEFAULT (datetime('now'))
-        );
+            CREATE TABLE IF NOT EXISTS patient_inquiries (
+                id          SERIAL PRIMARY KEY,
+                name        TEXT    NOT NULL,
+                email       TEXT,
+                phone       TEXT,
+                message     TEXT,
+                status      TEXT    NOT NULL DEFAULT 'new',
+                created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+            );
+        """)
+    else:
+        db = sqlite3.connect(DB_PATH)
+        db.row_factory = sqlite3.Row
+        db.execute("PRAGMA journal_mode=WAL;")
+        db.execute("PRAGMA foreign_keys=ON;")
 
-        CREATE TABLE IF NOT EXISTS patient_inquiries (
-            id          INTEGER PRIMARY KEY AUTOINCREMENT,
-            name        TEXT    NOT NULL,
-            email       TEXT,
-            phone       TEXT,
-            message     TEXT,
-            status      TEXT    NOT NULL DEFAULT 'new',
-            created_at  TEXT    NOT NULL DEFAULT (datetime('now'))
-        );
-    """)
+        db.executescript("""
+            CREATE TABLE IF NOT EXISTS users (
+                id          INTEGER PRIMARY KEY AUTOINCREMENT,
+                username    TEXT    NOT NULL UNIQUE,
+                password_hash TEXT  NOT NULL,
+                role        TEXT    NOT NULL DEFAULT 'admin',
+                created_at  TEXT    NOT NULL DEFAULT (datetime('now')),
+                avatar_path TEXT
+            );
 
-    # Dynamic schema migrations
-    try:
-        db.execute("ALTER TABLE blog_posts ADD COLUMN author TEXT DEFAULT 'Dr. Cahit Cenksoy'")
-        db.commit()
-    except sqlite3.OperationalError:
-        pass # Column already exists
+            CREATE TABLE IF NOT EXISTS blog_posts (
+                id          INTEGER PRIMARY KEY AUTOINCREMENT,
+                title       TEXT    NOT NULL,
+                slug        TEXT    NOT NULL UNIQUE,
+                summary     TEXT,
+                content     TEXT,
+                image_path  TEXT,
+                status      TEXT    NOT NULL DEFAULT 'draft',
+                date        TEXT    NOT NULL DEFAULT (date('now')),
+                author      TEXT    DEFAULT 'Dr. Cahit Cenksoy'
+            );
 
-    try:
-        db.execute("ALTER TABLE users ADD COLUMN avatar_path TEXT")
-        db.commit()
-    except sqlite3.OperationalError:
-        pass # Column already exists
+            CREATE TABLE IF NOT EXISTS site_content (
+                key         TEXT    PRIMARY KEY,
+                value       TEXT,
+                label       TEXT,
+                updated_at  TEXT    NOT NULL DEFAULT (datetime('now'))
+            );
 
+            CREATE TABLE IF NOT EXISTS patient_inquiries (
+                id          INTEGER PRIMARY KEY AUTOINCREMENT,
+                name        TEXT    NOT NULL,
+                email       TEXT,
+                phone       TEXT,
+                message     TEXT,
+                status      TEXT    NOT NULL DEFAULT 'new',
+                created_at  TEXT    NOT NULL DEFAULT (datetime('now'))
+            );
+        """)
+
+        # Dynamic schema migrations for SQLite
+        try:
+            db.execute("ALTER TABLE blog_posts ADD COLUMN author TEXT DEFAULT 'Dr. Cahit Cenksoy'")
+            db.commit()
+        except sqlite3.OperationalError:
+            pass
+
+        try:
+            db.execute("ALTER TABLE users ADD COLUMN avatar_path TEXT")
+            db.commit()
+        except sqlite3.OperationalError:
+            pass
 
     # Seed default admin user if none exists
     existing = db.execute("SELECT id FROM users LIMIT 1").fetchone()
