@@ -11,12 +11,13 @@ import sqlite3
 from datetime import datetime
 from functools import wraps
 
+# pyrefly: ignore [missing-import]
 from flask import (
     Flask, render_template, request, redirect, url_for,
     session, flash, g, jsonify, abort
 )
+# pyrefly: ignore [missing-import]
 from werkzeug.security import generate_password_hash, check_password_hash
-# werkzeug.utils.secure_filename not used — using uuid-based sanitize_filename instead
 import html
 
 # ─── App Configuration ────────────────────────────────────────────────────────
