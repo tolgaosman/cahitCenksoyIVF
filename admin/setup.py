@@ -97,7 +97,7 @@ if __name__ == '__main__':
     print("  Dr. Cahit Cenksoy — Admin Panel Kurulum")
     print("=" * 50)
 
-    uname = input("\nAdmin kullanıcı adı [admin]: ").strip() or "admin"
+    uname = input("\nAdmin kullanıcı adı [cahitivf]: ").strip() or "cahitivf"
     pw1   = input("Şifre: ").strip()
     pw2   = input("Şifre (tekrar): ").strip()
 

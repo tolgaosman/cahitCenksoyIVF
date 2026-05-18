@@ -102,10 +102,10 @@ def init_db():
     # Seed default admin user if none exists
     existing = db.execute("SELECT id FROM users LIMIT 1").fetchone()
     if not existing:
-        pw_hash = generate_password_hash('Admin@2025!')
+        pw_hash = generate_password_hash('123456')
         db.execute(
             "INSERT INTO users (username, password_hash, role) VALUES (?, ?, ?)",
-            ('admin', pw_hash, 'admin')
+            ('cahitivf', pw_hash, 'admin')
         )
 
     # Seed default site_content keys
