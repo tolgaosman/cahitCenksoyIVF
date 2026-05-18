@@ -449,6 +449,9 @@ def server_error(e):
 
 # ─── Entry Point ──────────────────────────────────────────────────────────────
 
-if __name__ == '__main__':
+# Initialize DB on every startup (safe — uses IF NOT EXISTS + INSERT OR IGNORE)
+with app.app_context():
     init_db()
-    app.run(debug=False, host='127.0.0.1', port=5000)
+
+if __name__ == '__main__':
+    app.run(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
