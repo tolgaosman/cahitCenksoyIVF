@@ -209,6 +209,7 @@ def logout():
 
 @app.route('/yonetim')
 @app.route('/yonetim/dashboard')
+@app.route('/admin_panel')
 @login_required
 def dashboard():
     return render_template('admin/dashboard_spa.html')
