@@ -205,23 +205,13 @@ def logout():
     return redirect(url_for('login'))
 
 
-# ─── Dashboard ────────────────────────────────────────────────────────────────
+# ─── Dashboard (SPA) ─────────────────────────────────────────────────────────
 
 @app.route('/yonetim')
 @app.route('/yonetim/dashboard')
 @login_required
 def dashboard():
-    db = get_db()
-    stats = {
-        'total_posts':      db.execute("SELECT COUNT(*) FROM blog_posts").fetchone()[0],
-        'published_posts':  db.execute("SELECT COUNT(*) FROM blog_posts WHERE status='published'").fetchone()[0],
-        'total_inquiries':  db.execute("SELECT COUNT(*) FROM patient_inquiries").fetchone()[0],
-        'new_inquiries':    db.execute("SELECT COUNT(*) FROM patient_inquiries WHERE status='new'").fetchone()[0],
-    }
-    recent_inquiries = db.execute(
-        "SELECT * FROM patient_inquiries ORDER BY created_at DESC LIMIT 5"
-    ).fetchall()
-    return render_template('admin/dashboard.html', stats=stats, recent_inquiries=recent_inquiries)
+    return render_template('admin/dashboard_spa.html')
 
 
 # ─── Blog CRUD ────────────────────────────────────────────────────────────────
@@ -446,6 +436,159 @@ def too_large(_e):
 @app.errorhandler(500)
 def server_error(_e):
     return render_template('errors/500.html'), 500
+
+
+# ─── JSON API — SPA Dashboard ────────────────────────────────────────────────
+
+@app.route('/api/admin/stats')
+@login_required
+def api_stats():
+    db = get_db()
+    return jsonify({
+        'total_posts':     db.execute("SELECT COUNT(*) FROM blog_posts").fetchone()[0],
+        'published_posts': db.execute("SELECT COUNT(*) FROM blog_posts WHERE status='published'").fetchone()[0],
+        'total_inquiries': db.execute("SELECT COUNT(*) FROM patient_inquiries").fetchone()[0],
+        'new_inquiries':   db.execute("SELECT COUNT(*) FROM patient_inquiries WHERE status='new'").fetchone()[0],
+    })
+
+
+@app.route('/api/admin/posts', methods=['GET'])
+@login_required
+def api_posts_list():
+    db    = get_db()
+    posts = db.execute("SELECT * FROM blog_posts ORDER BY date DESC").fetchall()
+    return jsonify([dict(p) for p in posts])
+
+
+@app.route('/api/admin/posts/<int:post_id>', methods=['GET'])
+@login_required
+def api_post_get(post_id):
+    db   = get_db()
+    post = db.execute("SELECT * FROM blog_posts WHERE id = ?", (post_id,)).fetchone()
+    if not post:
+        return jsonify({'error': 'Bulunamad\u0131'}), 404
+    return jsonify(dict(post))
+
+
+@app.route('/api/admin/posts', methods=['POST'])
+@login_required
+def api_post_create():
+    title   = request.form.get('title', '').strip()
+    summary = request.form.get('summary', '').strip()
+    content = request.form.get('content', '')
+    status  = request.form.get('status', 'draft')
+    date    = request.form.get('date') or datetime.now().strftime('%Y-%m-%d')
+    slug    = slugify(title)
+    if not title:
+        return jsonify({'error': 'Ba\u015fl\u0131k zorunludur.'}), 400
+    db = get_db()
+    if db.execute("SELECT id FROM blog_posts WHERE slug = ?", (slug,)).fetchone():
+        slug = f"{slug}-{uuid.uuid4().hex[:6]}"
+    image_path = None
+    if 'image' in request.files:
+        file = request.files['image']
+        if file and file.filename and allowed_file(file.filename):
+            sn = sanitize_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], sn))
+            image_path = f"uploads/{sn}"
+    db.execute(
+        "INSERT INTO blog_posts (title,slug,summary,content,image_path,status,date) VALUES(?,?,?,?,?,?,?)",
+        (title, slug, summary, content, image_path, status, date)
+    )
+    db.commit()
+    new_id = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+    return jsonify({'success': True, 'id': new_id, 'slug': slug})
+
+
+@app.route('/api/admin/posts/<int:post_id>', methods=['PUT'])
+@login_required
+def api_post_update(post_id):
+    db   = get_db()
+    post = db.execute("SELECT * FROM blog_posts WHERE id = ?", (post_id,)).fetchone()
+    if not post:
+        return jsonify({'error': 'Bulunamad\u0131'}), 404
+    title      = request.form.get('title', '').strip()
+    summary    = request.form.get('summary', '').strip()
+    content    = request.form.get('content', '')
+    status     = request.form.get('status', 'draft')
+    date       = request.form.get('date') or post['date']
+    image_path = post['image_path']
+    if 'image' in request.files:
+        file = request.files['image']
+        if file and file.filename and allowed_file(file.filename):
+            sn = sanitize_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], sn))
+            image_path = f"uploads/{sn}"
+    db.execute(
+        "UPDATE blog_posts SET title=?,summary=?,content=?,image_path=?,status=?,date=? WHERE id=?",
+        (title, summary, content, image_path, status, date, post_id)
+    )
+    db.commit()
+    return jsonify({'success': True})
+
+
+@app.route('/api/admin/posts/<int:post_id>', methods=['DELETE'])
+@login_required
+def api_post_delete(post_id):
+    db   = get_db()
+    post = db.execute("SELECT * FROM blog_posts WHERE id = ?", (post_id,)).fetchone()
+    if not post:
+        return jsonify({'error': 'Bulunamad\u0131'}), 404
+    if post['image_path']:
+        fp = os.path.join(BASE_DIR, 'static', post['image_path'])
+        if os.path.exists(fp):
+            os.remove(fp)
+    db.execute("DELETE FROM blog_posts WHERE id = ?", (post_id,))
+    db.commit()
+    return jsonify({'success': True})
+
+
+@app.route('/api/admin/content', methods=['GET'])
+@login_required
+def api_content_get():
+    db    = get_db()
+    items = db.execute("SELECT * FROM site_content ORDER BY key").fetchall()
+    return jsonify([dict(i) for i in items])
+
+
+@app.route('/api/admin/content', methods=['POST'])
+@login_required
+def api_content_update():
+    data = request.get_json(silent=True) or {}
+    db   = get_db()
+    for key, value in data.items():
+        db.execute(
+            "UPDATE site_content SET value=?, updated_at=datetime('now') WHERE key=?",
+            (value, key)
+        )
+    db.commit()
+    return jsonify({'success': True})
+
+
+@app.route('/api/admin/inquiries', methods=['GET'])
+@login_required
+def api_inquiries_list():
+    db   = get_db()
+    rows = db.execute("SELECT * FROM patient_inquiries ORDER BY created_at DESC").fetchall()
+    return jsonify([dict(r) for r in rows])
+
+
+@app.route('/api/admin/inquiries/<int:inq_id>/read', methods=['POST'])
+@login_required
+def api_inquiry_read(inq_id):
+    db = get_db()
+    db.execute("UPDATE patient_inquiries SET status='read' WHERE id=?", (inq_id,))
+    db.commit()
+    return jsonify({'success': True})
+
+
+@app.route('/api/admin/inquiries/<int:inq_id>', methods=['DELETE'])
+@login_required
+def api_inquiry_delete_json(inq_id):
+    db = get_db()
+    db.execute("DELETE FROM patient_inquiries WHERE id=?", (inq_id,))
+    db.commit()
+    return jsonify({'success': True})
 
 
 # ─── Entry Point ──────────────────────────────────────────────────────────────
