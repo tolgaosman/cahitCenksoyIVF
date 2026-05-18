@@ -646,6 +646,10 @@
                     ? `<img src="${API_BASE}/static/${post.image_path}" alt="${post.title}" style="width:100%;height:220px;object-fit:cover;">`
                     : `<div class="blog-img-placeholder" style="background:${gradients[idx]}"><i class="fa-solid ${icons[idx]}"></i></div>`;
 
+                const authorAvatarHtml = post.author_avatar
+                    ? `<img src="${API_BASE}/static/${post.author_avatar}" alt="${post.author}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`
+                    : (post.author || 'Dr. Cahit Cenksoy').charAt(0).toUpperCase();
+
                 return `
                     <article class="blog-card" data-category="${category}" data-id="${post.id}">
                         ${imgHtml}
@@ -655,7 +659,7 @@
                             <p class="blog-excerpt">${post.summary || ''}</p>
                             <div class="blog-meta">
                                 <div class="blog-author">
-                                    <div class="blog-author-avatar">${(post.author || 'Dr. Cahit Cenksoy').charAt(0).toUpperCase()}</div>
+                                    <div class="blog-author-avatar" style="overflow:hidden; display:flex; align-items:center; justify-content:center;">${authorAvatarHtml}</div>
                                     <span>${post.author || 'Dr. Cahit Cenksoy'}</span>
                                 </div>
                                 <div><i class="fa-solid fa-calendar"></i> ${post.date}</div>

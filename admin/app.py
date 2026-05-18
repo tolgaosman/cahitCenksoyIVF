@@ -375,7 +375,21 @@ def public_posts():
     posts = db.execute(
         "SELECT id, title, slug, summary, image_path, date, author FROM blog_posts WHERE status='published' ORDER BY date DESC"
     ).fetchall()
-    return jsonify([dict(p) for p in posts])
+    
+    # Get the admin's avatar path
+    admin = db.execute("SELECT avatar_path FROM users ORDER BY id ASC LIMIT 1").fetchone()
+    admin_avatar = admin['avatar_path'] if (admin and admin['avatar_path']) else None
+    
+    res = []
+    for p in posts:
+        d = dict(p)
+        if d.get('author') == 'Dr. Cahit Cenksoy' and admin_avatar:
+            d['author_avatar'] = admin_avatar
+        else:
+            d['author_avatar'] = None
+        res.append(d)
+        
+    return jsonify(res)
 
 
 @app.route('/api/basvuru', methods=['POST', 'OPTIONS'])
