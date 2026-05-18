@@ -68,7 +68,8 @@ def init_db():
             username    TEXT    NOT NULL UNIQUE,
             password_hash TEXT  NOT NULL,
             role        TEXT    NOT NULL DEFAULT 'admin',
-            created_at  TEXT    NOT NULL DEFAULT (datetime('now'))
+            created_at  TEXT    NOT NULL DEFAULT (datetime('now')),
+            avatar_path TEXT
         );
 
         CREATE TABLE IF NOT EXISTS blog_posts (
@@ -101,9 +102,15 @@ def init_db():
         );
     """)
 
-    # Dynamic schema migration: add 'author' if it doesn't exist
+    # Dynamic schema migrations
     try:
         db.execute("ALTER TABLE blog_posts ADD COLUMN author TEXT DEFAULT 'Dr. Cahit Cenksoy'")
+        db.commit()
+    except sqlite3.OperationalError:
+        pass # Column already exists
+
+    try:
+        db.execute("ALTER TABLE users ADD COLUMN avatar_path TEXT")
         db.commit()
     except sqlite3.OperationalError:
         pass # Column already exists
@@ -667,6 +674,45 @@ def api_upload_image():
     return jsonify({
         'success': True,
         'url': f"/static/uploads/{sn}"
+    })
+
+
+@app.route('/api/admin/profile', methods=['GET'])
+@login_required
+def api_profile_get():
+    db = get_db()
+    user = db.execute("SELECT id, username, role, avatar_path FROM users WHERE id = ?", (session['user_id'],)).fetchone()
+    if not user:
+        return jsonify({'error': 'Kullanıcı bulunamadı'}), 404
+    return jsonify(dict(user))
+
+
+@app.route('/api/admin/profile/avatar', methods=['POST'])
+@login_required
+def api_profile_avatar_update():
+    if 'avatar' not in request.files:
+        return jsonify({'error': 'Dosya seçilmedi'}), 400
+    file = request.files['avatar']
+    if not file or not file.filename:
+        return jsonify({'error': 'Geçersiz dosya'}), 400
+    if not allowed_file(file.filename):
+        return jsonify({'error': 'İzin verilmeyen dosya türü'}), 400
+    
+    sn = sanitize_filename(file.filename)
+    fn, ext = os.path.splitext(sn)
+    while os.path.exists(os.path.join(app.config['UPLOAD_FOLDER'], sn)):
+        sn = f"avatar-{uuid.uuid4().hex[:6]}{ext}"
+    
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'], sn))
+    avatar_path = f"uploads/{sn}"
+    
+    db = get_db()
+    db.execute("UPDATE users SET avatar_path = ? WHERE id = ?", (avatar_path, session['user_id']))
+    db.commit()
+    
+    return jsonify({
+        'success': True,
+        'avatar_path': f"/static/{avatar_path}"
     })
 
 

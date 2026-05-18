@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -179,6 +179,37 @@
             justify-content: center;
             font-weight: bold;
             color: var(--bg-base);
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+        .user-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .user-avatar::after {
+            content: "\f030";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+        .user-avatar:hover::after {
+            opacity: 1;
         }
         .user-details h4 {
             font-size: 0.85rem;
@@ -560,7 +591,8 @@
 
         <div class="user-footer">
             <div class="user-info">
-                <div class="user-avatar">C</div>
+                <div class="user-avatar" onclick="document.getElementById('admin-avatar-input').click()" id="admin-avatar-container" title="Profil Resmi Değiştir">C</div>
+                <input type="file" id="admin-avatar-input" accept="image/*" style="display:none;" onchange="uploadAdminAvatar(this)">
                 <div class="user-details">
                     <h4>Dr. Cahit Cenksoy</h4>
                     <span>IVF Specialist</span>
@@ -1222,9 +1254,51 @@
             }
         }
 
+        function loadAdminProfile() {
+            fetch('/api/admin/profile')
+                .then(res => res.json())
+                .then(user => {
+                    const container = document.getElementById('admin-avatar-container');
+                    if (user.avatar_path) {
+                        container.innerHTML = `<img src="/static/${user.avatar_path}" alt="Avatar">`;
+                    } else {
+                        container.innerHTML = (user.username || 'C').charAt(0).toUpperCase();
+                    }
+                });
+        }
+
+        function uploadAdminAvatar(input) {
+            if (!input.files || !input.files[0]) return;
+            
+            showToast('Profil resmi yükleniyor...', 'info');
+            const formData = new FormData();
+            formData.append('avatar', input.files[0]);
+
+            fetch('/api/admin/profile/avatar', {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    showToast('Profil resmi başarıyla güncellendi.', 'success');
+                    const container = document.getElementById('admin-avatar-container');
+                    container.innerHTML = `<img src="${data.avatar_path}" alt="Avatar">`;
+                } else {
+                    showToast('Hata: ' + data.error, 'error');
+                }
+                input.value = '';
+            })
+            .catch(err => {
+                showToast('Profil resmi yüklenemedi.', 'error');
+                input.value = '';
+            });
+        }
+
         // Initialize layout on load
         window.addEventListener('DOMContentLoaded', () => {
             loadOverviewData();
+            loadAdminProfile();
         });
     </script>
 </body>
