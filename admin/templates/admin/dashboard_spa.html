@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -1058,10 +1058,15 @@
                 fetch(`/api/admin/posts/${postId}`)
                     .then(res => res.json())
                     .then(post => {
-                        document.getElementById("blog-id").value = post.id;
-                        document.getElementById("blog-title").value = post.title;
-                        document.getElementById("blog-date").value = post.date;
-                        document.getElementById("blog-status").value = post.status;
+                        if (!post || post.error) {
+                            showToast("Hata: Makale bulunamadÄ± veya silinmiÅŸ.", "error");
+                            closeBlogDrawer();
+                            return;
+                        }
+                        document.getElementById("blog-id").value = post.id || "";
+                        document.getElementById("blog-title").value = post.title || "";
+                        document.getElementById("blog-date").value = post.date || "";
+                        document.getElementById("blog-status").value = post.status || "draft";
                         document.getElementById("blog-summary").value = post.summary || "";
                         document.getElementById("blog-content").value = post.content || "";
                         
@@ -1080,6 +1085,10 @@
                             preview.src = `/static/${post.image_path}`;
                             preview.style.display = "block";
                         }
+                    })
+                    .catch(err => {
+                        showToast("Makale yÃ¼klenirken hata oluÅŸtu.", "error");
+                        closeBlogDrawer();
                     });
             } else {
                 document.getElementById("blog-date").value = new Date().toISOString().split("T")[0];

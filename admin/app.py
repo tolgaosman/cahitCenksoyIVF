@@ -23,8 +23,8 @@ import html
 # ─── App Configuration ────────────────────────────────────────────────────────
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH  = os.path.join(BASE_DIR, 'database', 'cenksoy_admin.db')
 UPLOAD_FOLDER = os.path.join(BASE_DIR, 'static', 'uploads')
+DB_PATH  = os.path.join(UPLOAD_FOLDER, 'cenksoy_admin.db')
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'webp'}
 MAX_CONTENT_LENGTH = 5 * 1024 * 1024  # 5 MB
 
