@@ -1,0 +1,87 @@
+{% extends "admin/base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
+
+{% block content %}
+<!-- Stat Cards -->
+<div class="stat-grid">
+    <div class="stat-card primary">
+        <div class="label"><i class="fa-solid fa-newspaper"></i> Toplam Yazı</div>
+        <div class="value">{{ stats.total_posts }}</div>
+    </div>
+    <div class="stat-card success">
+        <div class="label"><i class="fa-solid fa-circle-check"></i> Yayında</div>
+        <div class="value">{{ stats.published_posts }}</div>
+    </div>
+    <div class="stat-card warning">
+        <div class="label"><i class="fa-solid fa-inbox"></i> Toplam Başvuru</div>
+        <div class="value">{{ stats.total_inquiries }}</div>
+    </div>
+    <div class="stat-card danger">
+        <div class="label"><i class="fa-solid fa-bell"></i> Yeni Başvuru</div>
+        <div class="value">{{ stats.new_inquiries }}</div>
+    </div>
+</div>
+
+<!-- Recent Inquiries -->
+<div class="section-header">
+    <h2><i class="fa-solid fa-clock-rotate-left" style="color:var(--primary);margin-right:8px"></i>Son Hasta Başvuruları</h2>
+    <a href="{{ url_for('inquiries') }}" class="btn btn-outline btn-sm">Tümünü Gör</a>
+</div>
+
+<div class="table-card">
+    <table>
+        <thead>
+            <tr>
+                <th>Ad Soyad</th>
+                <th>Telefon</th>
+                <th>E-posta</th>
+                <th>Durum</th>
+                <th>Tarih</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if recent_inquiries %}
+                {% for inq in recent_inquiries %}
+                <tr>
+                    <td><strong>{{ inq.name }}</strong></td>
+                    <td>{{ inq.phone or '—' }}</td>
+                    <td>{{ inq.email or '—' }}</td>
+                    <td>
+                        {% if inq.status == 'new' %}
+                        <span class="pill pill-danger"><i class="fa-solid fa-circle fa-xs"></i> Yeni</span>
+                        {% else %}
+                        <span class="pill pill-muted">Okundu</span>
+                        {% endif %}
+                    </td>
+                    <td style="color:var(--muted);font-size:.8rem;">{{ inq.created_at[:16] }}</td>
+                    <td>
+                        <a href="{{ url_for('inquiries') }}" class="btn btn-outline btn-sm">Görüntüle</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="6" style="text-align:center;color:var(--muted);padding:30px;">
+                    Henüz başvuru yok.
+                </td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Quick Actions -->
+<div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;">
+    <a href="{{ url_for('blog_create') }}" class="btn btn-primary">
+        <i class="fa-solid fa-plus"></i> Yeni Blog Yazısı
+    </a>
+    <a href="{{ url_for('site_content') }}" class="btn btn-outline">
+        <i class="fa-solid fa-sliders"></i> Site Ayarları
+    </a>
+    <a href="{{ url_for('inquiries') }}" class="btn btn-outline">
+        <i class="fa-solid fa-inbox"></i> Başvuruları Yönet
+    </a>
+</div>
+{% endblock %}
