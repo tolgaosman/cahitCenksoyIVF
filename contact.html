@@ -286,6 +286,28 @@
             "E-posta": document.getElementById("app_email").value,
             "Telefon": document.getElementById("app_phone").value
         };
+
+        // 1) Formulate a detailed summary message for the admin panel
+        let summaryMsg = "Randevu Detayları:\n";
+        for (const key in data) {
+            if (key !== "E-posta" && key !== "Telefon") {
+                summaryMsg += `- ${key}: ${data[key]}\n`;
+            }
+        }
+
+        // 2) Silently save the appointment request to the admin panel Inquiries
+        fetch('https://cahit-cenksoy-admin.onrender.com/api/basvuru', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: "Randevu Talebi (Tüp Bebek)",
+                email: data["E-posta"],
+                phone: data["Telefon"],
+                message: summaryMsg
+            })
+        }).catch(() => {});
+
+        // 3) Open WhatsApp as before
         let text = "*YENİ RANDEVU TALEBİ*\n\n";
         for (const key in data) { text += `*${key}:* ${data[key]}\n`; }
         window.open(`https://wa.me/905488880112?text=${encodeURIComponent(text)}`, "_blank");
