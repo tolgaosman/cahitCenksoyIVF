@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -620,7 +620,50 @@
             const grid         = document.getElementById('blogGrid');
 
             /* Build a single blog card HTML string */
+            /* Build a single blog card HTML string */
             function buildCard(post) {
+                const gradients = [
+                    'linear-gradient(135deg, var(--primary-color) 0%, #ffdfeb 100%)',
+                    'linear-gradient(135deg, var(--primary-color) 0%, #ffeedd 100%)',
+                    'linear-gradient(135deg, var(--primary-color) 0%, #d4fcd4 100%)'
+                ];
+                const icons = ['fa-heart-pulse', 'fa-circle-nodes', 'fa-spa'];
+                const idx   = post.id % 3;
+
+                // Smart dynamic tag and category classification
+                const text = (post.title + " " + (post.summary || "")).toLowerCase();
+                let category = "ivf-treatment";
+                let tag      = "IVF & Tedavi";
+                
+                if (text.includes("bağış") || text.includes("donasyon") || text.includes("sperm") || text.includes("yumurta") || text.includes("kıbrıs") || text.includes("donation")) {
+                    category = "cyprus-donation";
+                    tag      = "Kıbrıs Donasyon";
+                } else if (text.includes("sağlık") || text.includes("yaşam") || text.includes("beslenme") || text.includes("spor") || text.includes("diyet") || text.includes("lifestyle") || text.includes("yaş")) {
+                    category = "health-lifestyle";
+                    tag      = "Sağlık & Yaşam";
+                }
+
+                const imgHtml = post.image_path
+                    ? `<img src="${API_BASE}/static/${post.image_path}" alt="${post.title}" style="width:100%;height:220px;object-fit:cover;">`
+                    : `<div class="blog-img-placeholder" style="background:${gradients[idx]}"><i class="fa-solid ${icons[idx]}"></i></div>`;
+
+                return `
+                    <article class="blog-card" data-category="${category}" data-id="${post.id}">
+                        ${imgHtml}
+                        <div class="blog-body">
+                            <span class="blog-tag">${tag}</span>
+                            <h3 class="blog-title">${post.title}</h3>
+                            <p class="blog-excerpt">${post.summary || '}</p>
+                            <div class="blog-meta">
+                                <div class="blog-author">
+                                    <div class="blog-author-avatar">C</div>
+                                    <span>Dr. Cahit Cenksoy</span>
+                                </div>
+                                <div><i class="fa-solid fa-calendar"></i> ${post.date}</div>
+                            </div>
+                        </div>
+                    </article>`;
+            }
                 const gradients = [
                     'linear-gradient(135deg, var(--primary-color) 0%, #ffdfeb 100%)',
                     'linear-gradient(135deg, var(--primary-color) 0%, #ffeedd 100%)',
