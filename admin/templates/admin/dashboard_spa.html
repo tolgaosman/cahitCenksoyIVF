@@ -683,6 +683,9 @@
             <li class="nav-item" data-tab="blog">
                 <a href="#blog"><i class="fa-solid fa-newspaper"></i>Blog Yönetimi</a>
             </li>
+            <li class="nav-item" data-tab="team">
+                <a href="#team"><i class="fa-solid fa-users"></i>Ekibimiz</a>
+            </li>
             <li class="nav-item" data-tab="content">
                 <a href="#content"><i class="fa-solid fa-sliders"></i>Site Bilgileri</a>
             </li>
@@ -806,6 +809,35 @@
                         </tbody>
                     </table>
                 </div>
+        </section>
+
+        <!-- SECTION: TEAM MANAGEMENT -->
+        <section id="team-section" class="content-section">
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>Ekip Üyeleri Yönetimi</h1>
+                    <p>Kliniğinizin ekibinde yer alan doktor, embriyolog, koordinatör ve diğer personelleri yönetin.</p>
+                </div>
+                <button class="btn btn-primary" onclick="openTeamDrawer()"><i class="fa-solid fa-plus"></i>Yeni Ekip Üyesi Ekle</button>
+            </div>
+
+            <div class="glass-card">
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 80px;">Görsel</th>
+                                <th>Adı Soyadı</th>
+                                <th>Görev Tanımı</th>
+                                <th>Sıra</th>
+                                <th style="text-align: right;">İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody id="team-members-body">
+                            <!-- Loaded via Ajax -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
 
@@ -862,7 +894,7 @@
     </main>
 
     <!-- Slide-over Drawer (Blog Add/Edit Form) -->
-    <div class="drawer-overlay" id="drawer-overlay" onclick="closeBlogDrawer()"></div>
+    <div class="drawer-overlay" id="drawer-overlay" onclick="closeAllDrawers()"></div>
     <div class="drawer" id="blog-drawer">
         <div class="drawer-header">
             <h2 id="drawer-title" style="font-family:'Outfit';">Yeni Makale Ekle</h2>
@@ -934,6 +966,52 @@
         </form>
     </div>
 
+    <!-- Slide-over Drawer (Team Add/Edit Form) -->
+    <div class="drawer" id="team-drawer">
+        <div class="drawer-header">
+            <h2 id="team-drawer-title" style="font-family:'Outfit';">Yeni Ekip Üyesi Ekle</h2>
+            <i class="fa-solid fa-xmark drawer-close" onclick="closeTeamDrawer()"></i>
+        </div>
+        <form id="team-form" onsubmit="handleTeamSubmit(event)" enctype="multipart/form-data">
+            <input type="hidden" id="team-id" name="id">
+            
+            <div class="form-group">
+                <label class="form-label" for="team-name">Adı Soyadı</label>
+                <input type="text" class="form-control" id="team-name" name="name" required placeholder="Örn: Hayriye Karakaya">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="team-role">Görev Tanımı</label>
+                <input type="text" class="form-control" id="team-role" name="role" required placeholder="Örn: Embriyolog">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="team-sort-order">Sıralama Değeri (Opsiyonel)</label>
+                <input type="number" class="form-control" id="team-sort-order" name="sort_order" placeholder="Örn: 1, 2, 3" value="0">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Profil Görseli</label>
+                <div class="image-upload-box">
+                    <i class="fa-solid fa-cloud-arrow-up" style="font-size: 2rem; color: var(--color-primary); margin-bottom: 0.5rem;"></i>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Görsel seçmek için tıklayın veya sürükleyin</p>
+                    <input type="file" id="team-image" name="image" onchange="previewTeamImage(this)">
+                    <img id="team-image-preview" class="preview-img" alt="Önizleme">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="team-bio">Hakkında / Açıklama (HTML Destekli)</label>
+                <textarea class="form-control" id="team-bio" name="bio" style="min-height: 180px;" placeholder="Ekip üyesi hakkında detaylar, diller, mezuniyet bilgileri..."></textarea>
+            </div>
+
+            <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                <button type="submit" class="btn btn-primary" style="flex: 1;"><i class="fa-solid fa-check"></i>Kaydet</button>
+                <button type="button" class="btn btn-secondary" onclick="closeTeamDrawer()" style="flex: 1;">İptal</button>
+            </div>
+        </form>
+    </div>
+
     <!-- Toast Toast Container -->
     <div class="toast-container" id="toast-container"></div>
 
@@ -984,6 +1062,7 @@
                 // Fetch fresh data for specific section
                 if (targetTab === 'overview') loadOverviewData();
                 else if (targetTab === 'blog') loadBlogData();
+                else if (targetTab === 'team') loadTeamData();
                 else if (targetTab === 'content') loadSiteContent();
                 else if (targetTab === 'inquiries') loadInquiriesData();
             });
@@ -1436,11 +1515,179 @@
             });
         }
 
+        // ─── TEAM SECTION OPERATIONS ──────────────────────────────────────────
+
+        function loadTeamData() {
+            const tbody = document.getElementById('team-members-body');
+            tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;"><i class="fa-solid fa-spinner fa-spin"></i> Ekip üyeleri yükleniyor...</td></tr>`;
+            
+            fetch('/api/admin/team')
+                .then(res => res.json())
+                .then(members => {
+                    tbody.innerHTML = '';
+                    if (members.length === 0) {
+                        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color: var(--text-muted);">Kayıtlı ekip üyesi bulunamadı.</td></tr>`;
+                        return;
+                    }
+                    
+                    members.forEach(m => {
+                        const img = m.image_path 
+                            ? (m.image_path.startsWith('uploads/') ? `/static/${m.image_path}` : `/${m.image_path}`)
+                            : '/static/cahit.jpg';
+                            
+                        tbody.innerHTML += `
+                            <tr>
+                                <td>
+                                    <div class="blog-preview-img-wrapper" style="width: 48px; height: 48px; border-radius: 50%; overflow: hidden;">
+                                        <img src="${img}" alt="${m.name}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.onerror=null; this.src='/static/cahit.jpg';">
+                                    </div>
+                                </td>
+                                <td><strong style="color: var(--text-main); font-weight: 600;">${m.name}</strong></td>
+                                <td><span style="color: var(--text-muted);">${m.role}</span></td>
+                                <td><span class="badge badge-info" style="background: rgba(var(--color-primary-rgb), 0.15); color: var(--color-primary); padding: 0.25rem 0.5rem; border-radius: 4px;">${m.sort_order}</span></td>
+                                <td style="text-align: right;">
+                                    <div style="display: flex; gap: 0.5rem; justify-content: flex-end;">
+                                        <button class="btn btn-secondary" style="padding: 0.35rem 0.6rem; font-size: 0.8rem;" onclick="editTeamMember(${m.id})">
+                                            <i class="fa-solid fa-pen-to-square"></i> Düzenle
+                                        </button>
+                                        <button class="btn btn-danger" style="padding: 0.35rem 0.6rem; font-size: 0.8rem;" onclick="deleteTeamMember(${m.id})">
+                                            <i class="fa-solid fa-trash-can"></i> Sil
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        `;
+                    });
+                })
+                .catch(err => {
+                    showToast("Ekip yüklenirken hata oluştu.", "error");
+                    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color: var(--text-danger);">Yükleme başarısız.</td></tr>`;
+                });
+        }
+
+        function openTeamDrawer(memberId = null) {
+            document.getElementById("team-form").reset();
+            document.getElementById("team-id").value = "";
+            document.getElementById("team-image-preview").style.display = "none";
+            document.getElementById("team-drawer-title").innerHTML = `Yeni Ekip Üyesi Ekle <i class="fa-solid fa-circle-plus" style="font-size: 1.0rem; color: var(--color-primary); margin-left: 6px; vertical-align: middle;"></i>`;
+            
+            if (memberId) {
+                document.getElementById("team-drawer-title").innerHTML = `Ekip Üyesini Düzenle <i class="fa-solid fa-gear" style="font-size: 1.0rem; color: var(--color-primary); margin-left: 6px; vertical-align: middle;"></i>`;
+                fetch(`/api/admin/team/${memberId}`)
+                    .then(res => res.json())
+                    .then(m => {
+                        if (!m || m.error) {
+                            showToast("Hata: Üye bulunamadı.", "error");
+                            closeTeamDrawer();
+                            return;
+                        }
+                        document.getElementById("team-id").value = m.id || "";
+                        document.getElementById("team-name").value = m.name || "";
+                        document.getElementById("team-role").value = m.role || "";
+                        document.getElementById("team-sort-order").value = m.sort_order || "0";
+                        document.getElementById("team-bio").value = m.bio || "";
+                        
+                        if (m.image_path) {
+                            const preview = document.getElementById("team-image-preview");
+                            preview.src = m.image_path.startsWith('uploads/') ? `/static/${m.image_path}` : `/${m.image_path}`;
+                            preview.style.display = "block";
+                        }
+                    })
+                    .catch(err => {
+                        showToast("Üye verisi yüklenirken hata oluştu.", "error");
+                        closeTeamDrawer();
+                    });
+            }
+ 
+            document.getElementById("drawer-overlay").classList.add("active");
+            document.getElementById("team-drawer").classList.add("active");
+        }
+
+        function closeTeamDrawer() {
+            document.getElementById("drawer-overlay").classList.remove("active");
+            document.getElementById("team-drawer").classList.remove("active");
+        }
+
+        function closeAllDrawers() {
+            closeBlogDrawer();
+            closeTeamDrawer();
+        }
+
+        function editTeamMember(memberId) {
+            openTeamDrawer(memberId);
+        }
+
+        function deleteTeamMember(memberId) {
+            if (confirm('Bu ekip üyesini silmek istediğinize emin misiniz? Bu işlem geri alınamaz.')) {
+                fetch(`/api/admin/team/${memberId}`, { method: 'DELETE' })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            showToast('Ekip üyesi başarıyla silindi.', 'success');
+                            loadTeamData();
+                        } else {
+                            showToast('Hata: ' + data.error, 'error');
+                        }
+                    })
+                    .catch(err => {
+                        showToast('Silme işlemi başarısız.', 'error');
+                    });
+            }
+        }
+
+        function previewTeamImage(input) {
+            const preview = document.getElementById('team-image-preview');
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                preview.style.display = 'none';
+            }
+        }
+
+        function handleTeamSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById("team-form");
+            const formData = new FormData(form);
+            const memberId = document.getElementById("team-id").value;
+            
+            const url = memberId ? `/api/admin/team/${memberId}` : '/api/admin/team';
+            
+            fetch(url, {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    showToast('Ekip üyesi başarıyla kaydedildi.', 'success');
+                    closeTeamDrawer();
+                    loadTeamData();
+                } else {
+                    showToast('Hata: ' + data.error, 'error');
+                }
+            })
+            .catch(err => {
+                showToast('Kayıt işlemi başarısız.', 'error');
+            });
+        }
+
         // Initialize layout on load
         window.addEventListener('DOMContentLoaded', () => {
             loadOverviewData();
         syncMobileAvatar();
             loadAdminProfile();
+            
+            // Check hash in URL for routing
+            const hash = window.location.hash;
+            if (hash === '#team') {
+                const teamNavItem = document.querySelector('.nav-item[data-tab="team"]');
+                if (teamNavItem) teamNavItem.click();
+            }
         });
     </script>
 </body>

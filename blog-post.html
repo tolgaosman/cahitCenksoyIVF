@@ -707,9 +707,9 @@
                     // Avatar logic
                     const authorAvatar = document.getElementById('postAuthorAvatar');
                     if (post.author_avatar) {
-                        authorAvatar.innerHTML = `<img src="${API_BASE}/static/${post.author_avatar}" alt="${post.author}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
+                        authorAvatar.innerHTML = `<img src="${API_BASE}/static/${post.author_avatar}" onerror="this.onerror=null; this.src='cahit.jpg';" alt="${post.author}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
                     } else {
-                        authorAvatar.innerText = (post.author || 'Dr. Cahit Cenksoy').charAt(0).toUpperCase();
+                        authorAvatar.innerHTML = `<img src="cahit.jpg" alt="${post.author || 'Dr. Cahit Cenksoy'}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
                     }
 
                     // Cover Image logic

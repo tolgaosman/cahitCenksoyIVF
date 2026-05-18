@@ -8,8 +8,21 @@ import os
 import re
 import uuid
 import sqlite3
-from datetime import datetime
+from datetime import datetime, date
 from functools import wraps
+
+def format_db_row(row):
+    if row is None:
+        return None
+    d = dict(row)
+    if 'date' in d and d['date']:
+        val = d['date']
+        if isinstance(val, (datetime, date)):
+            d['date'] = val.strftime('%Y-%m-%d')
+        elif isinstance(val, str):
+            if len(val) >= 10 and val[4] == '-' and val[7] == '-':
+                d['date'] = val[:10]
+    return d
 
 # pyrefly: ignore [missing-import]
 from flask import (
@@ -199,6 +212,15 @@ def init_db():
                 status      TEXT    NOT NULL DEFAULT 'new',
                 created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
             );
+
+            CREATE TABLE IF NOT EXISTS team_members (
+                id          SERIAL PRIMARY KEY,
+                name        TEXT    NOT NULL,
+                role        TEXT    NOT NULL,
+                image_path  TEXT,
+                bio         TEXT,
+                sort_order  INTEGER DEFAULT 0
+            );
         """)
     else:
         db = sqlite3.connect(DB_PATH)
@@ -244,6 +266,15 @@ def init_db():
                 status      TEXT    NOT NULL DEFAULT 'new',
                 created_at  TEXT    NOT NULL DEFAULT (datetime('now'))
             );
+
+            CREATE TABLE IF NOT EXISTS team_members (
+                id          INTEGER PRIMARY KEY AUTOINCREMENT,
+                name        TEXT    NOT NULL,
+                role        TEXT    NOT NULL,
+                image_path  TEXT,
+                bio         TEXT,
+                sort_order  INTEGER DEFAULT 0
+            );
         """)
 
         # Dynamic schema migrations for SQLite
@@ -281,6 +312,24 @@ def init_db():
             "INSERT OR IGNORE INTO site_content (key, value, label) VALUES (?, ?, ?)",
             (key, value, label)
         )
+
+    # Seed default team members if none exist
+    existing_team = db.execute("SELECT COUNT(*) FROM team_members").fetchone()
+    if existing_team and existing_team[0] == 0:
+        team_seeds = [
+            ('Op. Dr. Cahit Cenksoy', 'Kadın Hastalıkları, Doğum Ve Tüp Bebek Uzmanı', 'cahit.jpg', "Dr. Cahit Cenksoy, Kıbrıs'ta en yüksek tüp bebek başarı oranına sahip, en genç, en tecrübeli ve en başarılı Kadın Doğum Uzmanlarından biridir. Hem sezaryen hem de doğal doğumlarda adada en fazla doğum yaptıran doktor olduğu bilinmektedir.", 1),
+            ('Hayriye Karakaya', 'Embriyolog', 'hayriye.jpg', '<ul style="list-style: none; padding: 0; margin: 0; text-align: left; font-size: 0.85rem;"><li style="margin-bottom: 5px;"><i class="fa-solid fa-language" style="margin-right: 8px;"></i><b>Dil:</b> İngilizce – Bulgarca – İspanyolca</li><li style="margin-bottom: 5px;"><i class="fa-solid fa-graduation-cap" style="margin-right: 8px;"></i><b>Yüksek Lisans:</b> T.C. İstanbul Bilim Üniversitesi (2009-2012)</li><li style="margin-bottom: 5px;"><i class="fa-solid fa-file-lines" style="margin-right: 8px;"></i><b>Tez:</b> İnsan Normospermi, Oligospermi, Astenospermi Grupları Arasında Nitrik Oksit İzoformlarının Etkisi</li><li style="margin-bottom: 5px;"><i class="fa-solid fa-book" style="margin-right: 8px;"></i><b>Lisans:</b> T.C. Eskişehir Osmangazi Üniversitesi (2004-2008)</li></ul>', 2),
+            ('Güneş Özbaş', 'Yabancı Hasta Koordinatörü', 'gunes.jpg', '<ul style="list-style: none; padding: 0; margin: 0; text-align: left; font-size: 0.85rem;"><li style="margin-bottom: 8px;"><i class="fa-solid fa-language" style="margin-right: 8px;"></i><b>Dil:</b> İngilizce – Bulgarca – İspanyolca</li><li style="margin-bottom: 8px;"><i class="fa-solid fa-graduation-cap" style="margin-right: 8px;"></i><b>Eğitim:</b> Bilgisayar Programcılığı - Turizm</li><li style="margin-bottom: 8px;"><i class="fa-solid fa-briefcase" style="margin-right: 8px;"></i><b>Deneyim:</b> 9 Yıl Bankacılık + 1 Yıl Yabancı Hasta Koordinatörlüğü</li></ul>', 3),
+            ('Gülseren Akbal', 'Tıbbi Dokümantasyon Ve Sekreter', 'gulseren.jpg', '<ul style="list-style: none; padding: 0; margin: 0; text-align: left; font-size: 0.85rem;"><li style="margin-bottom: 8px;"><i class="fa-solid fa-graduation-cap" style="margin-right: 8px;"></i><b>Eğitim:</b> Yakın Doğu Üniversitesi Tıp Fakültesi</li><li style="margin-bottom: 8px;"><i class="fa-solid fa-stethoscope" style="margin-right: 8px;"></i><b>Uzmanlık:</b> Kadın Hastalıkları ve Doğum</li><li style="margin-bottom: 8px;"><i class="fa-solid fa-hospital" style="margin-right: 8px;"></i><b>Deneyim:</b> Etlik Zübeyde Hanım Hastanesi & Dr. Burhan Nalbantoğlu Hastanesi</li></ul>', 4),
+            ('Selcan Yüksel Çay', 'Hasta Koordinatörü', 'selcan.jpg', '<ul style="list-style: none; padding: 0; margin: 0; text-align: left; font-size: 0.85rem;"><li style="margin-bottom: 8px;"><i class="fa-solid fa-language" style="margin-right: 8px;"></i><b>Dil:</b> İngilizce</li><li style="margin-bottom: 8px;"><i class="fa-solid fa-school" style="margin-right: 8px;"></i><b>Eğitim:</b> İnebolu Sağlık Meslek Lisesi - Acil Tıp Teknisyenliği</li><li style="margin-bottom: 8px;"><i class="fa-solid fa-certificate" style="margin-right: 8px;"></i><b>Sertifika:</b> Özel İş Yeri Hemşireliği</li></ul>', 5),
+            ('Zekiye Niyazi', 'Teknik Personel', 'zekiye.jpg', "Zekiye Niyazi, 5 yıldır ekibimizin ayrılmaz bir parçasıdır. Deneyimi ve iş disipliniyle operasyonel süreçlerin sorunsuz ilerlemesine katkı sağlarken, güler yüzüyle de güven vermektedir.", 6),
+            ('Elham Morandi', 'Hemşire', 'elham.jpg', '<ul style="list-style: none; padding: 0; margin: 0; text-align: left; font-size: 0.85rem;"><li style="margin-bottom: 8px;"><i class="fa-solid fa-language" style="margin-right: 8px;"></i><b>Dil:</b> Farsça - Türkçe - İngilizce</li><li style="margin-bottom: 8px;"><i class="fa-solid fa-graduation-cap" style="margin-right: 8px;"></i><b>Lisans:</b> Hemşirelik – Islamic Azad University</li><li style="margin-bottom: 8px;"><i class="fa-solid fa-user-graduate" style="margin-right: 8px;"></i><b>Master:</b> Cerrahi Hemşirelik – Yakın Doğu Üniversitesi</li></ul>', 7)
+        ]
+        for name, role, img_name, bio, sort_order in team_seeds:
+            db.execute(
+                "INSERT INTO team_members (name, role, image_path, bio, sort_order) VALUES (?, ?, ?, ?, ?)",
+                (name, role, img_name, bio, sort_order)
+            )
 
     db.commit()
     db.close()
@@ -393,7 +442,7 @@ def public_posts():
     
     res = []
     for p in posts:
-        d = dict(p)
+        d = format_db_row(p)
         if d.get('author') == 'Dr. Cahit Cenksoy' and admin_avatar:
             d['author_avatar'] = admin_avatar
         else:
@@ -423,7 +472,7 @@ def public_post_detail(slug_or_id):
     if not post:
         return jsonify({'error': 'Makale bulunamadı'}), 404
         
-    d = dict(post)
+    d = format_db_row(post)
     # Get the admin's avatar path
     admin = db.execute("SELECT avatar_path FROM users ORDER BY id ASC LIMIT 1").fetchone()
     admin_avatar = admin['avatar_path'] if (admin and admin['avatar_path']) else None
@@ -458,6 +507,16 @@ def public_basvuru():
     )
     db.commit()
     return jsonify({'success': True})
+
+
+@app.route('/api/team', methods=['GET', 'OPTIONS'])
+def public_team():
+    """Return all team members — no authentication required."""
+    if request.method == 'OPTIONS':
+        return '', 200
+    db = get_db()
+    members = db.execute("SELECT * FROM team_members ORDER BY sort_order ASC, id ASC").fetchall()
+    return jsonify([format_db_row(m) for m in members])
 
 
 # ─── Dashboard (SPA) ─────────────────────────────────────────────────────────
@@ -713,7 +772,7 @@ def api_stats():
 def api_posts_list():
     db    = get_db()
     posts = db.execute("SELECT * FROM blog_posts ORDER BY date DESC").fetchall()
-    return jsonify([dict(p) for p in posts])
+    return jsonify([format_db_row(p) for p in posts])
 
 
 @app.route('/api/admin/posts/<int:post_id>', methods=['GET'])
@@ -723,7 +782,7 @@ def api_post_get(post_id):
     post = db.execute("SELECT * FROM blog_posts WHERE id = ?", (post_id,)).fetchone()
     if not post:
         return jsonify({'error': 'Bulunamad\u0131'}), 404
-    return jsonify(dict(post))
+    return jsonify(format_db_row(post))
 
 
 @app.route('/api/admin/posts', methods=['POST'])
@@ -797,6 +856,112 @@ def api_post_delete(post_id):
         if os.path.exists(fp):
             os.remove(fp)
     db.execute("DELETE FROM blog_posts WHERE id = ?", (post_id,))
+    db.commit()
+    return jsonify({'success': True})
+
+
+# ─── API endpoints — Team Members ──────────────────────────────────────────
+
+@app.route('/api/admin/team', methods=['GET'])
+@login_required
+def api_team_list():
+    db = get_db()
+    members = db.execute("SELECT * FROM team_members ORDER BY sort_order ASC, id ASC").fetchall()
+    return jsonify([format_db_row(m) for m in members])
+
+@app.route('/api/admin/team/<int:member_id>', methods=['GET'])
+@login_required
+def api_team_get(member_id):
+    db = get_db()
+    member = db.execute("SELECT * FROM team_members WHERE id = ?", (member_id,)).fetchone()
+    if not member:
+        return jsonify({'error': 'Bulunamadı'}), 404
+    return jsonify(format_db_row(member))
+
+@app.route('/api/admin/team', methods=['POST'])
+@login_required
+def api_team_create():
+    name = request.form.get('name', '').strip()
+    role = request.form.get('role', '').strip()
+    bio = request.form.get('bio', '').strip()
+    sort_order = int(request.form.get('sort_order', '0') or '0')
+
+    if not name or not role:
+        return jsonify({'error': 'İsim ve görev alanları zorunludur.'}), 400
+
+    image_path = None
+    if 'image' in request.files:
+        file = request.files['image']
+        if file and file.filename != '' and allowed_file(file.filename):
+            sn = sanitize_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], sn))
+            image_path = f"uploads/{sn}"
+
+    db = get_db()
+    db.execute(
+        "INSERT INTO team_members (name, role, image_path, bio, sort_order) VALUES (?, ?, ?, ?, ?)",
+        (name, role, image_path, bio, sort_order)
+    )
+    db.commit()
+    return jsonify({'success': True})
+
+@app.route('/api/admin/team/<int:member_id>', methods=['POST', 'PUT'])
+@login_required
+def api_team_update(member_id):
+    db = get_db()
+    member = db.execute("SELECT * FROM team_members WHERE id = ?", (member_id,)).fetchone()
+    if not member:
+        return jsonify({'error': 'Bulunamadı'}), 404
+
+    name = request.form.get('name', member['name']).strip()
+    role = request.form.get('role', member['role']).strip()
+    bio = request.form.get('bio', member['bio']).strip()
+    sort_order = int(request.form.get('sort_order', str(member['sort_order']) or '0') or '0')
+
+    if not name or not role:
+        return jsonify({'error': 'İsim ve görev alanları zorunludur.'}), 400
+
+    image_path = member['image_path']
+    if 'image' in request.files:
+        file = request.files['image']
+        if file and file.filename != '' and allowed_file(file.filename):
+            # Delete old custom image if it starts with uploads/
+            if member['image_path'] and member['image_path'].startswith('uploads/'):
+                fp_old = os.path.join(BASE_DIR, 'static', member['image_path'])
+                if os.path.exists(fp_old):
+                    try:
+                        os.remove(fp_old)
+                    except Exception:
+                        pass
+            
+            sn = sanitize_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], sn))
+            image_path = f"uploads/{sn}"
+
+    db.execute(
+        "UPDATE team_members SET name = ?, role = ?, image_path = ?, bio = ?, sort_order = ? WHERE id = ?",
+        (name, role, image_path, bio, sort_order, member_id)
+    )
+    db.commit()
+    return jsonify({'success': True})
+
+@app.route('/api/admin/team/<int:member_id>', methods=['DELETE'])
+@login_required
+def api_team_delete(member_id):
+    db = get_db()
+    member = db.execute("SELECT * FROM team_members WHERE id = ?", (member_id,)).fetchone()
+    if not member:
+        return jsonify({'error': 'Bulunamadı'}), 404
+
+    if member['image_path'] and member['image_path'].startswith('uploads/'):
+        fp = os.path.join(BASE_DIR, 'static', member['image_path'])
+        if os.path.exists(fp):
+            try:
+                os.remove(fp)
+            except Exception:
+                pass
+
+    db.execute("DELETE FROM team_members WHERE id = ?", (member_id,))
     db.commit()
     return jsonify({'success': True})
 
