@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yükleniyor... | Dr. Cahit Cenksoy IVF Clinic</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="browserLogo.png?v=1.1">
+    <link rel="stylesheet" href="style.css?v=3.1">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Progress Bar */
+        .reading-progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background-color: var(--primary-color);
+            z-index: 9999;
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        .post-layout {
+            max-width: 1200px;
+            margin: 40px auto 80px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 8fr 4fr;
+            gap: 40px;
+        }
+
+        /* Post Hero Section */
+        .post-hero {
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-color) 100%);
+            padding: 50px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .post-hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-decoration: none;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+        .back-to-blog:hover {
+            color: var(--primary-color);
+            transform: translateX(-5px);
+        }
+
+        .post-category-badge {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(248, 200, 220, 0.3);
+        }
+        [data-theme="dark"] .post-category-badge {
+            box-shadow: 0 4px 10px rgba(210, 145, 188, 0.2);
+            color: #121212;
+        }
+
+        .post-title {
+            font-size: 2.8rem;
+            color: var(--text-main);
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 25px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .post-meta-bar {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .post-meta-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .post-author-avatar-img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+            background: var(--bg-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .post-author-name {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* Cover Image styling */
+        .post-cover-wrapper {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 40px;
+            border: 1px solid var(--border-color);
+        }
+        .post-cover-img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Article Typography styling */
+        .post-article {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .post-body-content {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+        }
+        .post-body-content p {
+            margin-bottom: 25px;
+        }
+        .post-body-content h2, .post-body-content h3 {
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            margin: 40px 0 20px 0;
+            line-height: 1.3;
+        }
+        .post-body-content h2 {
+            font-size: 1.8rem;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+        }
+        .post-body-content h3 {
+            font-size: 1.45rem;
+        }
+        .post-body-content blockquote {
+            background: var(--bg-light);
+            border-left: 5px solid var(--primary-color);
+            padding: 20px 30px;
+            margin: 35px 0;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+        .post-body-content ul, .post-body-content ol {
+            margin: 0 0 30px 25px;
+        }
+        .post-body-content li {
+            margin-bottom: 10px;
+        }
+
+        /* Share Area */
+        .post-share-area {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .share-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .share-buttons-container {
+            display: flex;
+            gap: 12px;
+        }
+
+        .share-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white !important;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        .share-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        .share-btn.whatsapp { background-color: #25D366; }
+        .share-btn.facebook { background-color: #1877F2; }
+        .share-btn.twitter { background-color: #1DA1F2; }
+        .share-btn.copy { background-color: var(--text-muted); }
+
+        /* Sidebar Widgets */
+        .sidebar-widgets {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .widget-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .widget-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border-color);
+            position: relative;
+        }
+        .widget-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        /* Author Widget specifically */
+        .author-widget-info {
+            text-align: center;
+        }
+        .author-widget-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            margin-bottom: 15px;
+            box-shadow: var(--shadow-md);
+        }
+        .author-widget-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+        .author-widget-title {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+        .author-widget-bio {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Recent Posts widget items */
+        .recent-posts-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .recent-post-item {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .recent-post-item:hover {
+            transform: translateX(5px);
+        }
+        .recent-post-img {
+            width: 75px;
+            height: 75px;
+            border-radius: 10px;
+            object-fit: cover;
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            flex-shrink: 0;
+        }
+        .recent-post-placeholder {
+            width: 75px;
+            height: 75px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #ffdfeb 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .recent-post-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .recent-post-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .recent-post-item:hover .recent-post-title {
+            color: var(--primary-color);
+        }
+        .recent-post-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Dynamic form styling */
+        .widget-form .form-group {
+            margin-bottom: 18px;
+        }
+        .widget-form .form-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            display: block;
+        }
+        .widget-form .form-control {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+        .widget-form .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(248, 200, 220, 0.3);
+        }
+        [data-theme="dark"] .widget-form .form-control:focus {
+            box-shadow: 0 0 0 3px rgba(210, 145, 188, 0.3);
+        }
+        .widget-form textarea.form-control {
+            resize: vertical;
+            height: 100px;
+        }
+
+        /* Error/Success styles */
+        .error-message {
+            color: #d32f2f;
+            background: rgba(211, 47, 47, 0.1);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: none;
+        }
+        .success-message {
+            color: #388e3c;
+            background: rgba(56, 142, 60, 0.1);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: none;
+        }
+
+        /* Responsive Layout override */
+        @media (max-width: 992px) {
+            .post-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .post-title {
+                font-size: 2.2rem;
+            }
+            .post-article {
+                padding: 25px;
+            }
+        }
+        @media (max-width: 576px) {
+            .post-title {
+                font-size: 1.8rem;
+            }
+            .post-meta-bar {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="google_translate_element" style="display:none;"></div>
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress-bar" id="progressBar"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="siyahLogo.png" alt="Dr. Cahit Cenksoy" id="navLogo">
+                </a>
+            </div>
+            <div class="nav-center">
+                <ul class="nav-links">
+                    <li><a href="index.html" data-i18n="navHome">Ana Sayfa</a></li>
+                    <li><a href="team.html" data-i18n="navTeam">Ekibimiz</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" data-i18n="navTreatments">Tedavi Seçenekleri <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="pgd_pgs.html" data-i18n="navTreat1">PGD/PGS</a></li>
+                            <li><a href="tandem_dongusu.html" data-i18n="navTreat2">Tandem Döngüsü</a></li>
+                            <li><a href="sperm_bagisi.html" data-i18n="navTreat3">Sperm Bağışı</a></li>
+                            <li><a href="yumurta_bagisi.html" data-i18n="navTreat4">Yumurta Bağışı</a></li>
+                            <li><a href="embriyo_donasyonu.html" data-i18n="navTreat5">Embriyo Donasyonu</a></li>
+                            <li><a href="ngs_tedavisi.html" data-i18n="navTreat6">NGS Tedavisi</a></li>
+                            <li><a href="icsi_ile_ivf.html" data-i18n="navTreat7">ICSI ile IVF</a></li>
+                            <li><a href="sperm_ve_yumurta_dondurma.html" data-i18n="navTreat8">Sperm ve Yumurta Dondurma</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="testimonials.html" data-i18n="navTestimonials">Hastalarımızdan</a></li>
+                    <li><a href="faq.html" data-i18n="navFAQ">Sık Sorulanlar</a></li>
+                    <li><a href="blog.html" data-i18n="navBlog">Blog</a></li>
+                    <li><a href="contact.html" data-i18n="navContact">İletişim & Randevu</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <div class="lang-selector notranslate">
+                    <button class="lang-btn" id="currentLang">
+                        <span id="currentLangText">TR</span> <i class="fa-solid fa-globe"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)" onclick="changeLanguage('tr')">🇹🇷 TR</a></li>
+                        <li><a href="javascript:void(0)" onclick="changeLanguage('en')">🇬🇧 EN</a></li>
+                        <li><a href="javascript:void(0)" onclick="changeLanguage('ru')">🇷🇺 RU</a></li>
+                        <li><a href="javascript:void(0)" onclick="changeLanguage('de')">🇩🇪 DE</a></li>
+                        <li><a href="javascript:void(0)" onclick="changeLanguage('fr')">🇫🇷 FR</a></li>
+                        <li><a href="javascript:void(0)" onclick="changeLanguage('ar')">🇸🇦 AR</a></li>
+                        <li><a href="javascript:void(0)" onclick="changeLanguage('fa')">🇮🇷 FA</a></li>
+                    </ul>
+                </div>
+                <button id="themeToggle" class="theme-toggle">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- Spacer for fixed navbar -->
+    <div style="height: 90px;"></div>
+
+    <!-- Blog Header Hero -->
+    <header class="post-hero">
+        <div class="post-hero-container">
+            <a href="blog.html" class="back-to-blog">
+                <i class="fa-solid fa-arrow-left"></i> <span data-i18n="blogBackBtn">Tüm Makaleler</span>
+            </a>
+            <div>
+                <span class="post-category-badge" id="postCategoryBadge">TÜP BEBEK</span>
+            </div>
+            <h1 class="post-title" id="postTitle">Makale Yükleniyor...</h1>
+            
+            <div class="post-meta-bar">
+                <div class="post-meta-author">
+                    <div class="post-author-avatar-img" id="postAuthorAvatar">C</div>
+                    <div>
+                        <span style="font-size:0.8rem; display:block; text-transform:uppercase; letter-spacing:0.5px;" data-i18n="blogAuthorLabel">Yazar</span>
+                        <span class="post-author-name" id="postAuthorName">Dr. Cahit Cenksoy</span>
+                    </div>
+                </div>
+                <div>
+                    <span style="font-size:0.8rem; display:block; text-transform:uppercase; letter-spacing:0.5px;" data-i18n="blogDateLabel">Tarih</span>
+                    <strong style="color:var(--text-main);" id="postDate">-</strong>
+                </div>
+                <div>
+                    <span style="font-size:0.8rem; display:block; text-transform:uppercase; letter-spacing:0.5px;" data-i18n="blogReadTimeLabel">Okuma Süresi</span>
+                    <strong style="color:var(--text-main);"><i class="fa-regular fa-clock"></i> 5 Dakika</strong>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Post Content Layout -->
+    <main class="post-layout">
+        <!-- Main Column -->
+        <section>
+            <!-- Cover Image -->
+            <div class="post-cover-wrapper" id="postCoverWrapper" style="display:none;">
+                <img class="post-cover-img" id="postCoverImg" src="" alt="">
+            </div>
+
+            <!-- Article Body -->
+            <article class="post-article">
+                <div class="post-body-content" id="postContentBody">
+                    <p style="text-align:center; color:var(--text-muted); padding: 50px 0;"><i class="fa-solid fa-spinner fa-spin" style="font-size: 2rem; color:var(--primary-color);"></i><br><br>Yazı içeriği yükleniyor...</p>
+                </div>
+
+                <!-- Share Area -->
+                <div class="post-share-area">
+                    <span class="share-title" data-i18n="blogShareTitle">Bu Makaleyi Paylaş</span>
+                    <div class="share-buttons-container">
+                        <button class="share-btn whatsapp" onclick="sharePost('whatsapp')" title="WhatsApp ile Paylaş"><i class="fa-brands fa-whatsapp"></i></button>
+                        <button class="share-btn facebook" onclick="sharePost('facebook')" title="Facebook'ta Paylaş"><i class="fa-brands fa-facebook-f"></i></button>
+                        <button class="share-btn twitter" onclick="sharePost('twitter')" title="Twitter'da Paylaş"><i class="fa-brands fa-x-twitter"></i></button>
+                        <button class="share-btn copy" onclick="sharePost('copy')" title="Bağlantıyı Kopyala"><i class="fa-solid fa-link"></i></button>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Sidebar Column -->
+        <aside class="sidebar-widgets">
+            <!-- Author Info Widget -->
+            <div class="widget-card author-widget">
+                <h3 class="widget-title" data-i18n="blogWidgetAuthorTitle">YAZAR HAKKINDA</h3>
+                <div class="author-widget-info">
+                    <img class="author-widget-img" src="cahit.jpg" alt="Dr. Cahit Cenksoy">
+                    <h4 class="author-widget-name">Dr. Cahit Cenksoy</h4>
+                    <div class="author-widget-title" data-i18n="blogWidgetAuthorRole">Kadın Hastalıkları ve Doğum Uzmanı</div>
+                    <p class="author-widget-bio" data-i18n="blogWidgetAuthorBio">Kıbrıs'ta modern tüp bebek tedavileri, donasyon yöntemleri ve üreme sağlığı konularında 20 yılı aşkın tecrübesiyle ailelerin bebek sahibi olma hayallerini gerçeğe dönüştürüyor.</p>
+                    <a href="team.html" class="btn btn-secondary" style="width: 100%; justify-content: center; font-weight:600;" data-i18n="blogWidgetAuthorBtn">Ekibimizi Tanıyın</a>
+                </div>
+            </div>
+
+            <!-- Recent Posts Widget -->
+            <div class="widget-card">
+                <h3 class="widget-title" data-i18n="blogWidgetRecentTitle">DİĞER YAZILAR</h3>
+                <div class="recent-posts-list" id="recentPostsList">
+                    <p style="color:var(--text-muted); font-size:0.9rem;">Yükleniyor...</p>
+                </div>
+            </div>
+
+            <!-- Contact/Randevu Form Widget -->
+            <div class="widget-card">
+                <h3 class="widget-title" data-i18n="blogWidgetContactTitle">İLETİŞİM & RANDEVU</h3>
+                <div id="contactFormError" class="error-message" data-i18n="contactError">Lütfen zorunlu alanları doldurun.</div>
+                <div id="contactFormSuccess" class="success-message" data-i18n="contactSuccess">Tebrikler! Mesajınız başarıyla iletildi. En kısa sürede sizinle iletişime geçeceğiz.</div>
+                
+                <form class="widget-form" id="widgetContactForm" onsubmit="handleInquirySubmit(event)">
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="formName">Adınız Soyadınız *</label>
+                        <input type="text" id="inqName" class="form-control" placeholder="Adınız Soyadınız" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="formPhone">Telefon Numaranız *</label>
+                        <input type="tel" id="inqPhone" class="form-control" placeholder="+90 5xx xxx xx xx" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="formEmail">E-Posta Adresiniz</label>
+                        <input type="email" id="inqEmail" class="form-control" placeholder="eposta@adresiniz.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="formMessage">Mesajınız *</label>
+                        <textarea id="inqMessage" class="form-control" placeholder="Bize sormak istediğiniz konuyu yazın..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; font-weight:600; padding:12px;" data-i18n="formSubmit">Başvuru Gönder</button>
+                </form>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-left">
+                    <img src="siyahLogo.png" alt="Dr. Cahit Cenksoy Logo" id="footerLogo" style="max-height: 80px; margin-bottom: 20px;">
+                    <p class="hospital-name"><i class="fa-solid fa-location-dot" style="margin-right: 8px; color: var(--primary-color);"></i> <span data-i18n="footerHospital">Nicosia IVF - Nicosia Sevinç Hospital</span></p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/drcahitcenksoy/" class="social-box" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/p/Dr-Cahit-Cenksoy-100064112829620/" class="social-box" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <h3 class="contact-title" data-i18n="footerContactTitle">İLETİŞİM BİLGİLERİ</h3>
+                    <div class="contact-columns">
+                        <div class="contact-col">
+                            <h4 class="contact-col-title"><i class="fa-solid fa-phone"></i> <span data-i18n="footerPhone">TELEFON</span></h4>
+                            <ul class="footer-contact-list">
+                                <li class="footer-contact-item"><a href="tel:+905488880112" target="_blank" rel="noopener noreferrer" class="footer-link"><span>+90 548 888 0 112</span></a></li>
+                                <li class="footer-contact-item"><a href="tel:+905428880112" target="_blank" rel="noopener noreferrer" class="footer-link"><span class="ltr-text">+90 542 888 0 112</span></a></li>
+                                <li class="footer-contact-item"><a href="tel:+903924440112" target="_blank" rel="noopener noreferrer" class="footer-link"><span class="ltr-text">+90 392 444 0 112</span></a></li>
+                                <li class="footer-contact-item"><a href="tel:+905338681983" target="_blank" rel="noopener noreferrer" class="footer-link"><span class="ltr-text">+90 533 868 1983</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="contact-col">
+                            <h4 class="contact-col-title"><i class="fa-solid fa-envelope"></i> <span data-i18n="footerEmail">E-POSTA</span></h4>
+                            <ul class="footer-contact-list">
+                                <li class="footer-contact-item"><a href="mailto:c_cenksoy@hotmail.com" target="_blank" rel="noopener noreferrer" class="footer-link"><span>c_cenksoy@hotmail.com</span></a></li>
+                                <li class="footer-contact-item"><a href="mailto:ufukozbas0675@gmail.com" target="_blank" rel="noopener noreferrer" class="footer-link"><span>ufukozbas0675@gmail.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Action -->
+    <a href="https://wa.me/905488880112" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts Integration -->
+    <script>
+        const API_BASE = 'https://cahit-cenksoy-admin.onrender.com';
+
+        // Read specific query string parameter
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const postId = getQueryParam('id') || getQueryParam('slug');
+            
+            if (!postId) {
+                // If no post ID, redirect gracefully back to blog list
+                window.location.href = 'blog.html';
+                return;
+            }
+
+            // 1. Fetch current post details
+            fetch(`${API_BASE}/api/posts/${postId}`)
+                .then(res => {
+                    if (!res.ok) throw new Error('Makale bulunamadı');
+                    return res.json();
+                })
+                .then(post => {
+                    // Update Page Title
+                    document.title = `${post.title} | Dr. Cahit Cenksoy IVF Clinic`;
+
+                    // Category Classification
+                    const text = (post.title + " " + (post.summary || "")).toLowerCase();
+                    let tag = "TÜP BEBEK";
+                    if (text.includes("bağış") || text.includes("donasyon") || text.includes("sperm") || text.includes("yumurta") || text.includes("kıbrıs") || text.includes("donation")) {
+                        tag = "KIBRIS BAĞIŞ";
+                    } else if (text.includes("sağlık") || text.includes("yaşam") || text.includes("beslenme") || text.includes("spor") || text.includes("diyet") || text.includes("lifestyle") || text.includes("yaş")) {
+                        tag = "SAĞLIK & YAŞAM";
+                    }
+
+                    document.getElementById('postCategoryBadge').innerText = tag;
+                    document.getElementById('postTitle').innerText = post.title;
+                    document.getElementById('postDate').innerText = post.date;
+                    document.getElementById('postAuthorName').innerText = post.author || 'Dr. Cahit Cenksoy';
+
+                    // Avatar logic
+                    const authorAvatar = document.getElementById('postAuthorAvatar');
+                    if (post.author_avatar) {
+                        authorAvatar.innerHTML = `<img src="${API_BASE}/static/${post.author_avatar}" alt="${post.author}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
+                    } else {
+                        authorAvatar.innerText = (post.author || 'Dr. Cahit Cenksoy').charAt(0).toUpperCase();
+                    }
+
+                    // Cover Image logic
+                    const coverWrapper = document.getElementById('postCoverWrapper');
+                    const coverImg = document.getElementById('postCoverImg');
+                    if (post.image_path) {
+                        coverImg.src = `${API_BASE}/static/${post.image_path}`;
+                        coverImg.alt = post.title;
+                        coverWrapper.style.display = 'block';
+                    } else {
+                        coverWrapper.style.display = 'none';
+                    }
+
+                    // Render content nicely with paragraphs styled
+                    const body = document.getElementById('postContentBody');
+                    let formattedContent = post.content;
+
+                    // If not HTML, perform basic paragraph replacements to make it beautiful
+                    if (!formattedContent.trim().startsWith('<')) {
+                        formattedContent = formattedContent
+                            .split('\n')
+                            .filter(p => p.trim() !== '')
+                            .map(p => `<p>${p}</p>`)
+                            .join('');
+                    }
+                    body.innerHTML = formattedContent;
+
+                    // Load recent posts excluding the current one
+                    loadRecentPosts(post.id);
+                })
+                .catch(err => {
+                    document.getElementById('postTitle').innerText = 'Makale Bulunamadı';
+                    document.getElementById('postContentBody').innerHTML = `
+                        <div style="text-align:center; padding: 50px 0; color:var(--text-muted);">
+                            <i class="fa-solid fa-triangle-exclamation" style="font-size:3rem; color:red; margin-bottom:20px;"></i>
+                            <p style="font-size:1.2rem; font-weight:600;">Aradığınız makale bulunamadı veya henüz yayınlanmadı.</p>
+                            <br><br>
+                            <a href="blog.html" class="btn btn-primary">Blog Listesine Dön</a>
+                        </div>
+                    `;
+                });
+
+            // 2. Reading Progress Indicator Setup
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                document.getElementById("progressBar").style.width = scrolled + "%";
+            });
+        });
+
+        // Fetch recent post listings for the sidebar widget
+        function loadRecentPosts(currentId) {
+            fetch(`${API_BASE}/api/posts`)
+                .then(res => res.json())
+                .then(posts => {
+                    const listContainer = document.getElementById('recentPostsList');
+                    listContainer.innerHTML = '';
+
+                    const otherPosts = posts.filter(p => p.id !== currentId).slice(0, 3);
+                    if (otherPosts.length === 0) {
+                        listContainer.innerHTML = '<p style="color:var(--text-muted); font-size:0.9rem;">Başka makale bulunmuyor.</p>';
+                        return;
+                    }
+
+                    otherPosts.forEach(post => {
+                        const imgHtml = post.image_path
+                            ? `<img class="recent-post-img" src="${API_BASE}/static/${post.image_path}" alt="${post.title}">`
+                            : `<div class="recent-post-placeholder"><i class="fa-solid fa-heart-pulse"></i></div>`;
+
+                        listContainer.innerHTML += `
+                            <a href="blog-post.html?id=${post.id}" class="recent-post-item">
+                                ${imgHtml}
+                                <div class="recent-post-text">
+                                    <h4 class="recent-post-title">${post.title}</h4>
+                                    <span class="recent-post-date">${post.date}</span>
+                                </div>
+                            </a>
+                        `;
+                    });
+                });
+        }
+
+        // Share post utilities
+        function sharePost(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(document.getElementById('postTitle').innerText);
+            
+            let shareUrl = '';
+            if (platform === 'whatsapp') {
+                shareUrl = `https://api.whatsapp.com/send?text=${text}%20${url}`;
+            } else if (platform === 'facebook') {
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            } else if (platform === 'twitter') {
+                shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+            } else if (platform === 'copy') {
+                navigator.clipboard.writeText(window.location.href)
+                    .then(() => alert('Bağlantı başarıyla panoya kopyalandı!'))
+                    .catch(() => alert('Bağlantı kopyalanamadı.'));
+                return;
+            }
+
+            if (shareUrl) {
+                window.open(shareUrl, '_blank', 'width=600,height=400,resizable=yes');
+            }
+        }
+
+        // Handle contact form submission in the sidebar widget
+        function handleInquirySubmit(event) {
+            event.preventDefault();
+            const err = document.getElementById('contactFormError');
+            const succ = document.getElementById('contactFormSuccess');
+            err.style.display = 'none';
+            succ.style.display = 'none';
+
+            const payload = {
+                name: document.getElementById('inqName').value.trim(),
+                phone: document.getElementById('inqPhone').value.trim(),
+                email: document.getElementById('inqEmail').value.trim(),
+                message: document.getElementById('inqMessage').value.trim()
+            };
+
+            if (!payload.name || !payload.phone || !payload.message) {
+                err.style.display = 'block';
+                return;
+            }
+
+            fetch(`${API_BASE}/api/basvuru`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    succ.style.display = 'block';
+                    document.getElementById('widgetContactForm').reset();
+                } else {
+                    err.innerText = data.error || 'Gönderilemedi, lütfen tekrar deneyin.';
+                    err.style.display = 'block';
+                }
+            })
+            .catch(() => {
+                err.innerText = 'Bağlantı hatası oluştu, lütfen internetinizi kontrol edip tekrar deneyin.';
+                err.style.display = 'block';
+            });
+        }
+    </script>
+
+    <!-- Google Translate Script -->
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="app.js"></script>
+</body>
+</html>

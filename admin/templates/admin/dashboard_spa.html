@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -837,6 +837,33 @@
 
     <!-- JavaScript logic -->
     <script>
+        // Mobile Sidebar Toggle
+        function toggleSidebar(open) {
+            const sidebar = document.querySelector(".sidebar");
+            const overlay = document.getElementById("sidebar-overlay");
+            if (sidebar && overlay) {
+                if (open) {
+                    sidebar.classList.add("active");
+                    overlay.classList.add("active");
+                } else {
+                    sidebar.classList.remove("active");
+                    overlay.classList.remove("active");
+                }
+            }
+        }
+
+        // Sync Avatar across responsive layouts
+        function syncMobileAvatar() {
+            const pcAvatar = document.getElementById("admin-avatar-container");
+            const mobAvatar = document.getElementById("mobile-admin-avatar");
+            if (pcAvatar && mobAvatar) {
+                mobAvatar.innerHTML = pcAvatar.innerHTML;
+                mobAvatar.style.backgroundImage = pcAvatar.style.backgroundImage;
+                mobAvatar.style.backgroundSize = pcAvatar.style.backgroundSize;
+                mobAvatar.style.backgroundPosition = pcAvatar.style.backgroundPosition;
+            }
+        }
+
         // SPA Routing & Navigation
         const navItems = document.querySelectorAll('.nav-item');
         const sections = document.querySelectorAll('.content-section');
@@ -850,6 +877,7 @@
 
                 item.classList.add('active');
                 document.getElementById(`${targetTab}-section`).classList.add('active');
+                toggleSidebar(false);
                 
                 // Fetch fresh data for specific section
                 if (targetTab === 'overview') loadOverviewData();
@@ -1244,7 +1272,8 @@
                     if (data.success) {
                         showToast('Başvuru okundu olarak işaretlendi.', 'success');
                         loadInquiriesData();
-                        loadOverviewData(); // reload badges
+                        loadOverviewData();
+        syncMobileAvatar(); // reload badges
                     }
                 });
         }
@@ -1258,6 +1287,7 @@
                             showToast('Başvuru kaydı silindi.', 'success');
                             loadInquiriesData();
                             loadOverviewData();
+        syncMobileAvatar();
                         }
                     });
             }
@@ -1307,6 +1337,7 @@
         // Initialize layout on load
         window.addEventListener('DOMContentLoaded', () => {
             loadOverviewData();
+        syncMobileAvatar();
             loadAdminProfile();
         });
     </script>

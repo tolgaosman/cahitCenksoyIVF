@@ -392,6 +392,42 @@ def public_posts():
     return jsonify(res)
 
 
+@app.route('/api/posts/<slug_or_id>', methods=['GET', 'OPTIONS'])
+def public_post_detail(slug_or_id):
+    """Return a single published blog post by slug or ID."""
+    if request.method == 'OPTIONS':
+        return '', 200
+    db = get_db()
+    
+    # Try finding by ID first if numeric
+    if str(slug_or_id).isdigit():
+        post = db.execute(
+            "SELECT * FROM blog_posts WHERE id = ? AND status='published'", (int(slug_or_id),)
+        ).fetchone()
+    else:
+        post = db.execute(
+            "SELECT * FROM blog_posts WHERE slug = ? AND status='published'", (slug_or_id,)
+        ).fetchone()
+        
+    if not post:
+        return jsonify({'error': 'Makale bulunamadı'}), 404
+        
+    d = dict(post)
+    # Get the admin's avatar path
+    admin = db.execute("SELECT avatar_path FROM users ORDER BY id ASC LIMIT 1").fetchone()
+    admin_avatar = admin['avatar_path'] if (admin and admin['avatar_path']) else None
+    
+    if d.get('author') == 'Dr. Cahit Cenksoy' and admin_avatar:
+        d['author_avatar'] = admin_avatar
+    else:
+        d['author_avatar'] = None
+        
+    return jsonify(d)
+
+
+
+
+
 @app.route('/api/basvuru', methods=['POST', 'OPTIONS'])
 def public_basvuru():
     """Save a contact/inquiry form submission — no authentication required."""

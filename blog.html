@@ -131,6 +131,7 @@
             transition: var(--transition);
             display: flex;
             flex-direction: column;
+            cursor: pointer;
         }
 
         .blog-card:hover {
@@ -711,6 +712,15 @@
             }
 
             /* Wire events */
+            if (grid) {
+                grid.addEventListener('click', (e) => {
+                    const card = e.target.closest('.blog-card');
+                    if (card) {
+                        const postId = card.dataset.id;
+                        window.location.href = `blog-post.html?id=${postId}`;
+                    }
+                });
+            }
             if (searchInput) searchInput.addEventListener('input', filterBlog);
             catBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
