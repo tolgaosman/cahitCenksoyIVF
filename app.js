@@ -261,3 +261,42 @@ function initTeamCarousel() {
         }
     });
 }
+
+// --- Global Toast Notification Utility ---
+function showToast(message, iconClass = 'fa-solid fa-circle-check') {
+    let toast = document.getElementById('globalToast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'globalToast';
+        toast.className = 'custom-toast';
+        document.body.appendChild(toast);
+    }
+    
+    toast.innerHTML = `<i class="${iconClass}"></i> <span>${message}</span>`;
+    
+    // Trigger entry transition
+    requestAnimationFrame(() => {
+        toast.classList.add('show');
+    });
+    
+    // Clear any active dismiss timer
+    if (window.toastTimeout) {
+        clearTimeout(window.toastTimeout);
+    }
+    
+    // Auto-dismiss after 3 seconds
+    window.toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
+
+// --- Mailto/Gmail Redirect Logic ---
+document.addEventListener('click', (e) => {
+    const mailLink = e.target.closest('a[href^="mailto:"]');
+    if (mailLink) {
+        e.preventDefault();
+        const email = mailLink.getAttribute('href').replace('mailto:', '').trim();
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
+        window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+    }
+});
