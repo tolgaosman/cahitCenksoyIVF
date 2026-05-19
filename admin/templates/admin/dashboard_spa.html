@@ -1000,9 +1000,46 @@
                 </div>
             </div>
 
+            <input type="hidden" id="team-bio" name="bio">
+
             <div class="form-group">
-                <label class="form-label" for="team-bio">Hakkında / Açıklama (HTML Destekli)</label>
-                <textarea class="form-control" id="team-bio" name="bio" style="min-height: 180px;" placeholder="Ekip üyesi hakkında detaylar, diller, mezuniyet bilgileri..."></textarea>
+                <label class="form-label" for="team-field-language"><i class="fa-solid fa-language" style="color: var(--color-primary); margin-right: 6px;"></i> Dil</label>
+                <input type="text" class="form-control" id="team-field-language" placeholder="Örn: İngilizce, Türkçe">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="team-field-bachelor"><i class="fa-solid fa-graduation-cap" style="color: var(--color-primary); margin-right: 6px;"></i> Lisans</label>
+                <input type="text" class="form-control" id="team-field-bachelor" placeholder="Örn: Hemşirelik – Islamic Azad University">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="team-field-master"><i class="fa-solid fa-user-graduate" style="color: var(--color-primary); margin-right: 6px;"></i> Yüksek Lisans</label>
+                <input type="text" class="form-control" id="team-field-master" placeholder="Örn: Cerrahi Hemşirelik – Yakın Doğu Üniversitesi">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="team-field-thesis"><i class="fa-solid fa-file-lines" style="color: var(--color-primary); margin-right: 6px;"></i> Tez</label>
+                <input type="text" class="form-control" id="team-field-thesis" placeholder="Örn: İnsan Sperm Grupları Arasındaki Etkiler">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="team-field-experience"><i class="fa-solid fa-briefcase" style="color: var(--color-primary); margin-right: 6px;"></i> Deneyim</label>
+                <input type="text" class="form-control" id="team-field-experience" placeholder="Örn: 9 Yıl Bankacılık + 1 Yıl Yabancı Hasta Koordinatörlüğü">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="team-field-specialty"><i class="fa-solid fa-stethoscope" style="color: var(--color-primary); margin-right: 6px;"></i> Uzmanlık</label>
+                <input type="text" class="form-control" id="team-field-specialty" placeholder="Örn: Kadın Hastalıkları ve Doğum">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="team-field-certificate"><i class="fa-solid fa-certificate" style="color: var(--color-primary); margin-right: 6px;"></i> Sertifika</label>
+                <input type="text" class="form-control" id="team-field-certificate" placeholder="Örn: Özel İş Yeri Hemşireliği">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="team-field-description">Açıklama</label>
+                <textarea class="form-control" id="team-field-description" style="min-height: 100px;" placeholder="Ekip üyesi hakkında genel açıklama..."></textarea>
             </div>
 
             <div style="display: flex; gap: 1rem; margin-top: 2rem;">
@@ -1571,6 +1608,16 @@
             document.getElementById("team-image-preview").style.display = "none";
             document.getElementById("team-drawer-title").innerHTML = `Yeni Ekip Üyesi Ekle <i class="fa-solid fa-circle-plus" style="font-size: 1.0rem; color: var(--color-primary); margin-left: 6px; vertical-align: middle;"></i>`;
             
+            // Clear all individual fields
+            document.getElementById("team-field-language").value = "";
+            document.getElementById("team-field-bachelor").value = "";
+            document.getElementById("team-field-master").value = "";
+            document.getElementById("team-field-thesis").value = "";
+            document.getElementById("team-field-experience").value = "";
+            document.getElementById("team-field-specialty").value = "";
+            document.getElementById("team-field-certificate").value = "";
+            document.getElementById("team-field-description").value = "";
+
             if (memberId) {
                 document.getElementById("team-drawer-title").innerHTML = `Ekip Üyesini Düzenle <i class="fa-solid fa-gear" style="font-size: 1.0rem; color: var(--color-primary); margin-left: 6px; vertical-align: middle;"></i>`;
                 fetch(`/api/admin/team/${memberId}`)
@@ -1587,6 +1634,60 @@
                         document.getElementById("team-sort-order").value = m.sort_order || "0";
                         document.getElementById("team-bio").value = m.bio || "";
                         
+                        // Parse bio fields
+                        let language = "";
+                        let bachelor = "";
+                        let master = "";
+                        let thesis = "";
+                        let experience = "";
+                        let specialty = "";
+                        let certificate = "";
+                        let description = "";
+                        
+                        if (m.bio) {
+                            const tempDiv = document.createElement("div");
+                            tempDiv.innerHTML = m.bio;
+                            
+                            const lis = tempDiv.querySelectorAll("li");
+                            if (lis.length > 0) {
+                                lis.forEach(li => {
+                                    const text = li.innerText;
+                                    if (text.toLowerCase().includes("dil:")) {
+                                        language = text.replace(/dil:/i, "").trim();
+                                    } else if (text.toLowerCase().includes("lisans:") || text.toLowerCase().includes("eğitim:") || text.toLowerCase().includes("eğitim - lisans:")) {
+                                        bachelor = text.replace(/lisans:|eğitim - lisans:|eğitim:/i, "").trim();
+                                    } else if (text.toLowerCase().includes("yüksek lisans:") || text.toLowerCase().includes("master:")) {
+                                        master = text.replace(/yüksek lisans:|master:/i, "").trim();
+                                    } else if (text.toLowerCase().includes("tez:")) {
+                                        thesis = text.replace(/tez:/i, "").trim();
+                                    } else if (text.toLowerCase().includes("deneyim:")) {
+                                        experience = text.replace(/deneyim:/i, "").trim();
+                                    } else if (text.toLowerCase().includes("uzmanlık:")) {
+                                        specialty = text.replace(/uzmanlık:/i, "").trim();
+                                    } else if (text.toLowerCase().includes("sertifika:") || text.toLowerCase().includes("sertifka:")) {
+                                        certificate = text.replace(/sertifika:|sertifka:/i, "").trim();
+                                    }
+                                });
+                                
+                                const ul = tempDiv.querySelector("ul");
+                                if (ul) {
+                                    tempDiv.removeChild(ul);
+                                }
+                                description = tempDiv.innerHTML.trim();
+                            } else {
+                                description = m.bio.trim();
+                            }
+                        }
+                        
+                        document.getElementById("team-field-language").value = language;
+                        document.getElementById("team-field-bachelor").value = bachelor;
+                        document.getElementById("team-field-master").value = master;
+                        document.getElementById("team-field-thesis").value = thesis;
+                        document.getElementById("team-field-experience").value = experience;
+                        document.getElementById("team-field-specialty").value = specialty;
+                        document.getElementById("team-field-certificate").value = certificate;
+                        document.getElementById("team-field-description").value = description;
+
                         if (m.image_path) {
                             const preview = document.getElementById("team-image-preview");
                             preview.src = m.image_path.startsWith('uploads/') ? `/static/${m.image_path}` : `/${m.image_path}`;
@@ -1651,6 +1752,52 @@
 
         function handleTeamSubmit(event) {
             event.preventDefault();
+
+            // Construct structured bio HTML dynamically
+            const language = document.getElementById("team-field-language").value.trim();
+            const bachelor = document.getElementById("team-field-bachelor").value.trim();
+            const master = document.getElementById("team-field-master").value.trim();
+            const thesis = document.getElementById("team-field-thesis").value.trim();
+            const experience = document.getElementById("team-field-experience").value.trim();
+            const specialty = document.getElementById("team-field-specialty").value.trim();
+            const certificate = document.getElementById("team-field-certificate").value.trim();
+            const description = document.getElementById("team-field-description").value.trim();
+
+            let bioHTML = '';
+            const bullets = [];
+
+            if (language) {
+                bullets.push(`<li style="margin-bottom: 8px;"><i class="fa-solid fa-language" style="margin-right: 8px;"></i><b>Dil:</b> ${language}</li>`);
+            }
+            if (bachelor) {
+                bullets.push(`<li style="margin-bottom: 8px;"><i class="fa-solid fa-graduation-cap" style="margin-right: 8px;"></i><b>Lisans:</b> ${bachelor}</li>`);
+            }
+            if (master) {
+                bullets.push(`<li style="margin-bottom: 8px;"><i class="fa-solid fa-user-graduate" style="margin-right: 8px;"></i><b>Yüksek Lisans:</b> ${master}</li>`);
+            }
+            if (thesis) {
+                bullets.push(`<li style="margin-bottom: 8px;"><i class="fa-solid fa-file-lines" style="margin-right: 8px;"></i><b>Tez:</b> ${thesis}</li>`);
+            }
+            if (experience) {
+                bullets.push(`<li style="margin-bottom: 8px;"><i class="fa-solid fa-briefcase" style="margin-right: 8px;"></i><b>Deneyim:</b> ${experience}</li>`);
+            }
+            if (specialty) {
+                bullets.push(`<li style="margin-bottom: 8px;"><i class="fa-solid fa-stethoscope" style="margin-right: 8px;"></i><b>Uzmanlık:</b> ${specialty}</li>`);
+            }
+            if (certificate) {
+                bullets.push(`<li style="margin-bottom: 8px;"><i class="fa-solid fa-certificate" style="margin-right: 8px;"></i><b>Sertifika:</b> ${certificate}</li>`);
+            }
+
+            if (bullets.length > 0) {
+                bioHTML += `<ul style="list-style: none; padding: 0; margin: 0 0 12px 0; text-align: left; font-size: 0.85rem;">${bullets.join('')}</ul>`;
+            }
+
+            if (description) {
+                bioHTML += `<p style="margin: 0; font-size: 0.85rem; line-height: 1.4;">${description}</p>`;
+            }
+
+            document.getElementById("team-bio").value = bioHTML;
+
             const form = document.getElementById("team-form");
             const formData = new FormData(form);
             const memberId = document.getElementById("team-id").value;

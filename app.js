@@ -95,6 +95,11 @@ function initTheme() {
         
         if (navLogo) navLogo.src = logoSrc;
         if (footerLogo) footerLogo.src = logoSrc;
+
+        const signature = document.getElementById('cahitSignature');
+        if (signature) {
+            signature.src = isDark ? 'cahitSignature_white.png' : 'cahitSignature.png';
+        }
     }
 
     function setTheme(isDark) {
