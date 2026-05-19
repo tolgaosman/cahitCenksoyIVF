@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="tr">
 
 <head>
@@ -15,7 +15,7 @@
 </head>
 
 <body>
- <div id="google_translate_element" style="display:none;"></div>
+    <div id="google_translate_element" style="display:none;"></div>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -110,7 +110,8 @@
                 <i class="fa-solid fa-file-pdf"></i>
                 <h3 data-i18n="feat3Title">TÜP BEBEK YÖNETMELİĞİ</h3>
                 <div class="feature-divider"></div>
-                <a href="ivYonetmelik.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline-white" data-i18n="feat3Btn">OKU ></a>
+                <a href="ivYonetmelik.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline-white"
+                    data-i18n="feat3Btn">OKU ></a>
             </div>
             <!-- IVF Dictionary -->
             <div class="feature-item">
@@ -155,9 +156,7 @@
                     <div style="margin-top: 40px;">
                         <img src="https://cahitcenksoy.com/admin/images/takim/80711095276CahitCenksoySigniture.png"
                             alt="Signature" style="max-width: 280px; display: block;">
-                        <p
-                            style="font-size: 0.8rem; color: #777; margin-top: 5px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">
-                            Op. Dr. Cahit Cenksoy<br>Obstetrician Gynaecologist & IVF Specialist</p>
+
                     </div>
                 </div>
             </div>
@@ -302,7 +301,8 @@
                 <button class="carousel-btn prev" id="teamPrev"><i class="fa-solid fa-chevron-left"></i></button>
                 <div class="team-carousel" id="teamCarousel">
                     <p style="text-align:center; color:var(--text-muted); width: 100%; padding: 50px 0;">
-                        <i class="fa-solid fa-spinner fa-spin" style="font-size: 2rem; color:var(--primary-color); margin-bottom: 15px;"></i><br>
+                        <i class="fa-solid fa-spinner fa-spin"
+                            style="font-size: 2rem; color:var(--primary-color); margin-bottom: 15px;"></i><br>
                         Ekibimiz yükleniyor...
                     </p>
                 </div>
@@ -378,8 +378,8 @@
                             style="margin-right: 8px; color: var(--primary-color);"></i> <span
                             data-i18n="footerHospital">Nicosia IVF - Nicosia Sevinç Hospital</span></p>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/drcahitcenksoy/" class="social-box" target="_blank" rel="noopener noreferrer"><i
-                                class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/drcahitcenksoy/" class="social-box" target="_blank"
+                            rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
                         <a href="https://www.facebook.com/p/Dr-Cahit-Cenksoy-100064112829620/" class="social-box"
                             target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
                     </div>
@@ -391,14 +391,18 @@
                             <h4 class="contact-col-title"><i class="fa-solid fa-phone"></i> <span
                                     data-i18n="footerPhone">TELEFON</span></h4>
                             <ul class="footer-contact-list">
-                                <li class="footer-contact-item"><a href="tel:+905488880112" target="_blank" rel="noopener noreferrer"
-                                        class="footer-link"><span>+90 548 888 0 112</span></a></li>
-                                <li class="footer-contact-item"><a href="tel:+905428880112" target="_blank" rel="noopener noreferrer"
-                                        class="footer-link"><span class="ltr-text">+90 542 888 0 112</span></a></li>
-                                <li class="footer-contact-item"><a href="tel:+903924440112" target="_blank" rel="noopener noreferrer"
-                                        class="footer-link"><span class="ltr-text">+90 392 444 0 112</span></a></li>
-                                <li class="footer-contact-item"><a href="tel:+905338681983" target="_blank" rel="noopener noreferrer"
-                                        class="footer-link"><span class="ltr-text">+90 533 868 1983</span></a></li>
+                                <li class="footer-contact-item"><a href="tel:+905488880112" target="_blank"
+                                        rel="noopener noreferrer" class="footer-link"><span>+90 548 888 0 112</span></a>
+                                </li>
+                                <li class="footer-contact-item"><a href="tel:+905428880112" target="_blank"
+                                        rel="noopener noreferrer" class="footer-link"><span class="ltr-text">+90 542 888
+                                            0 112</span></a></li>
+                                <li class="footer-contact-item"><a href="tel:+903924440112" target="_blank"
+                                        rel="noopener noreferrer" class="footer-link"><span class="ltr-text">+90 392 444
+                                            0 112</span></a></li>
+                                <li class="footer-contact-item"><a href="tel:+905338681983" target="_blank"
+                                        rel="noopener noreferrer" class="footer-link"><span class="ltr-text">+90 533 868
+                                            1983</span></a></li>
                             </ul>
                         </div>
                         <div class="contact-col">
@@ -437,7 +441,7 @@
     <script src="translations.js"></script>
     <script src="app.js"></script>
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    
+
     <!-- Dynamic Team Loading Script -->
     <script>
         const API_BASE = 'https://cahit-cenksoy-admin.onrender.com';
@@ -459,7 +463,7 @@
                         const imgSrc = (m.image_path && m.image_path.startsWith('uploads/'))
                             ? `${API_BASE}/static/${m.image_path}`
                             : (m.image_path || 'cahit.jpg');
-                        
+
                         carousel.innerHTML += `
                             <div class="team-card">
                                 <div class="team-img">
