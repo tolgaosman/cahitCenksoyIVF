@@ -1214,8 +1214,11 @@
                             ? `<span class="badge badge-success">Yayında</span>`
                             : `<span class="badge badge-warning">Taslak</span>`;
                         
-                        const img = post.image_path 
-                            ? `<img src="/static/${post.image_path}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">`
+                        const imgSrc = post.image_path 
+                            ? (post.image_path.startsWith('data:') ? post.image_path : (post.image_path.startsWith('uploads/') ? `/static/${post.image_path}` : `/${post.image_path}`)) 
+                            : null;
+                        const img = imgSrc
+                            ? `<img src="${imgSrc}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">`
                             : `<div style="width: 50px; height: 50px; border-radius: 8px; background: rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; color:var(--text-muted);"><i class="fa-regular fa-image"></i></div>`;
                         
                         tbody.innerHTML += `
@@ -1328,7 +1331,7 @@
                         
                         if (post.image_path) {
                             const preview = document.getElementById("image-preview");
-                            preview.src = `/static/${post.image_path}`;
+                            preview.src = post.image_path.startsWith('data:') ? post.image_path : (post.image_path.startsWith('uploads/') ? `/static/${post.image_path}` : `/${post.image_path}`);
                             preview.style.display = "block";
                         }
                     })
@@ -1517,10 +1520,12 @@
                 .then(user => {
                     const container = document.getElementById('admin-avatar-container');
                     if (user.avatar_path) {
-                        container.innerHTML = `<img src="/static/${user.avatar_path}" alt="Avatar">`;
+                        const avatarSrc = user.avatar_path.startsWith('data:') ? user.avatar_path : (user.avatar_path.startsWith('uploads/') ? `/static/${user.avatar_path}` : `/${user.avatar_path}`);
+                        container.innerHTML = `<img src="${avatarSrc}" alt="Avatar">`;
                     } else {
                         container.innerHTML = (user.username || 'C').charAt(0).toUpperCase();
                     }
+                    syncMobileAvatar();
                 });
         }
 
@@ -1541,6 +1546,7 @@
                     showToast('Profil resmi başarıyla güncellendi.', 'success');
                     const container = document.getElementById('admin-avatar-container');
                     container.innerHTML = `<img src="${data.avatar_path}" alt="Avatar">`;
+                    syncMobileAvatar();
                 } else {
                     showToast('Hata: ' + data.error, 'error');
                 }
@@ -1569,7 +1575,7 @@
                     
                     members.forEach(m => {
                         const img = m.image_path 
-                            ? (m.image_path.startsWith('uploads/') ? `/static/${m.image_path}` : `/${m.image_path}`)
+                            ? (m.image_path.startsWith('data:') ? m.image_path : (m.image_path.startsWith('uploads/') ? `/static/${m.image_path}` : `/${m.image_path}`))
                             : '/static/cahit.jpg';
                             
                         tbody.innerHTML += `
@@ -1690,7 +1696,7 @@
 
                         if (m.image_path) {
                             const preview = document.getElementById("team-image-preview");
-                            preview.src = m.image_path.startsWith('uploads/') ? `/static/${m.image_path}` : `/${m.image_path}`;
+                            preview.src = m.image_path.startsWith('data:') ? m.image_path : (m.image_path.startsWith('uploads/') ? `/static/${m.image_path}` : `/${m.image_path}`);
                             preview.style.display = "block";
                         }
                     })
