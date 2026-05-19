@@ -234,7 +234,10 @@ function initTeamCarousel() {
     const nextBtn = document.getElementById('teamNext');
     if (!carousel || !prevBtn || !nextBtn) return;
 
-    const scrollWidth = () => carousel.querySelector('.team-card').offsetWidth + 30;
+    const scrollWidth = () => {
+        const card = carousel.querySelector('.team-card');
+        return card ? card.offsetWidth + 30 : 300;
+    };
 
     nextBtn.addEventListener('click', () => {
         const maxScroll = carousel.scrollWidth - carousel.clientWidth;
