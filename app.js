@@ -290,13 +290,3 @@ function showToast(message, iconClass = 'fa-solid fa-circle-check') {
     }, 3000);
 }
 
-// --- Mailto/Gmail Redirect Logic ---
-document.addEventListener('click', (e) => {
-    const mailLink = e.target.closest('a[href^="mailto:"]');
-    if (mailLink) {
-        e.preventDefault();
-        const email = mailLink.getAttribute('href').replace('mailto:', '').trim();
-        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
-        window.open(gmailUrl, '_blank', 'noopener,noreferrer');
-    }
-});
