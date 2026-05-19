@@ -351,6 +351,23 @@ def init_db():
                 (name, role, img_name, bio, sort_order)
             )
 
+    # Seed default FAQs if none exist
+    existing_faqs = db.execute("SELECT COUNT(*) FROM faqs").fetchone()
+    if existing_faqs and existing_faqs[0] == 0:
+        import json
+        seed_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'faqs_seed.json')
+        if os.path.exists(seed_path):
+            try:
+                with open(seed_path, 'r', encoding='utf-8') as f:
+                    faq_seeds = json.load(f)
+                for f_item in faq_seeds:
+                    db.execute(
+                        "INSERT INTO faqs (question, answer, category, status, sort_order) VALUES (?, ?, ?, ?, ?)",
+                        (f_item['question'], f_item['answer'], f_item['category'], 'published', f_item['sort_order'])
+                    )
+            except Exception as e:
+                print("Failed to seed FAQs:", e)
+
     db.commit()
     db.close()
     print("[✓] Database initialized successfully.")
