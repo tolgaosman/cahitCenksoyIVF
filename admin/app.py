@@ -1129,6 +1129,33 @@ def api_faq_delete(faq_id):
     return jsonify({'success': True})
 
 
+@app.route('/api/admin/faqs/seed', methods=['POST'])
+@login_required
+def api_faqs_seed():
+    db = get_db()
+    import json
+    seed_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'faqs_seed.json')
+    if not os.path.exists(seed_path):
+        return jsonify({'error': 'Seed dosyası (faqs_seed.json) bulunamadı.'}), 404
+        
+    try:
+        with open(seed_path, 'r', encoding='utf-8') as f:
+            faq_seeds = json.load(f)
+        
+        # Clear existing faqs
+        db.execute("DELETE FROM faqs")
+        
+        for f_item in faq_seeds:
+            db.execute(
+                "INSERT INTO faqs (question, answer, category, status, sort_order) VALUES (?, ?, ?, ?, ?)",
+                (f_item['question'], f_item['answer'], f_item['category'], 'published', f_item['sort_order'])
+            )
+        db.commit()
+        return jsonify({'success': True, 'count': len(faq_seeds)})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
 
 @app.route('/api/admin/upload_image', methods=['POST'])
 @login_required

@@ -901,7 +901,10 @@
                     <h1>S.S.S. Yönetimi</h1>
                     <p>Web sitenizdeki sık sorulan soruları ekleyin, düzenleyin ve sıralayın.</p>
                 </div>
-                <button class="btn btn-primary" onclick="openFaqDrawer()"><i class="fa-solid fa-plus"></i>Yeni Soru Ekle</button>
+                <div style="display: flex; gap: 0.75rem;">
+                    <button class="btn btn-secondary" onclick="seedFaqs()"><i class="fa-solid fa-rotate-right"></i> Varsayılanları Yükle</button>
+                    <button class="btn btn-primary" onclick="openFaqDrawer()"><i class="fa-solid fa-plus"></i>Yeni Soru Ekle</button>
+                </div>
             </div>
 
             <div class="glass-card">
@@ -2011,6 +2014,33 @@
                     })
                     .catch(err => {
                         showToast('Silme işlemi başarısız.', 'error');
+                    });
+            }
+        }
+
+        function seedFaqs() {
+            if (confirm('Sitedeki tüm S.S.S. verileri silinip, varsayılan 70 soru yeniden yüklenecektir. Emin misiniz?')) {
+                const btn = document.querySelector('button[onclick="seedFaqs()"]');
+                const origHtml = btn.innerHTML;
+                btn.disabled = true;
+                btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Yükleniyor...`;
+                
+                fetch('/api/admin/faqs/seed', { method: 'POST' })
+                    .then(res => res.json())
+                    .then(data => {
+                        btn.disabled = false;
+                        btn.innerHTML = origHtml;
+                        if (data.success) {
+                            showToast(`Varsayılan 70 soru başarıyla yüklendi!`, 'success');
+                            loadFaqData();
+                        } else {
+                            showToast('Hata: ' + data.error, 'error');
+                        }
+                    })
+                    .catch(err => {
+                        btn.disabled = false;
+                        btn.innerHTML = origHtml;
+                        showToast('Yükleme işlemi başarısız.', 'error');
                     });
             }
         }
