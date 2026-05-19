@@ -349,6 +349,17 @@ def sanitize_filename(filename: str) -> str:
     return safe
 
 
+def save_image_as_base64(file) -> str:
+    import base64
+    image_data = file.read()
+    ext = file.filename.rsplit('.', 1)[1].lower() if '.' in file.filename else 'jpg'
+    mime_type = 'image/jpeg' if ext in ['jpg', 'jpeg'] else f'image/{ext}'
+    if mime_type == 'image/svg':
+        mime_type = 'image/svg+xml'
+    base64_str = base64.b64encode(image_data).decode('utf-8')
+    return f"data:{mime_type};base64,{base64_str}"
+
+
 def slugify(text: str) -> str:
     """Convert title text to a URL-safe slug."""
     text = text.lower().strip()
@@ -564,10 +575,7 @@ def blog_create():
         if 'image' in request.files:
             file = request.files['image']
             if file and file.filename and allowed_file(file.filename):
-                safe_name  = sanitize_filename(file.filename)
-                save_path  = os.path.join(app.config['UPLOAD_FOLDER'], safe_name)
-                file.save(save_path)
-                image_path = f"uploads/{safe_name}"
+                image_path = save_image_as_base64(file)
 
         db.execute(
             """INSERT INTO blog_posts (title, slug, summary, content, image_path, status, date)
@@ -601,10 +609,7 @@ def blog_edit(post_id):
         if 'image' in request.files:
             file = request.files['image']
             if file and file.filename and allowed_file(file.filename):
-                safe_name  = sanitize_filename(file.filename)
-                save_path  = os.path.join(app.config['UPLOAD_FOLDER'], safe_name)
-                file.save(save_path)
-                image_path = f"uploads/{safe_name}"
+                image_path = save_image_as_base64(file)
 
         db.execute(
             """UPDATE blog_posts SET title=?, summary=?, content=?, image_path=?, status=?, date=?
@@ -627,7 +632,7 @@ def blog_delete(post_id):
         abort(404)
 
     # Remove image file if exists
-    if post['image_path']:
+    if post['image_path'] and post['image_path'].startswith('uploads/'):
         file_path = os.path.join(BASE_DIR, 'static', post['image_path'])
         if os.path.exists(file_path):
             os.remove(file_path)
@@ -804,9 +809,7 @@ def api_post_create():
     if 'image' in request.files:
         file = request.files['image']
         if file and file.filename and allowed_file(file.filename):
-            sn = sanitize_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], sn))
-            image_path = f"uploads/{sn}"
+            image_path = save_image_as_base64(file)
     db.execute(
         "INSERT INTO blog_posts (title,slug,summary,content,image_path,status,date,author) VALUES(?,?,?,?,?,?,?,?)",
         (title, slug, summary, content, image_path, status, date, author)
@@ -833,9 +836,7 @@ def api_post_update(post_id):
     if 'image' in request.files:
         file = request.files['image']
         if file and file.filename and allowed_file(file.filename):
-            sn = sanitize_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], sn))
-            image_path = f"uploads/{sn}"
+            image_path = save_image_as_base64(file)
     db.execute(
         "UPDATE blog_posts SET title=?,summary=?,content=?,image_path=?,status=?,date=?,author=? WHERE id=?",
         (title, summary, content, image_path, status, date, author, post_id)
@@ -851,7 +852,7 @@ def api_post_delete(post_id):
     post = db.execute("SELECT * FROM blog_posts WHERE id = ?", (post_id,)).fetchone()
     if not post:
         return jsonify({'error': 'Bulunamad\u0131'}), 404
-    if post['image_path']:
+    if post['image_path'] and post['image_path'].startswith('uploads/'):
         fp = os.path.join(BASE_DIR, 'static', post['image_path'])
         if os.path.exists(fp):
             os.remove(fp)
@@ -893,9 +894,7 @@ def api_team_create():
     if 'image' in request.files:
         file = request.files['image']
         if file and file.filename != '' and allowed_file(file.filename):
-            sn = sanitize_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], sn))
-            image_path = f"uploads/{sn}"
+            image_path = save_image_as_base64(file)
 
     db = get_db()
     db.execute(
@@ -934,9 +933,7 @@ def api_team_update(member_id):
                     except Exception:
                         pass
             
-            sn = sanitize_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], sn))
-            image_path = f"uploads/{sn}"
+            image_path = save_image_as_base64(file)
 
     db.execute(
         "UPDATE team_members SET name = ?, role = ?, image_path = ?, bio = ?, sort_order = ? WHERE id = ?",
@@ -1024,14 +1021,10 @@ def api_upload_image():
         return jsonify({'error': 'Geçersiz dosya'}), 400
     if not allowed_file(file.filename):
         return jsonify({'error': 'İzin verilmeyen dosya türü'}), 400
-    sn = sanitize_filename(file.filename)
-    fn, ext = os.path.splitext(sn)
-    while os.path.exists(os.path.join(app.config['UPLOAD_FOLDER'], sn)):
-        sn = f"{fn}-{uuid.uuid4().hex[:6]}{ext}"
-    file.save(os.path.join(app.config['UPLOAD_FOLDER'], sn))
+    image_path = save_image_as_base64(file)
     return jsonify({
         'success': True,
-        'url': f"/static/uploads/{sn}"
+        'url': image_path
     })
 
 
@@ -1056,13 +1049,7 @@ def api_profile_avatar_update():
     if not allowed_file(file.filename):
         return jsonify({'error': 'İzin verilmeyen dosya türü'}), 400
     
-    sn = sanitize_filename(file.filename)
-    fn, ext = os.path.splitext(sn)
-    while os.path.exists(os.path.join(app.config['UPLOAD_FOLDER'], sn)):
-        sn = f"avatar-{uuid.uuid4().hex[:6]}{ext}"
-    
-    file.save(os.path.join(app.config['UPLOAD_FOLDER'], sn))
-    avatar_path = f"uploads/{sn}"
+    avatar_path = save_image_as_base64(file)
     
     db = get_db()
     db.execute("UPDATE users SET avatar_path = ? WHERE id = ?", (avatar_path, session['user_id']))
@@ -1070,7 +1057,7 @@ def api_profile_avatar_update():
     
     return jsonify({
         'success': True,
-        'avatar_path': f"/static/{avatar_path}"
+        'avatar_path': avatar_path
     })
 
 
