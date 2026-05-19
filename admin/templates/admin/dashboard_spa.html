@@ -689,6 +689,9 @@
             <li class="nav-item" data-tab="content">
                 <a href="#content"><i class="fa-solid fa-sliders"></i>Site Bilgileri</a>
             </li>
+            <li class="nav-item" data-tab="faqs">
+                <a href="#faqs"><i class="fa-solid fa-question-circle"></i>S.S.S.</a>
+            </li>
             <li class="nav-item" data-tab="inquiries">
                 <a href="#inquiries"><i class="fa-solid fa-envelope-open-text"></i>Başvurular <span id="nav-inq-badge" class="badge badge-warning" style="display:none; padding: 0.15rem 0.4rem; font-size: 0.7rem; margin-left: auto;">0</span></a>
             </li>
@@ -891,6 +894,35 @@
             </div>
         </section>
 
+        <!-- SECTION: FAQS LIST -->
+        <section id="faqs-section" class="content-section">
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>S.S.S. Yönetimi</h1>
+                    <p>Web sitenizdeki sık sorulan soruları ekleyin, düzenleyin ve sıralayın.</p>
+                </div>
+                <button class="btn btn-primary" onclick="openFaqDrawer()"><i class="fa-solid fa-plus"></i>Yeni Soru Ekle</button>
+            </div>
+
+            <div class="glass-card">
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 60px;">Sıra</th>
+                                <th>Soru</th>
+                                <th>Durum</th>
+                                <th style="text-align: right;">İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody id="faqs-body">
+                            <!-- Loaded via Ajax -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Slide-over Drawer (Blog Add/Edit Form) -->
@@ -1049,6 +1081,54 @@
         </form>
     </div>
 
+    <!-- Slide-over Drawer (FAQ Add/Edit Form) -->
+    <div class="drawer" id="faq-drawer">
+        <div class="drawer-header">
+            <h2 id="faq-drawer-title" style="font-family:'Outfit';">Yeni Soru Ekle</h2>
+            <i class="fa-solid fa-xmark drawer-close" onclick="closeFaqDrawer()"></i>
+        </div>
+        <form id="faq-form" onsubmit="handleFaqSubmit(event)">
+            <input type="hidden" id="faq-id" name="id">
+            
+            <div class="form-group">
+                <label class="form-label" for="faq-question">Soru</label>
+                <input type="text" class="form-control" id="faq-question" name="question" required placeholder="Örn: Tüp bebek tedavisi ne kadar sürer?">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="faq-answer">Cevap (HTML Destekli)</label>
+                <textarea class="form-control" id="faq-answer" name="answer" style="min-height: 150px;" required placeholder="Cevabı buraya yazın..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="faq-category">Kategori</label>
+                <select class="form-control" id="faq-category" name="category">
+                    <option value="ivf-process">TÜP BEBEK & SÜREÇ</option>
+                    <option value="treatment-infertility">TEDAVİLER & KISIRLIK</option>
+                    <option value="cyprus-donation">KIBRIS & BAĞIŞ</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="faq-status">Yayın Durumu</label>
+                <select class="form-control" id="faq-status" name="status">
+                    <option value="published">Yayında</option>
+                    <option value="draft">Taslak</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="faq-sort-order">Sıralama Değeri (Opsiyonel)</label>
+                <input type="number" class="form-control" id="faq-sort-order" name="sort_order" placeholder="Örn: 1, 2, 3" value="0">
+            </div>
+
+            <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                <button type="submit" class="btn btn-primary" style="flex: 1;"><i class="fa-solid fa-check"></i>Kaydet</button>
+                <button type="button" class="btn btn-secondary" onclick="closeFaqDrawer()" style="flex: 1;">İptal</button>
+            </div>
+        </form>
+    </div>
+
     <!-- Toast Toast Container -->
     <div class="toast-container" id="toast-container"></div>
 
@@ -1102,6 +1182,7 @@
                 else if (targetTab === 'team') loadTeamData();
                 else if (targetTab === 'content') loadSiteContent();
                 else if (targetTab === 'inquiries') loadInquiriesData();
+                else if (targetTab === 'faqs') loadFaqData();
             });
         });
 
@@ -1718,6 +1799,7 @@
         function closeAllDrawers() {
             closeBlogDrawer();
             closeTeamDrawer();
+            closeFaqDrawer();
         }
 
         function editTeamMember(memberId) {
@@ -1820,6 +1902,137 @@
                     showToast('Ekip üyesi başarıyla kaydedildi.', 'success');
                     closeTeamDrawer();
                     loadTeamData();
+                } else {
+                    showToast('Hata: ' + data.error, 'error');
+                }
+            })
+            .catch(err => {
+                showToast('Kayıt işlemi başarısız.', 'error');
+            });
+        }
+
+        // ─── FAQ SECTION OPERATIONS ───────────────────────────────────────────
+
+        function loadFaqData() {
+            const tbody = document.getElementById('faqs-body');
+            tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;"><i class="fa-solid fa-spinner fa-spin"></i> S.S.S. yükleniyor...</td></tr>`;
+            
+            fetch('/api/admin/faqs')
+                .then(res => res.json())
+                .then(faqs => {
+                    tbody.innerHTML = '';
+                    if (faqs.length === 0) {
+                        tbody.innerHTML = `<tr><td colspan="4" style="text-align:center; color: var(--text-muted);">Kayıtlı soru bulunamadı.</td></tr>`;
+                        return;
+                    }
+                    
+                    faqs.forEach(f => {
+                        const statusBadge = f.status === 'published'
+                            ? `<span class="badge badge-success">Yayında</span>`
+                            : `<span class="badge badge-warning">Taslak</span>`;
+                        
+                        tbody.innerHTML += `
+                            <tr>
+                                <td><span class="badge badge-info" style="background: rgba(var(--color-primary-rgb), 0.15); color: var(--color-primary); padding: 0.25rem 0.5rem; border-radius: 4px;">${f.sort_order}</span></td>
+                                <td><strong style="color: var(--text-main); font-weight: 600;">${f.question}</strong></td>
+                                <td>${statusBadge}</td>
+                                <td style="text-align: right;">
+                                    <div style="display: flex; gap: 0.5rem; justify-content: flex-end;">
+                                        <button class="btn btn-secondary" style="padding: 0.35rem 0.6rem; font-size: 0.8rem;" onclick="editFaq(${f.id})">
+                                            <i class="fa-solid fa-pen-to-square"></i> Düzenle
+                                        </button>
+                                        <button class="btn btn-danger" style="padding: 0.35rem 0.6rem; font-size: 0.8rem;" onclick="deleteFaq(${f.id})">
+                                            <i class="fa-solid fa-trash-can"></i> Sil
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        `;
+                    });
+                })
+                .catch(err => {
+                    showToast("S.S.S. yüklenirken hata oluştu.", "error");
+                    tbody.innerHTML = `<tr><td colspan="4" style="text-align:center; color: var(--text-danger);">Yükleme başarısız.</td></tr>`;
+                });
+        }
+
+        function openFaqDrawer(faqId = null) {
+            document.getElementById("faq-form").reset();
+            document.getElementById("faq-id").value = "";
+            document.getElementById("faq-drawer-title").innerHTML = `Yeni Soru Ekle <i class="fa-solid fa-circle-plus" style="font-size: 1.0rem; color: var(--color-primary); margin-left: 6px; vertical-align: middle;"></i>`;
+            
+            if (faqId) {
+                document.getElementById("faq-drawer-title").innerHTML = `Soruyu Düzenle <i class="fa-solid fa-gear" style="font-size: 1.0rem; color: var(--color-primary); margin-left: 6px; vertical-align: middle;"></i>`;
+                fetch(`/api/admin/faqs/${faqId}`)
+                    .then(res => res.json())
+                    .then(f => {
+                        if (!f || f.error) {
+                            showToast("Hata: Soru bulunamadı.", "error");
+                            closeFaqDrawer();
+                            return;
+                        }
+                        document.getElementById("faq-id").value = f.id || "";
+                        document.getElementById("faq-question").value = f.question || "";
+                        document.getElementById("faq-answer").value = f.answer || "";
+                        document.getElementById("faq-category").value = f.category || "ivf-process";
+                        document.getElementById("faq-status").value = f.status || "published";
+                        document.getElementById("faq-sort-order").value = f.sort_order || "0";
+                    })
+                    .catch(err => {
+                        showToast("Soru verisi yüklenirken hata oluştu.", "error");
+                        closeFaqDrawer();
+                    });
+            }
+ 
+            document.getElementById("drawer-overlay").classList.add("active");
+            document.getElementById("faq-drawer").classList.add("active");
+        }
+
+        function closeFaqDrawer() {
+            document.getElementById("drawer-overlay").classList.remove("active");
+            document.getElementById("faq-drawer").classList.remove("active");
+        }
+
+        function editFaq(faqId) {
+            openFaqDrawer(faqId);
+        }
+
+        function deleteFaq(faqId) {
+            if (confirm('Bu soruyu silmek istediğinize emin misiniz? Bu işlem geri alınamaz.')) {
+                fetch(`/api/admin/faqs/${faqId}`, { method: 'DELETE' })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            showToast('Soru başarıyla silindi.', 'success');
+                            loadFaqData();
+                        } else {
+                            showToast('Hata: ' + data.error, 'error');
+                        }
+                    })
+                    .catch(err => {
+                        showToast('Silme işlemi başarısız.', 'error');
+                    });
+            }
+        }
+
+        function handleFaqSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById("faq-form");
+            const formData = new FormData(form);
+            const faqId = document.getElementById("faq-id").value;
+            
+            const url = faqId ? `/api/admin/faqs/${faqId}` : '/api/admin/faqs';
+            
+            fetch(url, {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    showToast('Soru başarıyla kaydedildi.', 'success');
+                    closeFaqDrawer();
+                    loadFaqData();
                 } else {
                     showToast('Hata: ' + data.error, 'error');
                 }

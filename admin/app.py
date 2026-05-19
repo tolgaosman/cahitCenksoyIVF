@@ -221,6 +221,16 @@ def init_db():
                 bio         TEXT,
                 sort_order  INTEGER DEFAULT 0
             );
+
+            CREATE TABLE IF NOT EXISTS faqs (
+                id          SERIAL PRIMARY KEY,
+                question    TEXT    NOT NULL,
+                answer      TEXT    NOT NULL,
+                category    TEXT    NOT NULL DEFAULT 'ivf-process',
+                status      TEXT    NOT NULL DEFAULT 'published',
+                sort_order  INTEGER DEFAULT 0,
+                created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+            );
         """)
     else:
         db = sqlite3.connect(DB_PATH)
@@ -274,6 +284,16 @@ def init_db():
                 image_path  TEXT,
                 bio         TEXT,
                 sort_order  INTEGER DEFAULT 0
+            );
+
+            CREATE TABLE IF NOT EXISTS faqs (
+                id          INTEGER PRIMARY KEY AUTOINCREMENT,
+                question    TEXT    NOT NULL,
+                answer      TEXT    NOT NULL,
+                category    TEXT    NOT NULL DEFAULT 'ivf-process',
+                status      TEXT    NOT NULL DEFAULT 'published',
+                sort_order  INTEGER DEFAULT 0,
+                created_at  TEXT    NOT NULL DEFAULT (datetime('now'))
             );
         """)
 
@@ -528,6 +548,16 @@ def public_team():
     db = get_db()
     members = db.execute("SELECT * FROM team_members ORDER BY sort_order ASC, id ASC").fetchall()
     return jsonify([format_db_row(m) for m in members])
+
+
+@app.route('/api/faqs', methods=['GET', 'OPTIONS'])
+def public_faqs():
+    """Return published FAQs — no authentication required."""
+    if request.method == 'OPTIONS':
+        return '', 200
+    db = get_db()
+    faqs = db.execute("SELECT * FROM faqs WHERE status='published' ORDER BY sort_order ASC, id ASC").fetchall()
+    return jsonify([format_db_row(f) for f in faqs])
 
 
 # ─── Dashboard (SPA) ─────────────────────────────────────────────────────────
@@ -1009,6 +1039,78 @@ def api_inquiry_delete_json(inq_id):
     db.execute("DELETE FROM patient_inquiries WHERE id=?", (inq_id,))
     db.commit()
     return jsonify({'success': True})
+
+
+# ─── API endpoints — FAQs ────────────────────────────────────────────────────
+
+@app.route('/api/admin/faqs', methods=['GET'])
+@login_required
+def api_faq_list():
+    db = get_db()
+    faqs = db.execute("SELECT * FROM faqs ORDER BY sort_order ASC, id ASC").fetchall()
+    return jsonify([format_db_row(f) for f in faqs])
+
+@app.route('/api/admin/faqs/<int:faq_id>', methods=['GET'])
+@login_required
+def api_faq_get(faq_id):
+    db = get_db()
+    faq = db.execute("SELECT * FROM faqs WHERE id = ?", (faq_id,)).fetchone()
+    if not faq:
+        return jsonify({'error': 'Bulunamadı'}), 404
+    return jsonify(format_db_row(faq))
+
+@app.route('/api/admin/faqs', methods=['POST'])
+@login_required
+def api_faq_create():
+    question = request.form.get('question', '').strip()
+    answer = request.form.get('answer', '').strip()
+    category = request.form.get('category', 'ivf-process').strip()
+    status = request.form.get('status', 'published').strip()
+    sort_order = int(request.form.get('sort_order', '0') or '0')
+
+    if not question or not answer:
+        return jsonify({'error': 'Soru ve cevap alanları zorunludur.'}), 400
+
+    db = get_db()
+    db.execute(
+        "INSERT INTO faqs (question, answer, category, status, sort_order) VALUES (?, ?, ?, ?, ?)",
+        (question, answer, category, status, sort_order)
+    )
+    db.commit()
+    return jsonify({'success': True})
+
+@app.route('/api/admin/faqs/<int:faq_id>', methods=['POST', 'PUT'])
+@login_required
+def api_faq_update(faq_id):
+    db = get_db()
+    faq = db.execute("SELECT * FROM faqs WHERE id = ?", (faq_id,)).fetchone()
+    if not faq:
+        return jsonify({'error': 'Bulunamadı'}), 404
+
+    question = request.form.get('question', faq['question']).strip()
+    answer = request.form.get('answer', faq['answer']).strip()
+    category = request.form.get('category', faq.get('category', 'ivf-process')).strip()
+    status = request.form.get('status', faq['status']).strip()
+    sort_order = int(request.form.get('sort_order', str(faq['sort_order']) or '0') or '0')
+
+    if not question or not answer:
+        return jsonify({'error': 'Soru ve cevap alanları zorunludur.'}), 400
+
+    db.execute(
+        "UPDATE faqs SET question = ?, answer = ?, category = ?, status = ?, sort_order = ? WHERE id = ?",
+        (question, answer, category, status, sort_order, faq_id)
+    )
+    db.commit()
+    return jsonify({'success': True})
+
+@app.route('/api/admin/faqs/<int:faq_id>', methods=['DELETE'])
+@login_required
+def api_faq_delete(faq_id):
+    db = get_db()
+    db.execute("DELETE FROM faqs WHERE id = ?", (faq_id,))
+    db.commit()
+    return jsonify({'success': True})
+
 
 
 @app.route('/api/admin/upload_image', methods=['POST'])
