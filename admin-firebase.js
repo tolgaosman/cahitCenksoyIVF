@@ -48,6 +48,9 @@ const logoutBtn = document.getElementById('logout-link');
 
 // AUTHENTICATION STATE OBSERVER
 onAuthStateChanged(auth, (user) => {
+    const loadingScreen = document.getElementById('loading-screen');
+    if(loadingScreen) loadingScreen.style.display = 'none';
+
     if (user) {
         // Logged in
         loginScreen.style.display = 'none';
