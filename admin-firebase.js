@@ -205,9 +205,18 @@ window.editTeam = async (id) => {
             document.getElementById('team-id').value = id;
             document.getElementById('team-name').value = data.name || "";
             document.getElementById('team-role').value = data.role || "";
-            document.getElementById('team-bio').value = data.bio || "";
             document.getElementById('team-sort').value = data.sortOrder || 10;
             document.getElementById('team-current-image').innerText = data.imageUrl ? "Yüklü Görsel Var" : "Yok";
+            
+            // Yeni Detay Alanları
+            document.getElementById('team-lang').value = data.lang || "";
+            document.getElementById('team-bachelors').value = data.bachelors || "";
+            document.getElementById('team-masters').value = data.masters || "";
+            document.getElementById('team-thesis').value = data.thesis || "";
+            document.getElementById('team-experience').value = data.experience || "";
+            document.getElementById('team-expertise').value = data.expertise || "";
+            document.getElementById('team-certificate').value = data.certificate || "";
+            document.getElementById('team-bio').value = data.bio || "";
             
             document.getElementById('modal-team-title').innerText = "Ekip Üyesini Düzenle";
             window.openModal('modal-team');
@@ -248,8 +257,15 @@ document.getElementById('form-team').addEventListener('submit', async (e) => {
         const data = {
             name: document.getElementById('team-name').value,
             role: document.getElementById('team-role').value,
-            bio: document.getElementById('team-bio').value,
             sortOrder: parseInt(document.getElementById('team-sort').value) || 10,
+            lang: document.getElementById('team-lang').value,
+            bachelors: document.getElementById('team-bachelors').value,
+            masters: document.getElementById('team-masters').value,
+            thesis: document.getElementById('team-thesis').value,
+            experience: document.getElementById('team-experience').value,
+            expertise: document.getElementById('team-expertise').value,
+            certificate: document.getElementById('team-certificate').value,
+            bio: document.getElementById('team-bio').value
         };
         
         // Sadece yeni görsel yüklendiyse güncelle, yoksa eskisini koru

@@ -11,14 +11,14 @@
     
     <style>
         :root {
-            --primary: #f2a1c2;
-            --primary-dark: #d889aa;
-            --bg-color: #f8f9fa;
-            --sidebar-bg: #2c3e50;
+            --primary: #f0ad78;
+            --primary-dark: #d5915d;
+            --bg-color: #0b0c10;
+            --sidebar-bg: #121418;
             --sidebar-text: #ecf0f1;
-            --text-main: #333;
-            --card-bg: #fff;
-            --border: #e0e0e0;
+            --text-main: #f0f0f0;
+            --card-bg: #15171c;
+            --border: #2a2d35;
         }
 
         * {
@@ -84,6 +84,8 @@
             font-size: 1rem;
             outline: none;
             transition: border-color 0.3s;
+            background-color: #0b0c10;
+            color: var(--text-main);
         }
 
         .form-group input:focus, .form-group textarea:focus {
@@ -240,9 +242,9 @@
         }
         
         th {
-            background-color: #f8f9fa;
+            background-color: #1a1c23;
             font-weight: 600;
-            color: #555;
+            color: #ccc;
         }
         
         .actions-col {
@@ -262,13 +264,15 @@
             z-index: 1000;
         }
         .modal-content {
-            background: white;
+            background: var(--card-bg);
+            color: var(--text-main);
             padding: 30px;
             border-radius: 10px;
             width: 90%;
             max-width: 600px;
             max-height: 90vh;
             overflow-y: auto;
+            border: 1px solid var(--border);
         }
         .modal-header {
             display: flex;
@@ -470,35 +474,83 @@
 
     <!-- TEAM MODAL -->
     <div id="modal-team" class="modal">
-        <div class="modal-content">
+        <div class="modal-content" style="max-width: 600px;">
             <div class="modal-header">
                 <h3 id="modal-team-title">Yeni Ekip Üyesi Ekle</h3>
                 <span class="close-modal" onclick="closeModal('modal-team')">&times;</span>
             </div>
             <form id="form-team">
                 <input type="hidden" id="team-id">
+                
                 <div class="form-group">
-                    <label>İsim Soyisim</label>
+                    <label>ADI SOYADI</label>
                     <input type="text" id="team-name" required>
                 </div>
+                
                 <div class="form-group">
-                    <label>Görevi (Örn: Embriyolog)</label>
+                    <label>GÖREV TANIMI</label>
                     <input type="text" id="team-role" required>
                 </div>
+                
                 <div class="form-group">
-                    <label>Hakkında (Bio - HTML destekler)</label>
-                    <textarea id="team-bio" rows="4"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Sıralama (Küçük sayı önce çıkar)</label>
+                    <label>SIRALAMA DEĞERİ (OPSİYONEL)</label>
                     <input type="number" id="team-sort" value="10">
                 </div>
+                
                 <div class="form-group">
-                    <label>Fotoğraf (Eğer değiştirilmeyecekse boş bırakın)</label>
+                    <label>PROFİL GÖRSELİ (Değiştirilmeyecekse boş bırakın)</label>
                     <input type="file" id="team-image" accept="image/*">
-                    <p style="font-size:0.8rem; color:#666; margin-top:5px;">Mevcut Fotoğraf: <span id="team-current-image">Yok</span></p>
+                    <p style="font-size:0.8rem; color:#666; margin-top:5px;">Mevcut Görsel: <span id="team-current-image">Yok</span></p>
                 </div>
-                <button type="submit" class="btn" id="btn-team-save">Kaydet</button>
+
+                <div class="form-group">
+                    <label><i class="fa-solid fa-language" style="color: var(--primary); margin-right: 5px;"></i> DİL</label>
+                    <input type="text" id="team-lang" placeholder="Örn: Türkçe, İngilizce, vb.">
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fa-solid fa-graduation-cap" style="color: var(--primary); margin-right: 5px;"></i> LİSANS</label>
+                    <input type="text" id="team-bachelors" placeholder="Örn: T.C. İstanbul Bilim Üniversitesi">
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fa-solid fa-user-graduate" style="color: var(--primary); margin-right: 5px;"></i> YÜKSEK LİSANS</label>
+                    <input type="text" id="team-masters" placeholder="Örn: Cerrahi Hemşirelik – Yakın Doğu Üniversitesi">
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fa-solid fa-file-lines" style="color: var(--primary); margin-right: 5px;"></i> TEZ</label>
+                    <input type="text" id="team-thesis" placeholder="Tez konusu...">
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fa-solid fa-briefcase" style="color: var(--primary); margin-right: 5px;"></i> DENEYİM</label>
+                    <input type="text" id="team-experience" placeholder="Örn: 9 Yıl Bankacılık + 1 Yıl Koordinatörlük">
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fa-solid fa-stethoscope" style="color: var(--primary); margin-right: 5px;"></i> UZMANLIK</label>
+                    <input type="text" id="team-expertise" placeholder="Örn: Kadın Hastalıkları ve Doğum">
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fa-solid fa-certificate" style="color: var(--primary); margin-right: 5px;"></i> SERTİFİKA</label>
+                    <input type="text" id="team-certificate" placeholder="Örn: Özel İş Yeri Hemşireliği">
+                </div>
+
+                <div class="form-group">
+                    <label>AÇIKLAMA</label>
+                    <textarea id="team-bio" rows="4" placeholder="Ekip üyesi hakkında genel açıklama..."></textarea>
+                </div>
+
+                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button type="submit" class="btn" id="btn-team-save" style="flex: 1;">
+                        <i class="fa-solid fa-check"></i> Kaydet
+                    </button>
+                    <button type="button" class="btn btn-danger" onclick="closeModal('modal-team')" style="flex: 1;">
+                        İptal
+                    </button>
+                </div>
             </form>
         </div>
     </div>
