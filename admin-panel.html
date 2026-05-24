@@ -94,7 +94,7 @@
 
         .btn {
             background-color: var(--primary);
-            color: white;
+            color: black;
             border: none;
             padding: 12px 24px;
             border-radius: 6px;
@@ -109,8 +109,8 @@
             background-color: var(--primary-dark);
         }
         
-        .btn-danger { background-color: #e74c3c; }
-        .btn-danger:hover { background-color: #c0392b; }
+        .btn-danger { background-color: transparent; border: 1px solid var(--border); color: var(--text-main); }
+        .btn-danger:hover { background-color: rgba(255,255,255,0.05); }
         
         .btn-sm { padding: 6px 12px; font-size: 0.85rem; width: auto; }
 
@@ -283,6 +283,26 @@
         .close-modal {
             cursor: pointer;
             font-size: 1.5rem;
+            color: #888;
+        }
+        .close-modal:hover { color: #fff; }
+        
+        .file-upload-wrapper {
+            border: 1px dashed #333;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: #0b0c10;
+        }
+        .file-upload-wrapper:hover {
+            border-color: var(--primary);
+        }
+        .file-upload-wrapper i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
         }
         
         .toast {
@@ -476,78 +496,81 @@
     <div id="modal-team" class="modal">
         <div class="modal-content" style="max-width: 600px;">
             <div class="modal-header">
-                <h3 id="modal-team-title">Yeni Ekip Üyesi Ekle</h3>
-                <span class="close-modal" onclick="closeModal('modal-team')">&times;</span>
+                <h3 id="modal-team-title">Yeni Ekip Üyesi Ekle <i class="fa-solid fa-circle-plus" style="color:var(--primary); font-size:1rem; margin-left:5px;"></i></h3>
+                <span class="close-modal" onclick="closeModal('modal-team')"><i class="fa-solid fa-xmark"></i></span>
             </div>
             <form id="form-team">
                 <input type="hidden" id="team-id">
                 
                 <div class="form-group">
-                    <label>ADI SOYADI</label>
-                    <input type="text" id="team-name" required>
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;">ADI SOYADI</label>
+                    <input type="text" id="team-name" placeholder="Örn: Hayriye Karakaya" required>
                 </div>
                 
                 <div class="form-group">
-                    <label>GÖREV TANIMI</label>
-                    <input type="text" id="team-role" required>
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;">GÖREV TANIMI</label>
+                    <input type="text" id="team-role" placeholder="Örn: Embriyolog" required>
                 </div>
                 
                 <div class="form-group">
-                    <label>SIRALAMA DEĞERİ (OPSİYONEL)</label>
-                    <input type="number" id="team-sort" value="10">
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;">SIRALAMA DEĞERİ (OPSİYONEL)</label>
+                    <input type="number" id="team-sort" placeholder="0">
                 </div>
                 
                 <div class="form-group">
-                    <label>PROFİL GÖRSELİ (Değiştirilmeyecekse boş bırakın)</label>
-                    <input type="file" id="team-image" accept="image/*">
-                    <p style="font-size:0.8rem; color:#666; margin-top:5px;">Mevcut Görsel: <span id="team-current-image">Yok</span></p>
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;">PROFİL GÖRSELİ</label>
+                    <div class="file-upload-wrapper" onclick="document.getElementById('team-image').click()">
+                        <input type="file" id="team-image" accept="image/*" style="display:none" onchange="document.getElementById('file-name-display').innerText = this.files[0] ? this.files[0].name : 'Görsel seçmek için tıklayın veya sürükleyin'">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <p id="file-name-display" style="color:#888; font-size:0.9rem;">Görsel seçmek için tıklayın veya sürükleyin</p>
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label><i class="fa-solid fa-language" style="color: var(--primary); margin-right: 5px;"></i> DİL</label>
-                    <input type="text" id="team-lang" placeholder="Örn: Türkçe, İngilizce, vb.">
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;"><i class="fa-solid fa-language" style="color: var(--primary); margin-right: 5px;"></i> DİL</label>
+                    <input type="text" id="team-lang" placeholder="Örn: İngilizce, Türkçe">
                 </div>
 
                 <div class="form-group">
-                    <label><i class="fa-solid fa-graduation-cap" style="color: var(--primary); margin-right: 5px;"></i> LİSANS</label>
-                    <input type="text" id="team-bachelors" placeholder="Örn: T.C. İstanbul Bilim Üniversitesi">
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;"><i class="fa-solid fa-graduation-cap" style="color: var(--primary); margin-right: 5px;"></i> LİSANS</label>
+                    <input type="text" id="team-bachelors" placeholder="Örn: Hemşirelik – Islamic Azad University">
                 </div>
 
                 <div class="form-group">
-                    <label><i class="fa-solid fa-user-graduate" style="color: var(--primary); margin-right: 5px;"></i> YÜKSEK LİSANS</label>
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;"><i class="fa-solid fa-user-graduate" style="color: var(--primary); margin-right: 5px;"></i> YÜKSEK LİSANS</label>
                     <input type="text" id="team-masters" placeholder="Örn: Cerrahi Hemşirelik – Yakın Doğu Üniversitesi">
                 </div>
 
                 <div class="form-group">
-                    <label><i class="fa-solid fa-file-lines" style="color: var(--primary); margin-right: 5px;"></i> TEZ</label>
-                    <input type="text" id="team-thesis" placeholder="Tez konusu...">
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;"><i class="fa-solid fa-file-lines" style="color: var(--primary); margin-right: 5px;"></i> TEZ</label>
+                    <input type="text" id="team-thesis" placeholder="Örn: İnsan Sperm Grupları Arasındaki Etkiler">
                 </div>
 
                 <div class="form-group">
-                    <label><i class="fa-solid fa-briefcase" style="color: var(--primary); margin-right: 5px;"></i> DENEYİM</label>
-                    <input type="text" id="team-experience" placeholder="Örn: 9 Yıl Bankacılık + 1 Yıl Koordinatörlük">
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;"><i class="fa-solid fa-briefcase" style="color: var(--primary); margin-right: 5px;"></i> DENEYİM</label>
+                    <input type="text" id="team-experience" placeholder="Örn: 9 Yıl Bankacılık + 1 Yıl Yabancı Hasta Koordinatörlüğü">
                 </div>
 
                 <div class="form-group">
-                    <label><i class="fa-solid fa-stethoscope" style="color: var(--primary); margin-right: 5px;"></i> UZMANLIK</label>
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;"><i class="fa-solid fa-stethoscope" style="color: var(--primary); margin-right: 5px;"></i> UZMANLIK</label>
                     <input type="text" id="team-expertise" placeholder="Örn: Kadın Hastalıkları ve Doğum">
                 </div>
 
                 <div class="form-group">
-                    <label><i class="fa-solid fa-certificate" style="color: var(--primary); margin-right: 5px;"></i> SERTİFİKA</label>
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;"><i class="fa-solid fa-certificate" style="color: var(--primary); margin-right: 5px;"></i> SERTİFİKA</label>
                     <input type="text" id="team-certificate" placeholder="Örn: Özel İş Yeri Hemşireliği">
                 </div>
 
                 <div class="form-group">
-                    <label>AÇIKLAMA</label>
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;">AÇIKLAMA</label>
                     <textarea id="team-bio" rows="4" placeholder="Ekip üyesi hakkında genel açıklama..."></textarea>
                 </div>
 
                 <div style="display: flex; gap: 10px; margin-top: 20px;">
-                    <button type="submit" class="btn" id="btn-team-save" style="flex: 1;">
+                    <button type="submit" class="btn" id="btn-team-save" style="flex: 1; color: black; font-weight: 600;">
                         <i class="fa-solid fa-check"></i> Kaydet
                     </button>
-                    <button type="button" class="btn btn-danger" onclick="closeModal('modal-team')" style="flex: 1;">
+                    <button type="button" class="btn btn-danger" onclick="closeModal('modal-team')" style="flex: 1; background: transparent; border: 1px solid #333; color: #fff;">
                         İptal
                     </button>
                 </div>
