@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -131,47 +131,72 @@
     <script src="app.js"></script>
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     
-    <!-- Dynamic Team Loading Script -->
-    <script>
-        const API_BASE = 'https://cahit-cenksoy-admin.onrender.com';
-        document.addEventListener('DOMContentLoaded', () => {
-            fetch(`${API_BASE}/api/team`)
-                .then(res => {
-                    if (!res.ok) throw new Error("API error");
-                    return res.json();
-                })
-                .then(members => {
-                    const grid = document.getElementById('teamGrid');
-                    grid.innerHTML = '';
-                    if (members.length === 0) {
-                        grid.innerHTML = '<p style="text-align:center; color:var(--text-muted); width:100%; grid-column:1/-1;">Ekip üyesi bulunamadı.</p>';
-                        return;
-                    }
-                    members.forEach((m, idx) => {
-                        const imgSrc = (m.image_path && m.image_path.startsWith('uploads/'))
-                            ? `${API_BASE}/static/${m.image_path}`
-                            : (m.image_path || 'cahit.jpg');
-                        
-                        grid.innerHTML += `
-                            <div class="team-card">
-                                <div class="team-img">
-                                    <img src="${imgSrc}" alt="${m.name}" onerror="this.onerror=null; this.src='cahit.jpg';">
-                                    <div class="team-overlay">
-                                        <div style="font-size: 0.85rem; line-height: 1.4;">${m.bio}</div>
+    <!-- Dynamic Team Loading Script from Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCRGvbp9E30tE_0-FTr4Oq1DnoteEdwtfI",
+            authDomain: "in-vitro-fertilization-154m9k.firebaseapp.com",
+            projectId: "in-vitro-fertilization-154m9k",
+            storageBucket: "in-vitro-fertilization-154m9k.appspot.com",
+            messagingSenderId: "73069645780",
+            appId: "1:73069645780:web:6d6f7a21a1d1ac26bd1041"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const q = query(collection(db, "team"), orderBy("sortOrder", "asc"));
+                const querySnapshot = await getDocs(q);
+                const grid = document.getElementById('teamGrid');
+                grid.innerHTML = '';
+                
+                if (querySnapshot.empty) {
+                    grid.innerHTML = '<p style="text-align:center; color:var(--text-muted); width:100%; grid-column:1/-1;">Ekip üyesi bulunamadı.</p>';
+                    return;
+                }
+
+                querySnapshot.forEach((doc) => {
+                    const m = doc.data();
+                    const imgSrc = m.imageUrl || 'cahit.jpg';
+                    
+                    let detailsHtml = '';
+                    if(m.lang) detailsHtml += `<div style="margin-bottom:6px;"><i class="fa-solid fa-language" style="color:var(--primary-color); width:15px; margin-right:5px;"></i> ${m.lang}</div>`;
+                    if(m.bachelors) detailsHtml += `<div style="margin-bottom:6px;"><i class="fa-solid fa-graduation-cap" style="color:var(--primary-color); width:15px; margin-right:5px;"></i> ${m.bachelors}</div>`;
+                    if(m.masters) detailsHtml += `<div style="margin-bottom:6px;"><i class="fa-solid fa-user-graduate" style="color:var(--primary-color); width:15px; margin-right:5px;"></i> ${m.masters}</div>`;
+                    if(m.thesis) detailsHtml += `<div style="margin-bottom:6px;"><i class="fa-solid fa-file-lines" style="color:var(--primary-color); width:15px; margin-right:5px;"></i> ${m.thesis}</div>`;
+                    if(m.experience) detailsHtml += `<div style="margin-bottom:6px;"><i class="fa-solid fa-briefcase" style="color:var(--primary-color); width:15px; margin-right:5px;"></i> ${m.experience}</div>`;
+                    if(m.expertise) detailsHtml += `<div style="margin-bottom:6px;"><i class="fa-solid fa-stethoscope" style="color:var(--primary-color); width:15px; margin-right:5px;"></i> ${m.expertise}</div>`;
+                    if(m.certificate) detailsHtml += `<div style="margin-bottom:6px;"><i class="fa-solid fa-certificate" style="color:var(--primary-color); width:15px; margin-right:5px;"></i> ${m.certificate}</div>`;
+                    if(m.bio) detailsHtml += `<div style="margin-top:10px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.2)">${m.bio}</div>`;
+                    
+                    if(detailsHtml === '') detailsHtml = '<div style="text-align:center;">Biyografi henüz eklenmedi.</div>';
+                    
+                    grid.innerHTML += `
+                        <div class="team-card">
+                            <div class="team-img">
+                                <img src="${imgSrc}" alt="${m.name}" onerror="this.onerror=null; this.src='cahit.jpg';">
+                                <div class="team-overlay">
+                                    <div style="font-size: 0.85rem; line-height: 1.4; text-align:left; width:100%; height:100%; overflow-y:auto; padding-right:5px;">
+                                        ${detailsHtml}
                                     </div>
                                 </div>
-                                <div class="team-info">
-                                    <h3>${m.name}</h3>
-                                    <p>${m.role}</p>
-                                </div>
                             </div>
-                        `;
-                    });
-                })
-                .catch(err => {
-                    console.error("Error loading team members:", err);
-                    // Failover back to a static friendly message or reload
+                            <div class="team-info">
+                                <h3>${m.name}</h3>
+                                <p>${m.role}</p>
+                            </div>
+                        </div>
+                    `;
                 });
+            } catch(err) {
+                console.error("Ekip yüklenirken hata:", err);
+                document.getElementById('teamGrid').innerHTML = '<p style="text-align:center; color:var(--text-muted); width:100%; grid-column:1/-1;">Ekip bilgileri yüklenemedi.</p>';
+            }
         });
     </script>
 </body>
