@@ -206,7 +206,11 @@ window.editTeam = async (id) => {
             document.getElementById('team-name').value = data.name || "";
             document.getElementById('team-role').value = data.role || "";
             document.getElementById('team-sort').value = data.sortOrder || 10;
-            document.getElementById('team-current-image').innerText = data.imageUrl ? "Yüklü Görsel Var" : "Yok";
+            
+            const fileDisplay = document.getElementById('file-name-display');
+            if (fileDisplay) {
+                fileDisplay.innerText = data.imageUrl ? "Sistemde görsel yüklü (Değiştirmek için tıklayın)" : "Görsel seçmek için tıklayın veya sürükleyin";
+            }
             
             // Yeni Detay Alanları
             document.getElementById('team-lang').value = data.lang || "";
