@@ -2,6 +2,9 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/fireba
 import { 
     getAuth, 
     signInWithEmailAndPassword, 
+    createUserWithEmailAndPassword,
+    sendPasswordResetEmail,
+    updateProfile,
     onAuthStateChanged, 
     signOut 
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
@@ -46,13 +49,74 @@ const dashboardScreen = document.getElementById('dashboard-screen');
 const loginForm = document.getElementById('login-form');
 const logoutBtn = document.getElementById('logout-link');
 
+let authMode = 'login'; // login, signup, forgot
+
+// Toggles for UI
+const titleEl = document.getElementById('auth-title');
+const subtitleEl = document.getElementById('auth-subtitle');
+const nameGroup = document.getElementById('name-group');
+const passwordGroup = document.getElementById('password-group');
+const loginBtn = document.getElementById('login-btn');
+const toggleForgot = document.getElementById('toggle-forgot');
+const toggleSignup = document.getElementById('toggle-signup');
+const backToLoginWrap = document.getElementById('back-to-login-wrapper');
+
+function setAuthMode(mode) {
+    authMode = mode;
+    document.getElementById('login-error').style.display = 'none';
+    
+    if (mode === 'login') {
+        titleEl.innerText = "Yönetim Paneli Girişi";
+        subtitleEl.innerText = "Devam etmek için giriş yapın.";
+        nameGroup.style.display = 'none';
+        passwordGroup.style.display = 'block';
+        document.getElementById('login-password').required = true;
+        loginBtn.innerText = "Giriş Yap";
+        toggleForgot.style.display = 'block';
+        toggleSignup.style.display = 'block';
+        backToLoginWrap.style.display = 'none';
+    } else if (mode === 'signup') {
+        titleEl.innerText = "Hesap Oluştur";
+        subtitleEl.innerText = "Yeni bir yönetici hesabı oluşturun.";
+        nameGroup.style.display = 'block';
+        passwordGroup.style.display = 'block';
+        document.getElementById('login-password').required = true;
+        loginBtn.innerText = "Kayıt Ol";
+        toggleForgot.style.display = 'none';
+        toggleSignup.style.display = 'none';
+        backToLoginWrap.style.display = 'block';
+    } else if (mode === 'forgot') {
+        titleEl.innerText = "Şifremi Unuttum";
+        subtitleEl.innerText = "E-posta adresinize sıfırlama bağlantısı göndereceğiz.";
+        nameGroup.style.display = 'none';
+        passwordGroup.style.display = 'none';
+        document.getElementById('login-password').required = false;
+        loginBtn.innerText = "Sıfırlama Bağlantısı Gönder";
+        toggleForgot.style.display = 'none';
+        toggleSignup.style.display = 'none';
+        backToLoginWrap.style.display = 'block';
+    }
+}
+
+toggleForgot.addEventListener('click', (e) => { e.preventDefault(); setAuthMode('forgot'); });
+toggleSignup.addEventListener('click', (e) => { e.preventDefault(); setAuthMode('signup'); });
+document.getElementById('toggle-login').addEventListener('click', (e) => { e.preventDefault(); setAuthMode('login'); });
+
 // AUTHENTICATION STATE OBSERVER
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
     if (user) {
+        // Özel kullanıcı adı güncellemesi
+        if (user.email === 'tolman2002@gmail.com' && user.displayName !== 'Tolga Osman Falay') {
+            try {
+                await updateProfile(user, { displayName: "Tolga Osman Falay" });
+            } catch(e) {}
+        }
+        
         // Logged in
         loginScreen.style.display = 'none';
         dashboardScreen.style.display = 'flex';
-        document.getElementById('admin-email-display').innerHTML = `<i class="fa-solid fa-user"></i> ${user.email}`;
+        const displayName = user.displayName || user.email.split('@')[0];
+        document.getElementById('admin-email-display').innerHTML = `<i class="fa-solid fa-user"></i> ${displayName}`;
         
         // Load initial data
         loadSiteInfo();
@@ -66,26 +130,50 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-// LOGIN LOGIC
+// AUTH SUBMIT LOGIC
 loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
+    const name = document.getElementById('login-name').value;
     const errorText = document.getElementById('login-error');
-    const btn = document.getElementById('login-btn');
+    
+    errorText.style.display = 'none';
+    loginBtn.disabled = true;
     
     try {
-        btn.innerText = "Giriş Yapılıyor...";
-        btn.disabled = true;
-        await signInWithEmailAndPassword(auth, email, password);
-        errorText.style.display = 'none';
-        window.showToast("Başarıyla giriş yapıldı.");
+        if (authMode === 'login') {
+            loginBtn.innerText = "Giriş Yapılıyor...";
+            await signInWithEmailAndPassword(auth, email, password);
+            window.showToast("Başarıyla giriş yapıldı.");
+        } else if (authMode === 'signup') {
+            loginBtn.innerText = "Hesap Oluşturuluyor...";
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            if (name) {
+                await updateProfile(userCredential.user, { displayName: name });
+            }
+            window.showToast("Hesap başarıyla oluşturuldu.");
+            setAuthMode('login');
+        } else if (authMode === 'forgot') {
+            loginBtn.innerText = "Gönderiliyor...";
+            await sendPasswordResetEmail(auth, email);
+            window.showToast("Şifre sıfırlama bağlantısı e-postanıza gönderildi!");
+            setAuthMode('login');
+        }
     } catch (error) {
-        errorText.innerText = "Giriş başarısız. Lütfen bilgilerinizi kontrol edin.";
+        if (authMode === 'forgot') {
+            errorText.innerText = "Bu e-postaya ait hesap bulunamadı.";
+        } else if (authMode === 'signup') {
+            errorText.innerText = "Kayıt başarısız. Şifre çok kısa veya e-posta kullanımda olabilir.";
+        } else {
+            errorText.innerText = "Giriş başarısız. Lütfen bilgilerinizi kontrol edin.";
+        }
         errorText.style.display = 'block';
     } finally {
-        btn.innerText = "Giriş Yap";
-        btn.disabled = false;
+        if (authMode === 'login') loginBtn.innerText = "Giriş Yap";
+        if (authMode === 'signup') loginBtn.innerText = "Kayıt Ol";
+        if (authMode === 'forgot') loginBtn.innerText = "Sıfırlama Bağlantısı Gönder";
+        loginBtn.disabled = false;
     }
 });
 

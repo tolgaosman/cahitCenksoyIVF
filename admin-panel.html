@@ -337,20 +337,32 @@
     <div id="login-screen">
         <div class="login-card">
             <img src="siyahLogo.png" alt="Logo" onerror="this.src='browserLogo.png'">
-            <h2>Yönetim Paneli Girişi</h2>
-            <p style="color: #666; margin-bottom: 20px; font-size: 0.9rem;">Devam etmek için giriş yapın.</p>
+            <h2 id="auth-title">Yönetim Paneli Girişi</h2>
+            <p id="auth-subtitle" style="color: #666; margin-bottom: 20px; font-size: 0.9rem;">Devam etmek için giriş yapın.</p>
             
             <form id="login-form">
+                <div class="form-group" id="name-group" style="display: none;">
+                    <label>Ad Soyad</label>
+                    <input type="text" id="login-name" placeholder="Adınız Soyadınız">
+                </div>
                 <div class="form-group">
                     <label>E-posta Adresi</label>
                     <input type="email" id="login-email" required placeholder="admin@cahitcenksoy.com">
                 </div>
-                <div class="form-group">
+                <div class="form-group" id="password-group">
                     <label>Şifre</label>
-                    <input type="password" id="login-password" required placeholder="••••••••">
+                    <input type="password" id="login-password" placeholder="••••••••">
                 </div>
                 <p id="login-error" style="color: #e74c3c; margin-bottom: 15px; display: none; font-size: 0.9rem;"></p>
                 <button type="submit" class="btn" id="login-btn">Giriş Yap</button>
+                
+                <div style="margin-top: 15px; display: flex; justify-content: space-between; font-size: 0.85rem;">
+                    <a href="#" id="toggle-forgot" style="color: var(--primary); text-decoration: none;">Şifremi Unuttum</a>
+                    <a href="#" id="toggle-signup" style="color: var(--primary); text-decoration: none;">Hesap Oluştur</a>
+                </div>
+                <div style="margin-top: 15px; font-size: 0.85rem; display: none;" id="back-to-login-wrapper">
+                    <a href="#" id="toggle-login" style="color: #888; text-decoration: none;"><i class="fa-solid fa-arrow-left"></i> Giriş Ekranına Dön</a>
+                </div>
             </form>
         </div>
     </div>
