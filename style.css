@@ -549,10 +549,17 @@ h1, h2, h3, h4 {
 
 .team-carousel {
     display: flex;
-    overflow-x: hidden;
+    overflow-x: auto;
     scroll-behavior: smooth;
     gap: 30px;
     padding: 20px 0;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.team-carousel::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
 }
 
 .team-grid-full {
@@ -569,6 +576,7 @@ h1, h2, h3, h4 {
     box-shadow: var(--shadow-md);
     transition: var(--transition);
     border: 1px solid var(--border-color);
+    scroll-snap-align: center;
 }
 
 .team-img {
