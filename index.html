@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 
 <head>
@@ -439,47 +439,61 @@
     <script src="app.js"></script>
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    <!-- Dynamic Team Loading Script -->
-    <script>
-        const API_BASE = 'https://cahit-cenksoy-admin.onrender.com';
-        document.addEventListener('DOMContentLoaded', () => {
-            fetch(`${API_BASE}/api/team`)
-                .then(res => {
-                    if (!res.ok) throw new Error("API error");
-                    return res.json();
-                })
-                .then(members => {
-                    const carousel = document.getElementById('teamCarousel');
-                    if (!carousel) return;
-                    carousel.innerHTML = '';
-                    if (members.length === 0) {
-                        carousel.innerHTML = '<p style="text-align:center; color:var(--text-muted); width:100%;">Ekip üyesi bulunamadı.</p>';
-                        return;
-                    }
-                    members.forEach((m, idx) => {
-                        const imgSrc = (m.image_path && m.image_path.startsWith('uploads/'))
-                            ? `${API_BASE}/static/${m.image_path}`
-                            : (m.image_path || 'cahit.jpg');
+    <!-- Dynamic Team Loading Script (Connected to Firebase) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-                        carousel.innerHTML += `
-                            <div class="team-card">
-                                <div class="team-img">
-                                    <img src="${imgSrc}" alt="${m.name}" onerror="this.onerror=null; this.src='cahit.jpg';">
-                                    <div class="team-overlay">
-                                        <div style="font-size: 0.85rem; line-height: 1.4;">${m.bio}</div>
-                                    </div>
-                                </div>
-                                <div class="team-info">
-                                    <h3>${m.name}</h3>
-                                    <p>${m.role}</p>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCRGvbp9E30tE_0-FTr4Oq1DnoteEdwtfI",
+            authDomain: "in-vitro-fertilization-154m9k.firebaseapp.com",
+            projectId: "in-vitro-fertilization-154m9k",
+            storageBucket: "in-vitro-fertilization-154m9k.appspot.com",
+            messagingSenderId: "73069645780",
+            appId: "1:73069645780:web:6d6f7a21a1d1ac26bd1041"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const carousel = document.getElementById('teamCarousel');
+            if (!carousel) return;
+
+            try {
+                const q = query(collection(db, "team"), orderBy("sortOrder", "asc"));
+                const querySnapshot = await getDocs(q);
+                
+                carousel.innerHTML = '';
+                
+                if (querySnapshot.empty) {
+                    carousel.innerHTML = '<p style="text-align:center; color:var(--text-muted); width:100%;">Ekip üyesi bulunamadı.</p>';
+                    return;
+                }
+                
+                querySnapshot.forEach((doc) => {
+                    const m = doc.data();
+                    const imgSrc = m.imageUrl || 'cahit.jpg';
+
+                    carousel.innerHTML += `
+                        <div class="team-card">
+                            <div class="team-img">
+                                <img src="${imgSrc}" alt="${m.name}" onerror="this.onerror=null; this.src='cahit.jpg';">
+                                <div class="team-overlay">
+                                    <div style="font-size: 0.85rem; line-height: 1.4;">${m.bio || ''}</div>
                                 </div>
                             </div>
-                        `;
-                    });
-                })
-                .catch(err => {
-                    console.error("Error loading team members:", err);
+                            <div class="team-info">
+                                <h3>${m.name}</h3>
+                                <p>${m.role}</p>
+                            </div>
+                        </div>
+                    `;
                 });
+            } catch (err) {
+                console.error("Error loading team members from Firebase:", err);
+                carousel.innerHTML = '<p style="text-align:center; color:var(--text-muted); width:100%;">Ekip bilgileri yüklenirken bir hata oluştu.</p>';
+            }
         });
     </script>
 </body>
