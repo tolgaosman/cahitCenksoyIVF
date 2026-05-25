@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -608,10 +608,22 @@
     <script src="app.js"></script>
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    <!-- Blog Management & Filtering Script -->
-    <script>
-        /* ── Live Blog Fetcher ─────────────────────────────────────────────── */
-        const API_BASE = 'https://cahit-cenksoy-admin.onrender.com';
+    <!-- Blog Management & Filtering Script (Connected to Firebase) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCRGvbp9E30tE_0-FTr4Oq1DnoteEdwtfI",
+            authDomain: "in-vitro-fertilization-154m9k.firebaseapp.com",
+            projectId: "in-vitro-fertilization-154m9k",
+            storageBucket: "in-vitro-fertilization-154m9k.appspot.com",
+            messagingSenderId: "73069645780",
+            appId: "1:73069645780:web:6d6f7a21a1d1ac26bd1041"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
 
         document.addEventListener('DOMContentLoaded', () => {
             const searchInput  = document.getElementById('blogSearch');
@@ -620,7 +632,7 @@
             const noResultsDiv = document.getElementById('blogNoResults');
             const grid         = document.getElementById('blogGrid');
 
-            /* Build a single blog card HTML string */
+            let cardCounter = 0; // for coloring
             function buildCard(post) {
                 const gradients = [
                     'linear-gradient(135deg, var(--primary-color) 0%, #ffdfeb 100%)',
@@ -628,9 +640,9 @@
                     'linear-gradient(135deg, var(--primary-color) 0%, #d4fcd4 100%)'
                 ];
                 const icons = ['fa-heart-pulse', 'fa-circle-nodes', 'fa-spa'];
-                const idx   = post.id % 3;
+                const idx = cardCounter % 3;
+                cardCounter++;
 
-                // Smart dynamic tag and category classification
                 const text = (post.title + " " + (post.summary || "")).toLowerCase();
                 let category = "ivf-treatment";
                 let tag      = "IVF & Tedavi";
@@ -643,13 +655,9 @@
                     tag      = "Sağlık & Yaşam";
                 }
 
-                const imgHtml = post.image_path
-                    ? `<img src="${API_BASE}/static/${post.image_path}" alt="${post.title}" style="width:100%;height:220px;object-fit:cover;">`
+                const imgHtml = post.imageUrl
+                    ? `<img src="${post.imageUrl}" alt="${post.title}" style="width:100%;height:220px;object-fit:cover;">`
                     : `<div class="blog-img-placeholder" style="background:${gradients[idx]}"><i class="fa-solid ${icons[idx]}"></i></div>`;
-
-                const authorAvatarHtml = post.author_avatar
-                    ? `<img src="${API_BASE}/static/${post.author_avatar}" onerror="this.onerror=null; this.src='cahit.jpg';" alt="${post.author}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`
-                    : `<img src="cahit.jpg" alt="${post.author || 'Dr. Cahit Cenksoy'}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
 
                 return `
                     <article class="blog-card" data-category="${category}" data-id="${post.id}">
@@ -660,7 +668,7 @@
                             <p class="blog-excerpt">${post.summary || ''}</p>
                             <div class="blog-meta">
                                 <div class="blog-author">
-                                    <div class="blog-author-avatar" style="overflow:hidden; display:flex; align-items:center; justify-content:center;">${authorAvatarHtml}</div>
+                                    <div class="blog-author-avatar" style="overflow:hidden; display:flex; align-items:center; justify-content:center;"><img src="cahit.jpg" alt="Dr. Cahit Cenksoy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
                                     <span>${post.author || 'Dr. Cahit Cenksoy'}</span>
                                 </div>
                                 <div><i class="fa-solid fa-calendar"></i> ${post.date}</div>
@@ -669,7 +677,6 @@
                     </article>`;
             }
 
-            /* Filter already-rendered cards */
             function filterBlog() {
                 const q    = searchInput ? searchInput.value.toLowerCase().trim() : '';
                 const cat  = (document.querySelector('.blog-cat-btn.active') || {}).dataset?.filter || 'all';
@@ -690,28 +697,36 @@
                 if (noResultsDiv) noResultsDiv.style.display = count === 0 ? 'block' : 'none';
             }
 
-            /* Fetch posts from Render API */
-            function loadPosts() {
+            async function loadPosts() {
                 grid.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:40px;">Makaleler yükleniyor...</p>';
 
-                fetch(`${API_BASE}/api/posts`)
-                    .then(res => res.json())
-                    .then(posts => {
-                        grid.innerHTML = '';
-                        if (!posts.length) {
-                            if (noResultsDiv) noResultsDiv.style.display = 'block';
-                            if (counterDiv)   counterDiv.innerText = 'Toplam 0 makale listeleniyor';
-                            return;
+                try {
+                    const q = query(collection(db, "blog"), orderBy("date", "desc"));
+                    const querySnapshot = await getDocs(q);
+                    
+                    grid.innerHTML = '';
+                    let count = 0;
+                    
+                    querySnapshot.forEach((doc) => {
+                        const post = doc.data();
+                        if(post.status === "published") {
+                            post.id = doc.id;
+                            grid.innerHTML += buildCard(post);
+                            count++;
                         }
-                        posts.forEach(post => { grid.innerHTML += buildCard(post); });
-                        filterBlog();
-                    })
-                    .catch(() => {
-                        grid.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:40px;">Makaleler yüklenirken bir hata oluştu. Lütfen sayfayı yenileyin.</p>';
                     });
+                    
+                    if (count === 0) {
+                        if (noResultsDiv) noResultsDiv.style.display = 'block';
+                        if (counterDiv)   counterDiv.innerText = 'Toplam 0 makale listeleniyor';
+                    }
+                    filterBlog();
+                } catch(e) {
+                    console.error("Blog verileri çekilemedi:", e);
+                    grid.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:40px;">Makaleler yüklenirken bir hata oluştu.</p>';
+                }
             }
 
-            /* Wire events */
             if (grid) {
                 grid.addEventListener('click', (e) => {
                     const card = e.target.closest('.blog-card');
