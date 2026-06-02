@@ -534,11 +534,15 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.15; margin-bottom: 15px; lette
     overflow: hidden;
 }
 .service-card::after {
-    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
-    background: var(--grad-cta); transform: scaleX(0); transform-origin: left; transition: transform 0.4s var(--ease-out);
+    content: ''; position: absolute; inset: 0; padding: 2.5px; border-radius: inherit;
+    background: var(--grad-cta);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity 0.4s var(--ease-out);
+    pointer-events: none;
 }
 .service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
-.service-card:hover::after { transform: scaleX(1); }
+.service-card:hover::after { opacity: 1; }
 .service-icon-wrapper {
     font-size: 2rem; color: var(--accent-2);
     width: 78px; height: 78px; display: flex; align-items: center; justify-content: center;
