@@ -233,7 +233,7 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.15; margin-bottom: 15px; lette
 }
 
 .btn-primary {
-    background: var(--grad-cta);
+    background: var(--grad-cta) padding-box, var(--grad-cta) border-box;
     color: #fff;
     box-shadow: var(--shadow-glow);
 }
