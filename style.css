@@ -541,8 +541,8 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.15; margin-bottom: 15px; lette
     opacity: 0; transition: opacity 0.4s var(--ease-out);
     pointer-events: none;
 }
-.service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); border-color: transparent; }
-.service-card:hover::after { opacity: 1; }
+.service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); border-color: var(--border-color); }
+.service-card:hover::after { opacity: 0; }
 .service-icon-wrapper {
     font-size: 2rem; color: var(--accent-2);
     width: 78px; height: 78px; display: flex; align-items: center; justify-content: center;
