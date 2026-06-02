@@ -531,17 +531,17 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.15; margin-bottom: 15px; lette
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
     position: relative;
-    overflow: hidden;
+    z-index: 1;
 }
 .service-card::after {
-    content: ''; position: absolute; inset: 0; padding: 2.5px; border-radius: inherit;
+    content: ''; position: absolute; inset: -2.5px;
     background: var(--grad-cta);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity 0.4s var(--ease-out);
+    border-radius: calc(var(--radius-lg) + 2px);
+    z-index: -1;
+    opacity: 0; transition: opacity 0.4s var(--ease-out);
     pointer-events: none;
 }
-.service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
+.service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); border-color: transparent; }
 .service-card:hover::after { opacity: 1; }
 .service-icon-wrapper {
     font-size: 2rem; color: var(--accent-2);
