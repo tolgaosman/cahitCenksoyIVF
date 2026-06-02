@@ -484,8 +484,8 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.15; margin-bottom: 15px; lette
     overflow: hidden;
 }
 .feature-item::before {
-    content: ''; position: absolute; inset: 0; padding: 2px; border-radius: inherit;
-    background: var(--grad-primary);
+    content: ''; position: absolute; inset: 0; padding: 3px; border-radius: inherit;
+    background: var(--grad-cta);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity 0.3s ease;
