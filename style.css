@@ -476,22 +476,14 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.15; margin-bottom: 15px; lette
     display: flex; flex-direction: column; align-items: center; gap: 16px;
     background: var(--glass-bg);
     backdrop-filter: blur(var(--blur));
-    border: 1px solid var(--glass-border);
+    border: 2px solid var(--glass-border);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     transition: var(--transition);
     position: relative;
     overflow: hidden;
 }
-.feature-item::before {
-    content: ''; position: absolute; inset: 0; padding: 3px; border-radius: inherit;
-    background: var(--grad-cta);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity 0.3s ease;
-}
-.feature-item:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
-.feature-item:hover::before { opacity: 1; }
+.feature-item:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--accent-2); }
 .feature-item i {
     font-size: 1.7rem; color: var(--accent-2);
     width: 64px; height: 64px; display: flex; align-items: center; justify-content: center;
