@@ -544,12 +544,11 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.15; margin-bottom: 15px; lette
 .service-card h3 { font-size: 1.02rem; font-weight: 700; text-transform: uppercase; color: var(--text-main); margin: 0; min-height: 2.4em; display: flex; align-items: center; }
 .btn-more {
     margin-top: auto;
-    padding: 10px 24px; background: var(--card-bg); border: 2px solid var(--accent-2); color: var(--accent);
+    padding: 10px 24px; background: var(--grad-cta) padding-box, var(--grad-cta) border-box; border: 2px solid transparent; color: #fff;
     border-radius: 50px; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
     transition: var(--transition);
 }
-.service-card:hover .btn-more { background: color-mix(in srgb, var(--accent-2) 12%, var(--card-bg)); border-color: var(--accent-2); }
-.btn-more:hover { background: var(--grad-cta); background-clip: padding-box; color: #fff; border-color: var(--accent-2); }
+.btn-more:hover { filter: brightness(1.1); transform: translateY(-2px); }
 
 /* ---------- Process (timeline) ---------- */
 .process-grid {
