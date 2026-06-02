@@ -245,30 +245,30 @@
             <div class="stats-grid">
                 <div class="stat-item reveal" data-delay="1">
                     <i class="fa-solid fa-flask-vial"></i>
-                    <h2 data-count="3640">3640</h2>
+                    <h2 data-count="3640">0</h2>
                     <p class="stat-label" data-i18n="stat1Label">TOPLAM IVF SIKLUSU</p>
                 </div>
                 <div class="stat-item reveal" data-delay="2">
                     <i class="fa-solid fa-eye-dropper"></i>
-                    <h2 data-count="2260">2260</h2>
+                    <h2 data-count="2260">0</h2>
                     <p class="stat-label" data-i18n="stat2Label">OOSİT DONASYONU</p>
                     <p class="stat-success">%84 <span data-i18n="statSuccess">BAŞARI</span></p>
                 </div>
                 <div class="stat-item reveal" data-delay="3">
                     <i class="fa-solid fa-vial-circle-check"></i>
-                    <h2 data-count="693">693</h2>
+                    <h2 data-count="693">0</h2>
                     <p class="stat-label" data-i18n="stat3Label">IVF</p>
                     <p class="stat-success">%54 <span data-i18n="statSuccess">BAŞARI</span></p>
                 </div>
                 <div class="stat-item reveal" data-delay="4">
                     <i class="fa-solid fa-vials"></i>
-                    <h2 data-count="538">538</h2>
+                    <h2 data-count="538">0</h2>
                     <p class="stat-label" data-i18n="stat4Label">SPERM DONASYONU</p>
                     <p class="stat-success">%87 <span data-i18n="statSuccess">BAŞARI</span></p>
                 </div>
                 <div class="stat-item reveal" data-delay="4">
                     <i class="fa-solid fa-dna"></i>
-                    <h2 data-count="610">610</h2>
+                    <h2 data-count="610">0</h2>
                     <p class="stat-label" data-i18n="stat5Label">PGD</p>
                     <p class="stat-success">%64 <span data-i18n="statSuccess">BAŞARI</span></p>
                 </div>
@@ -287,7 +287,7 @@
             <div class="map-wrapper reveal">
                 <iframe
                     src="https://maps.google.com/maps?saddr=35.196343,33.3604196&amp;daddr=35.196117,33.360512&amp;z=17&amp;output=embed"
-                    width="100%" height="380" style="border:0;" allowfullscreen="" loading="lazy"
+                    width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
@@ -358,12 +358,26 @@
                     const m = doc.data();
                     const imgSrc = m.imageUrl || 'cahit.jpg';
 
+                    let detailsHtml = '';
+                    if(m.lang) detailsHtml += `<div style="margin-bottom:6px;"><i class="fa-solid fa-language" style="color:var(--primary-color); width:15px; margin-right:5px;"></i> ${m.lang}</div>`;
+                    if(m.bachelors) detailsHtml += `<div style="margin-bottom:6px;"><i class="fa-solid fa-graduation-cap" style="color:var(--primary-color); width:15px; margin-right:5px;"></i> ${m.bachelors}</div>`;
+                    if(m.masters) detailsHtml += `<div style="margin-bottom:6px;"><i class="fa-solid fa-user-graduate" style="color:var(--primary-color); width:15px; margin-right:5px;"></i> ${m.masters}</div>`;
+                    if(m.thesis) detailsHtml += `<div style="margin-bottom:6px;"><i class="fa-solid fa-file-lines" style="color:var(--primary-color); width:15px; margin-right:5px;"></i> ${m.thesis}</div>`;
+                    if(m.experience) detailsHtml += `<div style="margin-bottom:6px;"><i class="fa-solid fa-briefcase" style="color:var(--primary-color); width:15px; margin-right:5px;"></i> ${m.experience}</div>`;
+                    if(m.expertise) detailsHtml += `<div style="margin-bottom:6px;"><i class="fa-solid fa-stethoscope" style="color:var(--primary-color); width:15px; margin-right:5px;"></i> ${m.expertise}</div>`;
+                    if(m.certificate) detailsHtml += `<div style="margin-bottom:6px;"><i class="fa-solid fa-certificate" style="color:var(--primary-color); width:15px; margin-right:5px;"></i> ${m.certificate}</div>`;
+                    if(m.bio) detailsHtml += `<div style="margin-top:10px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.2)">${m.bio}</div>`;
+                    
+                    if(detailsHtml === '') detailsHtml = '<div style="text-align:center;">Biyografi henüz eklenmedi.</div>';
+
                     carousel.innerHTML += `
                         <div class="team-card">
                             <div class="team-img">
                                 <img src="${imgSrc}" alt="${m.name}" onerror="this.onerror=null; this.src='cahit.jpg';">
                                 <div class="team-overlay">
-                                    <div style="font-size: 0.85rem; line-height: 1.4;">${m.bio || ''}</div>
+                                    <div style="font-size: 0.85rem; line-height: 1.4; text-align:left; width:100%; height:100%; overflow-y:auto; padding-right:5px;">
+                                        ${detailsHtml}
+                                    </div>
                                 </div>
                             </div>
                             <div class="team-info">
