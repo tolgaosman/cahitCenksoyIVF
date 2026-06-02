@@ -190,6 +190,7 @@ let lastScroll = 0;
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
+    navbar?.classList.toggle('scrolled', currentScroll > 10);
     if (currentScroll <= 0) {
         navbar?.classList.remove('navbar--hidden');
         return;
@@ -289,4 +290,63 @@ function showToast(message, iconClass = 'fa-solid fa-circle-check') {
         toast.classList.remove('show');
     }, 3000);
 }
+
+// --- Motion Layer: scroll-reveal + count-up stats ---
+(function initMotion() {
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function run() {
+        const revealEls = document.querySelectorAll('.reveal');
+
+        // If IntersectionObserver isn't available or motion is reduced, show everything.
+        if (prefersReduced || !('IntersectionObserver' in window)) {
+            revealEls.forEach(el => el.classList.add('is-visible'));
+            document.querySelectorAll('[data-count]').forEach(el => {
+                el.textContent = (+el.getAttribute('data-count')).toLocaleString('tr-TR');
+            });
+            return;
+        }
+
+        // Scroll-reveal
+        const revealObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach(el => revealObserver.observe(el));
+
+        // Count-up for stats
+        function animateCount(el) {
+            const target = +el.getAttribute('data-count');
+            const duration = 1600;
+            const start = performance.now();
+            function tick(now) {
+                const p = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+                el.textContent = Math.round(target * eased).toLocaleString('tr-TR');
+                if (p < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        }
+
+        const countObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCount(entry.target);
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.4 });
+        document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el));
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', run);
+    } else {
+        run();
+    }
+})();
 
