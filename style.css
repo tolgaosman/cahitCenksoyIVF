@@ -498,7 +498,7 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.15; margin-bottom: 15px; lette
     background: var(--grad-soft); border-radius: 18px;
 }
 .feature-item h3 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-main); margin: 0; min-height: 2.4em; display: flex; align-items: center; }
-.feature-item .btn-outline-white { background: var(--grad-cta); border-color: transparent; color: #fff; }
+.feature-item .btn-outline-white { background: var(--grad-cta) padding-box, var(--grad-cta) border-box; border-color: transparent; color: #fff; }
 .feature-item .btn-outline-white:hover { filter: brightness(1.08); transform: translateY(-2px); color: #fff; }
 
 /* ---------- About ---------- */
@@ -600,7 +600,7 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.15; margin-bottom: 15px; lette
     cursor: pointer !important; transition: var(--transition) !important;
     text-transform: uppercase !important; letter-spacing: 0.04em !important;
 }
-.btn-process:hover { background: var(--grad-cta) !important; color: #fff !important; border-color: transparent !important; transform: translateY(-2px) !important; }
+.btn-process:hover { background: var(--grad-cta) padding-box, var(--grad-cta) border-box !important; color: #fff !important; border-color: transparent !important; transform: translateY(-2px) !important; }
 
 /* ---------- Process modal ---------- */
 .modal {
@@ -686,7 +686,7 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.15; margin-bottom: 15px; lette
     color: var(--accent) !important; box-shadow: var(--shadow-md); transition: var(--transition);
 }
 .carousel-btn i { color: inherit !important; }
-.carousel-btn:hover { background: var(--grad-cta) !important; color: #fff !important; border-color: transparent !important; transform: translateY(-50%) scale(1.08); }
+.carousel-btn:hover { background: var(--grad-cta) padding-box, var(--grad-cta) border-box !important; color: #fff !important; border-color: transparent !important; transform: translateY(-50%) scale(1.08); }
 .carousel-btn.prev { left: 0; }
 .carousel-btn.next { right: 0; }
 
@@ -758,7 +758,7 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.15; margin-bottom: 15px; lette
     display: flex; align-items: center; justify-content: center;
     font-size: 1.2rem; color: var(--accent); transition: var(--transition); background: var(--card-bg);
 }
-.social-box:hover { background: var(--grad-cta); color: #fff; border-color: transparent; transform: translateY(-4px); box-shadow: var(--shadow-glow); }
+.social-box:hover { background: var(--grad-cta) padding-box, var(--grad-cta) border-box; color: #fff; border-color: transparent; transform: translateY(-4px); box-shadow: var(--shadow-glow); }
 
 /* ---------- WhatsApp float ---------- */
 .whatsapp-float {
