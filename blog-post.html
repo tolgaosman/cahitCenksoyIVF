@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://*.google.com https://translate.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://www.gstatic.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.google.com https://cahit-cenksoy-admin.onrender.com; frame-src https://*.google.com; object-src 'none'; base-uri 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Yükleniyor... | Dr. Cahit Cenksoy IVF Clinic</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="browserLogo.png?v=1.1">
@@ -11,7 +13,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <!-- DOMPurify: blog içeriğini XSS'e karşı temizlemek için (SRI ile sabitlendi) -->
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.7/dist/purify.min.js" integrity="sha384-qJNkHwhlYywDHfyoEe1np+1lYvX/8x+3gHCKFhSSBMQyCFlvFnn+zXmaebXl21rV" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <style>
         /* Progress Bar */
         .reading-progress-bar {
@@ -610,6 +614,11 @@
 
                 const post = docSnap.data();
 
+                // GÜVENLİK: yalnız yayınlanmış yazılar gösterilir — ?id= ile taslak sızıntısını engelle
+                if (post.status !== 'published') {
+                    throw new Error("Yayınlanmadı");
+                }
+
                 document.title = `${post.title} | Dr. Cahit Cenksoy IVF Clinic`;
 
                 const text = (post.title + " " + (post.summary || "")).toLowerCase();
@@ -647,7 +656,9 @@
                         .map(p => `<p>${p}</p>`)
                         .join('');
                 }
-                body.innerHTML = formattedContent;
+                // GÜVENLİK: blog içeriği zengin HTML olabildiğinden DOMPurify ile temizlenir
+                // (script/onerror gibi XSS vektörleri kaldırılır, izinli biçimlendirme korunur).
+                body.innerHTML = window.DOMPurify ? DOMPurify.sanitize(formattedContent) : '';
 
                 loadRecentPosts(postId);
             } catch(e) {
@@ -683,19 +694,39 @@
                     if (doc.id !== currentId && count < 3) {
                         const post = doc.data();
                         if (post.status === "published") {
-                            const imgHtml = post.imageUrl
-                                ? `<img class="recent-post-img" src="${post.imageUrl}" alt="${post.title}">`
-                                : `<div class="recent-post-placeholder"><i class="fa-solid fa-heart-pulse"></i></div>`;
+                            // GÜVENLİK: güvenli DOM ile kur (title/imageUrl XSS savunması)
+                            const link = document.createElement('a');
+                            link.className = 'recent-post-item';
+                            link.href = 'blog-post.html?id=' + encodeURIComponent(doc.id);
 
-                            listContainer.innerHTML += `
-                                <a href="blog-post.html?id=${doc.id}" class="recent-post-item">
-                                    ${imgHtml}
-                                    <div class="recent-post-text">
-                                        <h4 class="recent-post-title">${post.title}</h4>
-                                        <span class="recent-post-date">${post.date}</span>
-                                    </div>
-                                </a>
-                            `;
+                            let media;
+                            if (post.imageUrl) {
+                                media = document.createElement('img');
+                                media.className = 'recent-post-img';
+                                media.src = post.imageUrl;
+                                media.alt = post.title || '';
+                            } else {
+                                media = document.createElement('div');
+                                media.className = 'recent-post-placeholder';
+                                const ic = document.createElement('i');
+                                ic.className = 'fa-solid fa-heart-pulse';
+                                media.appendChild(ic);
+                            }
+
+                            const titleEl = document.createElement('h4');
+                            titleEl.className = 'recent-post-title';
+                            titleEl.textContent = post.title || '';
+                            const dateEl = document.createElement('span');
+                            dateEl.className = 'recent-post-date';
+                            dateEl.textContent = post.date || '';
+                            const textWrap = document.createElement('div');
+                            textWrap.className = 'recent-post-text';
+                            textWrap.appendChild(titleEl);
+                            textWrap.appendChild(dateEl);
+
+                            link.appendChild(media);
+                            link.appendChild(textWrap);
+                            listContainer.appendChild(link);
                             count++;
                         }
                     }

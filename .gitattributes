@@ -1,0 +1,18 @@
+# Satır sonlarını normalize et
+* text=auto eol=lf
+
+# Binary varlıklar (diff/normalizasyon yapma)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.pdf binary
+*.ico binary
+
+# Sır içerikli dosyalar metin olarak işlenmesin ve diff'te gösterilmesin
+# (yine de bunları .gitignore ile repodan tamamen dışarıda tutun)
+.env       -text -diff
+.env.*     -text -diff
+*.key      -text -diff
+*.pem      -text -diff

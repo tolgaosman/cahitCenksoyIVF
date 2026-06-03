@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://*.google.com https://translate.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://www.gstatic.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.google.com https://cahit-cenksoy-admin.onrender.com; frame-src https://*.google.com; object-src 'none'; base-uri 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Blog & Güncel Bilgiler | Dr. Cahit Cenksoy IVF Clinic</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="browserLogo.png?v=1.1">
@@ -403,26 +405,48 @@
                     tag      = "Sağlık & Yaşam";
                 }
 
-                const imgHtml = post.imageUrl
-                    ? `<img src="${post.imageUrl}" alt="${post.title}" style="width:100%;height:220px;object-fit:cover;">`
-                    : `<div class="blog-img-placeholder" style="background:${gradients[idx]}"><i class="fa-solid ${icons[idx]}"></i></div>`;
-
-                return `
-                    <article class="blog-card" data-category="${category}" data-id="${post.id}">
-                        ${imgHtml}
+                // GÜVENLİK: dinamik alanları (title, summary, author, imageUrl) güvenli DOM ile
+                // bas; iskeleti sabit innerHTML'den kur, değerleri textContent/setAttribute ile yerleştir.
+                const article = document.createElement('article');
+                article.className = 'blog-card';
+                article.setAttribute('data-category', category);
+                article.setAttribute('data-id', post.id);
+                article.innerHTML = `
                         <div class="blog-body">
-                            <span class="blog-tag">${tag}</span>
-                            <h3 class="blog-title">${post.title}</h3>
-                            <p class="blog-excerpt">${post.summary || ''}</p>
+                            <span class="blog-tag"></span>
+                            <h3 class="blog-title"></h3>
+                            <p class="blog-excerpt"></p>
                             <div class="blog-meta">
                                 <div class="blog-author">
                                     <div class="blog-author-avatar" style="overflow:hidden; display:flex; align-items:center; justify-content:center;"><img src="cahit.jpg" alt="Dr. Cahit Cenksoy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
-                                    <span>${post.author || 'Dr. Cahit Cenksoy'}</span>
+                                    <span class="blog-author-name"></span>
                                 </div>
-                                <div><i class="fa-solid fa-calendar"></i> ${post.date}</div>
+                                <div><i class="fa-solid fa-calendar"></i> <span class="blog-date"></span></div>
                             </div>
-                        </div>
-                    </article>`;
+                        </div>`;
+
+                let cover;
+                if (post.imageUrl) {
+                    cover = document.createElement('img');
+                    cover.src = post.imageUrl;
+                    cover.alt = post.title || '';
+                    cover.style.cssText = 'width:100%;height:220px;object-fit:cover;';
+                } else {
+                    cover = document.createElement('div');
+                    cover.className = 'blog-img-placeholder';
+                    cover.style.background = gradients[idx];
+                    const ic = document.createElement('i');
+                    ic.className = 'fa-solid ' + icons[idx];
+                    cover.appendChild(ic);
+                }
+                article.insertBefore(cover, article.firstChild);
+
+                article.querySelector('.blog-tag').textContent = tag;
+                article.querySelector('.blog-title').textContent = post.title || '';
+                article.querySelector('.blog-excerpt').textContent = post.summary || '';
+                article.querySelector('.blog-author-name').textContent = post.author || 'Dr. Cahit Cenksoy';
+                article.querySelector('.blog-date').textContent = post.date || '';
+                return article;
             }
 
             function filterBlog() {
@@ -459,7 +483,7 @@
                         const post = doc.data();
                         if(post.status === "published") {
                             post.id = doc.id;
-                            grid.innerHTML += buildCard(post);
+                            grid.appendChild(buildCard(post));
                             count++;
                         }
                     });

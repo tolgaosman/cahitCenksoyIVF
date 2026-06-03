@@ -1,12 +1,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { 
-    getAuth, 
-    signInWithEmailAndPassword, 
-    createUserWithEmailAndPassword,
+import {
+    getAuth,
+    signInWithEmailAndPassword,
     sendPasswordResetEmail,
-    updateProfile,
-    onAuthStateChanged, 
-    signOut 
+    onAuthStateChanged,
+    signOut
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { 
     getFirestore, 
@@ -43,81 +41,93 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
+// GÜVENLİK: Firestore'dan gelen metinleri innerHTML'e basmadan önce kaçışla.
+// (Stored XSS savunması — admin paneli yetkili olsa da zararlı içerik admin
+// tarayıcısında çalışmasın.)
+function escapeHtml(value) {
+    return String(value == null ? '' : value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
 // DOM Elements
 const loginScreen = document.getElementById('login-screen');
 const dashboardScreen = document.getElementById('dashboard-screen');
 const loginForm = document.getElementById('login-form');
 const logoutBtn = document.getElementById('logout-link');
 
-let authMode = 'login'; // login, signup, forgot
+let authMode = 'login'; // login, forgot — (signup kaldırıldı: admin yalnız Firebase Console'dan eklenir)
 
 // Toggles for UI
 const titleEl = document.getElementById('auth-title');
 const subtitleEl = document.getElementById('auth-subtitle');
-const nameGroup = document.getElementById('name-group');
 const passwordGroup = document.getElementById('password-group');
 const loginBtn = document.getElementById('login-btn');
 const toggleForgot = document.getElementById('toggle-forgot');
-const toggleSignup = document.getElementById('toggle-signup');
 const backToLoginWrap = document.getElementById('back-to-login-wrapper');
 
 function setAuthMode(mode) {
     authMode = mode;
     document.getElementById('login-error').style.display = 'none';
-    
-    if (mode === 'login') {
-        titleEl.innerText = "Yönetim Paneli Girişi";
-        subtitleEl.innerText = "Devam etmek için giriş yapın.";
-        nameGroup.style.display = 'none';
-        passwordGroup.style.display = 'block';
-        document.getElementById('login-password').required = true;
-        loginBtn.innerText = "Giriş Yap";
-        toggleForgot.style.display = 'block';
-        toggleSignup.style.display = 'block';
-        backToLoginWrap.style.display = 'none';
-    } else if (mode === 'signup') {
-        titleEl.innerText = "Hesap Oluştur";
-        subtitleEl.innerText = "Yeni bir yönetici hesabı oluşturun.";
-        nameGroup.style.display = 'block';
-        passwordGroup.style.display = 'block';
-        document.getElementById('login-password').required = true;
-        loginBtn.innerText = "Kayıt Ol";
-        toggleForgot.style.display = 'none';
-        toggleSignup.style.display = 'none';
-        backToLoginWrap.style.display = 'block';
-    } else if (mode === 'forgot') {
+
+    if (mode === 'forgot') {
         titleEl.innerText = "Şifremi Unuttum";
         subtitleEl.innerText = "E-posta adresinize sıfırlama bağlantısı göndereceğiz.";
-        nameGroup.style.display = 'none';
         passwordGroup.style.display = 'none';
         document.getElementById('login-password').required = false;
         loginBtn.innerText = "Sıfırlama Bağlantısı Gönder";
         toggleForgot.style.display = 'none';
-        toggleSignup.style.display = 'none';
         backToLoginWrap.style.display = 'block';
+    } else {
+        // login (varsayılan)
+        authMode = 'login';
+        titleEl.innerText = "Yönetim Paneli Girişi";
+        subtitleEl.innerText = "Devam etmek için giriş yapın.";
+        passwordGroup.style.display = 'block';
+        document.getElementById('login-password').required = true;
+        loginBtn.innerText = "Giriş Yap";
+        toggleForgot.style.display = 'block';
+        backToLoginWrap.style.display = 'none';
     }
 }
 
 toggleForgot.addEventListener('click', (e) => { e.preventDefault(); setAuthMode('forgot'); });
-toggleSignup.addEventListener('click', (e) => { e.preventDefault(); setAuthMode('signup'); });
 document.getElementById('toggle-login').addEventListener('click', (e) => { e.preventDefault(); setAuthMode('login'); });
 
 // AUTHENTICATION STATE OBSERVER
 onAuthStateChanged(auth, async (user) => {
     if (user) {
-        // Özel kullanıcı adı güncellemesi
-        if (user.email === 'tolman2002@gmail.com' && user.displayName !== 'Tolga Osman Falay') {
-            try {
-                await updateProfile(user, { displayName: "Tolga Osman Falay" });
-            } catch(e) {}
+        // GÜVENLİK: Giriş yapan her kullanıcı admin DEĞİLDİR. Yetkiyi admins/{uid}
+        // dökümanının varlığıyla doğrula. Aksi halde oturumu hemen kapat — REST
+        // signUp ile auth alan biri bile panele/yazmaya erişemez (Firestore kuralları
+        // ikinci bariyer).
+        let isAdmin = false;
+        try {
+            const adminSnap = await getDoc(doc(db, "admins", user.uid));
+            isAdmin = adminSnap.exists();
+        } catch (e) {
+            isAdmin = false;
         }
-        
-        // Logged in
+
+        if (!isAdmin) {
+            await signOut(auth);
+            loginScreen.style.display = 'flex';
+            dashboardScreen.style.display = 'none';
+            const errorText = document.getElementById('login-error');
+            errorText.innerText = "Bu hesabın yönetici yetkisi yok.";
+            errorText.style.display = 'block';
+            return;
+        }
+
+        // Logged in (yetkili admin)
         loginScreen.style.display = 'none';
         dashboardScreen.style.display = 'flex';
         const displayName = user.displayName || user.email.split('@')[0];
-        document.getElementById('admin-email-display').innerHTML = `<i class="fa-solid fa-user"></i> ${displayName}`;
-        
+        document.getElementById('admin-email-display').innerHTML = `<i class="fa-solid fa-user"></i> ${escapeHtml(displayName)}`;
+
         // Load initial data
         loadSiteInfo();
         loadTeam();
@@ -135,44 +145,31 @@ loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
-    const name = document.getElementById('login-name').value;
     const errorText = document.getElementById('login-error');
-    
+
     errorText.style.display = 'none';
     loginBtn.disabled = true;
-    
+
     try {
-        if (authMode === 'login') {
-            loginBtn.innerText = "Giriş Yapılıyor...";
-            await signInWithEmailAndPassword(auth, email, password);
-            window.showToast("Başarıyla giriş yapıldı.");
-        } else if (authMode === 'signup') {
-            loginBtn.innerText = "Hesap Oluşturuluyor...";
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            if (name) {
-                await updateProfile(userCredential.user, { displayName: name });
-            }
-            window.showToast("Hesap başarıyla oluşturuldu.");
-            setAuthMode('login');
-        } else if (authMode === 'forgot') {
+        if (authMode === 'forgot') {
             loginBtn.innerText = "Gönderiliyor...";
             await sendPasswordResetEmail(auth, email);
             window.showToast("Şifre sıfırlama bağlantısı e-postanıza gönderildi!");
             setAuthMode('login');
+        } else {
+            loginBtn.innerText = "Giriş Yapılıyor...";
+            await signInWithEmailAndPassword(auth, email, password);
+            window.showToast("Başarıyla giriş yapıldı.");
         }
     } catch (error) {
         if (authMode === 'forgot') {
             errorText.innerText = "Bu e-postaya ait hesap bulunamadı.";
-        } else if (authMode === 'signup') {
-            errorText.innerText = "Kayıt başarısız. Şifre çok kısa veya e-posta kullanımda olabilir.";
         } else {
             errorText.innerText = "Giriş başarısız. Lütfen bilgilerinizi kontrol edin.";
         }
         errorText.style.display = 'block';
     } finally {
-        if (authMode === 'login') loginBtn.innerText = "Giriş Yap";
-        if (authMode === 'signup') loginBtn.innerText = "Kayıt Ol";
-        if (authMode === 'forgot') loginBtn.innerText = "Sıfırlama Bağlantısı Gönder";
+        loginBtn.innerText = (authMode === 'forgot') ? "Sıfırlama Bağlantısı Gönder" : "Giriş Yap";
         loginBtn.disabled = false;
     }
 });
@@ -268,9 +265,9 @@ async function loadTeam() {
             const data = doc.data();
             tbody.innerHTML += `
                 <tr>
-                    <td><img src="${data.imageUrl || 'cahit.jpg'}" width="50" style="border-radius:5px; height:50px; object-fit:cover;"></td>
-                    <td>${data.name}</td>
-                    <td>${data.role}</td>
+                    <td><img src="${encodeURI(data.imageUrl || 'cahit.jpg')}" width="50" style="border-radius:5px; height:50px; object-fit:cover;"></td>
+                    <td>${escapeHtml(data.name)}</td>
+                    <td>${escapeHtml(data.role)}</td>
                     <td class="actions-col">
                         <button class="btn btn-sm" onclick="editTeam('${doc.id}')"><i class="fa-solid fa-pen"></i></button>
                         <button class="btn btn-sm btn-danger" onclick="deleteTeam('${doc.id}')"><i class="fa-solid fa-trash"></i></button>
@@ -401,8 +398,8 @@ async function loadFaqs() {
             const data = doc.data();
             tbody.innerHTML += `
                 <tr>
-                    <td><strong>${data.question}</strong><br><small style="color:#666">${data.answer.substring(0, 50)}...</small></td>
-                    <td>${data.sortOrder}</td>
+                    <td><strong>${escapeHtml(data.question)}</strong><br><small style="color:#666">${escapeHtml((data.answer || '').substring(0, 50))}...</small></td>
+                    <td>${escapeHtml(data.sortOrder)}</td>
                     <td class="actions-col">
                         <button class="btn btn-sm" onclick="editFaq('${doc.id}')"><i class="fa-solid fa-pen"></i></button>
                         <button class="btn btn-sm btn-danger" onclick="deleteFaq('${doc.id}')"><i class="fa-solid fa-trash"></i></button>
@@ -504,8 +501,8 @@ async function loadBlog() {
                 
             tbody.innerHTML += `
                 <tr>
-                    <td>${data.date}</td>
-                    <td><strong>${data.title}</strong></td>
+                    <td>${escapeHtml(data.date)}</td>
+                    <td><strong>${escapeHtml(data.title)}</strong></td>
                     <td>${statusBadge}</td>
                     <td class="actions-col">
                         <button class="btn btn-sm" onclick="editBlog('${doc.id}')"><i class="fa-solid fa-pen"></i></button>

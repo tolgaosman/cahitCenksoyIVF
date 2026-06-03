@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://*.google.com https://translate.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://www.gstatic.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: blob:; connect-src 'self' https://*.googleapis.com https://*.google.com https://firebasestorage.googleapis.com https://cahit-cenksoy-admin.onrender.com; frame-src https://*.google.com; object-src 'none'; base-uri 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Dr. Cahit Cenksoy - Admin Paneli</title>
     <link rel="icon" href="browserLogo.png" type="image/png">
     <!-- Google Fonts -->
@@ -341,10 +343,6 @@
             <p id="auth-subtitle" style="color: #666; margin-bottom: 20px; font-size: 0.9rem;">Devam etmek için giriş yapın.</p>
             
             <form id="login-form">
-                <div class="form-group" id="name-group" style="display: none;">
-                    <label>Ad Soyad</label>
-                    <input type="text" id="login-name" placeholder="Adınız Soyadınız">
-                </div>
                 <div class="form-group">
                     <label>E-posta Adresi</label>
                     <input type="email" id="login-email" required placeholder="admin@cahitcenksoy.com">
@@ -356,9 +354,8 @@
                 <p id="login-error" style="color: #e74c3c; margin-bottom: 15px; display: none; font-size: 0.9rem;"></p>
                 <button type="submit" class="btn" id="login-btn">Giriş Yap</button>
                 
-                <div style="margin-top: 15px; display: flex; justify-content: space-between; font-size: 0.85rem;">
+                <div style="margin-top: 15px; font-size: 0.85rem;">
                     <a href="#" id="toggle-forgot" style="color: var(--primary); text-decoration: none;">Şifremi Unuttum</a>
-                    <a href="#" id="toggle-signup" style="color: var(--primary); text-decoration: none;">Hesap Oluştur</a>
                 </div>
                 <div style="margin-top: 15px; font-size: 0.85rem; display: none;" id="back-to-login-wrapper">
                     <a href="#" id="toggle-login" style="color: #888; text-decoration: none;"><i class="fa-solid fa-arrow-left"></i> Giriş Ekranına Dön</a>

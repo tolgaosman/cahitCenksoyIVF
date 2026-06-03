@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://*.google.com https://translate.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://www.gstatic.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.google.com https://cahit-cenksoy-admin.onrender.com; frame-src https://*.google.com; object-src 'none'; base-uri 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Dr. Cahit Cenksoy | IVF & Medical Clinic</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="browserLogo.png?v=1.1">
@@ -338,6 +340,81 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
+        // GÜVENLİK: Firestore içeriğini innerHTML yerine güvenli DOM (textContent) ile bas.
+        // Tüm ekip alanları düz metin olduğundan XSS (örn. bio'ya gömülü <script>) çalışamaz.
+        function buildTeamCard(m) {
+            const detailRows = [
+                ['fa-language', m.lang],
+                ['fa-graduation-cap', m.bachelors],
+                ['fa-user-graduate', m.masters],
+                ['fa-file-lines', m.thesis],
+                ['fa-briefcase', m.experience],
+                ['fa-stethoscope', m.expertise],
+                ['fa-certificate', m.certificate]
+            ];
+
+            const details = document.createElement('div');
+            details.style.cssText = 'font-size: 0.85rem; line-height: 1.4; text-align:left; width:100%; height:100%; overflow-y:auto; padding-right:5px;';
+
+            let hasContent = false;
+            detailRows.forEach(([icon, value]) => {
+                if (!value) return;
+                hasContent = true;
+                const row = document.createElement('div');
+                row.style.marginBottom = '6px';
+                const i = document.createElement('i');
+                i.className = 'fa-solid ' + icon;
+                i.style.cssText = 'color:var(--primary-color); width:15px; margin-right:5px;';
+                row.appendChild(i);
+                row.appendChild(document.createTextNode(' ' + value));
+                details.appendChild(row);
+            });
+            if (m.bio) {
+                hasContent = true;
+                const bio = document.createElement('div');
+                bio.style.cssText = 'margin-top:10px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.2)';
+                bio.textContent = m.bio;
+                details.appendChild(bio);
+            }
+            if (!hasContent) {
+                const empty = document.createElement('div');
+                empty.style.textAlign = 'center';
+                empty.textContent = 'Biyografi henüz eklenmedi.';
+                details.appendChild(empty);
+            }
+
+            const img = document.createElement('img');
+            img.src = m.imageUrl || 'cahit.jpg';
+            img.alt = m.name || '';
+            img.setAttribute('onerror', "this.onerror=null; this.src='cahit.jpg';");
+
+            const overlayInner = document.createElement('div');
+            overlayInner.appendChild(details);
+            const overlay = document.createElement('div');
+            overlay.className = 'team-overlay';
+            overlay.appendChild(overlayInner);
+
+            const teamImg = document.createElement('div');
+            teamImg.className = 'team-img';
+            teamImg.appendChild(img);
+            teamImg.appendChild(overlay);
+
+            const name = document.createElement('h3');
+            name.textContent = m.name || '';
+            const role = document.createElement('p');
+            role.textContent = m.role || '';
+            const info = document.createElement('div');
+            info.className = 'team-info';
+            info.appendChild(name);
+            info.appendChild(role);
+
+            const card = document.createElement('div');
+            card.className = 'team-card';
+            card.appendChild(teamImg);
+            card.appendChild(info);
+            return card;
+        }
+
         document.addEventListener('DOMContentLoaded', async () => {
             const carousel = document.getElementById('teamCarousel');
             if (!carousel) return;
@@ -354,37 +431,7 @@
                 }
 
                 querySnapshot.forEach((doc) => {
-                    const m = doc.data();
-                    const imgSrc = m.imageUrl || 'cahit.jpg';
-
-                    let detailsHtml = '';
-                    if(m.lang) detailsHtml += `<div style="margin-bottom:6px;"><i class="fa-solid fa-language" style="color:var(--primary-color); width:15px; margin-right:5px;"></i> ${m.lang}</div>`;
-                    if(m.bachelors) detailsHtml += `<div style="margin-bottom:6px;"><i class="fa-solid fa-graduation-cap" style="color:var(--primary-color); width:15px; margin-right:5px;"></i> ${m.bachelors}</div>`;
-                    if(m.masters) detailsHtml += `<div style="margin-bottom:6px;"><i class="fa-solid fa-user-graduate" style="color:var(--primary-color); width:15px; margin-right:5px;"></i> ${m.masters}</div>`;
-                    if(m.thesis) detailsHtml += `<div style="margin-bottom:6px;"><i class="fa-solid fa-file-lines" style="color:var(--primary-color); width:15px; margin-right:5px;"></i> ${m.thesis}</div>`;
-                    if(m.experience) detailsHtml += `<div style="margin-bottom:6px;"><i class="fa-solid fa-briefcase" style="color:var(--primary-color); width:15px; margin-right:5px;"></i> ${m.experience}</div>`;
-                    if(m.expertise) detailsHtml += `<div style="margin-bottom:6px;"><i class="fa-solid fa-stethoscope" style="color:var(--primary-color); width:15px; margin-right:5px;"></i> ${m.expertise}</div>`;
-                    if(m.certificate) detailsHtml += `<div style="margin-bottom:6px;"><i class="fa-solid fa-certificate" style="color:var(--primary-color); width:15px; margin-right:5px;"></i> ${m.certificate}</div>`;
-                    if(m.bio) detailsHtml += `<div style="margin-top:10px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.2)">${m.bio}</div>`;
-                    
-                    if(detailsHtml === '') detailsHtml = '<div style="text-align:center;">Biyografi henüz eklenmedi.</div>';
-
-                    carousel.innerHTML += `
-                        <div class="team-card">
-                            <div class="team-img">
-                                <img src="${imgSrc}" alt="${m.name}" onerror="this.onerror=null; this.src='cahit.jpg';">
-                                <div class="team-overlay">
-                                    <div style="font-size: 0.85rem; line-height: 1.4; text-align:left; width:100%; height:100%; overflow-y:auto; padding-right:5px;">
-                                        ${detailsHtml}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="team-info">
-                                <h3>${m.name}</h3>
-                                <p>${m.role}</p>
-                            </div>
-                        </div>
-                    `;
+                    carousel.appendChild(buildTeamCard(doc.data()));
                 });
             } catch (err) {
                 console.error("Error loading team members from Firebase:", err);

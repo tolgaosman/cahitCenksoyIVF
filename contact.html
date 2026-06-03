@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://*.google.com https://translate.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://www.gstatic.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.google.com https://cahit-cenksoy-admin.onrender.com; frame-src https://*.google.com; object-src 'none'; base-uri 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Contact Us | Dr. Cahit Cenksoy IVF Clinic</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="browserLogo.png?v=1.1">
@@ -219,10 +221,13 @@
             })
         }).catch(() => {});
 
-        // 3) Open WhatsApp as before
-        let text = "*YEN� RANDEVU TALEB�*\n\n";
-        for (const key in data) { text += `*${key}:* ${data[key]}\n`; }
-        window.open(`https://wa.me/905488880112?text=${encodeURIComponent(text)}`, "_blank");
+        // 3) KVKK: Hassas sağlık verileri (yaş, kan grubu, AMH, sperm vb.) WhatsApp linkine
+        //    KONULMAZ. Tüm detay yalnız yukarıdaki güvenli fetch() ile arkaplan API'ına gider.
+        //    WhatsApp'a yalnız genel talep + iletişim bilgisi gider.
+        let text = "*Yeni randevu talebim var.*\n\n";
+        text += `*E-posta:* ${data["E-posta"]}\n`;
+        text += `*Telefon:* ${data["Telefon"]}\n`;
+        window.open(`https://wa.me/905488880112?text=${encodeURIComponent(text)}`, "_blank", "noopener");
     });
 
     document.getElementById("contactMsgForm").addEventListener("submit", function(e) {
@@ -240,7 +245,7 @@
 
         // Open WhatsApp as usual
         let text = `*YEN\u0130 \u0130LET\u0130\u015e\u0130M MESAJI*\n\n*Ad Soyad:* ${name}\n*E-posta:* ${email}\n*Mesaj:* ${message}`;
-        window.open(`https://wa.me/905488880112?text=${encodeURIComponent(text)}`, "_blank");
+        window.open(`https://wa.me/905488880112?text=${encodeURIComponent(text)}`, "_blank", "noopener");
     });
     </script>
 </body>
