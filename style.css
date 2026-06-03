@@ -853,11 +853,11 @@ body { top: 0 !important; }
 }
 
 /* ── Translated-language nav compression (Google Translate) ── */
-html.translated-ltr .nav-links, html.translated-rtl .nav-links { gap: 2px !important; }
+html.translated-ltr .nav-links, html.translated-rtl .nav-links { gap: clamp(8px, 1vw, 16px) !important; }
 html.translated-ltr .nav-links a, html.translated-rtl .nav-links a {
-    letter-spacing: -0.3px !important;
-    padding-left: clamp(2px, 0.3vw, 6px) !important;
-    padding-right: clamp(2px, 0.3vw, 6px) !important;
+    letter-spacing: -0.2px !important;
+    padding-left: clamp(4px, 0.5vw, 9px) !important;
+    padding-right: clamp(4px, 0.5vw, 9px) !important;
     white-space: nowrap !important;
 }
 html.translated-ltr body.lang-ru .nav-links a, html[lang="ru"] .nav-links a {
