@@ -321,7 +321,7 @@ function showToast(message, iconClass = 'fa-solid fa-circle-check') {
         // Count-up for stats
         function animateCount(el) {
             const target = +el.getAttribute('data-count');
-            const duration = 1600;
+            const duration = 1200;
             const start = performance.now();
             function tick(now) {
                 const p = Math.min((now - start) / duration, 1);
@@ -339,7 +339,7 @@ function showToast(message, iconClass = 'fa-solid fa-circle-check') {
                     obs.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.4 });
+        }, { threshold: 0.15 });
         document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el));
     }
 

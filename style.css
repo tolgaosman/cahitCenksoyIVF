@@ -291,7 +291,7 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.15; margin-bottom: 15px; lette
 .navbar.scrolled #navLogo { max-height: 60px; }
 
 .nav-center { flex: 1; display: flex; justify-content: center; }
-.nav-links { display: flex; align-items: center; gap: clamp(2px, 1vw, 10px); }
+.nav-links { display: flex; align-items: center; gap: clamp(12px, 1.8vw, 28px); }
 .nav-links li { position: relative; }
 
 .nav-links a {
