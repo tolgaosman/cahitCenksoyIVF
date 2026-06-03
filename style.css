@@ -316,7 +316,7 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.15; margin-bottom: 15px; lette
     background: var(--grad-soft);
 }
 
-.nav-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.nav-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; padding-inline-end: 24px; }
 
 /* Dropdowns */
 .dropdown-menu {
