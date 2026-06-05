@@ -341,7 +341,7 @@ function showToast(message, iconClass = 'fa-solid fa-circle-check') {
         // Count-up for stats
         function animateCount(el) {
             const target = +el.getAttribute('data-count');
-            const duration = 1200;
+            const duration = 3500;
             const start = performance.now();
             function tick(now) {
                 const p = Math.min((now - start) / duration, 1);

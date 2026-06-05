@@ -741,7 +741,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
     content: ''; position: absolute; right: 0; top: 20%; height: 60%; width: 1px; background: rgba(255, 255, 255, 0.25);
 }
 .stat-item i { font-size: 1.9rem; margin-bottom: 14px; display: block; opacity: 0.92; }
-.stat-item h2 { font-size: clamp(2.4rem, 4vw, 3.2rem); font-weight: 800; margin-bottom: 6px; letter-spacing: -0.03em; }
+.stat-item h2 { font-size: clamp(2.4rem, 4vw, 3.2rem); font-weight: 800; margin-bottom: 6px; letter-spacing: -0.03em; color: #fff; }
 .stat-label { font-size: 0.88rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
 .stat-success { font-size: 0.8rem; font-weight: 600; opacity: 0.85; margin-top: 6px; }
 
