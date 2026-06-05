@@ -265,7 +265,12 @@ async function loadTeam() {
             const data = doc.data();
             tbody.innerHTML += `
                 <tr>
-                    <td><img src="${encodeURI(data.imageUrl || 'cahit.jpg')}" width="50" style="border-radius:5px; height:50px; object-fit:cover;"></td>
+                    <td>
+                        ${data.imageUrl && data.imageUrl.trim() !== ''
+                            ? `<img src="${data.imageUrl.includes('http') ? data.imageUrl : encodeURI(data.imageUrl)}" width="50" style="border-radius:5px; height:50px; object-fit:cover;" onerror="this.onerror=null; this.src='browserLogo.png';">`
+                            : `<div style="width:50px; height:50px; background:#f5dbe6; border-radius:5px; display:flex; align-items:center; justify-content:center; color:#b14d80;"><i class="fa-solid fa-image"></i></div>`
+                        }
+                    </td>
                     <td>${escapeHtml(data.name)}</td>
                     <td>${escapeHtml(data.role)}</td>
                     <td class="actions-col">
