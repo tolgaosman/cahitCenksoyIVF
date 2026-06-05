@@ -150,6 +150,18 @@ body::before {
     animation: bgShift 24s ease-in-out infinite;
 }
 
+/* Faint medical-cross texture layered over the ambient wash (subtle, not busy) */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23b14d80' stroke-opacity='0.10' stroke-width='1.4'%3E%3Cpath d='M32 18h8v10h10v8H40v10h-8V36H22v-8h10z'/%3E%3C/g%3E%3Ccircle cx='6' cy='6' r='1.1' fill='%23b14d80' fill-opacity='0.10'/%3E%3Ccircle cx='66' cy='54' r='1.1' fill='%23b14d80' fill-opacity='0.08'/%3E%3C/svg%3E");
+    background-size: 72px 72px;
+}
+
 @keyframes bgShift {
     0%, 100% { background-position: 0% 0%; }
     50%      { background-position: 100% 100%; }
@@ -167,7 +179,36 @@ img { max-width: 100%; }
     position: relative;
 }
 
-.bg-light { background-color: var(--bg-light); }
+/* Tinted band that fades into the surrounding sections instead of hard edges.
+   Uses a semi-transparent tint so the ambient wash + cross texture show through,
+   and soft top/bottom gradients blend the seams. */
+.bg-light {
+    background-color: color-mix(in srgb, var(--bg-light) 78%, transparent);
+    position: relative;
+}
+.bg-light::before,
+.bg-light::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    height: 90px;
+    pointer-events: none;
+    z-index: 0;
+}
+.bg-light::before {
+    top: 0;
+    background: linear-gradient(to bottom,
+        color-mix(in srgb, var(--bg-light) 0%, transparent),
+        color-mix(in srgb, var(--bg-light) 78%, transparent));
+}
+.bg-light::after {
+    bottom: 0;
+    background: linear-gradient(to top,
+        color-mix(in srgb, var(--bg-light) 0%, transparent),
+        color-mix(in srgb, var(--bg-light) 78%, transparent));
+}
+/* keep real content above the fade layers */
+.bg-light > * { position: relative; z-index: 1; }
 .text-center { text-align: center; }
 .w-100 { width: 100%; }
 
@@ -318,28 +359,42 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
 .nav-links li { position: relative; }
 
 .nav-links a {
-    font-size: clamp(0.72rem, 0.82vw, 0.85rem);
+    font-size: clamp(0.8rem, 0.9vw, 0.95rem);
     font-weight: 600;
     color: var(--text-main);
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
+    text-transform: none;
+    letter-spacing: 0;
     white-space: nowrap;
-    padding: 10px clamp(6px, 0.7vw, 12px);
-    border-radius: 50px;
-    transition: var(--transition);
+    padding: 8px clamp(6px, 0.7vw, 12px) 6px;
+    border-radius: 0;
+    transition: color 0.25s ease;
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    position: relative;
 }
-.nav-links a:hover { color: var(--accent); background: var(--bg-soft); }
-
-/* active link pill */
-.nav-link--active {
-    color: var(--accent) !important;
-    background: var(--grad-soft);
+/* underline-on-hover (no pill) */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: clamp(6px, 0.7vw, 12px);
+    right: clamp(6px, 0.7vw, 12px);
+    bottom: 0;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--grad-cta);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s var(--ease-out);
 }
+.nav-links a:hover { color: var(--accent); background: none; }
+.nav-links a:hover::after { transform: scaleX(1); }
 
-.nav-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; padding-inline-end: 24px; }
+/* active link: persistent underline */
+.nav-link--active { color: var(--accent) !important; background: none; }
+.nav-link--active::after { transform: scaleX(1); }
+
+.nav-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
 
 /* Dropdowns */
 .dropdown-menu {
@@ -838,11 +893,27 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
 }
 
 /* ---------- Google Translate UI hide ---------- */
-.goog-te-banner-frame, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
-.goog-te-gadget { font-size: 0 !important; }
-.skiptranslate { display: none !important; }
-body { top: 0 !important; }
+/* Hide every piece of Google Translate's own UI (we drive it from our own menu) */
+.goog-te-banner-frame,
+.goog-te-balloon-frame,
+#goog-gt-tt,
+.goog-te-spinner-pos,
+.goog-tooltip,
+.goog-tooltip:hover,
+#google_translate_element { display: none !important; }
+.goog-te-gadget { font-size: 0 !important; height: 0 !important; overflow: hidden !important; }
+.goog-te-gadget .goog-te-combo { display: none !important; }
+/* The top banner iframe is wrapped in .skiptranslate — keep it hidden and
+   stop Google from pushing the page down. */
+iframe.skiptranslate, .skiptranslate { display: none !important; }
+body { top: 0 !important; position: static !important; }
+.goog-text-highlight { background: none !important; box-shadow: none !important; }
 .ltr-text { direction: ltr !important; display: inline-block; }
+
+/* Country-flag emojis in the language menu/button use the Twemoji polyfill font */
+.lang-btn, .lang-selector .dropdown-menu a, #currentLangText {
+    font-family: "Twemoji Country Flags", var(--font-body);
+}
 
 /* ---------- Toast ---------- */
 .custom-toast {

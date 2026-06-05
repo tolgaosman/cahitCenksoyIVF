@@ -19,35 +19,34 @@ const flags = {
     fr: '🇫🇷'
 };
 
-function changeLanguage(langCode) {
-    localStorage.setItem('lang', langCode);
-
-    // Set googtrans cookie for Google Translate
-    const domain = window.location.hostname === 'localhost' ? '' : '.' + window.location.hostname;
-    document.cookie = `googtrans=/tr/${langCode}; path=/;`;
-    if (domain) {
-        document.cookie = `googtrans=/tr/${langCode}; path=/; domain=${domain}`;
+// Write the googtrans cookie that Google Translate reads to auto-translate.
+// Set it for every relevant scope so it survives a reload on localhost and prod.
+function setGoogtransCookie(langCode) {
+    const value = `/tr/${langCode}`;
+    // path-only (works on localhost and any host)
+    document.cookie = `googtrans=${value}; path=/;`;
+    // host-scoped + dot-domain (needed by Google Translate on real domains)
+    const host = window.location.hostname;
+    if (host && host !== 'localhost' && !/^[0-9.]+$/.test(host)) {
+        document.cookie = `googtrans=${value}; path=/; domain=${host}`;
+        document.cookie = `googtrans=${value}; path=/; domain=.${host}`;
     }
+}
 
-    // Try to use Google Translate widget combo box
-    const select = document.querySelector('.goog-te-combo');
-    if (select) {
-        select.value = langCode;
-        select.dispatchEvent(new Event('change'));
+function clearGoogtransCookie() {
+    const past = 'expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    const host = window.location.hostname;
+    document.cookie = `googtrans=; path=/; ${past}`;
+    if (host && host !== 'localhost') {
+        document.cookie = `googtrans=; path=/; domain=${host}; ${past}`;
+        document.cookie = `googtrans=; path=/; domain=.${host}; ${past}`;
     }
+}
 
-    // Update language button text with dynamic flag emoji
-    const currentLangText = document.getElementById('currentLangText');
-    if (currentLangText) {
-        const flag = flags[langCode] || '🇹🇷';
-        currentLangText.innerText = `${flag} ${langCode.toUpperCase()}`;
-    }
-
-    // Handle RTL for Arabic and Persian
+// Apply layout direction (RTL/LTR) + per-language body class.
+function applyLangDirection(langCode) {
     document.body.classList.remove('lang-ru');
-    if (langCode === 'ru') {
-        document.body.classList.add('lang-ru');
-    }
+    if (langCode === 'ru') document.body.classList.add('lang-ru');
     if (langCode === 'ar' || langCode === 'fa') {
         document.documentElement.dir = 'rtl';
         document.body.classList.add('rtl');
@@ -55,31 +54,60 @@ function changeLanguage(langCode) {
         document.documentElement.dir = 'ltr';
         document.body.classList.remove('rtl');
     }
+}
 
-    // Close language dropdown
+function updateLangButton(langCode) {
+    const el = document.getElementById('currentLangText');
+    if (el) el.innerText = `${flags[langCode] || '🇹🇷'} ${langCode.toUpperCase()}`;
+}
+
+// Try to drive Google Translate's hidden <select> directly; returns true if it worked.
+function applyViaCombo(langCode) {
+    const select = document.querySelector('.goog-te-combo');
+    if (!select) return false;
+    select.value = langCode;
+    select.dispatchEvent(new Event('change'));
+    return true;
+}
+
+function changeLanguage(langCode) {
+    localStorage.setItem('lang', langCode);
+    updateLangButton(langCode);
+    applyLangDirection(langCode);
+
+    // Close the language dropdown
     const langSelector = document.querySelector('.lang-selector');
     if (langSelector) langSelector.classList.remove('active');
 
-    // If Google Translate widget isn't loaded yet, reload to apply
-    if (!select) location.reload();
+    // Turkish = original page → clear cookie and reload to remove any translation.
+    if (langCode === 'tr') {
+        clearGoogtransCookie();
+        location.reload();
+        return;
+    }
+
+    setGoogtransCookie(langCode);
+
+    // Preferred path: drive the widget's combo box live (no reload).
+    if (applyViaCombo(langCode)) return;
+
+    // Widget not ready yet: poll briefly for it, then fall back to a reload
+    // (the cookie is already set, so the reloaded page auto-translates).
+    let tries = 0;
+    const timer = setInterval(() => {
+        if (applyViaCombo(langCode)) { clearInterval(timer); return; }
+        if (++tries >= 20) { clearInterval(timer); location.reload(); }
+    }, 100);
 }
 
-// Restore saved language on page load
+// Restore saved language on page load: re-assert the cookie + button + direction
+// so the chosen language persists across navigation and reloads.
 document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('lang') || 'tr';
-    const currentLangText = document.getElementById('currentLangText');
-    if (currentLangText) {
-        const flag = flags[savedLang] || '🇹🇷';
-        currentLangText.innerText = `${flag} ${savedLang.toUpperCase()}`;
-    }
+    updateLangButton(savedLang);
     if (savedLang !== 'tr') {
-        if (savedLang === 'ru') {
-            document.body.classList.add('lang-ru');
-        }
-        if (savedLang === 'ar' || savedLang === 'fa') {
-            document.documentElement.dir = 'rtl';
-            document.body.classList.add('rtl');
-        }
+        setGoogtransCookie(savedLang);
+        applyLangDirection(savedLang);
     }
 });
 
@@ -188,22 +216,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // --- Navbar Scroll Logic ---
-let lastScroll = 0;
+// Navbar stays pinned at all times (no hide-on-scroll). It only gets a
+// slight shrink + shadow via the `.scrolled` class once the page moves.
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    navbar?.classList.toggle('scrolled', currentScroll > 10);
-    if (currentScroll <= 0) {
-        navbar?.classList.remove('navbar--hidden');
-        return;
-    }
-    if (currentScroll > lastScroll && !navbar?.classList.contains('navbar--hidden')) {
-        navbar?.classList.add('navbar--hidden');
-    } else if (currentScroll < lastScroll && navbar?.classList.contains('navbar--hidden')) {
-        navbar?.classList.remove('navbar--hidden');
-    }
-    lastScroll = currentScroll;
-});
+    navbar?.classList.toggle('scrolled', window.pageYOffset > 10);
+}, { passive: true });
 
 // --- Process Modal Logic ---
 function openProcessModal(step) {
