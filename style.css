@@ -839,9 +839,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
     border-top: 1px solid var(--border-color);
     position: relative;
 }
-.footer-container { display: flex; flex-wrap: wrap; gap: 60px; }
-.footer-left { flex: 1; min-width: 300px; }
-.footer-right { flex: 2; min-width: 300px; }
+.footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; }
+.footer-left { flex: 0 1 auto; min-width: 300px; max-width: 400px; }
+.footer-right { flex: 0 1 auto; min-width: 400px; }
 .hospital-name { color: var(--text-muted); margin-top: 6px; }
 .contact-title { color: var(--accent); margin-bottom: 24px; font-size: 1.1rem; letter-spacing: 0.04em; }
 .contact-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
