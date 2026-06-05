@@ -194,21 +194,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent-2);
-    padding: 8px 18px;
-    border-radius: var(--radius-pill);
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(var(--blur));
-    box-shadow: var(--shadow-sm);
     margin-bottom: 20px;
-}
-
-[data-theme="dark"] .eyebrow {
-    background: transparent;
-    border-color: transparent;
-    box-shadow: none;
-    backdrop-filter: none;
-    padding: 0;
 }
 
 .section-header { text-align: center; margin-bottom: 55px; max-width: 720px; margin-left: auto; margin-right: auto; }
@@ -296,45 +282,36 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
 }
 .btn-outline-white:hover { background: #fff; color: var(--accent); transform: translateY(-2px); }
 
-/* ---------- Navigation (glass) ---------- */
+/* ---------- Navigation (full-width, light, fixed) ---------- */
 .navbar {
-    height: 86px;
-    background: transparent;
+    height: 84px;
+    background: var(--nav-bg);
+    backdrop-filter: saturate(160%) blur(10px);
+    -webkit-backdrop-filter: saturate(160%) blur(10px);
     display: flex;
     align-items: center;
     position: fixed;
-    top: 16px; left: 0;
+    top: 0; left: 0;
     width: 100%;
     z-index: 9999;
-    border-bottom: none;
-    transition: transform 0.35s var(--ease-out), top 0.3s ease, height 0.3s ease;
+    border-bottom: 1px solid color-mix(in srgb, var(--border-color) 50%, transparent);
+    transition: height 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
-/* Medura floating pill bar = the inner container */
-.navbar .nav-container {
-    background: var(--nav-bg);
-    backdrop-filter: blur(var(--blur));
-    -webkit-backdrop-filter: blur(var(--blur));
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-pill);
-    box-shadow: var(--shadow-md);
-    max-width: 1240px;
-    height: 68px;
-    padding: 0 14px 0 8px;
-    transition: var(--transition);
+/* Stays pinned — no hide-on-scroll. Only a slight shrink + faint shadow when scrolled. */
+.navbar.scrolled {
+    height: 70px;
+    box-shadow: var(--shadow-sm);
 }
-.navbar.scrolled { top: 8px; }
-.navbar.scrolled .nav-container { box-shadow: var(--shadow-lg); height: 62px; }
-.navbar--hidden { transform: translateY(-120%); }
 
 .nav-container {
-    min-width: 0; width: calc(100% - 32px);
-    margin: 0 auto;
+    min-width: 0; width: 100%; max-width: 1280px;
+    margin: 0 auto; padding: 0 28px;
     display: flex; justify-content: space-between; align-items: center;
 }
 
 .logo { flex-shrink: 0; display: flex; align-items: center; }
-#navLogo { max-height: 48px; width: auto; display: block; padding-inline-start: 18px; transition: max-height 0.3s ease; }
-.navbar.scrolled #navLogo { max-height: 42px; }
+#navLogo { max-height: 52px; width: auto; display: block; transition: max-height 0.3s ease; }
+.navbar.scrolled #navLogo { max-height: 44px; }
 
 .nav-center { flex: 1; display: flex; justify-content: center; }
 .nav-links { display: flex; align-items: center; gap: clamp(12px, 1.8vw, 28px); }
