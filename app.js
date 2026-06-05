@@ -122,9 +122,11 @@ function initTheme() {
         });
     }
 
+    // Default to the light (Medura) theme; only go dark when the user has
+    // explicitly chosen it before. We no longer auto-opt-in from the OS
+    // preference so first-time visitors always see the light brand design.
     const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isDark = savedTheme === 'dark' || (savedTheme === null && prefersDark);
+    const isDark = savedTheme === 'dark';
     setTheme(isDark);
 }
 
