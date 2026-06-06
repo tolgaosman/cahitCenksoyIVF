@@ -3,10 +3,10 @@
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## What this is
-Static marketing site for **Dr. Cahit Cenksoy's IVF / fertility clinic** (Lefkoşa/Girne, North Cyprus). Plain HTML + CSS + vanilla JS, **no build step, no package manager** — files are deployed as-is. Primary content language is **Turkish**; other languages are produced at runtime by Google Translate.
+Static marketing site for **Dr. Cahit Cenksoy's IVF / fertility clinic** (Lefkoşa/Girne, North Cyprus). Plain HTML + CSS + vanilla JS, **no build step, no package manager** — files are deployed as-is. The site is **single-language (Turkish)** — there is no translation layer (the former Google Translate integration was removed).
 
 ## Running / previewing
-There is no build or test suite. Serve the folder over HTTP (not `file://`) so Firebase and Google Translate load:
+There is no build or test suite. Serve the folder over HTTP (not `file://`) so Firebase loads:
 ```
 npx serve .        # or any static server on the repo root
 ```
@@ -29,19 +29,18 @@ Script order on every page:
 <script src="components.js"></script>
 <script src="translations.js"></script>   <!-- procDescriptions for the process modal -->
 <script src="app.js"></script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 ```
 
 ### `app.js` is the wiring layer
-Theme toggle (light/dark via `data-theme` on `<html>` + localStorage; swaps `siyahLogo↔beyazLogo` and `cahitSignature↔cahitSignature_white`), language switching, navbar hide-on-scroll + `.scrolled` shrink, mobile menu / dropdowns (event delegation on `document`), the process modal (`openProcessModal`/`closeProcessModal` reading `procDescriptions`), the team carousel, the toast utility, and the **motion layer** (IntersectionObserver scroll-reveal for `.reveal`, count-up for `[data-count]`, both disabled under `prefers-reduced-motion`).
+Theme toggle (light/dark via `data-theme` on `<html>` + localStorage; swaps `siyahLogo↔beyazLogo` and `cahitSignature↔cahitSignature_white`), navbar hide-on-scroll + `.scrolled` shrink, mobile menu / dropdowns (event delegation on `document`), the process modal (`openProcessModal`/`closeProcessModal` reading `procDescriptions`), the team carousel, the toast utility, and the **motion layer** (IntersectionObserver scroll-reveal for `.reveal`, count-up for `[data-count]`, both disabled under `prefers-reduced-motion`).
 
-**IDs/classes that `app.js` and inline page scripts depend on — keep them when restyling:** `navbar`, `navLogo`, `footerLogo`, `cahitSignature`, `themeToggle`, `currentLang`, `currentLangText`, `mobileToggle`, `.nav-links`, `.lang-selector`, `.dropdown`, `teamCarousel`, `teamPrev`, `teamNext`, `processModal`, `modalTitle`, `modalDescription`.
+**IDs/classes that `app.js` and inline page scripts depend on — keep them when restyling:** `navbar`, `navLogo`, `footerLogo`, `cahitSignature`, `themeToggle`, `mobileToggle`, `.nav-links`, `.dropdown`, `teamCarousel`, `teamPrev`, `teamNext`, `processModal`, `modalTitle`, `modalDescription`.
 
 ### Design system — `style.css` (v4.0, "Modern & Dynamic")
 Theming is driven entirely by CSS custom properties on `:root` and `[data-theme="dark"]`. Brand pink (`--primary-color: #f8c8dc`) is preserved; a complementary plum accent (`--accent: #6d2c4f`, `--accent-2: #b14d80`), lavender/peach, neutral creams, gradient tokens (`--grad-cta`, `--grad-text`, `--grad-soft`…), and glass tokens (`--glass-bg`, `--blur`) were added. **Style via these tokens, not hard-coded colors**, so both themes stay correct. Reusable building blocks: `.glass`, `.gradient-text`, `.eyebrow`, `.section-header`/`.header-line`, `.btn`/`.btn-primary`/`.btn-secondary`, `.card`-like section grids, and `.reveal[data-delay="1..4"]` for staggered entrance animations. An animated ambient gradient lives on `body::before`.
 
-### i18n via Google Translate (not a key system)
-`data-i18n="..."` attributes are inert markers; actual translation is done by the Google Translate widget driven by a `googtrans` cookie set in `changeLanguage()` (`app.js`). CSS hides the Google banner (`.goog-te-*`, `.skiptranslate`) and compresses nav spacing for longer languages (`html.translated-ltr`, `body.lang-ru`). Arabic/Persian toggle RTL. Translated nodes injected by JS (team cards, chrome) are picked up because Translate uses a MutationObserver — so dynamic markup is fine.
+### No i18n / translation layer
+The site is Turkish-only. The former Google Translate integration (the language dropdown, the `element.js` widget script, the `googtrans` cookie logic in `app.js`, `data-i18n` markers, and the `.goog-te-*`/`.skiptranslate`/`lang-ru` CSS) has been fully removed. Do not re-add a translation system unless explicitly requested.
 
 ### Dynamic data — Firebase
 `index.html` and `team.html` load team members from **Firestore** (`collection "team"`, `orderBy("sortOrder")`) via an inline ES-module script and render `.team-card`s. `admin-panel.html` + `admin-firebase.js` manage that content (separate dark/peach admin theme — out of scope for the public redesign). The Firebase web config/apiKey is intentionally client-side.
