@@ -531,7 +531,7 @@
 
             <!-- Recent Posts Widget -->
             <div class="widget-card">
-                <h3 class="widget-title" data-i18n="blogWidgetRecentTitle">DİÄER YAZILAR</h3>
+                <h3 class="widget-title" data-i18n="blogWidgetRecentTitle">DİĞER YAZILAR</h3>
                 <div class="recent-posts-list" id="recentPostsList">
                     <p style="color:var(--text-muted); font-size:0.9rem;">Yükleniyor...</p>
                 </div>
@@ -539,7 +539,7 @@
 
             <!-- Contact/Randevu Form Widget -->
             <div class="widget-card">
-                <h3 class="widget-title" data-i18n="blogWidgetContactTitle">İLETİÅİM & RANDEVU</h3>
+                <h3 class="widget-title" data-i18n="blogWidgetContactTitle">İLETİŞİM & RANDEVU</h3>
                 <div id="contactFormError" class="error-message" data-i18n="contactError">Lütfen zorunlu alanları doldurun.</div>
                 <div id="contactFormSuccess" class="success-message" data-i18n="contactSuccess">Tebrikler! Mesajınız başarıyla iletildi. En kısa sürede sizinle iletişime geçeceğiz.</div>
                 
@@ -624,9 +624,9 @@
                 const text = (post.title + " " + (post.summary || "")).toLowerCase();
                 let tag = "TÜP BEBEK";
                 if (text.includes("bağış") || text.includes("donasyon") || text.includes("sperm") || text.includes("yumurta") || text.includes("kıbrıs") || text.includes("donation")) {
-                    tag = "KIBRIS BAÄIÅ";
+                    tag = "KIBRIS BAĞIŞ";
                 } else if (text.includes("sağlık") || text.includes("yaşam") || text.includes("beslenme") || text.includes("spor") || text.includes("diyet") || text.includes("lifestyle") || text.includes("yaş")) {
-                    tag = "SAÄLIK & YAÅAM";
+                    tag = "SAĞLIK & YAŞAM";
                 }
 
                 document.getElementById('postCategoryBadge').innerText = tag;
@@ -807,6 +807,6 @@
     <!-- Google Translate Script -->
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="components.js"></script>
-    <script src="app.js?v=5.1"></script>
+    <script src="app.js?v=5.2"></script>
 </body>
 </html>
