@@ -1,4 +1,4 @@
-﻿/* =====================================================================
+/* =====================================================================
    Shared site chrome (navbar + footer) — single source of truth.
    Injected into <div id="site-header"></div> and <div id="site-footer"></div>.
    Load this BEFORE app.js. Injection runs synchronously on script eval,
@@ -56,12 +56,16 @@
         '<div class="logo"><a href="index.html"><img src="siyahLogo.png" alt="Dr. Cahit Cenksoy" id="navLogo"></a></div>' +
         '<div class="nav-center"><ul class="nav-links">' + buildNavLinks() + '</ul></div>' +
         '<div class="nav-right">' +
-        '<div id="google_translate_element"></div>' +
         '<div class="lang-selector notranslate">' +
         '<button class="lang-btn" id="currentLang" aria-label="Dil / Language"><span id="currentLangFlag" class="lang-flag">🇹🇷</span></button>' +
         '<ul class="dropdown-menu lang-menu">' +
         '<li><a href="javascript:void(0)" class="lang-option" data-lang="tr"><span class="lang-flag">🇹🇷</span></a></li>' +
         '<li><a href="javascript:void(0)" class="lang-option" data-lang="en"><span class="lang-flag">🇺🇸</span></a></li>' +
+        '<li><a href="javascript:void(0)" class="lang-option" data-lang="ru"><span class="lang-flag">🇷🇺</span></a></li>' +
+        '<li><a href="javascript:void(0)" class="lang-option" data-lang="de"><span class="lang-flag">🇩🇪</span></a></li>' +
+        '<li><a href="javascript:void(0)" class="lang-option" data-lang="fr"><span class="lang-flag">🇫🇷</span></a></li>' +
+        '<li><a href="javascript:void(0)" class="lang-option" data-lang="ar"><span class="lang-flag">🇸🇦</span></a></li>' +
+        '<li><a href="javascript:void(0)" class="lang-option" data-lang="fa"><span class="lang-flag">🇮🇷</span></a></li>' +
         '</ul>' +
         '</div>' +
         '<button id="themeToggle" class="theme-toggle"><i class="fa-solid fa-moon"></i></button>' +

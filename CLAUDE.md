@@ -29,7 +29,6 @@ Script order on every page:
 <script src="components.js"></script>
 <script src="translations.js"></script>   <!-- procDescriptions for the process modal -->
 <script src="app.js"></script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 ```
 
 ### `app.js` is the wiring layer
