@@ -150,16 +150,16 @@ body::before {
     animation: bgShift 24s ease-in-out infinite;
 }
 
-/* Faint medical-cross texture layered over the ambient wash (subtle, not busy) */
+/* Faint IVF / DNA themed texture layered over the ambient wash */
 body::after {
     content: '';
     position: fixed;
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    opacity: 0.5;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23b14d80' stroke-opacity='0.10' stroke-width='1.4'%3E%3Cpath d='M32 18h8v10h10v8H40v10h-8V36H22v-8h10z'/%3E%3C/g%3E%3Ccircle cx='6' cy='6' r='1.1' fill='%23b14d80' fill-opacity='0.10'/%3E%3Ccircle cx='66' cy='54' r='1.1' fill='%23b14d80' fill-opacity='0.08'/%3E%3C/svg%3E");
-    background-size: 72px 72px;
+    opacity: 0.38;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cstyle%3E.s%7Bfill:none;stroke:%23b14d80;stroke-linecap:round%7D%3C/style%3E%3C/defs%3E%3C!-- DNA double helix fragment --%3E%3Cpath class='s' stroke-opacity='0.12' stroke-width='1.2' d='M18 10 C24 20, 12 30, 18 40 C24 50, 12 60, 18 70'/%3E%3Cpath class='s' stroke-opacity='0.12' stroke-width='1.2' d='M26 10 C20 20, 32 30, 26 40 C20 50, 32 60, 26 70'/%3E%3C!-- helix rungs --%3E%3Cline class='s' stroke-opacity='0.08' stroke-width='0.8' x1='19' y1='15' x2='25' y2='15'/%3E%3Cline class='s' stroke-opacity='0.08' stroke-width='0.8' x1='15' y1='25' x2='29' y2='25'/%3E%3Cline class='s' stroke-opacity='0.08' stroke-width='0.8' x1='19' y1='35' x2='25' y2='35'/%3E%3Cline class='s' stroke-opacity='0.08' stroke-width='0.8' x1='15' y1='45' x2='29' y2='45'/%3E%3Cline class='s' stroke-opacity='0.08' stroke-width='0.8' x1='19' y1='55' x2='25' y2='55'/%3E%3Cline class='s' stroke-opacity='0.08' stroke-width='0.8' x1='15' y1='65' x2='29' y2='65'/%3E%3C!-- Embryo cell cluster (morula) --%3E%3Ccircle cx='75' cy='35' r='8' fill='none' stroke='%23b14d80' stroke-opacity='0.10' stroke-width='1'/%3E%3Ccircle cx='72' cy='32' r='3.5' fill='%23b14d80' fill-opacity='0.04'/%3E%3Ccircle cx='78' cy='32' r='3.5' fill='%23b14d80' fill-opacity='0.04'/%3E%3Ccircle cx='75' cy='38' r='3.5' fill='%23b14d80' fill-opacity='0.04'/%3E%3Ccircle cx='69' cy='37' r='2.5' fill='%23b14d80' fill-opacity='0.03'/%3E%3C!-- Sperm cell silhouette --%3E%3Cellipse cx='95' cy='88' rx='3' ry='3.8' fill='%23b14d80' fill-opacity='0.07'/%3E%3Cpath class='s' stroke-opacity='0.09' stroke-width='1' d='M95 92 C93 97, 97 102, 94 108'/%3E%3C!-- Tiny secondary cell --%3E%3Ccircle cx='50' cy='100' r='5' fill='none' stroke='%23b14d80' stroke-opacity='0.06' stroke-width='0.8'/%3E%3Ccircle cx='50' cy='100' r='2' fill='%23b14d80' fill-opacity='0.04'/%3E%3C/svg%3E");
+    background-size: 120px 120px;
 }
 
 @keyframes bgShift {
@@ -471,18 +471,19 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
     align-items: center;
     padding: 150px 0 80px;
     overflow: hidden;
-    background: var(--grad-hero);
+    /* hero now transparent — inherits the global body::before gradient wash */
+    background: transparent;
 }
-/* Medura faint medical-cross field behind the hero */
+/* Faint IVF-themed pattern field behind the hero */
 .hero::before {
     content: '';
     position: absolute;
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.5;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath d='M28 14h8v10h10v8H36v10h-8V32H18v-8h10z' fill='%23ffffff' fill-opacity='0.45'/%3E%3C/svg%3E");
-    background-size: 64px 64px;
+    opacity: 0.45;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cdefs%3E%3Cstyle%3E.w%7Bfill:none;stroke:white;stroke-linecap:round%7D%3C/style%3E%3C/defs%3E%3C!-- DNA helix --%3E%3Cpath class='w' stroke-opacity='0.35' stroke-width='1.2' d='M15 5 C22 15, 8 25, 15 35 C22 45, 8 55, 15 65'/%3E%3Cpath class='w' stroke-opacity='0.35' stroke-width='1.2' d='M25 5 C18 15, 32 25, 25 35 C18 45, 32 55, 25 65'/%3E%3Cline class='w' stroke-opacity='0.2' stroke-width='0.7' x1='16' y1='10' x2='24' y2='10'/%3E%3Cline class='w' stroke-opacity='0.2' stroke-width='0.7' x1='11' y1='20' x2='29' y2='20'/%3E%3Cline class='w' stroke-opacity='0.2' stroke-width='0.7' x1='16' y1='30' x2='24' y2='30'/%3E%3Cline class='w' stroke-opacity='0.2' stroke-width='0.7' x1='11' y1='40' x2='29' y2='40'/%3E%3Cline class='w' stroke-opacity='0.2' stroke-width='0.7' x1='16' y1='50' x2='24' y2='50'/%3E%3Cline class='w' stroke-opacity='0.2' stroke-width='0.7' x1='11' y1='60' x2='29' y2='60'/%3E%3C!-- Embryo cell --%3E%3Ccircle cx='68' cy='30' r='12' fill='none' stroke='white' stroke-opacity='0.18' stroke-width='1'/%3E%3Ccircle cx='64' cy='27' r='5' fill='white' fill-opacity='0.06'/%3E%3Ccircle cx='72' cy='27' r='5' fill='white' fill-opacity='0.06'/%3E%3Ccircle cx='68' cy='34' r='5' fill='white' fill-opacity='0.06'/%3E%3C!-- Sperm --%3E%3Cellipse cx='80' cy='75' rx='3' ry='4' fill='white' fill-opacity='0.12'/%3E%3Cpath class='w' stroke-opacity='0.15' stroke-width='0.9' d='M80 79 C78 84, 82 89, 79 95'/%3E%3C/svg%3E");
+    background-size: 100px 100px;
     -webkit-mask-image: radial-gradient(ellipse 80% 70% at 70% 35%, #000 0%, transparent 75%);
             mask-image: radial-gradient(ellipse 80% 70% at 70% 35%, #000 0%, transparent 75%);
 }
@@ -524,7 +525,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
 }
 .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* Glossy 3D spheres (Medura decoration) — reuse .hero-blob markup */
+/* Glossy 3D spheres (Medura decoration) */
 .hero-blob {
     position: absolute;
     border-radius: 50%;
@@ -554,9 +555,79 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
     bottom: -34px; left: -42px; animation-delay: -3s;
 }
 
+/* ── Page-wide decorative spheres ── */
+.deco-sphere {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+    animation: float 8s ease-in-out infinite;
+    box-shadow: inset -12px -14px 34px rgba(150, 70, 110, 0.22),
+                inset 10px 12px 28px rgba(255, 255, 255, 0.80),
+                0 18px 40px rgba(109, 44, 79, 0.10);
+}
+.deco-sphere::after {
+    content: '';
+    position: absolute;
+    top: 16%; left: 20%;
+    width: 34%; height: 26%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.90), transparent 70%);
+    filter: blur(1.5px);
+}
+/* Pink sphere variants */
+.deco-sphere.pink-sm {
+    width: 70px; height: 70px;
+    background: radial-gradient(circle at 30% 26%, #fff 0%, #fde4ee 28%, #f3a9cb 72%, #e58bb6 100%);
+}
+.deco-sphere.pink-md {
+    width: 110px; height: 110px;
+    background: radial-gradient(circle at 32% 28%, #fff 0%, #fbd9e7 30%, #f3a9cb 75%, #e58bb6 100%);
+}
+.deco-sphere.pink-lg {
+    width: 160px; height: 160px;
+    background: radial-gradient(circle at 32% 28%, #fff 0%, #fbd9e7 30%, #f3a9cb 75%, #e58bb6 100%);
+}
+/* Lavender sphere variants */
+.deco-sphere.lav-sm {
+    width: 60px; height: 60px;
+    background: radial-gradient(circle at 30% 26%, #fff 0%, #f0e6fb 30%, #cdb8f0 75%, #b9a3e6 100%);
+}
+.deco-sphere.lav-md {
+    width: 100px; height: 100px;
+    background: radial-gradient(circle at 32% 28%, #fff 0%, #efe2fb 32%, #cdb8f0 78%, #b9a3e6 100%);
+}
+.deco-sphere.lav-lg {
+    width: 140px; height: 140px;
+    background: radial-gradient(circle at 32% 28%, #fff 0%, #efe2fb 32%, #cdb8f0 78%, #b9a3e6 100%);
+}
+/* Peach sphere variant */
+.deco-sphere.peach-sm {
+    width: 55px; height: 55px;
+    background: radial-gradient(circle at 30% 26%, #fff 0%, #fde7d9 30%, #f9c9a8 72%, #e8a87a 100%);
+}
+.deco-sphere.peach-md {
+    width: 90px; height: 90px;
+    background: radial-gradient(circle at 32% 28%, #fff 0%, #fde7d9 30%, #f9c9a8 72%, #e8a87a 100%);
+}
+
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50%      { transform: translateY(-18px); }
+}
+/* Slightly different timing for variety */
+@keyframes floatSlow {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50%      { transform: translateY(-14px) rotate(4deg); }
+}
+@keyframes floatFast {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-22px); }
+}
+
+/* Hide page spheres on very small screens to avoid clutter */
+@media (max-width: 768px) {
+    .deco-sphere { display: none; }
 }
 
 /* floating stat card (Medura) — reuse .hero-badge markup */

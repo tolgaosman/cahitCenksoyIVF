@@ -370,3 +370,75 @@ function showToast(message, iconClass = 'fa-solid fa-circle-check') {
     }
 })();
 
+// --- Decorative page-wide floating spheres ---
+// Injects glossy CSS spheres into sections across the page for visual richness.
+(function initDecoSpheres() {
+    // Blueprint: array of sphere configs to inject into various sections.
+    // Each entry: { parentSelector, class, style (CSS text), animDelay }
+    const spheres = [
+        // About section
+        { parent: '#about',      cls: 'pink-sm',  style: 'top:60px; right:-30px; opacity:0.55;',        delay: '-1s' },
+        { parent: '#about',      cls: 'lav-md',   style: 'bottom:40px; left:-50px; opacity:0.4;',       delay: '-4s' },
+        { parent: '#about',      cls: 'peach-sm',  style: 'top:45%; right:5%; opacity:0.35;',           delay: '-6s' },
+
+        // Treatments / services section
+        { parent: '#treatments', cls: 'lav-sm',    style: 'top:-20px; left:4%; opacity:0.5;',           delay: '-2s' },
+        { parent: '#treatments', cls: 'pink-md',   style: 'bottom:-40px; right:-20px; opacity:0.45;',   delay: '-5s' },
+        { parent: '#treatments', cls: 'peach-sm',  style: 'top:50%; left:-25px; opacity:0.3;',          delay: '-7s' },
+
+        // Process section
+        { parent: '#process',    cls: 'pink-sm',   style: 'top:30px; right:2%; opacity:0.45;',          delay: '-3s' },
+        { parent: '#process',    cls: 'lav-lg',    style: 'bottom:-50px; left:-40px; opacity:0.3;',     delay: '-1.5s' },
+
+        // Team section
+        { parent: '#team',       cls: 'peach-md',  style: 'top:-30px; right:-30px; opacity:0.4;',       delay: '-4.5s' },
+        { parent: '#team',       cls: 'pink-sm',   style: 'bottom:20px; left:3%; opacity:0.45;',        delay: '-2.5s' },
+
+        // Map section (uses class selector since no id)
+        { parent: '.map-section',cls: 'lav-sm',    style: 'top:20px; left:-20px; opacity:0.45;',        delay: '-6s' },
+        { parent: '.map-section',cls: 'pink-sm',   style: 'bottom:30px; right:5%; opacity:0.4;',        delay: '-3.5s' },
+
+        // Footer area
+        { parent: '.site-footer, footer', cls: 'lav-md', style: 'top:-50px; right:8%; opacity:0.3;',    delay: '-5s' },
+    ];
+
+    function inject() {
+        // Respect reduced motion
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        spheres.forEach(cfg => {
+            // Try each comma-separated selector
+            const selectors = cfg.parent.split(',').map(s => s.trim());
+            let container = null;
+            for (const sel of selectors) {
+                container = document.querySelector(sel);
+                if (container) break;
+            }
+            if (!container) return;
+
+            // Make sure parent is positioned so absolute children work
+            const pos = getComputedStyle(container).position;
+            if (pos === 'static') container.style.position = 'relative';
+
+            const el = document.createElement('div');
+            el.className = 'deco-sphere ' + cfg.cls;
+            el.style.cssText = cfg.style;
+
+            // Vary animation for organic feel
+            const animations = ['float', 'floatSlow', 'floatFast'];
+            const anim = animations[Math.floor(Math.random() * animations.length)];
+            const dur = 7 + Math.random() * 5; // 7-12s
+            el.style.animationName = anim;
+            el.style.animationDuration = dur.toFixed(1) + 's';
+            el.style.animationDelay = cfg.delay;
+
+            container.appendChild(el);
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', inject);
+    } else {
+        inject();
+    }
+})();
