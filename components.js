@@ -56,6 +56,7 @@
         '<div class="logo"><a href="index.html"><img src="siyahLogo.png" alt="Dr. Cahit Cenksoy" id="navLogo"></a></div>' +
         '<div class="nav-center"><ul class="nav-links">' + buildNavLinks() + '</ul></div>' +
         '<div class="nav-right">' +
+        '<div id="google_translate_element" style="position:absolute; width:1px; height:1px; overflow:hidden; z-index:-1; opacity:0;"></div>' +
         '<div class="lang-selector notranslate">' +
         '<button class="lang-btn" id="currentLang" aria-label="Dil / Language"><span id="currentLangFlag" class="lang-flag">🇹🇷</span></button>' +
         '<ul class="dropdown-menu lang-menu">' +

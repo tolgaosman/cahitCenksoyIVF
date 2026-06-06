@@ -357,9 +357,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
     display: flex; justify-content: space-between; align-items: center;
 }
 
-.logo { flex-shrink: 0; display: flex; align-items: center; }
-#navLogo { max-height: 68px; width: auto; display: block; transition: max-height 0.3s ease; }
-.navbar.scrolled #navLogo { max-height: 54px; }
+.logo { flex-shrink: 0; display: flex; align-items: center; padding-left: 20px; }
+#navLogo { max-height: 85px; width: auto; display: block; transition: max-height 0.3s ease; }
+.navbar.scrolled #navLogo { max-height: 65px; }
 
 .nav-center { flex: 1; display: flex; justify-content: center; }
 .nav-links { display: flex; align-items: center; gap: clamp(12px, 1.8vw, 28px); }
@@ -572,6 +572,21 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
 }
 
 /* ── Page-wide decorative spheres ── */
+/* Full-document overlay that hosts the randomly scattered hero spheres.
+   Sits behind all content (z-index 0, content sits above on its own stacking
+   contexts) and never intercepts clicks. JS sizes/positions each sphere. */
+.deco-sphere-layer {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    /* height is set in JS to the full document height (CSS % would only be one
+       viewport tall on an absolutely-positioned element). */
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+.deco-sphere-layer .deco-sphere { position: absolute; }
+
 .deco-sphere {
     position: absolute;
     border-radius: 50%;
