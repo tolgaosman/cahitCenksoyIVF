@@ -531,9 +531,10 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
     border-radius: 50%;
     z-index: 1;
     animation: float 8s ease-in-out infinite;
+    /* softened outer shadow so the faded gradient edge isn't re-sharpened */
     box-shadow: inset -18px -22px 50px rgba(150, 70, 110, 0.28),
                 inset 14px 16px 40px rgba(255, 255, 255, 0.85),
-                var(--shadow-lg);
+                0 20px 44px rgba(109, 44, 79, 0.08);
 }
 .hero-blob::after {
     content: '';
@@ -546,12 +547,12 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
 }
 .hero-blob.b1 {
     width: 200px; height: 200px;
-    background: radial-gradient(circle at 32% 28%, #ffffff 0%, #fbd9e7 30%, #f3a9cb 75%, #e58bb6 100%);
+    background: radial-gradient(circle at 32% 28%, #ffffff 0%, #fbd9e7 28%, #f3a9cb 60%, rgba(229,139,182,0.55) 82%, rgba(229,139,182,0) 100%);
     top: -46px; right: 10px;
 }
 .hero-blob.b2 {
     width: 140px; height: 140px;
-    background: radial-gradient(circle at 32% 28%, #ffffff 0%, #efe2fb 32%, #cdb8f0 78%, #b9a3e6 100%);
+    background: radial-gradient(circle at 32% 28%, #ffffff 0%, #efe2fb 30%, #cdb8f0 62%, rgba(185,163,230,0.55) 82%, rgba(185,163,230,0) 100%);
     bottom: -34px; left: -42px; animation-delay: -3s;
 }
 
@@ -615,6 +616,13 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
     0%, 100% { transform: translateY(0); }
     50%      { transform: translateY(-18px); }
 }
+/* Gentle multi-axis wave for the floating stat cards */
+@keyframes badgeSway {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25%      { transform: translate(2px, -6px) rotate(0.6deg); }
+    50%      { transform: translate(0, -10px) rotate(0deg); }
+    75%      { transform: translate(-2px, -6px) rotate(-0.6deg); }
+}
 /* Slightly different timing for variety */
 @keyframes floatSlow {
     0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -640,7 +648,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
     box-shadow: var(--shadow-lg);
     z-index: 4;
     display: flex; align-items: center; gap: 14px;
-    animation: float 6s ease-in-out infinite;
+    animation: badgeSway 7s ease-in-out infinite;
 }
 .hero-badge i {
     font-size: 1.1rem; color: #fff;
@@ -652,7 +660,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
 .hero-badge strong { display: block; font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; color: var(--text-main); line-height: 1; }
 .hero-badge span { font-size: 0.74rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
 .hero-badge.top { top: 40px; left: -36px; }
-.hero-badge.bottom { bottom: 44px; right: -28px; animation-delay: -2.5s; }
+.hero-badge.bottom { bottom: 44px; right: -28px; animation-duration: 8.5s; animation-delay: -2.5s; }
 
 /* ---------- Features bar (glass cards) ---------- */
 .features-bar { margin-top: -70px; position: relative; z-index: 10; }

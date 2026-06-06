@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -333,14 +333,14 @@
 <body>
 
     <!-- Toast Notification -->
-    <div id="toast" class="toast">İşlem başarılı!</div>
+    <div id="toast" class="toast">Ä°ÅŸlem baÅŸarÄ±lÄ±!</div>
 
     <!-- Login Screen -->
     <div id="login-screen">
         <div class="login-card">
             <img src="siyahLogo.png" alt="Logo" onerror="this.src='browserLogo.png'">
-            <h2 id="auth-title">Yönetim Paneli Girişi</h2>
-            <p id="auth-subtitle" style="color: #666; margin-bottom: 20px; font-size: 0.9rem;">Devam etmek için giriş yapın.</p>
+            <h2 id="auth-title">YÃ¶netim Paneli GiriÅŸi</h2>
+            <p id="auth-subtitle" style="color: #666; margin-bottom: 20px; font-size: 0.9rem;">Devam etmek iÃ§in giriÅŸ yapÄ±n.</p>
             
             <form id="login-form">
                 <div class="form-group">
@@ -348,17 +348,17 @@
                     <input type="email" id="login-email" required placeholder="admin@cahitcenksoy.com">
                 </div>
                 <div class="form-group" id="password-group">
-                    <label>Şifre</label>
-                    <input type="password" id="login-password" placeholder="••••••••">
+                    <label>Åifre</label>
+                    <input type="password" id="login-password" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢">
                 </div>
                 <p id="login-error" style="color: #e74c3c; margin-bottom: 15px; display: none; font-size: 0.9rem;"></p>
-                <button type="submit" class="btn" id="login-btn">Giriş Yap</button>
+                <button type="submit" class="btn" id="login-btn">GiriÅŸ Yap</button>
                 
                 <div style="margin-top: 15px; font-size: 0.85rem;">
-                    <a href="#" id="toggle-forgot" style="color: var(--primary); text-decoration: none;">Şifremi Unuttum</a>
+                    <a href="#" id="toggle-forgot" style="color: var(--primary); text-decoration: none;">Åifremi Unuttum</a>
                 </div>
                 <div style="margin-top: 15px; font-size: 0.85rem; display: none;" id="back-to-login-wrapper">
-                    <a href="#" id="toggle-login" style="color: #888; text-decoration: none;"><i class="fa-solid fa-arrow-left"></i> Giriş Ekranına Dön</a>
+                    <a href="#" id="toggle-login" style="color: #888; text-decoration: none;"><i class="fa-solid fa-arrow-left"></i> GiriÅŸ EkranÄ±na DÃ¶n</a>
                 </div>
             </form>
         </div>
@@ -373,12 +373,12 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#" data-target="panel-site" class="nav-item active"><i class="fa-solid fa-gear"></i> Site Bilgileri</a></li>
-                <li><a href="#" data-target="panel-team" class="nav-item"><i class="fa-solid fa-user-doctor"></i> Ekip Üyeleri</a></li>
-                <li><a href="#" data-target="panel-faq" class="nav-item"><i class="fa-solid fa-circle-question"></i> Sıkça Sorulan Sorular</a></li>
-                <li><a href="#" data-target="panel-blog" class="nav-item"><i class="fa-solid fa-newspaper"></i> Blog Yazıları</a></li>
+                <li><a href="#" data-target="panel-team" class="nav-item"><i class="fa-solid fa-user-doctor"></i> Ekip Ãœyeleri</a></li>
+                <li><a href="#" data-target="panel-faq" class="nav-item"><i class="fa-solid fa-circle-question"></i> SÄ±kÃ§a Sorulan Sorular</a></li>
+                <li><a href="#" data-target="panel-blog" class="nav-item"><i class="fa-solid fa-newspaper"></i> Blog YazÄ±larÄ±</a></li>
             </ul>
             <div class="logout-btn">
-                <a href="#" id="logout-link"><i class="fa-solid fa-right-from-bracket" style="margin-right: 10px;"></i> Çıkış Yap</a>
+                <a href="#" id="logout-link"><i class="fa-solid fa-right-from-bracket" style="margin-right: 10px;"></i> Ã‡Ä±kÄ±ÅŸ Yap</a>
             </div>
         </aside>
 
@@ -396,16 +396,16 @@
                 <!-- SITE INFO PANEL -->
                 <div id="panel-site" class="section-panel active">
                     <div class="section-header">
-                        <h3>Genel Site Ayarları</h3>
-                        <button class="btn btn-sm" id="save-site-info"><i class="fa-solid fa-floppy-disk"></i> Değişiklikleri Kaydet</button>
+                        <h3>Genel Site AyarlarÄ±</h3>
+                        <button class="btn btn-sm" id="save-site-info"><i class="fa-solid fa-floppy-disk"></i> DeÄŸiÅŸiklikleri Kaydet</button>
                     </div>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                         <div class="form-group">
-                            <label>Telefon Numarası 1</label>
+                            <label>Telefon NumarasÄ± 1</label>
                             <input type="text" id="site-phone1" placeholder="+90 548 888 0 112">
                         </div>
                         <div class="form-group">
-                            <label>Telefon Numarası 2</label>
+                            <label>Telefon NumarasÄ± 2</label>
                             <input type="text" id="site-phone2">
                         </div>
                         <div class="form-group">
@@ -434,21 +434,21 @@
                 <!-- TEAM PANEL -->
                 <div id="panel-team" class="section-panel">
                     <div class="section-header">
-                        <h3>Ekip Üyeleri</h3>
-                        <button class="btn btn-sm" onclick="openModal('modal-team')"><i class="fa-solid fa-plus"></i> Yeni Üye Ekle</button>
+                        <h3>Ekip Ãœyeleri</h3>
+                        <button class="btn btn-sm" onclick="openModal('modal-team')"><i class="fa-solid fa-plus"></i> Yeni Ãœye Ekle</button>
                     </div>
                     <table>
                         <thead>
                             <tr>
-                                <th>Fotoğraf</th>
-                                <th>İsim</th>
-                                <th>Görevi</th>
-                                <th>İşlemler</th>
+                                <th>FotoÄŸraf</th>
+                                <th>Ä°sim</th>
+                                <th>GÃ¶revi</th>
+                                <th>Ä°ÅŸlemler</th>
                             </tr>
                         </thead>
                         <tbody id="team-table-body">
                             <!-- JS ile doldurulacak -->
-                            <tr><td colspan="4">Yükleniyor...</td></tr>
+                            <tr><td colspan="4">YÃ¼kleniyor...</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -456,20 +456,20 @@
                 <!-- FAQ PANEL -->
                 <div id="panel-faq" class="section-panel">
                     <div class="section-header">
-                        <h3>Sıkça Sorulan Sorular</h3>
+                        <h3>SÄ±kÃ§a Sorulan Sorular</h3>
                         <button class="btn btn-sm" onclick="openModal('modal-faq')"><i class="fa-solid fa-plus"></i> Yeni Soru Ekle</button>
                     </div>
                     <table>
                         <thead>
                             <tr>
                                 <th>Soru</th>
-                                <th>Sıra</th>
-                                <th>İşlemler</th>
+                                <th>SÄ±ra</th>
+                                <th>Ä°ÅŸlemler</th>
                             </tr>
                         </thead>
                         <tbody id="faq-table-body">
                             <!-- JS ile doldurulacak -->
-                            <tr><td colspan="3">Yükleniyor...</td></tr>
+                            <tr><td colspan="3">YÃ¼kleniyor...</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -477,21 +477,21 @@
                 <!-- BLOG PANEL -->
                 <div id="panel-blog" class="section-panel">
                     <div class="section-header">
-                        <h3>Blog Yazıları</h3>
-                        <button class="btn btn-sm" onclick="openModal('modal-blog')"><i class="fa-solid fa-plus"></i> Yeni Yazı Ekle</button>
+                        <h3>Blog YazÄ±larÄ±</h3>
+                        <button class="btn btn-sm" onclick="openModal('modal-blog')"><i class="fa-solid fa-plus"></i> Yeni YazÄ± Ekle</button>
                     </div>
                     <table>
                         <thead>
                             <tr>
                                 <th>Tarih</th>
-                                <th>Başlık</th>
+                                <th>BaÅŸlÄ±k</th>
                                 <th>Durum</th>
-                                <th>İşlemler</th>
+                                <th>Ä°ÅŸlemler</th>
                             </tr>
                         </thead>
                         <tbody id="blog-table-body">
                             <!-- JS ile doldurulacak -->
-                            <tr><td colspan="4">Yükleniyor...</td></tr>
+                            <tr><td colspan="4">YÃ¼kleniyor...</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -506,7 +506,7 @@
     <div id="modal-team" class="modal">
         <div class="modal-content" style="max-width: 600px;">
             <div class="modal-header">
-                <h3 id="modal-team-title">Yeni Ekip Üyesi Ekle <i class="fa-solid fa-circle-plus" style="color:var(--primary); font-size:1rem; margin-left:5px;"></i></h3>
+                <h3 id="modal-team-title">Yeni Ekip Ãœyesi Ekle <i class="fa-solid fa-circle-plus" style="color:var(--primary); font-size:1rem; margin-left:5px;"></i></h3>
                 <span class="close-modal" onclick="closeModal('modal-team')"><i class="fa-solid fa-xmark"></i></span>
             </div>
             <form id="form-team">
@@ -514,66 +514,66 @@
                 
                 <div class="form-group">
                     <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;">ADI SOYADI</label>
-                    <input type="text" id="team-name" placeholder="Örn: Hayriye Karakaya" required>
+                    <input type="text" id="team-name" placeholder="Ã–rn: Hayriye Karakaya" required>
                 </div>
                 
                 <div class="form-group">
-                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;">GÖREV TANIMI</label>
-                    <input type="text" id="team-role" placeholder="Örn: Embriyolog" required>
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;">GÃ–REV TANIMI</label>
+                    <input type="text" id="team-role" placeholder="Ã–rn: Embriyolog" required>
                 </div>
                 
                 <div class="form-group">
-                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;">SIRALAMA DEĞERİ (OPSİYONEL)</label>
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;">SIRALAMA DEÄERÄ° (OPSÄ°YONEL)</label>
                     <input type="number" id="team-sort" placeholder="0">
                 </div>
                 
                 <div class="form-group">
-                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;">PROFİL GÖRSELİ</label>
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;">PROFÄ°L GÃ–RSELÄ°</label>
                     <div class="file-upload-wrapper" onclick="document.getElementById('team-image').click()">
-                        <input type="file" id="team-image" accept="image/*" style="display:none" onchange="document.getElementById('file-name-display').innerText = this.files[0] ? this.files[0].name : 'Görsel seçmek için tıklayın veya sürükleyin'">
+                        <input type="file" id="team-image" accept="image/*" style="display:none" onchange="document.getElementById('file-name-display').innerText = this.files[0] ? this.files[0].name : 'GÃ¶rsel seÃ§mek iÃ§in tÄ±klayÄ±n veya sÃ¼rÃ¼kleyin'">
                         <i class="fa-solid fa-cloud-arrow-up"></i>
-                        <p id="file-name-display" style="color:#888; font-size:0.9rem;">Görsel seçmek için tıklayın veya sürükleyin</p>
+                        <p id="file-name-display" style="color:#888; font-size:0.9rem;">GÃ¶rsel seÃ§mek iÃ§in tÄ±klayÄ±n veya sÃ¼rÃ¼kleyin</p>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;"><i class="fa-solid fa-language" style="color: var(--primary); margin-right: 5px;"></i> DİL</label>
-                    <input type="text" id="team-lang" placeholder="Örn: İngilizce, Türkçe">
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;"><i class="fa-solid fa-language" style="color: var(--primary); margin-right: 5px;"></i> DÄ°L</label>
+                    <input type="text" id="team-lang" placeholder="Ã–rn: Ä°ngilizce, TÃ¼rkÃ§e">
                 </div>
 
                 <div class="form-group">
-                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;"><i class="fa-solid fa-graduation-cap" style="color: var(--primary); margin-right: 5px;"></i> LİSANS</label>
-                    <input type="text" id="team-bachelors" placeholder="Örn: Hemşirelik – Islamic Azad University">
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;"><i class="fa-solid fa-graduation-cap" style="color: var(--primary); margin-right: 5px;"></i> LÄ°SANS</label>
+                    <input type="text" id="team-bachelors" placeholder="Ã–rn: HemÅŸirelik â€“ Islamic Azad University">
                 </div>
 
                 <div class="form-group">
-                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;"><i class="fa-solid fa-user-graduate" style="color: var(--primary); margin-right: 5px;"></i> YÜKSEK LİSANS</label>
-                    <input type="text" id="team-masters" placeholder="Örn: Cerrahi Hemşirelik – Yakın Doğu Üniversitesi">
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;"><i class="fa-solid fa-user-graduate" style="color: var(--primary); margin-right: 5px;"></i> YÃœKSEK LÄ°SANS</label>
+                    <input type="text" id="team-masters" placeholder="Ã–rn: Cerrahi HemÅŸirelik â€“ YakÄ±n DoÄŸu Ãœniversitesi">
                 </div>
 
                 <div class="form-group">
                     <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;"><i class="fa-solid fa-file-lines" style="color: var(--primary); margin-right: 5px;"></i> TEZ</label>
-                    <input type="text" id="team-thesis" placeholder="Örn: İnsan Sperm Grupları Arasındaki Etkiler">
+                    <input type="text" id="team-thesis" placeholder="Ã–rn: Ä°nsan Sperm GruplarÄ± ArasÄ±ndaki Etkiler">
                 </div>
 
                 <div class="form-group">
-                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;"><i class="fa-solid fa-briefcase" style="color: var(--primary); margin-right: 5px;"></i> DENEYİM</label>
-                    <input type="text" id="team-experience" placeholder="Örn: 9 Yıl Bankacılık + 1 Yıl Yabancı Hasta Koordinatörlüğü">
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;"><i class="fa-solid fa-briefcase" style="color: var(--primary); margin-right: 5px;"></i> DENEYÄ°M</label>
+                    <input type="text" id="team-experience" placeholder="Ã–rn: 9 YÄ±l BankacÄ±lÄ±k + 1 YÄ±l YabancÄ± Hasta KoordinatÃ¶rlÃ¼ÄŸÃ¼">
                 </div>
 
                 <div class="form-group">
                     <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;"><i class="fa-solid fa-stethoscope" style="color: var(--primary); margin-right: 5px;"></i> UZMANLIK</label>
-                    <input type="text" id="team-expertise" placeholder="Örn: Kadın Hastalıkları ve Doğum">
+                    <input type="text" id="team-expertise" placeholder="Ã–rn: KadÄ±n HastalÄ±klarÄ± ve DoÄŸum">
                 </div>
 
                 <div class="form-group">
-                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;"><i class="fa-solid fa-certificate" style="color: var(--primary); margin-right: 5px;"></i> SERTİFİKA</label>
-                    <input type="text" id="team-certificate" placeholder="Örn: Özel İş Yeri Hemşireliği">
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;"><i class="fa-solid fa-certificate" style="color: var(--primary); margin-right: 5px;"></i> SERTÄ°FÄ°KA</label>
+                    <input type="text" id="team-certificate" placeholder="Ã–rn: Ã–zel Ä°ÅŸ Yeri HemÅŸireliÄŸi">
                 </div>
 
                 <div class="form-group">
-                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;">AÇIKLAMA</label>
-                    <textarea id="team-bio" rows="4" placeholder="Ekip üyesi hakkında genel açıklama..."></textarea>
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;">AÃ‡IKLAMA</label>
+                    <textarea id="team-bio" rows="4" placeholder="Ekip Ã¼yesi hakkÄ±nda genel aÃ§Ä±klama..."></textarea>
                 </div>
 
                 <div style="display: flex; gap: 10px; margin-top: 20px;">
@@ -581,7 +581,7 @@
                         <i class="fa-solid fa-check"></i> Kaydet
                     </button>
                     <button type="button" class="btn btn-danger" onclick="closeModal('modal-team')" style="flex: 1; background: transparent; border: 1px solid #333; color: #fff;">
-                        İptal
+                        Ä°ptal
                     </button>
                 </div>
             </form>
@@ -592,7 +592,7 @@
     <div id="modal-faq" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 id="modal-faq-title">SSS Ekle/Düzenle</h3>
+                <h3 id="modal-faq-title">SSS Ekle/DÃ¼zenle</h3>
                 <span class="close-modal" onclick="closeModal('modal-faq')">&times;</span>
             </div>
             <form id="form-faq">
@@ -606,7 +606,7 @@
                     <textarea id="faq-answer" rows="5" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label>Sıralama</label>
+                    <label>SÄ±ralama</label>
                     <input type="number" id="faq-sort" value="10">
                 </div>
                 <button type="submit" class="btn" id="btn-faq-save">Kaydet</button>
@@ -618,28 +618,28 @@
     <div id="modal-blog" class="modal">
         <div class="modal-content" style="max-width: 800px;">
             <div class="modal-header">
-                <h3 id="modal-blog-title">Blog Yazısı Ekle/Düzenle</h3>
+                <h3 id="modal-blog-title">Blog YazÄ±sÄ± Ekle/DÃ¼zenle</h3>
                 <span class="close-modal" onclick="closeModal('modal-blog')">&times;</span>
             </div>
             <form id="form-blog">
                 <input type="hidden" id="blog-id">
                 <div class="form-group">
-                    <label>Başlık</label>
+                    <label>BaÅŸlÄ±k</label>
                     <input type="text" id="blog-title" required>
                 </div>
                 <div class="form-group">
-                    <label>Özet (Kısa Açıklama)</label>
+                    <label>Ã–zet (KÄ±sa AÃ§Ä±klama)</label>
                     <textarea id="blog-summary" rows="2" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label>İçerik (HTML formatında veya düz metin yazabilirsiniz)</label>
+                    <label>Ä°Ã§erik (HTML formatÄ±nda veya dÃ¼z metin yazabilirsiniz)</label>
                     <textarea id="blog-content" rows="10" required></textarea>
                 </div>
                 <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap:20px;">
                     <div>
                         <label>Durum</label>
                         <select id="blog-status">
-                            <option value="published">Yayında</option>
+                            <option value="published">YayÄ±nda</option>
                             <option value="draft">Taslak</option>
                         </select>
                     </div>
@@ -649,7 +649,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Kapak Görseli</label>
+                    <label>Kapak GÃ¶rseli</label>
                     <input type="file" id="blog-image" accept="image/*">
                     <p style="font-size:0.8rem; color:#666; margin-top:5px;">Mevcut Kapak: <span id="blog-current-image">Yok</span></p>
                 </div>
@@ -682,7 +682,7 @@
         }
         window.closeModal = function(id) {
             document.getElementById(id).style.display = 'none';
-            // Formları temizle
+            // FormlarÄ± temizle
             if(id === 'modal-team') document.getElementById('form-team').reset();
             if(id === 'modal-faq') document.getElementById('form-faq').reset();
             if(id === 'modal-blog') document.getElementById('form-blog').reset();
