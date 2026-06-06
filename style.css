@@ -981,11 +981,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
 .reveal[data-delay="3"] { transition-delay: 0.24s; }
 .reveal[data-delay="4"] { transition-delay: 0.32s; }
 
-@media (prefers-reduced-motion: reduce) {
-    *, body::before, .hero-blob, .hero-badge, .whatsapp-float::after { animation: none !important; }
-    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
-    html { scroll-behavior: auto; }
-}
+
 
 
 .ltr-text { direction: ltr !important; display: inline-block; }
