@@ -55,8 +55,10 @@
     }
 
     function buildLangMenu() {
+        // Flag + code per language; click → changeLanguage() (defined in app.js).
         return LANGS.map(function (l) {
-            return '<li><a href="javascript:void(0)" onclick="changeLanguage(\'' + l.code + '\')">' + l.flag + ' ' + l.code.toUpperCase() + '</a></li>';
+            return '<li><a href="javascript:void(0)" class="lang-option" onclick="changeLanguage(\'' + l.code + '\')">' +
+                '<span class="lang-flag">' + l.flag + '</span> ' + l.code.toUpperCase() + '</a></li>';
         }).join('');
     }
 

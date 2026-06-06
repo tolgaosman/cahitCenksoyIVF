@@ -1,22 +1,24 @@
-// --- Google Translate Integration ---
+// --- Language / Translation (Google Translate, reload-based) ---
+// Clicking a flag writes the googtrans cookie and reloads; on load the hidden
+// Google widget reads that cookie and translates the page (or restores Turkish).
+// No live DOM-driving / polling — a reload is the single, reliable code path.
+
+// Callback for the Google Translate library script. Must stay global.
 function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-        pageLanguage: 'tr',
-        includedLanguages: 'en,ru,de,ar,fa,fr,tr',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-    }, 'google_translate_element');
+    try {
+        new google.translate.TranslateElement({
+            pageLanguage: 'tr',
+            includedLanguages: 'en,ru,de,fr,ar,fa,tr',
+            autoDisplay: false
+        }, 'google_translate_element');
+    } catch (e) {
+        // Widget blocked/offline — site stays in Turkish; never throw.
+    }
 }
 
-// Map language codes to flag emojis
+// Language code → flag emoji (matches the LANGS list in components.js).
 const flags = {
-    tr: '🇹🇷',
-    en: '🇬🇧',
-    ru: '🇷🇺',
-    de: '🇩🇪',
-    ar: '🇸🇦',
-    fa: '🇮🇷',
-    fr: '🇫🇷'
+    tr: '🇹🇷', en: '🇬🇧', ru: '🇷🇺', de: '🇩🇪', fr: '🇫🇷', ar: '🇸🇦', fa: '🇮🇷'
 };
 
 // Write the googtrans cookie that Google Translate reads to auto-translate.
@@ -61,43 +63,20 @@ function updateLangButton(langCode) {
     if (el) el.innerText = `${flags[langCode] || '🇹🇷'} ${langCode.toUpperCase()}`;
 }
 
-// Try to drive Google Translate's hidden <select> directly; returns true if it worked.
-function applyViaCombo(langCode) {
-    const select = document.querySelector('.goog-te-combo');
-    if (!select) return false;
-    select.value = langCode;
-    select.dispatchEvent(new Event('change'));
-    return true;
-}
-
+// Flag click handler (wired via onclick in components.js). Must stay global.
 function changeLanguage(langCode) {
     localStorage.setItem('lang', langCode);
-    updateLangButton(langCode);
-    applyLangDirection(langCode);
+    document.querySelector('.lang-selector')?.classList.remove('active');
 
-    // Close the language dropdown
-    const langSelector = document.querySelector('.lang-selector');
-    if (langSelector) langSelector.classList.remove('active');
-
-    // Turkish = original page → clear cookie and reload to remove any translation.
+    // Turkish = original page → drop the cookie; any other language → set it.
     if (langCode === 'tr') {
         clearGoogtransCookie();
-        location.reload();
-        return;
+    } else {
+        setGoogtransCookie(langCode);
     }
 
-    setGoogtransCookie(langCode);
-
-    // Preferred path: drive the widget's combo box live (no reload).
-    if (applyViaCombo(langCode)) return;
-
-    // Widget not ready yet: poll briefly for it, then fall back to a reload
-    // (the cookie is already set, so the reloaded page auto-translates).
-    let tries = 0;
-    const timer = setInterval(() => {
-        if (applyViaCombo(langCode)) { clearInterval(timer); return; }
-        if (++tries >= 20) { clearInterval(timer); location.reload(); }
-    }, 100);
+    // Reload: the widget applies the cookie on the fresh page.
+    location.reload();
 }
 
 // Restore saved language on page load: re-assert the cookie + button + direction
@@ -105,9 +84,9 @@ function changeLanguage(langCode) {
 document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('lang') || 'tr';
     updateLangButton(savedLang);
+    applyLangDirection(savedLang);
     if (savedLang !== 'tr') {
         setGoogtransCookie(savedLang);
-        applyLangDirection(savedLang);
     }
 });
 
