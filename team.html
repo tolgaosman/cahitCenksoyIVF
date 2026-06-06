@@ -23,13 +23,13 @@
     <section class="section">
         <div class="container">
             <div class="section-header">
-                <h2 data-i18n="teamTitle">EKÄ°BÄ°MÄ°Z</h2>
+                <h2 data-i18n="teamTitle">EKİBİMİZ</h2>
                 <div class="header-line"></div>
             </div>
             <div class="team-grid-full" id="teamGrid">
                 <p style="text-align:center; color:var(--text-muted); width: 100%; grid-column: 1/-1; padding: 50px 0;">
                     <i class="fa-solid fa-spinner fa-spin" style="font-size: 2rem; color:var(--primary-color); margin-bottom: 15px;"></i><br>
-                    Ekibimiz yÃ¼kleniyor...
+                    Ekibimiz yükleniyor...
                 </p>
             </div>
         </div>
@@ -61,8 +61,8 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // GÃœVENLÄ°K: Firestore iÃ§eriÄŸini innerHTML yerine gÃ¼venli DOM (textContent) ile bas.
-        // TÃ¼m ekip alanlarÄ± dÃ¼z metin olduÄŸundan XSS (Ã¶rn. bio'ya gÃ¶mÃ¼lÃ¼ <script>) Ã§alÄ±ÅŸamaz.
+        // GÜVENLİK: Firestore içeriğini innerHTML yerine güvenli DOM (textContent) ile bas.
+        // Tüm ekip alanları düz metin olduğundan XSS (örn. bio'ya gömülü <script>) çalışamaz.
         function buildTeamCard(m) {
             const detailRows = [
                 ['fa-language', m.lang],
@@ -100,7 +100,7 @@
             if (!hasContent) {
                 const empty = document.createElement('div');
                 empty.style.textAlign = 'center';
-                empty.textContent = 'Biyografi henÃ¼z eklenmedi.';
+                empty.textContent = 'Biyografi henüz eklenmedi.';
                 details.appendChild(empty);
             }
 
@@ -144,7 +144,7 @@
                 grid.innerHTML = '';
 
                 if (querySnapshot.empty) {
-                    grid.innerHTML = '<p style="text-align:center; color:var(--text-muted); width:100%; grid-column:1/-1;">Ekip Ã¼yesi bulunamadÄ±.</p>';
+                    grid.innerHTML = '<p style="text-align:center; color:var(--text-muted); width:100%; grid-column:1/-1;">Ekip üyesi bulunamadı.</p>';
                     return;
                 }
 
@@ -152,8 +152,8 @@
                     grid.appendChild(buildTeamCard(doc.data()));
                 });
             } catch(err) {
-                console.error("Ekip yÃ¼klenirken hata:", err);
-                document.getElementById('teamGrid').innerHTML = '<p style="text-align:center; color:var(--text-muted); width:100%; grid-column:1/-1;">Ekip bilgileri yÃ¼klenemedi.</p>';
+                console.error("Ekip yüklenirken hata:", err);
+                document.getElementById('teamGrid').innerHTML = '<p style="text-align:center; color:var(--text-muted); width:100%; grid-column:1/-1;">Ekip bilgileri yüklenemedi.</p>';
             }
         });
     </script>

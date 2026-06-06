@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://*.google.com https://translate.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://www.gstatic.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.google.com https://cahit-cenksoy-admin.onrender.com; frame-src https://*.google.com; object-src 'none'; base-uri 'self'">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <title>Blog & GÃ¼ncel Bilgiler | Dr. Cahit Cenksoy IVF Clinic</title>
+    <title>Blog & Güncel Bilgiler | Dr. Cahit Cenksoy IVF Clinic</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="browserLogo.png?v=1.1">
     <link rel="stylesheet" href="style.css?v=5.2">
@@ -301,8 +301,8 @@
     <!-- Blog Hero Section -->
     <header class="blog-hero">
         <div class="container">
-            <h1 data-i18n="blogTitle" id="blogHeroTitle" style="cursor: default;">Blog & GÃ¼ncel Bilgiler</h1>
-            <p data-i18n="blogSubtitle">TÃ¼p bebek sÃ¼reÃ§leri, KÄ±brÄ±s'taki modern tedavi uygulamalarÄ± ve saÄŸlÄ±klÄ± yaÅŸam Ã¶nerilerine dair en gÃ¼ncel makalelerimiz.</p>
+            <h1 data-i18n="blogTitle" id="blogHeroTitle" style="cursor: default;">Blog & Güncel Bilgiler</h1>
+            <p data-i18n="blogSubtitle">Tüp bebek süreçleri, Kıbrıs'taki modern tedavi uygulamaları ve sağlıklı yaşam önerilerine dair en güncel makalelerimiz.</p>
         </div>
     </header>
 
@@ -310,16 +310,16 @@
         <!-- Search Field -->
         <div class="blog-search-wrapper">
             <i class="fa-solid fa-magnifying-glass blog-search-icon"></i>
-            <input type="text" id="blogSearch" class="blog-search-input" placeholder="Makale veya konu iÃ§inde arayÄ±n..." data-i18n="blogSearchPlaceholder">
+            <input type="text" id="blogSearch" class="blog-search-input" placeholder="Makale veya konu içinde arayın..." data-i18n="blogSearchPlaceholder">
         </div>
 
         <!-- Category Filters -->
         <div class="blog-categories">
             <button class="blog-cat-btn active" data-filter="all">
-                <i class="fa-solid fa-list"></i> <span data-i18n="blogCatAll">HEPSÄ°</span>
+                <i class="fa-solid fa-list"></i> <span data-i18n="blogCatAll">HEPSİ</span>
             </button>
             <button class="blog-cat-btn" data-filter="ivf-treatment">
-                <i class="fa-solid fa-baby"></i> <span data-i18n="blogCatIVF">TÃœP BEBEK & TEDAVÄ°</span>
+                <i class="fa-solid fa-baby"></i> <span data-i18n="blogCatIVF">TÜP BEBEK & TEDAVİ</span>
             </button>
             <button class="blog-cat-btn" data-filter="cyprus-donation">
                 <i class="fa-solid fa-palm-tree"></i> <span data-i18n="blogCatDonation">KIBRIS'TA BAÄIÅ</span>
@@ -339,8 +339,8 @@
         <!-- No Results Found Div -->
         <div class="blog-no-results" id="blogNoResults">
             <i class="fa-solid fa-magnifying-glass-minus"></i>
-            <h3 data-i18n="blogNoResultsTitle">Makale BulunamadÄ±</h3>
-            <p data-i18n="blogNoResultsText">Arama teriminize veya seÃ§ili kategoriye uygun yazÄ± bulunamadÄ±. LÃ¼tfen baÅŸka bir anahtar kelime deneyin.</p>
+            <h3 data-i18n="blogNoResultsTitle">Makale Bulunamadı</h3>
+            <p data-i18n="blogNoResultsText">Arama teriminize veya seçili kategoriye uygun yazı bulunamadı. Lütfen başka bir anahtar kelime deneyin.</p>
         </div>
 
     </main>
@@ -397,16 +397,16 @@
                 let category = "ivf-treatment";
                 let tag      = "IVF & Tedavi";
                 
-                if (text.includes("baÄŸÄ±ÅŸ") || text.includes("donasyon") || text.includes("sperm") || text.includes("yumurta") || text.includes("kÄ±brÄ±s") || text.includes("donation")) {
+                if (text.includes("bağış") || text.includes("donasyon") || text.includes("sperm") || text.includes("yumurta") || text.includes("kıbrıs") || text.includes("donation")) {
                     category = "cyprus-donation";
-                    tag      = "KÄ±brÄ±s Donasyon";
-                } else if (text.includes("saÄŸlÄ±k") || text.includes("yaÅŸam") || text.includes("beslenme") || text.includes("spor") || text.includes("diyet") || text.includes("lifestyle") || text.includes("yaÅŸ")) {
+                    tag      = "Kıbrıs Donasyon";
+                } else if (text.includes("sağlık") || text.includes("yaşam") || text.includes("beslenme") || text.includes("spor") || text.includes("diyet") || text.includes("lifestyle") || text.includes("yaş")) {
                     category = "health-lifestyle";
-                    tag      = "SaÄŸlÄ±k & YaÅŸam";
+                    tag      = "Sağlık & Yaşam";
                 }
 
-                // GÃœVENLÄ°K: dinamik alanlarÄ± (title, summary, author, imageUrl) gÃ¼venli DOM ile
-                // bas; iskeleti sabit innerHTML'den kur, deÄŸerleri textContent/setAttribute ile yerleÅŸtir.
+                // GÜVENLİK: dinamik alanları (title, summary, author, imageUrl) güvenli DOM ile
+                // bas; iskeleti sabit innerHTML'den kur, değerleri textContent/setAttribute ile yerleştir.
                 const article = document.createElement('article');
                 article.className = 'blog-card';
                 article.setAttribute('data-category', category);
@@ -470,7 +470,7 @@
             }
 
             async function loadPosts() {
-                grid.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:40px;">Makaleler yÃ¼kleniyor...</p>';
+                grid.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:40px;">Makaleler yükleniyor...</p>';
 
                 try {
                     const q = query(collection(db, "blog"), orderBy("date", "desc"));
@@ -494,8 +494,8 @@
                     }
                     filterBlog();
                 } catch(e) {
-                    console.error("Blog verileri Ã§ekilemedi:", e);
-                    grid.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:40px;">Makaleler yÃ¼klenirken bir hata oluÅŸtu.</p>';
+                    console.error("Blog verileri çekilemedi:", e);
+                    grid.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:40px;">Makaleler yüklenirken bir hata oluştu.</p>';
                 }
             }
 
