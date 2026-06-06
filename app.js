@@ -1,95 +1,3 @@
-// --- Language / Translation (Google Translate, reload-based) ---
-// Clicking a flag writes the googtrans cookie and reloads; on load the hidden
-// Google widget reads that cookie and translates the page (or restores Turkish).
-// No live DOM-driving / polling — a reload is the single, reliable code path.
-
-// Callback for the Google Translate library script. Must stay global.
-function googleTranslateElementInit() {
-    try {
-        new google.translate.TranslateElement({
-            pageLanguage: 'tr',
-            includedLanguages: 'en,ru,de,fr,ar,fa,tr',
-            autoDisplay: false
-        }, 'google_translate_element');
-    } catch (e) {
-        // Widget blocked/offline — site stays in Turkish; never throw.
-    }
-}
-
-// Language code → flag emoji (matches the LANGS list in components.js).
-const flags = {
-    tr: '🇹🇷', en: '🇬🇧', ru: '🇷🇺', de: '🇩🇪', fr: '🇫🇷', ar: '🇸🇦', fa: '🇮🇷'
-};
-
-// Write the googtrans cookie that Google Translate reads to auto-translate.
-// Set it for every relevant scope so it survives a reload on localhost and prod.
-function setGoogtransCookie(langCode) {
-    const value = `/tr/${langCode}`;
-    // path-only (works on localhost and any host)
-    document.cookie = `googtrans=${value}; path=/;`;
-    // host-scoped + dot-domain (needed by Google Translate on real domains)
-    const host = window.location.hostname;
-    if (host && host !== 'localhost' && !/^[0-9.]+$/.test(host)) {
-        document.cookie = `googtrans=${value}; path=/; domain=${host}`;
-        document.cookie = `googtrans=${value}; path=/; domain=.${host}`;
-    }
-}
-
-function clearGoogtransCookie() {
-    const past = 'expires=Thu, 01 Jan 1970 00:00:00 GMT';
-    const host = window.location.hostname;
-    document.cookie = `googtrans=; path=/; ${past}`;
-    if (host && host !== 'localhost') {
-        document.cookie = `googtrans=; path=/; domain=${host}; ${past}`;
-        document.cookie = `googtrans=; path=/; domain=.${host}; ${past}`;
-    }
-}
-
-// Apply layout direction (RTL/LTR) + per-language body class.
-function applyLangDirection(langCode) {
-    document.body.classList.remove('lang-ru');
-    if (langCode === 'ru') document.body.classList.add('lang-ru');
-    if (langCode === 'ar' || langCode === 'fa') {
-        document.documentElement.dir = 'rtl';
-        document.body.classList.add('rtl');
-    } else {
-        document.documentElement.dir = 'ltr';
-        document.body.classList.remove('rtl');
-    }
-}
-
-function updateLangButton(langCode) {
-    const el = document.getElementById('currentLangText');
-    if (el) el.innerText = `${flags[langCode] || '🇹🇷'} ${langCode.toUpperCase()}`;
-}
-
-// Flag click handler (wired via onclick in components.js). Must stay global.
-function changeLanguage(langCode) {
-    localStorage.setItem('lang', langCode);
-    document.querySelector('.lang-selector')?.classList.remove('active');
-
-    // Turkish = original page → drop the cookie; any other language → set it.
-    if (langCode === 'tr') {
-        clearGoogtransCookie();
-    } else {
-        setGoogtransCookie(langCode);
-    }
-
-    // Reload: the widget applies the cookie on the fresh page.
-    location.reload();
-}
-
-// Restore saved language on page load: re-assert the cookie + button + direction
-// so the chosen language persists across navigation and reloads.
-document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('lang') || 'tr';
-    updateLangButton(savedLang);
-    applyLangDirection(savedLang);
-    if (savedLang !== 'tr') {
-        setGoogtransCookie(savedLang);
-    }
-});
-
 // --- Theme Toggle Logic ---
 function initTheme() {
     const themeToggleBtn = document.getElementById('themeToggle');
@@ -143,19 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Global Dropdown & Menu Toggles (Event Delegation) ---
     document.addEventListener('click', (e) => {
-        const langBtn = e.target.closest('#currentLang');
-        const langSelector = document.querySelector('.lang-selector');
         const dropdownLink = e.target.closest('.dropdown > a');
         const mobileToggleBtn = e.target.closest('#mobileToggle');
         const navLinksMenu = document.querySelector('.navbar .nav-links');
-
-        // Handle Language Selector
-        if (langBtn) {
-            e.stopPropagation();
-            langSelector?.classList.toggle('active');
-            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
-            return;
-        }
 
         // Handle Dropdowns (Mobile/Touch Only)
         if (dropdownLink) {
@@ -167,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Close all others
                 document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
-                langSelector?.classList.remove('active');
 
                 if (!isActive) parent.classList.add('active');
                 return;
@@ -182,8 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Close everything when clicking outside
-        if (!e.target.closest('.lang-selector') && !e.target.closest('.dropdown')) {
-            langSelector?.classList.remove('active');
+        if (!e.target.closest('.dropdown')) {
             document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
         }
 

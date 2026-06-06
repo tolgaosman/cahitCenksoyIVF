@@ -460,7 +460,7 @@
     <header class="post-hero">
         <div class="post-hero-container">
             <a href="blog.html" class="back-to-blog">
-                <i class="fa-solid fa-arrow-left"></i> <span data-i18n="blogBackBtn">Tüm Makaleler</span>
+                <i class="fa-solid fa-arrow-left"></i> <span>Tüm Makaleler</span>
             </a>
             <div>
                 <span class="post-category-badge" id="postCategoryBadge">TÜP BEBEK</span>
@@ -471,16 +471,16 @@
                 <div class="post-meta-author">
                     <div class="post-author-avatar-img" id="postAuthorAvatar">C</div>
                     <div>
-                        <span style="font-size:0.8rem; display:block; text-transform:uppercase; letter-spacing:0.5px;" data-i18n="blogAuthorLabel">Yazar</span>
+                        <span style="font-size:0.8rem; display:block; text-transform:uppercase; letter-spacing:0.5px;">Yazar</span>
                         <span class="post-author-name" id="postAuthorName">Dr. Cahit Cenksoy</span>
                     </div>
                 </div>
                 <div>
-                    <span style="font-size:0.8rem; display:block; text-transform:uppercase; letter-spacing:0.5px;" data-i18n="blogDateLabel">Tarih</span>
+                    <span style="font-size:0.8rem; display:block; text-transform:uppercase; letter-spacing:0.5px;">Tarih</span>
                     <strong style="color:var(--text-main);" id="postDate">-</strong>
                 </div>
                 <div>
-                    <span style="font-size:0.8rem; display:block; text-transform:uppercase; letter-spacing:0.5px;" data-i18n="blogReadTimeLabel">Okuma Süresi</span>
+                    <span style="font-size:0.8rem; display:block; text-transform:uppercase; letter-spacing:0.5px;">Okuma Süresi</span>
                     <strong style="color:var(--text-main);"><i class="fa-regular fa-clock"></i> 5 Dakika</strong>
                 </div>
             </div>
@@ -504,7 +504,7 @@
 
                 <!-- Share Area -->
                 <div class="post-share-area">
-                    <span class="share-title" data-i18n="blogShareTitle">Bu Makaleyi Paylaş</span>
+                    <span class="share-title">Bu Makaleyi Paylaş</span>
                     <div class="share-buttons-container">
                         <button class="share-btn whatsapp" onclick="sharePost('whatsapp')" title="WhatsApp ile Paylaş"><i class="fa-brands fa-whatsapp"></i></button>
                         <button class="share-btn facebook" onclick="sharePost('facebook')" title="Facebook'ta Paylaş"><i class="fa-brands fa-facebook-f"></i></button>
@@ -519,19 +519,19 @@
         <aside class="sidebar-widgets">
             <!-- Author Info Widget -->
             <div class="widget-card author-widget">
-                <h3 class="widget-title" data-i18n="blogWidgetAuthorTitle">YAZAR HAKKINDA</h3>
+                <h3 class="widget-title">YAZAR HAKKINDA</h3>
                 <div class="author-widget-info">
                     <img class="author-widget-img" src="cahit.jpg" alt="Dr. Cahit Cenksoy">
                     <h4 class="author-widget-name">Dr. Cahit Cenksoy</h4>
-                    <div class="author-widget-title" data-i18n="blogWidgetAuthorRole">Kadın Hastalıkları ve Doğum Uzmanı</div>
-                    <p class="author-widget-bio" data-i18n="blogWidgetAuthorBio">Kıbrıs'ta modern tüp bebek tedavileri, donasyon yöntemleri ve üreme sağlığı konularında 20 yılı aşkın tecrübesiyle ailelerin bebek sahibi olma hayallerini gerçeğe dönüştürüyor.</p>
-                    <a href="team.html" class="btn btn-secondary" style="width: 100%; justify-content: center; font-weight:600;" data-i18n="blogWidgetAuthorBtn">Ekibimizi Tanıyın</a>
+                    <div class="author-widget-title">Kadın Hastalıkları ve Doğum Uzmanı</div>
+                    <p class="author-widget-bio">Kıbrıs'ta modern tüp bebek tedavileri, donasyon yöntemleri ve üreme sağlığı konularında 20 yılı aşkın tecrübesiyle ailelerin bebek sahibi olma hayallerini gerçeğe dönüştürüyor.</p>
+                    <a href="team.html" class="btn btn-secondary" style="width: 100%; justify-content: center; font-weight:600;">Ekibimizi Tanıyın</a>
                 </div>
             </div>
 
             <!-- Recent Posts Widget -->
             <div class="widget-card">
-                <h3 class="widget-title" data-i18n="blogWidgetRecentTitle">DİĞER YAZILAR</h3>
+                <h3 class="widget-title">DİĞER YAZILAR</h3>
                 <div class="recent-posts-list" id="recentPostsList">
                     <p style="color:var(--text-muted); font-size:0.9rem;">Yükleniyor...</p>
                 </div>
@@ -539,28 +539,28 @@
 
             <!-- Contact/Randevu Form Widget -->
             <div class="widget-card">
-                <h3 class="widget-title" data-i18n="blogWidgetContactTitle">İLETİŞİM & RANDEVU</h3>
-                <div id="contactFormError" class="error-message" data-i18n="contactError">Lütfen zorunlu alanları doldurun.</div>
-                <div id="contactFormSuccess" class="success-message" data-i18n="contactSuccess">Tebrikler! Mesajınız başarıyla iletildi. En kısa sürede sizinle iletişime geçeceğiz.</div>
+                <h3 class="widget-title">İLETİŞİM & RANDEVU</h3>
+                <div id="contactFormError" class="error-message">Lütfen zorunlu alanları doldurun.</div>
+                <div id="contactFormSuccess" class="success-message">Tebrikler! Mesajınız başarıyla iletildi. En kısa sürede sizinle iletişime geçeceğiz.</div>
                 
                 <form class="widget-form" id="widgetContactForm" onsubmit="handleInquirySubmit(event)">
                     <div class="form-group">
-                        <label class="form-label" data-i18n="formName">Adınız Soyadınız *</label>
+                        <label class="form-label">Adınız Soyadınız *</label>
                         <input type="text" id="inqName" class="form-control" placeholder="Adınız Soyadınız" required>
                     </div>
                     <div class="form-group">
-                        <label class="form-label" data-i18n="formPhone">Telefon Numaranız *</label>
+                        <label class="form-label">Telefon Numaranız *</label>
                         <input type="tel" id="inqPhone" class="form-control" placeholder="+90 5xx xxx xx xx" required>
                     </div>
                     <div class="form-group">
-                        <label class="form-label" data-i18n="formEmail">E-Posta Adresiniz</label>
+                        <label class="form-label">E-Posta Adresiniz</label>
                         <input type="email" id="inqEmail" class="form-control" placeholder="eposta@adresiniz.com">
                     </div>
                     <div class="form-group">
-                        <label class="form-label" data-i18n="formMessage">Mesajınız *</label>
+                        <label class="form-label">Mesajınız *</label>
                         <textarea id="inqMessage" class="form-control" placeholder="Bize sormak istediğiniz konuyu yazın..." required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; font-weight:600; padding:12px;" data-i18n="formSubmit">Başvuru Gönder</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; font-weight:600; padding:12px;">Başvuru Gönder</button>
                 </form>
             </div>
         </aside>

@@ -27,11 +27,6 @@
         { href: 'contact.html', i18n: 'navContact', label: 'İletişim & Randevu' }
     ];
 
-    var LANGS = [
-        { code: 'tr', flag: '🇹🇷' }, { code: 'en', flag: '🇬🇧' }, { code: 'ru', flag: '🇷🇺' },
-        { code: 'de', flag: '🇩🇪' }, { code: 'fr', flag: '🇫🇷' }, { code: 'ar', flag: '🇸🇦' }, { code: 'fa', flag: '🇮🇷' }
-    ];
-
     // Current page file name for active-link highlighting
     var path = window.location.pathname.split('/').pop() || 'index.html';
     if (path === '') path = 'index.html';
@@ -54,25 +49,12 @@
         }).join('');
     }
 
-    function buildLangMenu() {
-        // Flag + code per language; click → changeLanguage() (defined in app.js).
-        return LANGS.map(function (l) {
-            return '<li><a href="javascript:void(0)" class="lang-option" onclick="changeLanguage(\'' + l.code + '\')">' +
-                '<span class="lang-flag">' + l.flag + '</span> ' + l.code.toUpperCase() + '</a></li>';
-        }).join('');
-    }
-
     var headerHTML =
-        '<div id="google_translate_element"></div>' +
         '<nav class="navbar" id="navbar">' +
         '<div class="nav-container">' +
         '<div class="logo"><a href="index.html"><img src="siyahLogo.png" alt="Dr. Cahit Cenksoy" id="navLogo"></a></div>' +
         '<div class="nav-center"><ul class="nav-links">' + buildNavLinks() + '</ul></div>' +
         '<div class="nav-right">' +
-        '<div class="lang-selector notranslate">' +
-        '<button class="lang-btn" id="currentLang"><span id="currentLangText">TR</span> <i class="fa-solid fa-globe"></i></button>' +
-        '<ul class="dropdown-menu">' + buildLangMenu() + '</ul>' +
-        '</div>' +
         '<button id="themeToggle" class="theme-toggle"><i class="fa-solid fa-moon"></i></button>' +
         '<button class="mobile-toggle" id="mobileToggle"><i class="fa-solid fa-bars"></i></button>' +
         '</div>' +
