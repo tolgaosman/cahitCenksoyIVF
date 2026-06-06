@@ -457,6 +457,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
     min-width: auto; padding: 8px;
     left: auto; right: 0; transform: translateY(8px);
 }
+.lang-selector:hover .lang-menu,
 .lang-selector.active .lang-menu {
     opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto;
 }
@@ -1084,3 +1085,8 @@ body { top: 0 !important; position: static !important; }
     .team-carousel-container { padding: 0 44px; }
 }
 
+
+
+/* Hide Google Translate Widget */
+#google_translate_element { display: none !important; }
+.goog-te-banner-frame.skiptranslate { display: none !important; }
