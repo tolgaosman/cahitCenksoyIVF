@@ -1,43 +1,8 @@
-// --- Language / Translation (Google Translate, reload-based) ---
-// Clicking a flag writes the googtrans cookie and reloads; on load the hidden
-// Google widget reads that cookie and translates the page (or restores Turkish).
-
-// Callback for the Google Translate library script. Must stay global.
-function googleTranslateElementInit() {
-    try {
-        new google.translate.TranslateElement({
-            pageLanguage: 'tr',
-            includedLanguages: 'tr,en,ru,de,fr,ar,fa',
-            autoDisplay: false
-        }, 'google_translate_element');
-    } catch (e) {
-        // Widget blocked/offline — site stays in Turkish; never throw.
-    }
-}
+// --- Native i18n Translation System ---
+// Relies on translations.js which defines window.translations
 
 // Language code → flag emoji (rendered via the Twemoji polyfill font).
 var langFlags = { tr: '🇹🇷', en: '🇺🇸', ru: '🇷🇺', de: '🇩🇪', fr: '🇫🇷', ar: '🇸🇦', fa: '🇮🇷' };
-
-// Write the googtrans cookie that Google Translate reads to auto-translate.
-function setGoogtransCookie(langCode) {
-    var value = '/tr/' + langCode;
-    document.cookie = 'googtrans=' + value + '; path=/;';
-    var host = window.location.hostname;
-    if (host && host !== 'localhost' && !/^[0-9.]+$/.test(host)) {
-        document.cookie = 'googtrans=' + value + '; path=/; domain=' + host;
-        document.cookie = 'googtrans=' + value + '; path=/; domain=.' + host;
-    }
-}
-
-function clearGoogtransCookie() {
-    var past = 'expires=Thu, 01 Jan 1970 00:00:00 GMT';
-    var host = window.location.hostname;
-    document.cookie = 'googtrans=; path=/; ' + past;
-    if (host && host !== 'localhost') {
-        document.cookie = 'googtrans=; path=/; domain=' + host + '; ' + past;
-        document.cookie = 'googtrans=; path=/; domain=.' + host + '; ' + past;
-    }
-}
 
 // Reflect the active language on the button flag + highlight the active option.
 function updateLangButton(langCode) {
@@ -48,25 +13,48 @@ function updateLangButton(langCode) {
     });
 }
 
-// Flag click handler: set/clear cookie then reload (widget applies it on load).
+// Apply translations from the window.translations object to the DOM
+function applyTranslations(langCode) {
+    if (!window.translations || !window.translations[langCode]) return;
+    
+    var dict = window.translations[langCode];
+    var elements = document.querySelectorAll('[data-i18n]');
+    
+    elements.forEach(function (el) {
+        var key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+            // Check if element has HTML inside (like an icon). If so, we only replace text nodes,
+            // or we expect the user to wrap text in a <span>.
+            // For now, simple text replacement since our data-i18n elements only contain text.
+            el.textContent = dict[key];
+        }
+    });
+    
+    // Adjust layout direction for RTL languages (Arabic, Persian)
+    if (langCode === 'ar' || langCode === 'fa') {
+        document.documentElement.setAttribute('dir', 'rtl');
+        document.body.classList.add('rtl-mode');
+    } else {
+        document.documentElement.setAttribute('dir', 'ltr');
+        document.body.classList.remove('rtl-mode');
+    }
+}
+
+// Flag click handler: save to localStorage and update UI.
 function changeLanguage(langCode) {
     localStorage.setItem('lang', langCode);
     var sel = document.querySelector('.lang-selector');
     if (sel) sel.classList.remove('active');
     
-    if (langCode === 'tr') {
-        clearGoogtransCookie();
-    } else {
-        setGoogtransCookie(langCode);
-    }
-    location.reload();
+    updateLangButton(langCode);
+    applyTranslations(langCode);
 }
 
-// Restore saved language on load: button flag + re-assert cookie for the widget.
+// Restore saved language on load
 document.addEventListener('DOMContentLoaded', function () {
     var savedLang = localStorage.getItem('lang') || 'tr';
     updateLangButton(savedLang);
-    if (savedLang !== 'tr') setGoogtransCookie(savedLang);
+    applyTranslations(savedLang);
 });
 
 // --- Theme Toggle Logic ---
@@ -381,5 +369,149 @@ function showToast(message, iconClass = 'fa-solid fa-circle-check') {
         document.addEventListener('DOMContentLoaded', inject);
     } else {
         inject();
+    }
+})();
+
+// --- Interactive layer: scroll progress, count-up, card tilt, magnetic
+//     buttons, hero parallax. Fully gated behind prefers-reduced-motion. ---
+(function initInteractions() {
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function run() {
+        // ---- Scroll progress bar ----
+        if (!reduced) {
+            const bar = document.createElement('div');
+            bar.className = 'scroll-progress';
+            document.body.appendChild(bar);
+            const onScroll = () => {
+                const h = document.documentElement;
+                const max = h.scrollHeight - h.clientHeight;
+                bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+            };
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+        }
+
+        // ---- Count-up numbers (stat-bar <h2> + hero-badge <strong>) ----
+        // Parses the existing rendered number so content stays the single
+        // source of truth; preserves the original separator/suffix (%, . , ).
+        function countUp(el) {
+            const raw = el.textContent.trim();
+            const match = raw.match(/[\d.,]+/);
+            if (!match) return;
+            const numStr = match[0];
+            const target = parseInt(numStr.replace(/[.,]/g, ''), 10);
+            if (!isFinite(target)) return;
+            const usesDot = numStr.includes('.');
+            const usesComma = numStr.includes(',') && !usesDot;
+            const prefix = raw.slice(0, match.index);
+            const suffix = raw.slice(match.index + numStr.length);
+            const fmt = (n) => {
+                let s = String(n);
+                if (usesDot) s = n.toLocaleString('tr-TR');
+                else if (usesComma) s = n.toLocaleString('en-US');
+                return prefix + s + suffix;
+            };
+            const dur = 1400, start = performance.now();
+            function tick(now) {
+                const p = Math.min((now - start) / dur, 1);
+                const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+                el.textContent = fmt(Math.round(target * eased));
+                if (p < 1) requestAnimationFrame(tick);
+                else { el.textContent = raw; el.classList.add('count-done'); }
+            }
+            requestAnimationFrame(tick);
+        }
+
+        const counters = document.querySelectorAll('.stats-bar .stat-item h2, .hero-badge strong');
+        if (reduced || !('IntersectionObserver' in window)) {
+            // leave numbers as-is
+        } else {
+            const cObs = new IntersectionObserver((entries, obs) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) { countUp(e.target); obs.unobserve(e.target); }
+                });
+            }, { threshold: 0.4 });
+            counters.forEach(el => cObs.observe(el));
+        }
+
+        if (reduced) return;
+
+        // ---- Cursor-tracked 3D tilt + sheen on cards ----
+        const tiltEls = document.querySelectorAll('.feature-item, .service-card, .process-card, .team-card');
+        tiltEls.forEach(card => {
+            if (getComputedStyle(card).position === 'static') card.style.position = 'relative';
+            const sheen = document.createElement('span');
+            sheen.className = 'tilt-sheen';
+            card.appendChild(sheen);
+
+            card.addEventListener('pointermove', (e) => {
+                if (e.pointerType === 'touch') return;
+                const r = card.getBoundingClientRect();
+                const px = (e.clientX - r.left) / r.width;
+                const py = (e.clientY - r.top) / r.height;
+                card.style.setProperty('--rx', ((px - 0.5) * 12).toFixed(2) + 'deg');
+                card.style.setProperty('--ry', ((0.5 - py) * 12).toFixed(2) + 'deg');
+                card.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+                card.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+                card.classList.add('tilt');
+            });
+            card.addEventListener('pointerleave', () => {
+                card.classList.remove('tilt');
+                card.style.removeProperty('--rx');
+                card.style.removeProperty('--ry');
+            });
+        });
+
+        // ---- Magnetic pull + click ripple on buttons ----
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('pointermove', (e) => {
+                if (e.pointerType === 'touch') return;
+                const r = btn.getBoundingClientRect();
+                const mx = (e.clientX - r.left - r.width / 2) * 0.18;
+                const my = (e.clientY - r.top - r.height / 2) * 0.28;
+                btn.style.transform = `translate(${mx.toFixed(1)}px, ${(my - 3).toFixed(1)}px)`;
+            });
+            btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+            btn.addEventListener('click', (e) => {
+                const r = btn.getBoundingClientRect();
+                const ripple = document.createElement('span');
+                ripple.className = 'ripple';
+                const size = Math.max(r.width, r.height);
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = (e.clientX - r.left - size / 2) + 'px';
+                ripple.style.top = (e.clientY - r.top - size / 2) + 'px';
+                btn.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // ---- Hero pointer parallax ----
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            const b1 = hero.querySelector('.hero-blob.b1');
+            const b2 = hero.querySelector('.hero-blob.b2');
+            const photo = hero.querySelector('.hero-photo');
+            hero.addEventListener('pointermove', (e) => {
+                if (e.pointerType === 'touch') return;
+                const r = hero.getBoundingClientRect();
+                const dx = (e.clientX - r.left) / r.width - 0.5;
+                const dy = (e.clientY - r.top) / r.height - 0.5;
+                if (b1) b1.style.transform = `translate(${dx * 30}px, ${dy * 30}px)`;
+                if (b2) b2.style.transform = `translate(${dx * -24}px, ${dy * -24}px)`;
+                if (photo) photo.style.transform = `translate(${dx * 12}px, ${dy * 12}px)`;
+            });
+            hero.addEventListener('pointerleave', () => {
+                if (b1) b1.style.transform = '';
+                if (b2) b2.style.transform = '';
+                if (photo) photo.style.transform = '';
+            });
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', run);
+    } else {
+        run();
     }
 })();

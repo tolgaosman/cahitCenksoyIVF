@@ -8,24 +8,24 @@
    ===================================================================== */
 (function () {
     var NAV_LINKS = [
-        { href: 'index.html', label: 'Ana Sayfa' },
-        { href: 'team.html', label: 'Ekibimiz' },
+        { href: 'index.html', label: 'Ana Sayfa', i18n: 'nav.home' },
+        { href: 'team.html', label: 'Ekibimiz', i18n: 'nav.team' },
         {
-            label: 'Tedavi Seçenekleri', dropdown: [
-                { href: 'pgd_pgs.html', label: 'PGD/PGS' },
-                { href: 'tandem_dongusu.html', label: 'Tandem Döngüsü' },
-                { href: 'sperm_bagisi.html', label: 'Sperm Bağışı' },
-                { href: 'yumurta_bagisi.html', label: 'Yumurta Bağışı' },
-                { href: 'embriyo_donasyonu.html', label: 'Embriyo Donasyonu' },
-                { href: 'ngs_tedavisi.html', label: 'NGS Tedavisi' },
-                { href: 'icsi_ile_ivf.html', label: 'ICSI ile IVF' },
-                { href: 'sperm_ve_yumurta_dondurma.html', label: 'Sperm ve Yumurta Dondurma' }
+            label: 'Tedavi Seçenekleri', i18n: 'nav.treatments', dropdown: [
+                { href: 'pgd_pgs.html', label: 'PGD/PGS', i18n: 'nav.pgd' },
+                { href: 'tandem_dongusu.html', label: 'Tandem Döngüsü', i18n: 'nav.tandem' },
+                { href: 'sperm_bagisi.html', label: 'Sperm Bağışı', i18n: 'nav.sperm_donation' },
+                { href: 'yumurta_bagisi.html', label: 'Yumurta Bağışı', i18n: 'nav.egg_donation' },
+                { href: 'embriyo_donasyonu.html', label: 'Embriyo Donasyonu', i18n: 'nav.embryo_donation' },
+                { href: 'ngs_tedavisi.html', label: 'NGS Tedavisi', i18n: 'nav.ngs' },
+                { href: 'icsi_ile_ivf.html', label: 'ICSI ile IVF', i18n: 'nav.icsi' },
+                { href: 'sperm_ve_yumurta_dondurma.html', label: 'Sperm ve Yumurta Dondurma', i18n: 'nav.freezing' }
             ]
         },
-        { href: 'testimonials.html', label: 'Hastalarımızdan' },
-        { href: 'faq.html', label: 'Sık Sorulanlar' },
-        { href: 'blog.html', label: 'Blog' },
-        { href: 'contact.html', label: 'İletişim & Randevu' }
+        { href: 'testimonials.html', label: 'Hastalarımızdan', i18n: 'nav.testimonials' },
+        { href: 'faq.html', label: 'Sık Sorulanlar', i18n: 'nav.faq' },
+        { href: 'blog.html', label: 'Blog', i18n: 'nav.blog' },
+        { href: 'contact.html', label: 'İletişim & Randevu', i18n: 'nav.contact' }
     ];
 
     // Current page file name for active-link highlighting
@@ -39,14 +39,14 @@
             if (item.dropdown) {
                 var childActive = item.dropdown.some(function (c) { return isActive(c.href); });
                 var sub = item.dropdown.map(function (c) {
-                    return '<li><a href="' + c.href + '">' + c.label + '</a></li>';
+                    return '<li><a href="' + c.href + '" data-i18n="' + c.i18n + '">' + c.label + '</a></li>';
                 }).join('');
                 return '<li class="dropdown">' +
-                    '<a href="javascript:void(0)" class="' + (childActive ? 'nav-link--active' : '') + '">' +
+                    '<a href="javascript:void(0)" class="' + (childActive ? 'nav-link--active' : '') + '" data-i18n="' + item.i18n + '">' +
                     item.label + ' <i class="fa-solid fa-chevron-down"></i></a>' +
                     '<ul class="dropdown-menu">' + sub + '</ul></li>';
             }
-            return '<li><a href="' + item.href + '" class="' + (isActive(item.href) ? 'nav-link--active' : '') + '">' + item.label + '</a></li>';
+            return '<li><a href="' + item.href + '" class="' + (isActive(item.href) ? 'nav-link--active' : '') + '" data-i18n="' + item.i18n + '">' + item.label + '</a></li>';
         }).join('');
     }
 
@@ -56,7 +56,6 @@
         '<div class="logo"><a href="index.html"><img src="siyahLogo.png" alt="Dr. Cahit Cenksoy" id="navLogo"></a></div>' +
         '<div class="nav-center"><ul class="nav-links">' + buildNavLinks() + '</ul></div>' +
         '<div class="nav-right">' +
-        '<div id="google_translate_element"></div>' +
         '<div class="lang-selector notranslate">' +
         '<button class="lang-btn" id="currentLang" aria-label="Dil / Language"><span id="currentLangFlag" class="lang-flag">🇹🇷</span></button>' +
         '<ul class="dropdown-menu lang-menu">' +

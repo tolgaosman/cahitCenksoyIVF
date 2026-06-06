@@ -1090,3 +1090,134 @@ body { top: 0 !important; position: static !important; }
 /* Hide Google Translate Widget */
 #google_translate_element { position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0; z-index: -1; }
 .goog-te-banner-frame.skiptranslate { display: none !important; }
+
+
+/* =====================================================================
+   INTERACTIVE & MOTION LAYER (v6) — additive only.
+   Adds richer micro-interactions on top of the existing design system:
+   scroll-progress bar, shimmering gradient text, card cursor-tilt + sheen,
+   magnetic/ripple buttons, count-up emphasis, animated section lines and
+   eyebrows. All colour comes from existing tokens; every effect is gated
+   behind prefers-reduced-motion so the static experience is untouched.
+   ===================================================================== */
+
+/* ---- Scroll progress bar (top of viewport) ---- */
+.scroll-progress {
+    position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+    background: var(--grad-cta);
+    z-index: 100000; pointer-events: none;
+    box-shadow: 0 0 12px rgba(177, 77, 128, 0.5);
+    transition: width 0.1s linear;
+}
+
+/* ---- Shimmering gradient text (hero name etc.) ---- */
+.gradient-text {
+    background-size: 220% auto;
+    animation: gradientShimmer 6s ease-in-out infinite;
+}
+@keyframes gradientShimmer {
+    0%, 100% { background-position: 0% center; }
+    50%      { background-position: 100% center; }
+}
+
+/* ---- Animated section header underline ---- */
+.header-line { position: relative; overflow: hidden; }
+.header-line::after {
+    content: ''; position: absolute; top: 0; left: -40%;
+    width: 40%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.85), transparent);
+    animation: lineSheen 3.2s ease-in-out infinite;
+}
+@keyframes lineSheen {
+    0%   { left: -40%; }
+    60%, 100% { left: 120%; }
+}
+
+/* ---- Eyebrow pulse dot ---- */
+.eyebrow i { animation: eyebrowPulse 2.4s ease-in-out infinite; }
+@keyframes eyebrowPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50%      { transform: scale(1.18); opacity: 0.78; }
+}
+
+/* ---- Cursor-tracked 3D tilt for cards ---- */
+.feature-item, .service-card, .process-card, .team-card, .stat-item {
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+.tilt {
+    transform: perspective(900px)
+               rotateX(var(--ry, 0deg)) rotateY(var(--rx, 0deg))
+               translateY(-8px);
+    transition: transform 0.12s ease-out, box-shadow 0.3s ease;
+}
+/* Moving sheen that follows the cursor across tilt-enabled cards */
+.tilt-sheen {
+    position: absolute; inset: 0; border-radius: inherit;
+    pointer-events: none; z-index: 3; opacity: 0;
+    background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%),
+                rgba(255, 255, 255, 0.45), transparent 45%);
+    transition: opacity 0.3s ease;
+    mix-blend-mode: soft-light;
+}
+.tilt .tilt-sheen { opacity: 1; }
+
+/* ---- Icon wrapper: subtle continuous life on hover ---- */
+.feature-item:hover .service-icon-wrapper,
+.service-card:hover .service-icon-wrapper,
+.process-card:hover .service-icon-wrapper {
+    animation: iconPop 0.5s var(--ease-out);
+}
+@keyframes iconPop {
+    0%   { transform: scale(1); }
+    45%  { transform: scale(1.16) rotate(-7deg); }
+    100% { transform: scale(1.06); }
+}
+
+/* ---- Magnetic / ripple buttons ---- */
+.btn { position: relative; overflow: hidden; }
+.btn .ripple {
+    position: absolute; border-radius: 50%; transform: scale(0);
+    background: rgba(255, 255, 255, 0.5);
+    animation: rippleExpand 0.6s ease-out; pointer-events: none;
+}
+@keyframes rippleExpand {
+    to { transform: scale(2.6); opacity: 0; }
+}
+
+/* ---- Count-up emphasis: pop when the number lands ---- */
+.count-done { animation: countPop 0.5s var(--ease-out); }
+@keyframes countPop {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.12); }
+    100% { transform: scale(1); }
+}
+
+/* ---- Hero parallax: blobs/photo react to pointer (vars set in JS) ---- */
+.hero-blob { transition: transform 0.25s ease-out; }
+.hero-photo { transition: transform 0.3s ease-out; }
+
+/* ---- Extra reveal flavours ---- */
+.reveal[data-anim="left"]  { transform: translateX(-40px); }
+.reveal[data-anim="right"] { transform: translateX(40px); }
+.reveal[data-anim="zoom"]  { transform: scale(0.92); }
+.reveal[data-anim="left"].is-visible,
+.reveal[data-anim="right"].is-visible,
+.reveal[data-anim="zoom"].is-visible { transform: none; }
+
+/* ---- WhatsApp float: attention nudge every few seconds ---- */
+.whatsapp-float { animation: waNudge 4.5s ease-in-out infinite; }
+@keyframes waNudge {
+    0%, 86%, 100% { transform: translateY(0) rotate(0); }
+    90% { transform: translateY(-6px) rotate(-8deg); }
+    94% { transform: translateY(-3px) rotate(8deg); }
+}
+
+/* ---- Honour reduced-motion: silence every effect above ---- */
+@media (prefers-reduced-motion: reduce) {
+    .gradient-text, .header-line::after, .eyebrow i,
+    .whatsapp-float, .hero-blob, .hero-photo { animation: none !important; }
+    .tilt { transform: translateY(-8px) !important; }
+    .tilt-sheen { display: none; }
+    .scroll-progress { display: none; }
+}
