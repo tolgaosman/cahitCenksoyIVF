@@ -972,19 +972,36 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
 }
 
 /* ---------- Google Translate UI hide ---------- */
-/* Hide every piece of Google Translate's own UI (we drive it from our own menu) */
+/* Hide Google Translate's VISIBLE UI only (we drive it from our own menu).
+   IMPORTANT: do NOT blanket-hide .skiptranslate with display:none — Google's
+   own translation-processing iframe is also .skiptranslate, and hiding it with
+   display:none stops the widget from translating. Same for the widget container:
+   display:none can prevent it from running its translation pass, so we move it
+   off-screen instead. */
 .goog-te-banner-frame,
 .goog-te-balloon-frame,
 #goog-gt-tt,
 .goog-te-spinner-pos,
 .goog-tooltip,
-.goog-tooltip:hover,
-#google_translate_element { display: none !important; }
+.goog-tooltip:hover { display: none !important; }
+
+/* Keep the widget container in the layout (so the widget initializes/translates)
+   but hide it off-screen. */
+#google_translate_element {
+    position: absolute !important;
+    left: -9999px !important;
+    top: 0 !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+}
 .goog-te-gadget { font-size: 0 !important; height: 0 !important; overflow: hidden !important; }
 .goog-te-gadget .goog-te-combo { display: none !important; }
-/* The top banner iframe is wrapped in .skiptranslate — keep it hidden and
-   stop Google from pushing the page down. */
-iframe.skiptranslate, .skiptranslate { display: none !important; }
+
+/* Hide ONLY the visible top banner iframe (not every .skiptranslate) and stop
+   Google from pushing the page down. The hidden processing iframe is left alone. */
+iframe.goog-te-banner-frame { display: none !important; }
+.skiptranslate > iframe { visibility: hidden !important; }
 body { top: 0 !important; position: static !important; }
 .goog-text-highlight { background: none !important; box-shadow: none !important; }
 .ltr-text { direction: ltr !important; display: inline-block; }

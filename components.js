@@ -63,7 +63,7 @@
     }
 
     var headerHTML =
-        '<div id="google_translate_element" style="display:none;"></div>' +
+        '<div id="google_translate_element"></div>' +
         '<nav class="navbar" id="navbar">' +
         '<div class="nav-container">' +
         '<div class="logo"><a href="index.html"><img src="siyahLogo.png" alt="Dr. Cahit Cenksoy" id="navLogo"></a></div>' +
