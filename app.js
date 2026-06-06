@@ -1,8 +1,43 @@
-// --- Language Selection ---
-// Reflects the active language on the button flag and highlights the active option.
+// --- Language / Translation (Google Translate, reload-based) ---
+// Clicking a flag writes the googtrans cookie and reloads; on load the hidden
+// Google widget reads that cookie and translates the page (or restores Turkish).
+
+// Callback for the Google Translate library script. Must stay global.
+function googleTranslateElementInit() {
+    try {
+        new google.translate.TranslateElement({
+            pageLanguage: 'tr',
+            includedLanguages: 'tr,en,ru,de,fr,ar,fa',
+            autoDisplay: false
+        }, 'google_translate_element');
+    } catch (e) {
+        // Widget blocked/offline — site stays in Turkish; never throw.
+    }
+}
 
 // Language code → flag emoji (rendered via the Twemoji polyfill font).
 var langFlags = { tr: '🇹🇷', en: '🇺🇸', ru: '🇷🇺', de: '🇩🇪', fr: '🇫🇷', ar: '🇸🇦', fa: '🇮🇷' };
+
+// Write the googtrans cookie that Google Translate reads to auto-translate.
+function setGoogtransCookie(langCode) {
+    var value = '/tr/' + langCode;
+    document.cookie = 'googtrans=' + value + '; path=/;';
+    var host = window.location.hostname;
+    if (host && host !== 'localhost' && !/^[0-9.]+$/.test(host)) {
+        document.cookie = 'googtrans=' + value + '; path=/; domain=' + host;
+        document.cookie = 'googtrans=' + value + '; path=/; domain=.' + host;
+    }
+}
+
+function clearGoogtransCookie() {
+    var past = 'expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    var host = window.location.hostname;
+    document.cookie = 'googtrans=; path=/; ' + past;
+    if (host && host !== 'localhost') {
+        document.cookie = 'googtrans=; path=/; domain=' + host + '; ' + past;
+        document.cookie = 'googtrans=; path=/; domain=.' + host + '; ' + past;
+    }
+}
 
 // Reflect the active language on the button flag + highlight the active option.
 function updateLangButton(langCode) {
@@ -13,20 +48,25 @@ function updateLangButton(langCode) {
     });
 }
 
-// Flag click handler: save to localStorage and update UI.
+// Flag click handler: set/clear cookie then reload (widget applies it on load).
 function changeLanguage(langCode) {
     localStorage.setItem('lang', langCode);
     var sel = document.querySelector('.lang-selector');
     if (sel) sel.classList.remove('active');
-    updateLangButton(langCode);
-    // To trigger server-side or custom translation, you might want to uncomment location.reload()
-    // location.reload();
+    
+    if (langCode === 'tr') {
+        clearGoogtransCookie();
+    } else {
+        setGoogtransCookie(langCode);
+    }
+    location.reload();
 }
 
-// Restore saved language on load
+// Restore saved language on load: button flag + re-assert cookie for the widget.
 document.addEventListener('DOMContentLoaded', function () {
     var savedLang = localStorage.getItem('lang') || 'tr';
     updateLangButton(savedLang);
+    if (savedLang !== 'tr') setGoogtransCookie(savedLang);
 });
 
 // --- Theme Toggle Logic ---
