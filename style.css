@@ -111,12 +111,21 @@
     --card-color-4: #3b2528;
 }
 
+/* Country-flag emoji polyfill so 🇹🇷/🇺🇸 render as flags (e.g. on Windows). */
+@font-face {
+    font-family: "Twemoji Country Flags";
+    src: url("https://cdn.jsdelivr.net/npm/country-flag-emoji-polyfill@0.1.8/dist/TwemojiCountryFlags.woff2") format("woff2");
+    unicode-range: U+1F1E6-1F1FF;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: var(--font-body);
 }
+
+.lang-flag { font-family: "Twemoji Country Flags", var(--font-body); }
 
 html { scroll-behavior: smooth; }
 
@@ -433,6 +442,31 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
     cursor: pointer; transition: var(--transition); font-size: 1.05rem;
 }
 .theme-toggle:hover { transform: rotate(-15deg) scale(1.08); border-color: var(--primary-color); box-shadow: var(--shadow-sm); }
+
+/* Language selector (TR/EN flag dropdown, left of the theme toggle) */
+.lang-selector { position: relative; }
+.lang-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    width: 42px; height: 42px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: var(--transition); font-size: 1.1rem; padding: 0;
+}
+.lang-btn:hover { border-color: var(--primary-color); box-shadow: var(--shadow-sm); transform: scale(1.06); }
+.lang-menu {
+    min-width: auto; padding: 8px;
+    left: auto; right: 0; transform: translateY(8px);
+}
+.lang-selector.active .lang-menu {
+    opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto;
+}
+.lang-menu li { list-style: none; }
+.lang-menu .lang-option {
+    display: flex; align-items: center; justify-content: center;
+    padding: 8px 14px; font-size: 1.25rem; border-radius: var(--radius-sm);
+}
+.lang-menu .lang-option:hover { background: var(--grad-soft); transform: none; }
+.lang-menu .lang-option.active { background: var(--grad-soft); }
 
 .mobile-toggle {
     display: none; background: var(--card-bg); border: 1px solid var(--border-color);
@@ -950,6 +984,21 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
 
 
 .ltr-text { direction: ltr !important; display: inline-block; }
+
+/* Google Translate widget: keep it functional but out of sight.
+   IMPORTANT: do NOT blanket-hide .skiptranslate with display:none — Google's
+   translation-processing iframe is also .skiptranslate and hiding it stops
+   translation. Move the container off-screen instead of display:none, and hide
+   only the visible top banner. */
+#google_translate_element {
+    position: absolute !important;
+    left: -9999px !important; top: 0 !important;
+    width: 1px !important; height: 1px !important; overflow: hidden !important;
+}
+.goog-te-banner-frame, iframe.goog-te-banner-frame { display: none !important; }
+.goog-te-gadget { font-size: 0 !important; }
+.goog-text-highlight { background: none !important; box-shadow: none !important; }
+body { top: 0 !important; position: static !important; }
 
 /* ---------- Toast ---------- */
 .custom-toast {

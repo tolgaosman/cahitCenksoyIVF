@@ -1,3 +1,74 @@
+// --- Language / Translation (Google Translate, reload-based, TR + EN only) ---
+// Clicking a flag writes the googtrans cookie and reloads; on load the hidden
+// Google widget reads that cookie and translates the page (or restores Turkish).
+
+// Callback for the Google Translate library script. Must stay global.
+function googleTranslateElementInit() {
+    try {
+        new google.translate.TranslateElement({
+            pageLanguage: 'tr',
+            includedLanguages: 'tr,en',
+            autoDisplay: false
+        }, 'google_translate_element');
+    } catch (e) {
+        // Widget blocked/offline — site stays in Turkish; never throw.
+    }
+}
+
+// Language code → flag emoji (rendered via the Twemoji polyfill font).
+var langFlags = { tr: '🇹🇷', en: '🇺🇸' };
+
+// Write the googtrans cookie that Google Translate reads to auto-translate.
+// Set it for every relevant scope so it survives a reload on localhost and prod.
+function setGoogtransCookie(langCode) {
+    var value = '/tr/' + langCode;
+    document.cookie = 'googtrans=' + value + '; path=/;';
+    var host = window.location.hostname;
+    if (host && host !== 'localhost' && !/^[0-9.]+$/.test(host)) {
+        document.cookie = 'googtrans=' + value + '; path=/; domain=' + host;
+        document.cookie = 'googtrans=' + value + '; path=/; domain=.' + host;
+    }
+}
+
+function clearGoogtransCookie() {
+    var past = 'expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    var host = window.location.hostname;
+    document.cookie = 'googtrans=; path=/; ' + past;
+    if (host && host !== 'localhost') {
+        document.cookie = 'googtrans=; path=/; domain=' + host + '; ' + past;
+        document.cookie = 'googtrans=; path=/; domain=.' + host + '; ' + past;
+    }
+}
+
+// Reflect the active language on the button flag + highlight the active option.
+function updateLangButton(langCode) {
+    var flagEl = document.getElementById('currentLangFlag');
+    if (flagEl) flagEl.textContent = langFlags[langCode] || langFlags.tr;
+    document.querySelectorAll('.lang-option').forEach(function (a) {
+        a.classList.toggle('active', a.dataset.lang === langCode);
+    });
+}
+
+// Flag click handler: set/clear cookie then reload (widget applies it on load).
+function changeLanguage(langCode) {
+    localStorage.setItem('lang', langCode);
+    var sel = document.querySelector('.lang-selector');
+    if (sel) sel.classList.remove('active');
+    if (langCode === 'tr') {
+        clearGoogtransCookie();
+    } else {
+        setGoogtransCookie(langCode);
+    }
+    location.reload();
+}
+
+// Restore saved language on load: button flag + re-assert cookie for the widget.
+document.addEventListener('DOMContentLoaded', function () {
+    var savedLang = localStorage.getItem('lang') || 'tr';
+    updateLangButton(savedLang);
+    if (savedLang !== 'tr') setGoogtransCookie(savedLang);
+});
+
 // --- Theme Toggle Logic ---
 function initTheme() {
     const themeToggleBtn = document.getElementById('themeToggle');
@@ -54,6 +125,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const dropdownLink = e.target.closest('.dropdown > a');
         const mobileToggleBtn = e.target.closest('#mobileToggle');
         const navLinksMenu = document.querySelector('.navbar .nav-links');
+        const langBtn = e.target.closest('#currentLang');
+        const langOption = e.target.closest('.lang-option');
+        const langSelector = document.querySelector('.lang-selector');
+
+        // Handle language pick (flag click) → translate via reload
+        if (langOption) {
+            e.preventDefault();
+            e.stopPropagation();
+            changeLanguage(langOption.dataset.lang);
+            return;
+        }
+
+        // Toggle the language dropdown open/closed
+        if (langBtn) {
+            e.stopPropagation();
+            langSelector?.classList.toggle('active');
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+            return;
+        }
 
         // Handle Dropdowns (Mobile/Touch Only)
         if (dropdownLink) {
@@ -81,6 +171,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Close everything when clicking outside
         if (!e.target.closest('.dropdown')) {
             document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+        }
+        if (langSelector && !e.target.closest('.lang-selector')) {
+            langSelector.classList.remove('active');
         }
 
         // Close mobile menu when clicking outside
