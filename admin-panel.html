@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://*.google.com https://translate.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://www.gstatic.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: blob:; connect-src 'self' https://*.googleapis.com https://*.google.com https://firebasestorage.googleapis.com https://cahit-cenksoy-admin.onrender.com; frame-src https://*.google.com; object-src 'none'; base-uri 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://*.google.com https://translate.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://www.gstatic.com https://translate.googleapis.com https://www.google.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https: blob:; connect-src 'self' https://*.googleapis.com https://*.google.com https://firebasestorage.googleapis.com https://cahit-cenksoy-admin.onrender.com; frame-src https://*.google.com; object-src 'none'; base-uri 'self'">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Dr. Cahit Cenksoy - Admin Paneli</title>
     <link rel="icon" href="browserLogo.png" type="image/png">
@@ -348,14 +348,14 @@
                     <input type="email" id="login-email" required placeholder="admin@cahitcenksoy.com">
                 </div>
                 <div class="form-group" id="password-group">
-                    <label>Åifre</label>
-                    <input type="password" id="login-password" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢">
+                    <label>Şifre</label>
+                    <input type="password" id="login-password" placeholder="••••••••">
                 </div>
                 <p id="login-error" style="color: #e74c3c; margin-bottom: 15px; display: none; font-size: 0.9rem;"></p>
                 <button type="submit" class="btn" id="login-btn">Giriş Yap</button>
                 
                 <div style="margin-top: 15px; font-size: 0.85rem;">
-                    <a href="#" id="toggle-forgot" style="color: var(--primary); text-decoration: none;">Åifremi Unuttum</a>
+                    <a href="#" id="toggle-forgot" style="color: var(--primary); text-decoration: none;">Şifremi Unuttum</a>
                 </div>
                 <div style="margin-top: 15px; font-size: 0.85rem; display: none;" id="back-to-login-wrapper">
                     <a href="#" id="toggle-login" style="color: #888; text-decoration: none;"><i class="fa-solid fa-arrow-left"></i> Giriş Ekranına Dön</a>
@@ -523,7 +523,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;">SIRALAMA DEÄERİ (OPSİYONEL)</label>
+                    <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;">SIRALAMA DEĞERİ (OPSİYONEL)</label>
                     <input type="number" id="team-sort" placeholder="0">
                 </div>
                 
@@ -543,12 +543,12 @@
 
                 <div class="form-group">
                     <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;"><i class="fa-solid fa-graduation-cap" style="color: var(--primary); margin-right: 5px;"></i> LİSANS</label>
-                    <input type="text" id="team-bachelors" placeholder="Örn: Hemşirelik â€“ Islamic Azad University">
+                    <input type="text" id="team-bachelors" placeholder="Örn: Hemşirelik – Islamic Azad University">
                 </div>
 
                 <div class="form-group">
                     <label style="color:#aaa; font-size:0.85rem; letter-spacing:1px;"><i class="fa-solid fa-user-graduate" style="color: var(--primary); margin-right: 5px;"></i> YÜKSEK LİSANS</label>
-                    <input type="text" id="team-masters" placeholder="Örn: Cerrahi Hemşirelik â€“ Yakın Doğu Üniversitesi">
+                    <input type="text" id="team-masters" placeholder="Örn: Cerrahi Hemşirelik – Yakın Doğu Üniversitesi">
                 </div>
 
                 <div class="form-group">

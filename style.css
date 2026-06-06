@@ -1057,9 +1057,19 @@ body { top: 0 !important; position: static !important; }
     .stat-item::after { display: none !important; }
     .process-grid { grid-template-columns: repeat(2, 1fr); }
     .features-bar { margin-top: -40px; }
+
+    /* Shrink the floating hero stat cards so they don't overwhelm the photo */
+    .hero-badge { padding: 10px 14px; gap: 10px; }
+    .hero-badge i { width: 34px; height: 34px; font-size: 0.95rem; }
+    .hero-badge strong { font-size: 1.2rem; }
+    .hero-badge span { font-size: 0.62rem; letter-spacing: 0.04em; }
 }
 
 @media (max-width: 576px) {
+    /* Clean 2-column stats grid on phones (avoids the cramped 3+2 split) */
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 38px 0; }
+    .stat-item:last-child { grid-column: 1 / -1; }
+
     .team-overlay { display: block !important; overflow-y: auto !important; text-align: left !important; padding: 16px !important; }
     .team-grid-full { grid-template-columns: repeat(2, 1fr) !important; gap: 15px !important; }
     .team-img { height: 230px !important; }

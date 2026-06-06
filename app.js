@@ -289,9 +289,6 @@ function showToast(message, iconClass = 'fa-solid fa-circle-check') {
         // If IntersectionObserver isn't available or motion is reduced, show everything.
         if (prefersReduced || !('IntersectionObserver' in window)) {
             revealEls.forEach(el => el.classList.add('is-visible'));
-            document.querySelectorAll('[data-count]').forEach(el => {
-                el.textContent = (+el.getAttribute('data-count')).toLocaleString('tr-TR');
-            });
             return;
         }
 
@@ -305,30 +302,6 @@ function showToast(message, iconClass = 'fa-solid fa-circle-check') {
             });
         }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
         revealEls.forEach(el => revealObserver.observe(el));
-
-        // Count-up for stats
-        function animateCount(el) {
-            const target = +el.getAttribute('data-count');
-            const duration = 3500;
-            const start = performance.now();
-            function tick(now) {
-                const p = Math.min((now - start) / duration, 1);
-                const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
-                el.textContent = Math.round(target * eased).toLocaleString('tr-TR');
-                if (p < 1) requestAnimationFrame(tick);
-            }
-            requestAnimationFrame(tick);
-        }
-
-        const countObserver = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCount(entry.target);
-                    obs.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15 });
-        document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el));
     }
 
     if (document.readyState === 'loading') {
