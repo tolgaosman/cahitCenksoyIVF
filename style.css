@@ -505,8 +505,8 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
 }
 .hero-inner {
     display: grid;
-    grid-template-columns: 1fr 1.05fr;
-    gap: 50px;
+    grid-template-columns: 0.85fr 1.35fr;
+    gap: 40px;
     align-items: center;
     position: relative;
     z-index: 3;
@@ -535,7 +535,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height
     border-radius: var(--radius-xl);
     overflow: hidden;
     box-shadow: var(--shadow-lg);
-    border: 6px solid var(--card-bg);
+    border: 12px solid var(--card-bg);
     z-index: 2;
 }
 .hero-photo img { width: 100%; height: auto; display: block; }
@@ -1100,10 +1100,7 @@ body { top: 0 !important; position: static !important; }
 }
 
 
-
-/* Hide Google Translate Widget */
-#google_translate_element { position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0; z-index: -1; }
-.goog-te-banner-frame.skiptranslate { display: none !important; }
+/* (Google Translate widget hiding lives in the block above, near .goog-te-*) */
 
 
 /* =====================================================================

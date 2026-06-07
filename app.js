@@ -23,41 +23,57 @@ function updateLangButton(langCode) {
     });
 }
 
-// Flag click handler
+// Write the googtrans cookie that the Google Translate widget reads on load.
+// Set it for the bare path AND (on real domains) for both `host` and `.host`
+// variants so the widget finds it whether the page is on apex or www subdomain.
+function setGoogtransCookie(langCode) {
+    var value = '/tr/' + langCode;
+    document.cookie = 'googtrans=' + value + '; path=/;';
+    var host = window.location.hostname;
+    if (host && host !== 'localhost' && !/^[0-9.]+$/.test(host)) {
+        document.cookie = 'googtrans=' + value + '; path=/; domain=' + host;
+        document.cookie = 'googtrans=' + value + '; path=/; domain=.' + host;
+    }
+}
+
+// Delete the googtrans cookie (all variants) so the page restores to Turkish.
+function clearGoogtransCookie() {
+    var past = 'expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    document.cookie = 'googtrans=; path=/; ' + past;
+    var host = window.location.hostname;
+    if (host && host !== 'localhost') {
+        document.cookie = 'googtrans=; path=/; domain=' + host + '; ' + past;
+        document.cookie = 'googtrans=; path=/; domain=.' + host + '; ' + past;
+    }
+}
+
+// Flag click handler: set/clear the cookie then reload. On reload the hidden
+// #google_translate_element widget reads the cookie and translates the page
+// (or, for Turkish with no cookie, leaves the original content as-is).
 window.changeLanguage = function(langCode) {
     localStorage.setItem('lang', langCode);
-    
-    // Set googtrans cookie for Google Translate
-    var domain = window.location.hostname === 'localhost' ? '' : '.' + window.location.hostname;
-    document.cookie = 'googtrans=/tr/' + langCode + '; path=/;';
-    if (domain) {
-        document.cookie = 'googtrans=/tr/' + langCode + '; path=/; domain=' + domain;
-    }
-
-    // Try to use Google Translate widget combo box directly
-    var select = document.querySelector('.goog-te-combo');
-    if (select) {
-        select.value = langCode;
-        select.dispatchEvent(new Event('change'));
-    } else {
-        // If combo box isn't rendered yet or fails, fallback to reload
-        location.reload();
-    }
-
-    // Update UI instantly
     var sel = document.querySelector('.lang-selector');
     if (sel) sel.classList.remove('active');
     updateLangButton(langCode);
+
+    if (langCode === 'tr') {
+        clearGoogtransCookie();
+    } else {
+        setGoogtransCookie(langCode);
+    }
+
+    // Always reload so Google Translate applies the cookie cleanly.
+    location.reload();
 };
 
-// Restore saved language on load
+// Restore saved language on load: reflect it on the button and re-assert the
+// cookie (in case it expired) so the widget translates on this load too.
 document.addEventListener('DOMContentLoaded', function () {
     var savedLang = localStorage.getItem('lang') || 'tr';
     updateLangButton(savedLang);
-    
-    // We don't need to manually trigger translation on load because Google Translate widget
-    // automatically reads the googtrans cookie and translates the page. We just ensure
-    // our UI matches the saved language. If the widget is missing, it will do nothing.
+    if (savedLang !== 'tr') {
+        setGoogtransCookie(savedLang);
+    }
 });
 
 // --- Theme Toggle Logic ---
