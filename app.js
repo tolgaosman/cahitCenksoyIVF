@@ -1,8 +1,7 @@
-// --- Google Translate (Select-Trigger Method) ---
-// We use localStorage to remember the language (works on file://)
-// and programmatically trigger Google's hidden <select> dropdown.
+// --- Google Translate (Cookie + Reload Method) ---
+// We use cookies to tell the Google Translate widget which language to display.
+// Reloading the page ensures the Google script reads the cookie and translates perfectly.
 
-// Language code → flag emoji (rendered via the Twemoji polyfill font).
 var langFlags = { tr: '🇹🇷', en: '🇺🇸', ru: '🇷🇺', de: '🇩🇪', fr: '🇫🇷', ar: '🇸🇦', fa: '🇮🇷' };
 
 window.googleTranslateElementInit = function() {
@@ -23,49 +22,49 @@ function updateLangButton(langCode) {
     });
 }
 
-function triggerGoogleTranslate(langCode) {
-    var select = document.querySelector('.goog-te-combo');
-    if (select) {
-        // If it's already translated, or if we want to restore original
-        if (langCode === 'tr') {
-            // To restore, we must click the "Show Original" iframe button or clear cookie
-            var iframe = document.querySelector('iframe.goog-te-banner-frame');
-            if (iframe) {
-                var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-                var restoreBtn = innerDoc.getElementById(':1.restore') || innerDoc.getElementById('restore');
-                if (restoreBtn) restoreBtn.click();
-            }
-            // Clear google cookie fallback
-            document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-            location.reload();
-            return;
-        }
-        
-        select.value = langCode;
-        select.dispatchEvent(new Event('change'));
-    } else {
-        // Retry if Google Translate hasn't rendered yet
-        setTimeout(function() { triggerGoogleTranslate(langCode); }, 500);
+function setGoogtransCookie(langCode) {
+    var value = '/tr/' + langCode;
+    document.cookie = 'googtrans=' + value + '; path=/;';
+    var host = window.location.hostname;
+    if (host && host !== 'localhost' && !/^[0-9.]+$/.test(host)) {
+        document.cookie = 'googtrans=' + value + '; path=/; domain=' + host;
+        document.cookie = 'googtrans=' + value + '; path=/; domain=.' + host;
+    }
+}
+
+function clearGoogtransCookie() {
+    var past = 'expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    document.cookie = 'googtrans=; path=/; ' + past;
+    var host = window.location.hostname;
+    if (host && host !== 'localhost') {
+        document.cookie = 'googtrans=; path=/; domain=' + host + '; ' + past;
+        document.cookie = 'googtrans=; path=/; domain=.' + host + '; ' + past;
     }
 }
 
 // Flag click handler
-function changeLanguage(langCode) {
+window.changeLanguage = function(langCode) {
     localStorage.setItem('lang', langCode);
     var sel = document.querySelector('.lang-selector');
     if (sel) sel.classList.remove('active');
     
-    updateLangButton(langCode);
-    triggerGoogleTranslate(langCode);
-}
+    if (langCode === 'tr') {
+        clearGoogtransCookie();
+    } else {
+        setGoogtransCookie(langCode);
+    }
+    
+    // Always reload to let Google Translate apply the cookie properly
+    location.reload();
+};
 
 // Restore saved language on load
 document.addEventListener('DOMContentLoaded', function () {
     var savedLang = localStorage.getItem('lang') || 'tr';
     updateLangButton(savedLang);
+    // If it's not Turkish, ensure cookie is set
     if (savedLang !== 'tr') {
-        // Wait for Google script to inject the combo box
-        setTimeout(function() { triggerGoogleTranslate(savedLang); }, 1000);
+        setGoogtransCookie(savedLang);
     }
 });
 
