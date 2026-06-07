@@ -252,7 +252,8 @@ function initTeamCarousel() {
 }
 
 // --- Global Toast Notification Utility ---
-function showToast(message, iconClass = 'fa-solid fa-circle-check') {
+// --- Global Toast Notification Utility ---
+function showToast(message, iconClass = 'fa-solid fa-circle-check', duration = 3000) {
     let toast = document.getElementById('globalToast');
     if (!toast) {
         toast = document.createElement('div');
@@ -260,24 +261,39 @@ function showToast(message, iconClass = 'fa-solid fa-circle-check') {
         toast.className = 'custom-toast';
         document.body.appendChild(toast);
     }
-    
-    toast.innerHTML = `<i class="${iconClass}"></i> <span>${message}</span>`;
-    
-    // Trigger entry transition
-    requestAnimationFrame(() => {
-        toast.classList.add('show');
-    });
-    
-    // Clear any active dismiss timer
-    if (window.toastTimeout) {
-        clearTimeout(window.toastTimeout);
-    }
-    
-    // Auto-dismiss after 3 seconds
-    window.toastTimeout = setTimeout(() => {
-        toast.classList.remove('show');
-    }, 3000);
+    toast.innerHTML = '<i class="' + iconClass + '"></i> <span>' + message + '</span>';
+    toast.classList.add('show');
+    setTimeout(() => { toast.classList.remove('show'); }, duration);
 }
+
+// --- Process Modal Descriptions ---
+const procDescriptions = {
+    1: {
+        title: 'Ã–n GÃ¶rÃ¼ÅŸme',
+        desc: 'TÃ¼p bebek tedavisinde, tedavi seÃ§eneÄŸi ne olursa olsun Ã¶ncelikle anne ve baba adayÄ±nÄ±n detaylÄ± bilgileri alÄ±nÄ±r. Bu bilgilere ek olarak Ã¶ncesinde yapÄ±lmÄ±ÅŸ olan tÃ¼m ameliyat, gÃ¶rÃ¼ntÃ¼leme yÃ¶ntemleri (rahim filmi, vb.), kan ve sperm test sonuÃ§larÄ± deÄŸerlendirilir. Bu bilgilerin analiz edilmesi tÃ¼p bebek baÅŸarÄ±sÄ±nda hayati Ã¶nem taÅŸÄ±r. Ã‡ifte talep ettikleri tedavi sorulur.'
+    },
+    2: {
+        title: 'Tedavinin PlanlanmasÄ±',
+        desc: 'Mevcut veriler Ä±ÅŸÄ±ÄŸÄ±nda uygun tedavi planlanÄ±r. KÄ±brÄ±sâ€™ta tÃ¼p bebek tedavisi baÅŸlamadan Ã¶nce, Ã¶n hazÄ±rlÄ±ÄŸÄ±n Ã§iftin yaÅŸadÄ±ÄŸÄ± Ã¼lkede yapÄ±lmasÄ± seyahat sÃ¼resini kÄ±saltÄ±r. Zaman kÄ±sÄ±tlamasÄ± olmayan veya tedavi sÃ¼recinde KÄ±brÄ±sâ€™ta tatil planlayan Ã§iftlerin tÃ¼m sÃ¼reci burada geÃ§irmesi tercih edilir. Planlanan tedavi KÄ±brÄ±sâ€™ta yumurta donasyonu ise anne adayÄ±nÄ±n hormon dÃ¼zeyleri adetinin 2. veya 3. gÃ¼nÃ¼ kontrol edilir. Uygun dÃ¼zeyde ise rahim duvarÄ± hazÄ±rlÄ±ÄŸÄ±na baÅŸlanÄ±r. Rahim duvarÄ± kalÄ±nlÄ±ÄŸÄ± uygun seviyeye ulaÅŸtÄ±ÄŸÄ± zaman progesteron hormonu tedavisi baÅŸlanmasÄ± gerekir. Progesteron baÅŸlanacaÄŸÄ± gÃ¼n eÅŸinin de sperm vermesi gerektiÄŸinden Ã§iftin KÄ±brÄ±sâ€™ta olmasÄ± gerekir. Baba adayÄ± sperm Ã¶rneÄŸini daha Ã¶nceden vermiÅŸ ise anne adayÄ±nÄ±n transferden sadece bir gÃ¼n Ã¶ncesinde KÄ±brÄ±sâ€™ta olmasÄ± yeterlidir. Sperm donasyonunda ise anne adayÄ±nÄ±n yumurtalarÄ± toplanmadan (OPU) sadece bir gÃ¼n Ã¶nce KÄ±brÄ±sâ€™ta olmasÄ± yeterlidir. Tedavi embriyo donasyonu olacak ise Ã§iftin yine transfer tarihinden sadece bir gÃ¼n Ã¶nce KÄ±brÄ±sâ€™ta olmasÄ± yeterlidir.'
+    },
+    3: {
+        title: 'Seyahat',
+        desc: 'KÄ±brÄ±sâ€™ ta tÃ¼p bebek tedavisi iÃ§in ulaÅŸÄ±m yolu genellikle uÃ§ak seyahatidir. Deniz yoluyla TÃ¼rkiye Ã¼zerinden deniz otobÃ¼sÃ¼ ile 2-3 saatlik yolculukla da ulaÅŸmak mÃ¼mkÃ¼ndÃ¼r. Hava yoluyla LefkoÅŸa Ercan HavalimanÄ± veya Larnaka havalimanÄ±ndan ulaÅŸÄ±m kolaylÄ±kla saÄŸlanabilir. Avrupa Ã¼zerinden gelecek olan yolcularÄ±mÄ±z iÃ§in Larnaka havalimanÄ±na direk uÃ§uÅŸlar bulunmaktadÄ±r. Seyahatin en baÅŸÄ±ndan sonuna kadar her noktasÄ±nda merkezimiz istendiÄŸi takdirde yardÄ±m saÄŸlamaktadÄ±r. HavalimanÄ± ulaÅŸÄ±mlarÄ±, uÃ§ak biletleri, otelden tÃ¼p bebek merkezine ulaÅŸÄ±m, turistik amaÃ§lÄ± geziler dahil her tÃ¼rlÃ¼ ulaÅŸÄ±m imkanÄ± saÄŸlanabilir.'
+    },
+    4: {
+        title: 'Konaklama',
+        desc: 'KÄ±brÄ±sâ€™ta tÃ¼p bebek tedavisi sÄ±rasÄ±nda konaklama iÃ§in oldukÃ§a fazla seÃ§enek mevcuttur. Merkeze yÃ¼rÃ¼me mesafesinde beÅŸ yÄ±ldÄ±zlÄ± oldukÃ§a konforlu oteller olabileceÄŸi gibi, oldukÃ§a uygun fiyatlÄ± butik oteller de mevcuttur. TÃ¼p bebek tedavisinin KÄ±brÄ±sâ€™ta yapÄ±lmasÄ± tercih etmek anne ve baba adayÄ±nÄ±n stresini azaltÄ±r. Ä°klimin hemen hemen her mevsim Ä±lÄ±man olduÄŸu bu gÃ¼zel adada tatil yaparken bebek sahibi olabilirsiniz.'
+    },
+    5: {
+        title: 'Tedavi',
+        desc: 'KÄ±brÄ±sâ€™ta TÃ¼p Bebek Tedavisi seÃ§ilecek yÃ¶nteme gÃ¶re deÄŸiÅŸkenlik gÃ¶sterse de tedavilerin oldukÃ§a geniÅŸ aÃ§Ä±klamasÄ± ana sayfamÄ±zda yer almaktadÄ±r. Daha fazla bilgi ve ayrÄ±ntÄ± iÃ§in bizimle iletiÅŸime geÃ§ebilirsiniz.'
+    },
+    6: {
+        title: 'Gebelik Testi',
+        desc: 'KÄ±brÄ±sâ€™ta tÃ¼p bebek tedavisi sonrasÄ± Ã§iftlerin Ã§oÄŸu transferden bir gÃ¼n sonra kendi yaÅŸadÄ±klarÄ± Ã¼lkeye dÃ¶nmektedir. Bizim Ã¶nerimiz transferden 12 gÃ¼n sonra kanda gebelik testi (b-HCG ) yapÄ±lmasÄ±dÄ±r. Ã–ncesinde yapÄ±lan idrar veya kan testleri yanÄ±ltÄ±cÄ± olabilmektedir.'
+    }
+};
+
 
 // --- Motion Layer: scroll-reveal + count-up stats ---
 (function initMotion() {
@@ -554,31 +570,3 @@ function showToast(message, iconClass = 'fa-solid fa-circle-check') {
         run();
     }
 })();
-/ /   - - -   P r o c e s s   M o d a l   D e s c r i p t i o n s   ( T u r k i s h   o n l y   -   G o o g l e   T r a n s l a t e   h a n d l e s   o t h e r   l a n g u a g e s )   - - -  
- c o n s t   p r o c D e s c r i p t i o n s   =   {  
-         1 :   {  
-                 t i t l e :   " %û n   G %Â r %]%<%_m e " ,  
-                 d e s c :   " T %]%p   b e b e k   t e d a v i s i n d e ,   t e d a v i   s e %e n e  %_i   n e   o l u r s a   o l s u n   %Â n c e l i k l e   a n n e   v e   b a b a   a d a y  %’%n  %’%n   d e t a y l  %’%  b i l g i l e r i   a l  %’%n  %’%r .   B u   b i l g i l e r e   e k   o l a r a k   %Â n c e s i n d e   y a p  %’%l m  %’%<%_  o l a n   t %]%m   a m e l i y a t , g %Â r %]%n t %]%l e m e   y %Â n t e m l e r i   ( r a h i m   f i l m i ,   v b . ) ,   k a n   v e   s p e r m   t e s t   s o n u %l a r  %’%  d e  %_e r l e n d i r i l i r .   B u   b i l g i l e r i n   a n a l i z   e d i l m e s i   t %]%p   b e b e k   b a <%_a r  %’%s  %’%n d a   h a y a t i   %Â n e m   t a <%_ %’%r .   %ç i f t e   t a l e p   e t t i k l e r i   t e d a v i   s o r u l u r . "  
-         } ,  
-         2 :   {  
-                 t i t l e :   " T e d a v i n i n   P l a n l a n m a s  %’%" ,  
-                 d e s c :   " M e v c u t   v e r i l e r    %’%<%_ %’% %_ %’%n d a   u y g u n   t e d a v i   p l a n l a n  %’%r .   K  %’%b r  %’%s Ô Ç Ö t a   t %]%p   b e b e k   t e d a v i s i   b a <%_l a m a d a n   %Â n c e ,   %Â n   h a z  %’%r l  %’% %_ %’%n   %i f t i n   y a <%_a d  %’% %_ %’%  %]%l k e d e   y a p  %’%l m a s  %’%  s e y a h a t   s %]%r e s i n i   k  %’%s a l t  %’%r .   Z a m a n   k  %’%s  %’%t l a m a s  %’%  o l m a y a n   v e y a   t e d a v i   s %]%r e c i n d e   K  %’%b r  %’%s Ô Ç Ö t a   t a t i l   p l a n l a y a n   %i f t l e r i n   t %]%m   s %]%r e c i   b u r a d a   g e %i r m e s i   t e r c i h   e d i l i r .   P l a n l a n a n   t e d a v i   K  %’%b r  %’%s Ô Ç Ö t a   y u m u r t a   d o n a s y o n u   i s e   a n n e   a d a y  %’%n  %’%n   h o r m o n   d %]%z e y l e r i   a d e t i n i n   2 .   v e y a   3 .   g %]%n %]%  k o n t r o l   e d i l i r .   U y g u n   d %]%z e y d e   i s e   r a h i m   d u v a r  %’%  h a z  %’%r l  %’% %_ %’%n a   b a <%_l a n  %’%r .   R a h i m   d u v a r  %’%  k a l  %’%n l  %’% %_ %’%  u y g u n   s e v i y e y e   u l a <%_t  %’% %_ %’%  z a m a n   p r o g e s t e r o n   h o r m o n u   t e d a v i s i   b a <%_l a n m a s  %’%  g e r e k i r .   P r o g e s t e r o n   b a <%_l a n a c a  %_ %’%  g %]%n   e <%_i n i n   d e   s p e r m   v e r m e s i   g e r e k t i  %_i n d e n   %i f t i n   K  %’%b r  %’%s Ô Ç Ö t a   o l m a s  %’%  g e r e k i r .   B a b a   a d a y  %’%  s p e r m   %Â r n e  %_i n i   d a h a   %Â n c e d e n   v e r m i <%_  i s e   a n n e   a d a y  %’%n  %’%n   t r a n s f e r d e n   s a d e c e   b i r   g %]%n   %Â n c e s i n d e   K  %’%b r  %’%s Ô Ç Ö t a   o l m a s  %’%  y e t e r l i d i r .   S p e r m   d o n a s y o n u n d a   i s e   a n n e   a d a y  %’%n  %’%n   y u m u r t a l a r  %’%  t o p l a n m a d a n   ( O P U )   s a d e c e   b i r   g %]%n   %Â n c e   K  %’%b r  %’%s Ô Ç Ö t a   o l m a s  %’%  y e t e r l i d i r .   T e d a v i   e m b r i y o   d o n a s y o n u   o l a c a k   i s e   %i f t i n   y i n e   t r a n s f e r   t a r i h i n d e n   s a d e c e   b i r   g %]%n   %Â n c e   K  %’%b r  %’%s Ô Ç Ö t a   o l m a s  %’%  y e t e r l i d i r . "  
-         } ,  
-         3 :   {  
-                 t i t l e :   " S e y a h a t " ,  
-                 d e s c :   " K  %’%b r  %’%s Ô Ç Ö   t a   t %]%p   b e b e k   t e d a v i s i   i %i n   u l a <%_ %’%m   y o l u   g e n e l l i k l e   u %a k   s e y a h a t i d i r .   D e n i z   y o l u y l a   T %]%r k i y e   %]%z e r i n d e n   d e n i z   o t o b %]%s %]%  i l e   2 - 3   s a a t l i k   y o l c u l u k l a   d a   u l a <%_m a k   m %]%m k %]%n d %]%r .   H a v a   y o l u y l a   L e f k o <%_a   E r c a n   H a v a l i m a n  %’%  v e y a   L a r n a k a   h a v a l i m a n  %’%n d a n   u l a <%_ %’%m   k o l a y l  %’%k l a   s a  %_l a n a b i l i r .   A v r u p a   %]%z e r i n d e n   g e l e c e k   o l a n   y o l c u l a r  %’%m  %’%z   i %i n   L a r n a k a   h a v a l i m a n  %’%n a   d i r e k   u %u <%_l a r   b u l u n m a k t a d  %’%r .   S e y a h a t i n   e n   b a <%_ %’%n d a n   s o n u n a   k a d a r   h e r   n o k t a s  %’%n d a   m e r k e z i m i z   i s t e n d i  %_i   t a k d i r d e   y a r d  %’%m   s a  %_l a m a k t a d  %’%r .   H a v a l i m a n  %’%  u l a <%_ %’%m l a r  %’%,   u %a k   b i l e t l e r i ,   o t e l d e n   t %]%p   b e b e k   m e r k e z i n e   u l a <%_ %’%m ,   t u r i s t i k   a m a %l  %’%  g e z i l e r   d a h i l   h e r   t %]%r l %]%  u l a <%_ %’%m   i m k a n  %’%  s a  %_l a n a b i l i r . "  
-         } ,  
-         4 :   {  
-                 t i t l e :   " K o n a k l a m a " ,  
-                 d e s c :   " K  %’%b r  %’%s Ô Ç Ö t a   t %]%p   b e b e k   t e d a v i s i   s  %’%r a s  %’%n d a   k o n a k l a m a   i %i n   o l d u k %a   f a z l a   s e %e n e k   m e v c u t t u r .   M e r k e z e   y %]%r %]%m e   m e s a f e s i n d e   b e <%_  y  %’%l d  %’%z l  %’%  o l d u k %a   k o n f o r l u   o t e l l e r   o l a b i l e c e  %_i   g i b i ,   o l d u k %a   u y g u n   f i y a t l  %’%  b u t i k   o t e l l e r   d e   m e v c u t t u r .   T %]%p   b e b e k   t e d a v i s i n i n   K  %’%b r  %’%s Ô Ç Ö t a   y a p  %’%l m a s  %’%  t e r c i h   e t m e k   a n n e   v e   b a b a   a d a y  %’%n  %’%n   s t r e s i n i   a z a l t  %’%r .    %‘%k l i m i n   h e m e n   h e m e n   h e r   m e v s i m    %’%l  %’%m a n   o l d u  %_u   b u   g %]%z e l   a d a d a   t a t i l   y a p a r k e n   b e b e k   s a h i b i   o l a b i l i r s i n i z . "  
-         } ,  
-         5 :   {  
-                 t i t l e :   " T e d a v i " ,  
-                 d e s c :   " K  %’%b r  %’%s Ô Ç Ö t a   T %]%p   B e b e k   T e d a v i s i   s e %i l e c e k   y %Â n t e m e   g %Â r e   d e  %_i <%_k e n l i k   g %Â s t e r s e   d e   t e d a v i l e r i n   o l d u k %a   g e n i <%_  a % %’%k l a m a s  %’%  a n a   s a y f a m  %’%z d a   y e r   a l m a k t a d  %’%r .   D a h a   f a z l a   b i l g i   v e   a y r  %’%n t  %’%  i %i n   b i z i m l e   i l e t i <%_i m e   g e %e b i l i r s i n i z . "  
-         } ,  
-         6 :   {  
-                 t i t l e :   " G e b e l i k   T e s t i " ,  
-                 d e s c :   " K  %’%b r  %’%s Ô Ç Ö t a   t %]%p   b e b e k   t e d a v i s i   s o n r a s  %’%  %i f t l e r i n   %o  %_u   t r a n s f e r d e n   b i r   g %]%n   s o n r a   k e n d i   y a <%_a d  %’%k l a r  %’%  %]%l k e y e   d %Â n m e k t e d i r .   B i z i m   %Â n e r i m i z   t r a n s f e r d e n   1 2   g %]%n   s o n r a   k a n d a   g e b e l i k   t e s t i   ( b - H C G   )   y a p  %’%l m a s  %’%d  %’%r .   %û n c e s i n d e   y a p  %’%l a n   i d r a r   v e y a   k a n   t e s t l e r i   y a n  %’%l t  %’%c  %’%  o l a b i l m e k t e d i r . "  
-         }  
- } ;  
- 
