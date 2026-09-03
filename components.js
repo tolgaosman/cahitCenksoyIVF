@@ -53,7 +53,7 @@
     var headerHTML =
         '<nav class="navbar" id="navbar">' +
         '<div class="nav-container">' +
-        '<div class="logo"><a href="index.html"><img src="siyahLogo.png" alt="Dr. Cahit Cenksoy" id="navLogo"></a></div>' +
+        '<div class="logo"><a href="index.html"><img src="siyahLogo.png" alt="Dr. John Doe" id="navLogo"></a></div>' +
         '<div class="nav-center"><ul class="nav-links">' + buildNavLinks() + '</ul></div>' +
         '<div class="nav-right">' +
         '<div id="google_translate_element" style="position:absolute; width:1px; height:1px; overflow:hidden; z-index:-1; opacity:0;"></div>' +
@@ -77,12 +77,12 @@
     var footerHTML =
         '<footer class="site-footer"><div class="container"><div class="footer-container">' +
         '<div class="footer-left">' +
-        '<img src="siyahLogo.png" alt="Dr. Cahit Cenksoy Logo" id="footerLogo" style="max-height: 80px; margin-bottom: 20px;">' +
+        '<img src="siyahLogo.png" alt="Dr. John Doe Logo" id="footerLogo" style="max-height: 80px; margin-bottom: 20px;">' +
         '<p class="hospital-name"><i class="fa-solid fa-location-dot" style="margin-right: 8px; color: var(--accent-2);"></i> ' +
-        '<span>Nicosia IVF - Nicosia Sevinç Hospital</span></p>' +
+        '<span>Nicosia IVF - Nicosia General Hospital</span></p>' +
         '<div class="social-links">' +
-        '<a href="https://www.instagram.com/drcahitcenksoy/" class="social-box" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>' +
-        '<a href="https://www.facebook.com/p/Dr-Cahit-Cenksoy-100064112829620/" class="social-box" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>' +
+        '<a href="https://www.instagram.com/drjohndoe/" class="social-box" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>' +
+        '<a href="https://www.facebook.com/p/Dr-john-doe-100064112829620/" class="social-box" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>' +
         '</div></div>' +
         '<div class="footer-right">' +
         '<h3 class="contact-title">İLETİŞİM BİLGİLERİ</h3>' +
@@ -90,16 +90,16 @@
         '<div class="contact-col">' +
         '<h4 class="contact-col-title"><i class="fa-solid fa-phone"></i> <span>TELEFON</span></h4>' +
         '<ul class="footer-contact-list">' +
-        '<li class="footer-contact-item"><a href="tel:+905488880112" target="_blank" rel="noopener noreferrer" class="footer-link"><span>+90 548 888 0 112</span></a></li>' +
-        '<li class="footer-contact-item"><a href="tel:+905428880112" target="_blank" rel="noopener noreferrer" class="footer-link"><span class="ltr-text">+90 542 888 0 112</span></a></li>' +
-        '<li class="footer-contact-item"><a href="tel:+903924440112" target="_blank" rel="noopener noreferrer" class="footer-link"><span class="ltr-text">+90 392 444 0 112</span></a></li>' +
-        '<li class="footer-contact-item"><a href="tel:+905338681983" target="_blank" rel="noopener noreferrer" class="footer-link"><span class="ltr-text">+90 533 868 1983</span></a></li>' +
+        '<li class="footer-contact-item"><a href="tel:+15551234567" target="_blank" rel="noopener noreferrer" class="footer-link"><span>+1 555 123 45 67</span></a></li>' +
+        '<li class="footer-contact-item"><a href="tel:+15559876543" target="_blank" rel="noopener noreferrer" class="footer-link"><span class="ltr-text">+1 555 987 65 43</span></a></li>' +
+        '<li class="footer-contact-item"><a href="tel:+15554440000" target="_blank" rel="noopener noreferrer" class="footer-link"><span class="ltr-text">+1 555 444 00 00</span></a></li>' +
+        '<li class="footer-contact-item"><a href="tel:+15555555555" target="_blank" rel="noopener noreferrer" class="footer-link"><span class="ltr-text">+1 555 555 55 55</span></a></li>' +
         '</ul></div>' +
         '<div class="contact-col">' +
         '<h4 class="contact-col-title"><i class="fa-solid fa-envelope"></i> <span>E-POSTA</span></h4>' +
         '<ul class="footer-contact-list">' +
-        '<li class="footer-contact-item"><span>c_cenksoy@hotmail.com</span></li>' +
-        '<li class="footer-contact-item"><span>ufukozbas0675@gmail.com</span></li>' +
+        '<li class="footer-contact-item"><span>contact@johndoe.com</span></li>' +
+        '<li class="footer-contact-item"><span>manager@johndoe.com</span></li>' +
         '</ul></div>' +
         '</div></div>' +
         '</div></div></footer>';

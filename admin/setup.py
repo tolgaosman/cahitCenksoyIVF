@@ -10,7 +10,7 @@ from werkzeug.security import generate_password_hash
 
 BASE_DIR    = os.path.dirname(os.path.abspath(__file__))
 DB_DIR      = os.path.join(BASE_DIR, 'database')
-DB_PATH     = os.path.join(DB_DIR, 'cenksoy_admin.db')
+DB_PATH     = os.path.join(DB_DIR, 'doe_admin.db')
 UPLOAD_DIR  = os.path.join(BASE_DIR, 'static', 'uploads')
 
 os.makedirs(DB_DIR,     exist_ok=True)
@@ -75,11 +75,11 @@ def init_db(username: str, password: str):
 
     # Seed default site content
     defaults = [
-        ('about_doctor',  "Dr. Cahit Cenksoy, Kıbrıs'ta en yüksek tüp bebek başarı oranına sahip uzman hekimdir.", 'Doktor Hakkında'),
-        ('contact_phone', '+90 548 888 0 112',   'İletişim Telefonu'),
-        ('contact_email', 'c_cenksoy@hotmail.com','İletişim E-postası'),
-        ('clinic_address','Nicosia IVF - Sevinç Hastanesi, Lefkoşa, Kıbrıs', 'Klinik Adresi'),
-        ('hero_title',    'Dr. Cahit Cenksoy | Tüp Bebek ve IVF Uzmanı', 'Hero Başlık'),
+        ('about_doctor',  "Dr. John Doe, Kıbrıs'ta en yüksek tüp bebek başarı oranına sahip uzman hekimdir.", 'Doktor Hakkında'),
+        ('contact_phone', '+1 555 123 45 67',   'İletişim Telefonu'),
+        ('contact_email', 'contact@johndoe.com','İletişim E-postası'),
+        ('clinic_address','Nicosia IVF - General Hospital, Lefkoşa, Kıbrıs', 'Klinik Adresi'),
+        ('hero_title',    'Dr. John Doe | Tüp Bebek ve IVF Uzmanı', 'Hero Başlık'),
         ('hero_subtitle', 'Uzman bakım ve şefkatle yönlendirilen, ebeveynlik yolculuğunuza özel en son teknoloji tedaviler.', 'Hero Alt Başlık'),
     ]
     for key, value, label in defaults:
@@ -95,10 +95,10 @@ def init_db(username: str, password: str):
 
 if __name__ == '__main__':
     print("=" * 50)
-    print("  Dr. Cahit Cenksoy — Admin Panel Kurulum")
+    print("  Dr. John Doe — Admin Panel Kurulum")
     print("=" * 50)
 
-    uname = input("\nAdmin kullanıcı adı [cahitivf]: ").strip() or "cahitivf"
+    uname = input("\nAdmin kullanıcı adı [johnivf]: ").strip() or "johnivf"
     pw1   = input("Şifre: ").strip()
     pw2   = input("Şifre (tekrar): ").strip()
 

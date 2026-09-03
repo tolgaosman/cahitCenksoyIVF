@@ -89,9 +89,9 @@ function initTheme() {
         if (navLogo) navLogo.src = logoSrc;
         if (footerLogo) footerLogo.src = logoSrc;
 
-        const signature = document.getElementById('cahitSignature');
+        const signature = document.getElementById('johnSignature');
         if (signature) {
-            signature.src = isDark ? 'cahitSignature_white.png' : 'cahitSignature.png';
+            signature.src = isDark ? 'johnSignature_white.png' : 'johnSignature.png';
         }
     }
 

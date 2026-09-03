@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://*.google.com https://translate.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://www.gstatic.com https://www.google.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.google.com https://cahit-cenksoy-admin.onrender.com; frame-src https://*.google.com; object-src 'none'; base-uri 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://*.google.com https://translate.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://www.gstatic.com https://www.google.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://*.googleapis.com https://*.google.com https://john-doe-admin.onrender.com; frame-src https://*.google.com; object-src 'none'; base-uri 'self'">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <title>Dr. Cahit Cenksoy | IVF & Medical Clinic</title>
+    <title>Dr. John Doe | IVF & Medical Clinic</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="browserLogo.png?v=1.1">
     <link rel="stylesheet" href="style.css?v=6.3">
@@ -29,7 +29,7 @@
                 <div class="hero-content reveal">
                     <span class="eyebrow"><i class="fa-solid fa-baby-carriage"></i> Kadın
                         Hastalıkları, Doğum ve Tüp Bebek Uzmanı</span>
-                    <h1><span class="gradient-text">Dr. Cahit Cenksoy</span><br>Lefkoşa Sevinç
+                    <h1><span class="gradient-text">Dr. John Doe</span><br>Central General
                         Hastanesi</h1>
                     <p>Uzman bakım ve şefkatle yönlendirilen, ebeveynlik yolculuğunuza özel en
                         son teknoloji tüp bebek tedavileri.</p>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="hero-visual reveal" data-delay="2">
                     <div class="hero-photo">
-                        <img src="ekip.jpeg" alt="Dr. Cahit Cenksoy IVF Ekibi">
+                        <img src="https://via.placeholder.com/800x400?text=Team" alt="Dr. John Doe IVF Ekibi">
                     </div>
                     <div class="hero-badge top">
                         <i class="fa-solid fa-baby"></i>
@@ -90,15 +90,15 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-media reveal">
-                    <img src="https://cahitcenksoy.com/admin/images/takim/cahitcenksoy_foto.png"
-                        alt="Dr. Cahit Cenksoy">
+                    <img src="https://johndoe.com/admin/images/takim/johndoe_foto.png"
+                        alt="Dr. John Doe">
                 </div>
                 <div class="about-text reveal" data-delay="1">
                     <span class="eyebrow">KADIN HASTALIKLARI, DOĞUM VE TÜP BEBEK UZMANI</span>
-                    <h2>OP. DR. CAHİT CENKSOY</h2>
+                    <h2>OP. DR. CAHİT doe</h2>
                     <div class="about-body">
                         <p>Kıbrıs'ta en yüksek tüp bebek başarı oranına sahip; en genç, en
-                            tecrübeli ve en başarılı Kadın Doğum Uzmanlarından biri olan Dr. Cahit Cenksoy'un hem
+                            tecrübeli ve en başarılı Kadın Doğum Uzmanlarından biri olan Dr. John Doe'un hem
                             sezaryen hem de doğal doğumlarda adada en fazla doğum yaptıran doktor olduğu da çok iyi
                             bilinmektedir. Hayallerinizin özel müjdesini alacağınız merkezimiz, adanın cazibe merkezi,
                             tüm dünyanın da gözde turistik cenneti Girne'de yer almaktadır. Deniz kıyısındaki şehrimizde
@@ -114,7 +114,7 @@
                             başarı oranlarımız sürekli en üst düzeyde kalmaktadır.</p>
                     </div>
                     <div class="about-sign">
-                        <img src="cahitSignature.png" id="cahitSignature" alt="Signature">
+                        <img src="johnSignature.png" id="johnSignature" alt="Signature">
                     </div>
                 </div>
             </div>
@@ -382,9 +382,9 @@
             }
 
             const img = document.createElement('img');
-            img.src = m.imageUrl || 'cahit.jpg';
+            img.src = m.imageUrl || 'john.jpg';
             img.alt = m.name || '';
-            img.setAttribute('onerror', "this.onerror=null; this.src='cahit.jpg';");
+            img.setAttribute('onerror', "this.onerror=null; this.src='john.jpg';");
 
             const overlayInner = document.createElement('div');
             overlayInner.appendChild(details);

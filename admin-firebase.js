@@ -582,7 +582,7 @@ document.getElementById('form-blog').addEventListener('submit', async (e) => {
             content: document.getElementById('blog-content').value,
             status: document.getElementById('blog-status').value,
             date: document.getElementById('blog-date').value,
-            author: "Dr. Cahit Cenksoy" // Varsayılan yazar
+            author: "Dr. John Doe" // Varsayılan yazar
         };
         
         if (id) {

@@ -1,6 +1,6 @@
 rules_version = '2';
 
-// Dr. Cahit Cenksoy IVF — Firebase Storage güvenlik kuralları
+// Dr. John Doe IVF — Firebase Storage güvenlik kuralları
 //
 // Model:
 //  - Görseller (ekip/blog kapakları) herkese açık OKUNUR (site bunları gösteriyor).

@@ -1,7 +1,7 @@
 # Backend Güvenlik Sertleştirme Rehberi (Render — Node/Express)
 
 Bu dosya **bu (frontend) repoda değil**, ayrı çalışan Render backend'ine
-(`cahit-cenksoy-admin.onrender.com`) uygulanacak kopyala-yapıştır kod ve konfigürasyon
+(`john-doe-admin.onrender.com`) uygulanacak kopyala-yapıştır kod ve konfigürasyon
 bloklarını içerir. Buradaki kod **bu repoda çalıştırılmaz**; backend repona taşı.
 
 Frontend tarafı (`contact.html`) zaten `POST /api/basvuru` çağrısı yapıyor; aşağıdaki
