@@ -1,0 +1,408 @@
+/* ============================================================
+   HOMEPAGE STYLES
+   ============================================================ */
+
+/* ---- HERO ---- */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--color-ivory);
+  overflow: hidden;
+  padding-top: var(--nav-height);
+}
+
+.heroInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.heroTitle {
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.heroEm {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+
+.heroSubtitle {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 500px;
+}
+
+.heroActions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* Hero image */
+.heroImage {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: visible;
+}
+
+.heroImg {
+  width: 100%;
+  height: 540px;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Floating stat card — elevation justified: anchors trust in the hero */
+.statCard {
+  position: absolute;
+  bottom: -20px;
+  left: -24px;
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-6);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.statNumber {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.statLabel {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+/* Scroll indicator */
+.heroScroll {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--container-pad);
+  opacity: 0.45;
+}
+
+.heroScrollLine {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--text-primary);
+}
+
+.heroScrollText {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+/* ---- STATS STRIP ---- */
+.stats {
+  padding-block: var(--space-16);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-8);
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-6);
+  border-left: 1px solid rgba(250,248,245,0.12);
+}
+
+.statItem:first-child {
+  border-left: none;
+}
+
+.statValue {
+  font-size: var(--font-size-4xl);
+  font-weight: 800;
+  color: var(--text-on-dark);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.statDesc {
+  font-size: var(--font-size-sm);
+  color: rgba(250,248,245,0.55);
+  line-height: 1.4;
+}
+
+/* ---- SECTION HEADERS ---- */
+.sectionHead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-12);
+  max-width: 640px;
+}
+
+.sectionTitle {
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.sectionSubtitle {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ---- TREATMENTS ---- */
+.treatmentGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-bottom: var(--space-10);
+}
+
+.treatmentCard {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.treatmentImageWrap {
+  overflow: hidden;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  height: 200px;
+}
+
+.treatmentImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 400ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .treatmentCard:hover .treatmentImage {
+    transform: scale(1.04);
+  }
+}
+
+.treatmentBody {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  flex: 1;
+}
+
+.treatmentTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.treatmentDesc {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* ---- TEAM ---- */
+.teamSection {}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-bottom: var(--space-10);
+}
+
+.teamCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.teamPhoto {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.teamBody {
+  padding: var(--space-5) var(--space-6) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.teamName {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.teamTitle {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.teamSpecialty {
+  margin-top: var(--space-1);
+  font-size: var(--font-size-xs);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ---- TESTIMONIALS ---- */
+.testimonialSection {
+  background-color: var(--color-navy);
+}
+
+.testimonialGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.testimonial {
+  background: rgba(250,248,245,0.05);
+  border: 1px solid rgba(250,248,245,0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.testimonialQuote {
+  font-size: var(--font-size-base);
+  color: rgba(250,248,245,0.82);
+  line-height: 1.75;
+  font-style: italic;
+}
+
+.testimonialFooter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.testimonialAuthor {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--text-on-dark);
+}
+
+.testimonialMeta {
+  font-size: var(--font-size-xs);
+  color: var(--color-rose-light);
+}
+
+/* ---- CTA ---- */
+.ctaSection {
+  background-color: var(--color-stone-100);
+}
+
+.ctaInner {
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.ctaTitle {
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.ctaSubtitle {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.centred {
+  display: flex;
+  justify-content: center;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 1024px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .statItem {
+    border-left: none;
+    border-top: 1px solid rgba(250,248,245,0.12);
+  }
+  .statItem:nth-child(-n+2) {
+    border-top: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    padding-top: var(--space-8);
+  }
+  .heroImage {
+    order: -1;
+  }
+  .heroImg {
+    height: 320px;
+  }
+  .statCard {
+    bottom: -16px;
+    left: -12px;
+  }
+  .statsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .treatmentGrid,
+  .teamGrid {
+    grid-template-columns: 1fr;
+  }
+  .testimonialGrid {
+    grid-template-columns: 1fr;
+  }
+}

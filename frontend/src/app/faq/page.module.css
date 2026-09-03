@@ -1,0 +1,133 @@
+.header {
+  padding-top: calc(var(--nav-height) + var(--space-16));
+  padding-bottom: var(--space-16);
+  background-color: var(--color-stone-100);
+}
+
+.headerInner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 720px;
+}
+
+.pageTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1.05;
+}
+
+.pageSubtitle {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* FAQ layout — two-column for RHYTHM variation */
+.faqGrid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: var(--space-16);
+  align-items: start;
+}
+
+/* Accordion */
+.faqList {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.item {
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.question {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  width: 100%;
+  text-align: left;
+  padding: var(--space-6) 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 160ms ease;
+}
+
+.questionText {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.item.itemOpen .questionText {
+  color: var(--accent);
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  transition: transform 250ms var(--ease-out), color 160ms ease;
+  margin-top: 2px;
+}
+
+.iconOpen {
+  transform: rotate(180deg);
+  color: var(--accent);
+}
+
+.answerWrap {
+  overflow: hidden;
+}
+
+.answer {
+  padding-bottom: var(--space-6);
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* Sidebar */
+.sidebar {
+  position: sticky;
+  top: calc(var(--nav-height) + var(--space-8));
+}
+
+.sideCard {
+  background: var(--color-navy);
+  color: var(--text-on-dark);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.sideTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.sideText {
+  font-size: var(--font-size-sm);
+  color: rgba(250,248,245,0.65);
+  line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: static;
+  }
+}

@@ -1,0 +1,140 @@
+.footer {
+  background-color: var(--color-navy);
+  color: var(--text-on-dark);
+  padding-top: var(--space-20);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: var(--space-12);
+  padding-bottom: var(--space-16);
+}
+
+/* Brand */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.logoMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: var(--accent);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+
+.logoText {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--text-on-dark);
+  max-width: 130px;
+  line-height: 1.2;
+}
+
+.tagline {
+  font-size: var(--font-size-sm);
+  color: rgba(250,248,245,0.55);
+  margin-bottom: var(--space-6);
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+.address {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: rgba(250,248,245,0.65);
+}
+
+.contactLink {
+  color: rgba(250,248,245,0.75);
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.contactLink:hover {
+  color: var(--color-rose-light);
+}
+
+/* Columns */
+.col {}
+
+.colHeading {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-5);
+}
+
+.colLinks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.colLink {
+  font-size: var(--font-size-sm);
+  color: rgba(250,248,245,0.65);
+  transition: color 160ms ease;
+}
+
+.colLink:hover {
+  color: var(--text-on-dark);
+}
+
+.colText {
+  font-size: var(--font-size-sm);
+  color: rgba(250,248,245,0.65);
+  line-height: 1.7;
+  margin-bottom: var(--space-5);
+}
+
+.cta {
+  font-size: var(--font-size-sm);
+}
+
+/* Bottom bar */
+.bottom {
+  border-top: 1px solid rgba(250,248,245,0.1);
+  padding-block: var(--space-5);
+}
+
+.legal {
+  font-size: var(--font-size-xs);
+  color: rgba(250,248,245,0.4);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr 1fr;
+  }
+  .brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  .brand {
+    grid-column: auto;
+  }
+}
