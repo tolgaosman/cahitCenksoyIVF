@@ -1,44 +1,72 @@
 /* =============================================================================
    NICOSIA FERTILITY CENTRE — Global Design System
-   Font: Montserrat (Google Fonts via next/font)
-   Design: Premium Medical, Editorial, Warm-Sophisticated
-   Dials: ENERGY 2 / RHYTHM 2 / MOTION 2
-   Palette: Warm Ivory + Deep Slate Navy + Dusty Rose accent
+   Font: Sora (Google Fonts via next/font)
+   Design: Soft-clinical, warm, atmospheric
+   Palette: Blush pink base + deep plum action colour + lavender/peach ambience
    ============================================================================= */
 
 /* -------------------------------------------------------------------------- */
 /* 1. DESIGN TOKENS                                                            */
 /* -------------------------------------------------------------------------- */
 :root {
-  /* Core palette — 2 mains + 1 accent + neutrals */
-  --color-ivory:        #FAF8F5;
-  --color-ivory-dark:   #F2EEE8;
-  --color-navy:         #1C2B3A;
-  --color-navy-mid:     #2E4057;
-  --color-rose:         #C4846A;      /* single deliberate accent */
-  --color-rose-light:   #EDD5CB;
-  --color-rose-dark:    #A66549;
+  /* Brand — blush base, plum action */
+  --color-blush:        #f8c8dc;
+  --color-blush-deep:   #f4b0cf;
+  --color-plum:         #6d2c4f;   /* headings, CTAs, links */
+  --color-berry:        #b14d80;   /* mid accent, eyebrows */
+  --color-lavender:     #d9c8f8;
+  --color-peach:        #f9d9c8;
 
-  /* Neutral scale */
-  --color-stone-100:    #F5F2EE;
-  --color-stone-200:    #E8E2DA;
-  --color-stone-300:    #CFC6BA;
-  --color-stone-500:    #8C7F72;
-  --color-stone-700:    #4A4238;
-  --color-stone-900:    #1E1A16;
+  /* Legacy token names kept as aliases so every page.module.css re-themes
+     automatically. Names describe position in the scale, not the hue. */
+  --color-ivory:        #fffafc;   /* page ground */
+  --color-ivory-dark:   #fdf2f6;   /* tinted band */
+  --color-navy:         #6d2c4f;   /* dark band ground (now plum) */
+  --color-navy-mid:     #b14d80;
+  --color-rose:         #b14d80;   /* accent */
+  --color-rose-light:   #f8c8dc;
+  --color-rose-dark:    #6d2c4f;   /* accent hover */
+
+  /* Neutral scale — warmed towards pink */
+  --color-stone-100:    #fff5f6;
+  --color-stone-200:    #f5dbe6;
+  --color-stone-300:    #e9c9d9;
+  --color-stone-500:    #877f8a;
+  --color-stone-700:    #4a4038;
+  --color-stone-900:    #2a2230;
 
   /* Semantic aliases */
   --bg-page:            var(--color-ivory);
+  --bg-soft:            #fdf2f6;
+  --bg-light:           #fff5f6;
   --bg-section-alt:     var(--color-ivory-dark);
-  --bg-dark:            var(--color-navy);
-  --text-primary:       var(--color-navy);
-  --text-secondary:     var(--color-stone-700);
-  --text-muted:         var(--color-stone-500);
-  --text-on-dark:       #FAF8F5;
-  --accent:             var(--color-rose);
-  --accent-light:       var(--color-rose-light);
-  --border-subtle:      var(--color-stone-200);
-  --border-mid:         var(--color-stone-300);
+  --bg-dark:            var(--color-plum);
+  --card-bg:            #ffffff;
+  --text-primary:       #2a2230;
+  --text-secondary:     #5f5566;
+  --text-muted:         #877f8a;
+  --text-on-dark:       #fffafc;
+  --on-dark-rgb:        255, 250, 252;
+  --accent:             var(--color-berry);
+  --accent-light:       var(--color-blush);
+  --border-subtle:      #f5dbe6;
+  --border-mid:         #e9c9d9;
+  --nav-bg:             rgba(255, 255, 255, 0.72);
+
+  /* Gradients */
+  --grad-hero: radial-gradient(ellipse 90% 75% at 18% 8%, #fcdbe8 0%, transparent 58%),
+               radial-gradient(ellipse 80% 70% at 92% 16%, #e6dcfb 0%, transparent 55%),
+               radial-gradient(ellipse 100% 80% at 60% 105%, #fde2d2 0%, transparent 62%),
+               linear-gradient(160deg, #fdeef4 0%, #f3ecfb 55%, #fdeadd 100%);
+  --grad-primary: linear-gradient(120deg, #f8c8dc 0%, #f3a9cb 50%, #d98bb6 100%);
+  --grad-cta:     linear-gradient(120deg, #b14d80 0%, #6d2c4f 100%);
+  --grad-text:    linear-gradient(110deg, #6d2c4f 0%, #b14d80 45%, #e58bb6 100%);
+  --grad-soft:    linear-gradient(135deg, #fde4ee 0%, #efe2fb 50%, #fde7d9 100%);
+
+  /* Glass */
+  --glass-bg:     rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.8);
+  --blur:         16px;
 
   /* Typography scale */
   --font-size-xs:     0.75rem;
@@ -68,26 +96,29 @@
   --space-32:  8rem;
   --space-40:  10rem;
 
-  /* Radius — deliberate: cards get subtle, buttons get rounded, pills only for tags */
-  --radius-sm:     4px;
-  --radius-md:     8px;
-  --radius-lg:     16px;
-  --radius-xl:     24px;
+  /* Radius — generous rounding throughout */
+  --radius-sm:     14px;
+  --radius-md:     22px;
+  --radius-lg:     30px;
+  --radius-xl:     40px;
+  --radius-pill:   50px;
   --radius-full:   9999px;
 
-  /* Shadows — elevation used sparingly */
-  --shadow-sm:  0 1px 3px 0 rgba(28,43,58,0.08);
-  --shadow-md:  0 4px 16px 0 rgba(28,43,58,0.10);
-  --shadow-lg:  0 12px 40px 0 rgba(28,43,58,0.12);
+  /* Shadows — soft, diffuse, plum-tinted */
+  --shadow-sm:   0 4px 14px rgba(109, 44, 79, 0.06);
+  --shadow-md:   0 14px 38px rgba(109, 44, 79, 0.10);
+  --shadow-lg:   0 30px 70px rgba(109, 44, 79, 0.16);
+  --shadow-glow: 0 18px 44px rgba(177, 77, 128, 0.28);
 
-  /* Motion — Emil Kowalski easing curves */
-  --ease-out:     cubic-bezier(0.23, 1, 0.32, 1);
+  /* Motion */
+  --ease-out:     cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out:  cubic-bezier(0.77, 0, 0.175, 1);
+  --transition:   all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Layout */
   --container-max: 1200px;
   --container-pad: clamp(1.5rem, 5vw, 4rem);
-  --nav-height:    72px;
+  --nav-height:    84px;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -110,8 +141,34 @@ html {
 body {
   background-color: var(--bg-page);
   color: var(--text-primary);
-  line-height: 1.6;
+  line-height: 1.65;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Ambient gradient wash — drifts slowly behind everything */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0.9;
+  background: var(--grad-hero);
+  background-size: 180% 180%;
+  animation: bgShift 24s ease-in-out infinite;
+}
+
+/* Faint IVF / DNA themed texture layered over the wash */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.85;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cstyle%3E.s%7Bfill:none;stroke:%23b14d80;stroke-linecap:round%7D%3C/style%3E%3C/defs%3E%3Cpath class='s' stroke-opacity='0.12' stroke-width='1.2' d='M18 10 C24 20, 12 30, 18 40 C24 50, 12 60, 18 70'/%3E%3Cpath class='s' stroke-opacity='0.12' stroke-width='1.2' d='M26 10 C20 20, 32 30, 26 40 C20 50, 32 60, 26 70'/%3E%3Cline class='s' stroke-opacity='0.08' stroke-width='0.8' x1='19' y1='15' x2='25' y2='15'/%3E%3Cline class='s' stroke-opacity='0.08' stroke-width='0.8' x1='15' y1='25' x2='29' y2='25'/%3E%3Cline class='s' stroke-opacity='0.08' stroke-width='0.8' x1='19' y1='35' x2='25' y2='35'/%3E%3Cline class='s' stroke-opacity='0.08' stroke-width='0.8' x1='15' y1='45' x2='29' y2='45'/%3E%3Cline class='s' stroke-opacity='0.08' stroke-width='0.8' x1='19' y1='55' x2='25' y2='55'/%3E%3Cline class='s' stroke-opacity='0.08' stroke-width='0.8' x1='15' y1='65' x2='29' y2='65'/%3E%3Ccircle cx='75' cy='35' r='8' fill='none' stroke='%23b14d80' stroke-opacity='0.10' stroke-width='1'/%3E%3Ccircle cx='72' cy='32' r='3.5' fill='%23b14d80' fill-opacity='0.04'/%3E%3Ccircle cx='78' cy='32' r='3.5' fill='%23b14d80' fill-opacity='0.04'/%3E%3Ccircle cx='75' cy='38' r='3.5' fill='%23b14d80' fill-opacity='0.04'/%3E%3Ccircle cx='69' cy='37' r='2.5' fill='%23b14d80' fill-opacity='0.03'/%3E%3Cellipse cx='95' cy='88' rx='3' ry='3.8' fill='%23b14d80' fill-opacity='0.07'/%3E%3Cpath class='s' stroke-opacity='0.09' stroke-width='1' d='M95 92 C93 97, 97 102, 94 108'/%3E%3Ccircle cx='50' cy='100' r='5' fill='none' stroke='%23b14d80' stroke-opacity='0.06' stroke-width='0.8'/%3E%3Ccircle cx='50' cy='100' r='2' fill='%23b14d80' fill-opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 120px 120px;
 }
 
 img, video, svg {
@@ -136,9 +193,10 @@ ul, ol {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -160,12 +218,25 @@ h1, h2, h3, h4, h5, h6 {
 .text-accent    { color: var(--accent); }
 .text-on-dark   { color: var(--text-on-dark); }
 
-.label {
-  font-size: var(--font-size-xs);
-  font-weight: 600;
-  letter-spacing: 0.12em;
+/* Small uppercase kicker above a heading */
+.label,
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
+}
+
+.gradient-text {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -176,10 +247,13 @@ h1, h2, h3, h4, h5, h6 {
   max-width: var(--container-max);
   margin-inline: auto;
   padding-inline: var(--container-pad);
+  position: relative;
+  z-index: 1;
 }
 
 .section {
   padding-block: var(--space-24);
+  position: relative;
 }
 
 .section--lg {
@@ -187,12 +261,76 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section--dark {
-  background-color: var(--bg-dark);
+  background: var(--grad-cta);
   color: var(--text-on-dark);
 }
 
+.section--dark h1,
+.section--dark h2,
+.section--dark h3 {
+  color: var(--text-on-dark);
+}
+
+/* Tinted band that fades into its neighbours instead of hard-edging */
 .section--alt {
-  background-color: var(--bg-section-alt);
+  background-color: color-mix(in srgb, var(--bg-light) 78%, transparent);
+}
+
+.section--alt::before,
+.section--alt::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 90px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section--alt::before {
+  top: 0;
+  background: linear-gradient(to bottom,
+    color-mix(in srgb, var(--bg-light) 0%, transparent),
+    color-mix(in srgb, var(--bg-light) 78%, transparent));
+}
+
+.section--alt::after {
+  bottom: 0;
+  background: linear-gradient(to top,
+    color-mix(in srgb, var(--bg-light) 0%, transparent),
+    color-mix(in srgb, var(--bg-light) 78%, transparent));
+}
+
+/* Centred section heading: eyebrow → title → gradient rule */
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto var(--space-12);
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.section-header p {
+  color: var(--text-muted);
+  margin-top: 14px;
+  font-size: 1.05rem;
+}
+
+.header-line {
+  width: 70px;
+  height: 4px;
+  background: var(--grad-cta);
+  margin: 18px auto 0;
+  border-radius: 4px;
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border: 1px solid var(--glass-border);
 }
 
 .grid-2 {
@@ -219,69 +357,161 @@ h1, h2, h3, h4, h5, h6 {
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: 0.75rem 1.75rem;
-  border-radius: var(--radius-sm);
-  font-size: var(--font-size-sm);
+  justify-content: center;
+  gap: 12px;
+  padding: 13px 28px;
+  border-radius: var(--radius-pill);
+  font-size: 0.97rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
-  transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out), background-color 160ms ease, color 160ms ease;
   cursor: pointer;
   border: 2px solid transparent;
+  transition: var(--transition);
 }
 
-.btn:active {
-  transform: scale(0.97);
+/* Leading icon sits in a circular chip: extra padding before it,
+   tighter padding after the label, only when the chip is present. */
+.btn:has(.btn-icon) {
+  padding-left: 28px;
+  padding-right: 16px;
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: var(--transition);
 }
 
 .btn-primary {
-  background-color: var(--accent);
+  background: var(--color-plum);
   color: #fff;
-  border-color: var(--accent);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-primary .btn-icon {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
 }
 
 .btn-primary:hover {
-  background-color: var(--color-rose-dark);
-  border-color: var(--color-rose-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 24px 50px rgba(109, 44, 79, 0.32);
+}
+
+.btn-primary:hover .btn-icon {
+  transform: rotate(-25deg);
+}
+
+.btn-secondary,
+.btn-outline {
+  background: var(--card-bg);
+  color: var(--color-plum);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary .btn-icon,
+.btn-outline .btn-icon {
+  background: var(--bg-soft);
+  color: var(--color-plum);
+}
+
+.btn-secondary:hover,
+.btn-outline:hover {
+  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
 }
 
-.btn-outline {
-  background-color: transparent;
-  color: var(--text-primary);
-  border-color: var(--border-mid);
-}
-
-.btn-outline:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
 .btn-outline-light {
-  background-color: transparent;
-  color: var(--text-on-dark);
-  border-color: rgba(250,248,245,0.35);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.7);
+  color: #fff;
 }
 
 .btn-outline-light:hover {
-  border-color: var(--text-on-dark);
+  background: #fff;
+  color: var(--color-plum);
+  transform: translateY(-3px);
+}
+
+/* Small uppercase gradient pill used inside cards */
+.btn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding: 10px 24px;
+  background: var(--grad-cta);
+  color: #fff;
+  border: 2px solid transparent;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: var(--transition);
+}
+
+.btn-more:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+/* Ghost variant of the same pill */
+.btn-more--ghost {
+  background: transparent;
+  color: var(--color-plum);
+  border-color: var(--border-subtle);
+}
+
+.btn-more--ghost:hover {
+  background: var(--grad-cta);
+  color: #fff;
+  border-color: transparent;
+  filter: none;
 }
 
 /* -------------------------------------------------------------------------- */
 /* 6. CARDS                                                                    */
 /* -------------------------------------------------------------------------- */
 .card {
-  background: #fff;
-  border: 1px solid var(--border-subtle);
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
+  box-shadow: var(--shadow-sm);
+  transition: transform 300ms var(--ease-out), box-shadow 300ms var(--ease-out);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-8px);
     box-shadow: var(--shadow-lg);
+  }
+}
+
+/* Rounded gradient tile that holds a card's icon */
+.icon-wrapper {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  background: var(--grad-soft);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .icon-wrapper {
+    background: var(--grad-cta);
+    color: #fff;
+    transform: scale(1.06);
   }
 }
 
@@ -289,25 +519,66 @@ h1, h2, h3, h4, h5, h6 {
 /* 7. DIVIDERS                                                                 */
 /* -------------------------------------------------------------------------- */
 .divider {
-  width: 48px;
-  height: 3px;
-  background-color: var(--accent);
+  width: 70px;
+  height: 4px;
+  background: var(--grad-cta);
   border-radius: var(--radius-full);
   margin-block: var(--space-6);
 }
 
 /* -------------------------------------------------------------------------- */
-/* 8. REDUCED MOTION                                                           */
+/* 8. KEYFRAMES                                                                */
+/* -------------------------------------------------------------------------- */
+@keyframes bgShift {
+  0%, 100% { background-position: 0% 0%; }
+  50%      { background-position: 100% 100%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-18px); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-14px) rotate(4deg); }
+}
+
+@keyframes floatFast {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-22px); }
+}
+
+@keyframes badgeSway {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25%      { transform: translate(2px, -6px) rotate(0.6deg); }
+  50%      { transform: translate(0, -10px) rotate(0deg); }
+  75%      { transform: translate(-2px, -6px) rotate(-0.6deg); }
+}
+
+@keyframes pulseRing {
+  0%   { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* -------------------------------------------------------------------------- */
+/* 9. REDUCED MOTION                                                           */
 /* -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
 
 /* -------------------------------------------------------------------------- */
-/* 9. RESPONSIVE BREAKPOINTS                                                   */
+/* 10. RESPONSIVE BREAKPOINTS                                                  */
 /* -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
@@ -320,6 +591,7 @@ h1, h2, h3, h4, h5, h6 {
     --font-size-6xl: 3.5rem;
     --space-24: 4rem;
     --space-32: 6rem;
+    --nav-height: 70px;
   }
 
   .grid-2,
@@ -328,24 +600,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* -------------------------------------------------------------------------- */
-/* 10. SCROLLBAR                                                               */
+/* 11. SCROLLBAR                                                               */
 /* -------------------------------------------------------------------------- */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-ivory-dark);
+  background: var(--bg-soft);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-stone-300);
+  background: var(--color-blush-deep);
   border-radius: var(--radius-full);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-stone-500);
+  background: var(--accent);
 }
 
 /* -------------------------------------------------------------------------- */
-/* 11. FOCUS STATES (Accessibility — R-32)                                    */
+/* 12. FOCUS STATES                                                            */
 /* -------------------------------------------------------------------------- */
 :focus-visible {
   outline: 2px solid var(--accent);

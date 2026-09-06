@@ -84,6 +84,7 @@ export const TEAM = [
 export const TREATMENTS = [
   {
     id: "ivf",
+    icon: "flask",
     slug: "ivf",
     title: "IVF",
     subtitle: "In Vitro Fertilisation",
@@ -100,6 +101,7 @@ export const TREATMENTS = [
   },
   {
     id: "icsi",
+    icon: "syringe",
     slug: "icsi-ile-ivf",
     title: "ICSI",
     subtitle: "Intracytoplasmic Sperm Injection",
@@ -116,6 +118,7 @@ export const TREATMENTS = [
   },
   {
     id: "egg-donation",
+    icon: "egg",
     slug: "yumurta-bagisi",
     title: "Egg Donation",
     subtitle: "Donor Egg IVF",
@@ -132,6 +135,7 @@ export const TREATMENTS = [
   },
   {
     id: "sperm-donation",
+    icon: "vial",
     slug: "sperm-bagisi",
     title: "Sperm Donation",
     subtitle: "Donor Sperm Insemination & IVF",
@@ -148,6 +152,7 @@ export const TREATMENTS = [
   },
   {
     id: "pgt",
+    icon: "dna",
     slug: "pgd-pgs",
     title: "PGT-A / PGT-M",
     subtitle: "Preimplantation Genetic Testing",
@@ -164,6 +169,7 @@ export const TREATMENTS = [
   },
   {
     id: "freezing",
+    icon: "snowflake",
     slug: "sperm-ve-yumurta-dondurma",
     title: "Fertility Preservation",
     subtitle: "Egg & Sperm Freezing",
@@ -180,6 +186,7 @@ export const TREATMENTS = [
   },
   {
     id: "embryo-donation",
+    icon: "microscope",
     slug: "embriyo-donasyonu",
     title: "Embryo Donation",
     subtitle: "Embryo Adoption",
@@ -196,6 +203,7 @@ export const TREATMENTS = [
   },
   {
     id: "tandem",
+    icon: "refresh",
     slug: "tandem-dongusu",
     title: "Tandem Cycle",
     subtitle: "Own Eggs + Donor Eggs",
@@ -297,3 +305,79 @@ export const FAQS = [
       "We offer several financing options through our partner institutions, including instalment plans for treatment packages. Please ask our patient coordinators for current pricing and financing terms during your initial consultation.",
   },
 ];
+
+export const QUICK_LINKS = [
+  {
+    id: "treatments",
+    icon: "clipboard",
+    title: "Treatment Options",
+    cta: "View",
+    href: "/treatments",
+  },
+  {
+    id: "process",
+    icon: "clock",
+    title: "Our Process",
+    cta: "View",
+    href: "/#process",
+  },
+  {
+    id: "guide",
+    icon: "file",
+    title: "Patient Guide",
+    cta: "Read",
+    href: "/faq",
+  },
+  {
+    id: "glossary",
+    icon: "book",
+    title: "IVF Glossary",
+    cta: "Explore",
+    href: "/faq",
+  },
+] as const;
+
+export const PROCESS = [
+  {
+    id: 1,
+    icon: "calendar",
+    title: "Initial Consultation",
+    description:
+      "We review your medical history, previous fertility treatment, and test results, either in person or via video call, to build an initial picture of your case.",
+  },
+  {
+    id: 2,
+    icon: "clipboard",
+    title: "Treatment Planning",
+    description:
+      "Our medical team designs a personalised protocol based on your diagnosis, age, and ovarian reserve, and walks you through timelines, medications, and expected costs.",
+  },
+  {
+    id: 3,
+    icon: "globe",
+    title: "Travel",
+    description:
+      "Our patient coordinators help arrange flights and provide a detailed itinerary, so your trip to Nicosia lines up precisely with your treatment calendar.",
+  },
+  {
+    id: 4,
+    icon: "hotel",
+    title: "Accommodation",
+    description:
+      "We can recommend and book partner hotels close to the clinic, including options with kitchenettes for patients staying through their full stimulation cycle.",
+  },
+  {
+    id: 5,
+    icon: "stethoscope",
+    title: "Treatment",
+    description:
+      "Monitoring, egg retrieval, fertilisation, and embryo transfer take place under the direct supervision of our medical and embryology teams throughout your cycle.",
+  },
+  {
+    id: 6,
+    icon: "baby",
+    title: "Pregnancy Test",
+    description:
+      "Roughly two weeks after transfer, a blood test confirms your result. We stay in close contact for early monitoring and, where needed, ongoing referral support.",
+  },
+] as const;

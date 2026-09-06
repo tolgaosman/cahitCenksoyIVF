@@ -5,15 +5,16 @@
   right: 0;
   z-index: 100;
   height: var(--nav-height);
-  transition: background-color 250ms var(--ease-out), box-shadow 250ms var(--ease-out);
-  background-color: transparent;
+  transition: height 250ms var(--ease-out), background-color 250ms var(--ease-out), box-shadow 250ms var(--ease-out);
+  background: transparent;
 }
 
 .nav.scrolled {
-  background-color: rgba(250, 248, 245, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 1px 0 0 var(--border-subtle);
+  height: 70px;
+  background: var(--nav-bg);
+  backdrop-filter: saturate(160%) blur(10px);
+  -webkit-backdrop-filter: saturate(160%) blur(10px);
+  box-shadow: var(--shadow-sm);
 }
 
 .inner {
@@ -38,7 +39,7 @@
   justify-content: center;
   width: 38px;
   height: 38px;
-  background-color: var(--accent);
+  background: var(--grad-cta);
   color: #fff;
   border-radius: var(--radius-sm);
   font-size: var(--font-size-xs);
@@ -66,12 +67,10 @@
 
 .link {
   font-size: var(--font-size-sm);
-  font-weight: 500;
-  color: var(--text-secondary);
-  letter-spacing: 0.01em;
+  font-weight: 600;
+  color: var(--text-primary);
   padding-block: var(--space-1);
   position: relative;
-  transition: color 160ms ease;
 }
 
 .link::after {
@@ -81,18 +80,125 @@
   left: 0;
   right: 100%;
   height: 2px;
-  background-color: var(--accent);
-  transition: right 200ms var(--ease-out);
+  background: var(--grad-cta);
+  transition: right 250ms var(--ease-out);
   border-radius: var(--radius-full);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .link:hover {
-    color: var(--text-primary);
+    color: var(--accent);
   }
   .link:hover::after {
     right: 0;
   }
+}
+
+.linkActive {
+  color: var(--accent);
+}
+
+.linkActive::after {
+  right: 0;
+}
+
+/* Treatments dropdown */
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.dropdownToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: var(--text-muted);
+  transition: color 160ms ease;
+}
+
+.dropdownToggle:hover {
+  color: var(--accent);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: var(--card-bg);
+  min-width: 230px;
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  padding: 12px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 250ms ease, visibility 250ms ease, transform 250ms var(--ease-out);
+  z-index: 10;
+}
+
+/* invisible bridge so the pointer can travel from link to panel without
+   the hover state flickering off */
+.dropdown::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 14px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .dropdown:hover .dropdownMenu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.dropdownMenuOpen {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+
+.dropdownLink {
+  display: block;
+  padding: 10px 14px;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.dropdownLink:hover {
+  background: var(--grad-soft);
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+.dropdownLinkAll {
+  display: block;
+  margin-top: 6px;
+  padding: 10px 14px;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  border-top: 1px solid var(--border-subtle);
 }
 
 /* CTA button */
@@ -111,9 +217,6 @@
   height: 44px;
   margin-left: auto;
   padding: var(--space-2);
-  background: none;
-  border: none;
-  cursor: pointer;
   border-radius: var(--radius-sm);
   transition: background-color 160ms ease;
 }
@@ -146,16 +249,42 @@
 }
 
 .mobileLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
   font-size: var(--font-size-base);
-  font-weight: 500;
-  color: var(--text-secondary);
+  font-weight: 600;
+  color: var(--text-primary);
   padding: var(--space-3) 0;
   border-bottom: 1px solid var(--border-subtle);
-  transition: color 160ms ease;
 }
 
 .mobileLink:hover {
-  color: var(--text-primary);
+  color: var(--accent);
+}
+
+.mobileGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileSubLinks {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-2) 0 var(--space-2) var(--space-4);
+  gap: var(--space-1);
+}
+
+.mobileSubLink {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  padding: var(--space-2) 0;
+}
+
+.mobileSubLink:hover {
+  color: var(--accent);
 }
 
 .mobileCta {
